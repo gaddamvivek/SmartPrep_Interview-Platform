@@ -4,7 +4,7 @@ import axios from 'axios';
 
 // IDE renders the Question based on QuestionId
 const IDE = ({ QuestionId }) => {
-  const [code, setCode] = useState(''); 
+  const [code, setCode] = useState('');
   const [output, setOutput] = useState('');
   const [testResults, setTestResults] = useState(null);
   const [testCases, setTestCases] = useState([]);
@@ -50,26 +50,36 @@ const IDE = ({ QuestionId }) => {
       setOutput('Error during submission');
     }
   };
+  const handleNext = async () => {
+    console.log("button was clicked");
+   };
 
   // Outputs to the coding question must be handled mentioning number of test cases passed is to be handled.
-  
+
   return (
     <div>
       <Editor
-        height="400px"
+        height="500px"
         defaultLanguage="python"
         value={code}
         onChange={(value) => setCode(value)}
       />
+      <div className="buttons">
+      <p>Code Editor</p>
       <button onClick={handleSubmit}>Run</button>
+      <button onClick={handleNext}>←</button>
+      <button onClick={handleNext}>→</button>
+
+      <button onClick={handleSubmit}>Submit</button>
+      </div>
       <pre>{output}</pre>
       {testResults && (
-        <div>
-          <h3>Test Results:</h3>
+        <div className="result">
+          <h3>Test Cases Passed:</h3>
           <p>
             Passed: {testResults.passed}/{testResults.total}
           </p>
-          <h4>Outputs:</h4>
+          <h3>Outputs:</h3>
           <ul>
             {testResults.outputs.map((out, index) => (
               <li key={index}>{out}</li>

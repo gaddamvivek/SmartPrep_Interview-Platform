@@ -24,13 +24,16 @@ const Question = ({ setQuestionId }) => {
       <h2>{Question.title}</h2>
       <p>{Question.description}</p>
       <h3>Test Cases:</h3>
-      <ul>
+      <ol style={{ textAlign: 'left'}}>
         {Question.testCases.map((testCase, index) => (
-          <li key={index}>
-            Input: {testCase.input} | Expected Output: {testCase.output}
+          <li key={index} style={{ marginBottom: '15px' }}>
+            Input: {testCase.input}
+            <br/>
+            Expected Output: {testCase.output}
+            <br/> <br/>
           </li>
         ))}
-      </ul>
+      </ol>
     </div>
   );
 };
