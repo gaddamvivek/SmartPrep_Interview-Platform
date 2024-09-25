@@ -51,7 +51,7 @@ const IDE = ({ QuestionId }) => {
     }
   };
   const handleNext = async () => {
-    console.log("button was clicked");
+    console.log("Button is clicked");
    };
 
   // Outputs to the coding question must be handled mentioning number of test cases passed is to be handled.

@@ -1,32 +1,24 @@
 import React, { useState } from 'react';
-import IDE from './components/IDE';
-import Question from './components/Question';
-import './components/ide.css'; // Import your CSS file
+import { LoginSignup } from './components/login';
+import { Dashboard } from './components/dashboard';
+import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
+import './App.css';
+import { Signup } from './components/signup';
 
 function App() {
-  const [QuestionId, setQuestionId] = useState('');
-  const handleExit = async () => {
-    console.log("button was clicked");
-   };
+
   return (
-    <div className="app">
-      <div className="heading">
-       <h1>PrepSmart</h1>
-        <button onClick={handleExit}>End Test</button>
-      </div>
-      <div className="content">
-        {/* Pass setQuestionId as a prop */}
-        <div className="question">
-          <Question setQuestionId={setQuestionId} />
-        </div>
-        {/* Pass QuestionId to IDE */}
-        <div className="editor">
-          <IDE QuestionId={QuestionId} />
-        </div>
-      </div>
+    <div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<LoginSignup />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/signup" element={<Signup />} />
+      </Routes>
+    </Router>
     </div>
+    
   );
 }
 
 export default App;
-

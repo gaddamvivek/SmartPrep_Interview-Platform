@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+const authenticationRoutes = require('./routes/auth')
 const mongoose = require('mongoose');
 const QuestionRoutes = require('./routes/questions');
 const axios = require('axios'); // Import axios for API calls
@@ -20,6 +21,7 @@ const RAPID_API_KEY = process.env.JUDGE0_API_KEY; // Your RapidAPI key here
 
 // API Routes
 app.use('/api/Questions', QuestionRoutes);
+app.use('/auth',authenticationRoutes)
 
 // Code submission endpoint
 app.post('/api/submit', async (req, res) => {
