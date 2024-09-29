@@ -88,10 +88,6 @@
     cursor: pointer;
   }
 
-  button:hover {
-    background-color: #e7a820;
-  }
-
   pre {
     background-color: #0e0d0d;
     color: #fff;
