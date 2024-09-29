@@ -13,7 +13,7 @@ export const Logout = () => {
   return (
     <div>
       <button
-        className="bg-[#5b99c2] text-[#1f316f] p-2 rounded-xl font-semibold"
+        className="bg-[#F9DBBA] m-1 hover:bg-[#1A4870] hover:text-white p-1 rounded-lg font-semibold"
         onClick={logoutHandler}
       >
         Logout

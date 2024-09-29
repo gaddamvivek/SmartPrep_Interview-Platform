@@ -1,40 +1,35 @@
-import React, { useState } from 'react';
-import { OpenEditor } from './openEditor';
-import { Logout } from './logout'; // Fixed case sensitivity
-import plus from '../assets/icons/plus.svg';
-
+import React from 'react';
+import { NavBar } from './NavBar';
 export const Dashboard = () => {
-  const [showCodeEditor, setShowCodeEditor] = useState(false); // To toggle the code editor visibility
-  //const [QuestionId, setQuestionId] = useState('');  // To manage the QuestionId state
-
-  const openCodeEditor = () => {
-    setShowCodeEditor(true); // Show the code editor when the button is clicked
-  };
-
   return (
     <div>
-      <nav className="bg-[#f9dbba] flex justify-between p-2">
-        <div className="text-6xl cursor-pointer font-semibold font-mono">
-          PrepSmart
-        </div>
-        <div className="flex items-center justify-around gap-3">
-          <div className="cursor-pointer">Profile</div>
-          <Logout /> {/* Logout component */}
-        </div>
-      </nav>
-      <div
-        id="action-buttons"
-        className="w-full p-10 grid grid-flow-col grid-cols-4"
-      >
-        <div className="w-40 cursor-pointer h-40 rounded-md bg-[#f9dbba] text-[#1f316f] font-semibold text-center content-center">
-          <div className="flex gap-3 justify-center">
-            <img src={plus} className="w-5" alt="" />
-            <span> New Interview</span>
-          </div>
-        </div>
-        <div className="w-40 h-40 cursor-pointer rounded-md bg-[#f9dbba] text-[#1f316f] font-semibold text-center content-center">
-          <div className="flex gap-3 justify-center">Interview History</div>
-        </div>
+      <NavBar showProfile={true} showNewInterview={true} />
+      <div className="w-full h-1/2 p-10">
+        <h2 className="text-3xl text-center font-semibold p-3">
+          Recent Interviews``
+        </h2>
+        <ul className="divide-y bg-[#E4B1F0] w-3/4 h-3/2 p-2 m-auto divide-gray-200">
+        <li className="flex justify-between font-semibold">
+            <p className="">Prep Name</p>
+            <p className="">Date</p>
+            <p className="">Level</p>
+          </li>
+          <li className="flex justify-between">
+            <p className="">Python Practice</p>
+            <p className="">09/28/2024</p>
+            <p className="">Medium</p>
+          </li>
+          <li className="flex justify-between">
+            <p className="">Js Beginning</p>
+            <p className="">09/25/2024</p>
+            <p className="">Easy</p>
+          </li>
+          <li className="flex justify-between">
+            <p className="">React Work</p>
+            <p className="">09/20/2024</p>
+            <p className="">Hard</p>
+          </li>
+        </ul>
       </div>
       <hr />
       <div
