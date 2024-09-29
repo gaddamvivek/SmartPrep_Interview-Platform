@@ -41,6 +41,7 @@ export const LoginSignup = () => {
       console.log(result)
       if(result){
         window.localStorage.setItem("isLoggedIn", true);   
+        localStorage.setItem("logindata",JSON.stringify(result.data.accessToken))
         navigate('/dashboard')     
       }
       // Reset form fields

@@ -5,7 +5,7 @@ export const Logout = () => {
     const navigate = useNavigate();
     window.localStorage.removeItem("isLoggedIn")
     const logoutHandler = () => {
-        localStorage.removeItem('authToken');
+        localStorage.removeItem('logindata');
     
         // Redirect to login page
         navigate('/');
