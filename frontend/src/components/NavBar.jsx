@@ -15,7 +15,11 @@ export const NavBar = (props) => {
   const showProfile = props.showProfile || false;
 
   const handleSignIn = () => {
-    navigate('/login');
+    if(localStorage.getItem("logindata"))
+        navigate('/interviewdetails');
+    else
+        navigate('/login');
+
   };
 
   const handleHome = () => {
@@ -50,9 +54,9 @@ export const NavBar = (props) => {
           </div>
           {isProfileOpen && (
             <div className="p-3 bg-[#5B99C2] text-center absolute top-20 right-4 rounded-lg py-3 text-[#1F316F]">
-              <div className="">arrangdal</div>
+              <div className="">Username</div>
               <div className="" id="profile-email">
-                ar@g.com
+                Email
               </div>
               <hr />
               <Logout />

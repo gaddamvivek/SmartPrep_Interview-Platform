@@ -39,14 +39,12 @@ export const LoginSignup = () => {
       return;
     }
     try {
-      const result = await axios.post('http://localhost:5001/auth/login', {
-        email,
-        password,
-      });
-      console.log(result);
-      if (result) {
-        window.localStorage.setItem('isLoggedIn', true);
-        navigate('/dashboard');
+      const result = await axios.post('http://localhost:5001/auth/login', { email, password });
+      console.log(result)
+      if(result){
+        window.localStorage.setItem("isLoggedIn", true);   
+        localStorage.setItem("logindata",JSON.stringify(result.data.accessToken))
+        navigate('/dashboard')     
       }
       // Reset form fields
       setemail('');

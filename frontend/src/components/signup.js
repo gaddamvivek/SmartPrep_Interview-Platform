@@ -18,7 +18,7 @@ export const Signup = () => {
 
   const onClickHandler = () => {
     console.log('Login button clicked');
-    navigate('/');
+    navigate('/login');
   };
 
   const onSubmitHandler = async (e) => {
