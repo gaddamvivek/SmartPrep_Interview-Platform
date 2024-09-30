@@ -124,5 +124,34 @@
     width:120%; /*Ensure full width
     gap: 10px;  /* Optional: adds some space between the buttons */
   }
-  
-  
+
+.google-signin {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #db4437;
+  color: white;
+  border: none;
+  padding: 12px 0;
+  width: 100%;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+  margin-top: 20px;
+  /* Space between the regular login and Google login button */
+}
+
+.google-signin:hover {
+  background-color: #c33d2e;
+  transform: translateY(-2px);
+}
+
+.google-signin:active {
+  background-color: #b03024;
+}
+
+.google-icon {
+  width: 20px;
+  margin-right: 10px;
+}

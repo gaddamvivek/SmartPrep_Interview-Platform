@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import PropTypes from 'prop-types'; 
+
 const Question = ({ setQuestionId }) => {
   const [questions, setQuestions] = useState([]); // Store array of questions
   const [difficulty, setDifficulty] = useState('easy'); // Track selected difficulty
@@ -82,6 +84,10 @@ const Question = ({ setQuestionId }) => {
 
     </div>
   );
+};
+
+Question.propTypes = {
+  setQuestionId: PropTypes.func.isRequired,
 };
 
 export default Question;

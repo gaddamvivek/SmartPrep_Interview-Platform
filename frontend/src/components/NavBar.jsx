@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import { Logout } from './logout';
 import { useNavigate } from 'react-router-dom';
@@ -8,11 +9,11 @@ export const NavBar = (props) => {
   const handleProfileButton = () => {
     setIsProfileOpen((prevState) => !prevState);
   };
-  const showNewInterview = props.showNewInterview
-    ? props.showNewInterview
-    : false;
-  const showSignIn = props.showSignIn ? props.showSignIn : false;
-  const showProfile = props.showProfile ? props.showProfile : false;
+
+  const showNewInterview = props.showNewInterview || false;
+  const showSignIn = props.showSignIn || false;
+  const showProfile = props.showProfile || false;
+
   const handleSignIn = () => {
     if(localStorage.getItem("logindata"))
         navigate('/interviewdetails');
@@ -20,11 +21,11 @@ export const NavBar = (props) => {
         navigate('/login');
 
   };
-  const handleHome = ()=>{
-    navigate('/dashboard')
-  }
-  console.log(showProfile);
-  console.log(isProfileOpen);
+
+  const handleHome = () => {
+    navigate('/dashboard');
+  };
+
   return (
     <nav className="bg-[#7E60BF] flex justify-between items-center p-2">
       <div onClick={handleHome} className="text-6xl cursor-pointer font-semibold font-mono">
@@ -65,4 +66,11 @@ export const NavBar = (props) => {
       )}
     </nav>
   );
+};
+
+// Add PropTypes validation for props
+NavBar.propTypes = {
+  showNewInterview: PropTypes.bool,
+  showSignIn: PropTypes.bool,
+  showProfile: PropTypes.bool,
 };

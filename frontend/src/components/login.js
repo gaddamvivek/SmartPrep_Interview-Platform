@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import './loginSignup.css';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import GoogleSignInButton from './GoogleSignInButton'; // Import Google Sign-In Button component
+
 
 export const LoginSignup = () => {
   const [email, setemail] = useState('');
@@ -57,6 +59,7 @@ export const LoginSignup = () => {
       }
     }
   };
+
   const toggleToSignup = () => {
     // Clear form fields and errors before switching
     setemail('');
@@ -95,21 +98,24 @@ export const LoginSignup = () => {
         <div className="submitContainer">
           <div>
             <button className="submit" type="submit">
-              {' '}
               Login
             </button>
           </div>
-          <div className="forget-password">
-            Forget password? <span>Click Here!</span>
-          </div>
-          <p className="Registerhere" style={{ color: '#393f81' }}>
-            Don't have an account?
-            <span className="register-link" onClick={toggleToSignup}>
-              Register here
-            </span>
-          </p>
+        </div>
+        <div className="forget-password">
+          Forget password? <span>Click Here!</span>
+        </div>
+        <p className="Registerhere" style={{ color: '#393f81' }}>
+          Don&apos;t have an account?
+          <span className="register-link" onClick={toggleToSignup}>
+            Register here
+          </span>
+        </p>
+        <div className="submitContainer">
+          <GoogleSignInButton />
         </div>
       </form>
     </div>
   );
 };
+
