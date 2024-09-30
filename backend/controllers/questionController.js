@@ -5,20 +5,39 @@ const Question = require('../models/Question');
 // Function to display RandomQuestion from MongoDB database to Client, filtered by difficulty
 const getRandomQuestion = async (req, res) => {
   try {
-    const { difficulty } = req.query;  // Extract difficulty from query params (easy, medium, hard)
-    
-    const query = difficulty ? { difficulty } : {};  // Filter questions by difficulty, if provided
-    const questions = await Question.find(query);
-    
-    // Check if any questions are found
-    if (questions.length === 0) {
-      return res.status(404).json({ message: "No questions found for the specified difficulty." });
+    const { difficulty } = req.query;  // Extract difficulty from query params
+
+    // Check if difficulty level is provided and is valid
+    if (!difficulty || !['easy', 'medium', 'hard'].includes(difficulty.toLowerCase())) {
+      return res.status(400).json({ message: "Invalid or missing difficulty level. Use 'easy', 'medium', or 'hard'." });
     }
 
-    const randomQuestion = questions[Math.floor(Math.random() * questions.length)];
-    res.json(randomQuestion);
+    // Fetch all questions with the specified difficulty (case-insensitive)
+    const questions = await Question.find({ difficulty: difficulty.toLowerCase() });
+
+    // Check if any questions are found
+    if (questions.length === 0) {
+      return res.status(404).json({ message: `No questions found for difficulty level: ${difficulty}.` });
+    }
+
+    // Shuffle the questions array randomly
+    const shuffledQuestions = questions.sort(() => 0.5 - Math.random());
+
+    // Select up to 3 random questions
+    const randomQuestions = shuffledQuestions.slice(0, 3);
+
+    // Log the random question for debugging (optional)
+    //console.log("Selected Question:", randomQuestion);
+
+    // Return the random question to the frontend
+    return res.status(200).json(randomQuestions);
+    
   } catch (error) {
-    res.status(500).json({ message: error.message });
+    // Log error to the console for debugging
+    console.error("Error fetching random question:", error);
+
+    // Send error message back to the client
+    return res.status(500).json({ message: "An error occurred while fetching the random question." });
   }
 };
 
