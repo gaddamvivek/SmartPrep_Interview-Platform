@@ -56,6 +56,31 @@ const IDE = ({ QuestionId, savedCode, handleSaveCode }) => {
     }
   };
 
+  const handleRun = async () => {
+    try {
+      const res = await axios.post('http://localhost:5001/api/submit', {
+        code: code,
+        testCases: testCases,
+      });
+
+      const { stdout, stderr, status } = res.data;
+      const outputResult = stdout || stderr || `Execution status: ${status.description}`;
+      setOutput(outputResult);
+
+      const passedTestCases = res.data.passedTestCases || testCases.length;
+      const totalTestCases = res.data.totalTestCases || testCases.length;
+      setTestResults({
+        passed: passedTestCases,
+        total: totalTestCases,
+        outputs: res.data.outputs || [],
+      });
+    } catch (error) {
+      console.error('Error during submission:', error);
+      setOutput('Error during submission');
+    }
+};
+
+
   return (
     <div>
       <Editor
@@ -67,7 +92,7 @@ const IDE = ({ QuestionId, savedCode, handleSaveCode }) => {
       <div className="buttons">
         <p>Code Editor</p>
         <button onClick={handleSave}>Save Code</button>  {/* Save Button */}
-        <button onClick={handleSubmit}>Run</button>
+        <button onClick={handleRun}>Run</button>
         <button onClick={handleSubmit}>Submit</button>
       </div>
       <pre>{output}</pre>
