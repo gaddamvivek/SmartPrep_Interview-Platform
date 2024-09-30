@@ -1,7 +1,7 @@
 
 const axios = require('axios');
 const Question = require('../models/Question');
-
+// Function to display RandomQuestion from MongoDB database to Client, filtered by difficulty
 const getRandomQuestion = async (req, res) => {
   try {
     const { difficulty } = req.query;  // Extract difficulty from query params
@@ -19,14 +19,17 @@ const getRandomQuestion = async (req, res) => {
       return res.status(404).json({ message: `No questions found for difficulty level: ${difficulty}.` });
     }
 
-    // Select a random question from the fetched questions
-    const randomQuestion = questions[Math.floor(Math.random() * questions.length)];
+    // Shuffle the questions array randomly
+    const shuffledQuestions = questions.sort(() => 0.5 - Math.random());
+
+    // Select up to 3 random questions
+    const randomQuestions = shuffledQuestions.slice(0, 3);
 
     // Log the random question for debugging (optional)
-    console.log("Selected Question:", randomQuestion);
+    //console.log("Selected Question:", randomQuestion);
 
     // Return the random question to the frontend
-    return res.status(200).json(randomQuestion);
+    return res.status(200).json(randomQuestions);
     
   } catch (error) {
     // Log error to the console for debugging
@@ -93,6 +96,5 @@ const submitCode = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
-
 
 module.exports = { getRandomQuestion, submitCode };

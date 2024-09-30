@@ -1,59 +1,45 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Editor from '@monaco-editor/react';
 import axios from 'axios';
 
-// Component to select a coding question based on difficulty
-const QuestionSelector = ({ onQuestionSelect }) => {
-  const [difficulty, setDifficulty] = useState('');
-  const [error, setError] = useState('');
-
-  const handleSelectDifficulty = async (selectedDifficulty) => {
-    setDifficulty(selectedDifficulty);
-    try {
-      const response = await axios.get(`http://localhost:5001/api/questions?difficulty=${selectedDifficulty}`);
-      
-      console.log(response.data);  // Log the response to check if the data is being fetched
-      onQuestionSelect(response.data);  // Pass the selected question to the parent component
-      setError('');
-    } catch (err) {
-      console.error('Error fetching question:', err);  // Log the error for debugging
-      setError('No question found for the selected difficulty.');
-    }
-  };
-
-  return (
-    <div>
-      <h2>Select Difficulty Level</h2>
-      <select onChange={(e) => handleSelectDifficulty(e.target.value)}>
-        <option value="">Select difficulty</option>
-        <option value="easy">Easy</option>
-        <option value="medium">Medium</option>
-        <option value="hard">Hard</option>
-      </select>
-  
-      {error && <p>{error}</p>}
-    </div>
-  );
-};
-
-// Component to handle the IDE (Code Editor) and the question display
-const IDE = ({ question }) => {
-  const [code, setCode] = useState('');
+const IDE = ({ QuestionId, savedCode, handleSaveCode }) => {
+  const [code, setCode] = useState('');  // Editor code
   const [output, setOutput] = useState('');
   const [testResults, setTestResults] = useState(null);
+  const [testCases, setTestCases] = useState([]);
 
-  const testCases = question ? question.testCases : [];
+  // Load the saved code when the QuestionId changes
+  useEffect(() => {
+    setCode(savedCode || '');  // Set the editor with saved code or start with empty string
+  }, [QuestionId, savedCode]);
+
+  // Fetch test cases when QuestionId changes
+  useEffect(() => {
+    const fetchQuestion = async () => {
+      try {
+        const res = await axios.get(`http://localhost:5001/api/Questions/${QuestionId}`);
+        setTestCases(res.data.testCases);
+      } catch (error) {
+        console.error('Error fetching Question:', error);
+      }
+    };
+
+    if (QuestionId) fetchQuestion();
+  }, [QuestionId]);
+
+  // Save the current code to the parent component when "Save" button is clicked
+  const handleSave = () => {
+    handleSaveCode(QuestionId, code);  // Call the parent function to save the code
+  };
 
   const handleSubmit = async () => {
     try {
       const res = await axios.post('http://localhost:5001/api/submit', {
         code: code,
-        testCases: testCases, // Send fetched test cases to server
+        testCases: testCases,
       });
 
       const { stdout, stderr, status } = res.data;
-
-      // Display output Result message
       const outputResult = stdout || stderr || `Execution status: ${status.description}`;
       setOutput(outputResult);
 
@@ -72,25 +58,16 @@ const IDE = ({ question }) => {
 
   return (
     <div>
-      {question && (
-        <div>
-          <h3>{question.title}</h3>
-          <p>{question.description}</p>
-          <p>Difficulty: {question.difficulty}</p>
-        </div>
-      )}
-
       <Editor
         height="500px"
         defaultLanguage="python"
         value={code}
-        onChange={(value) => setCode(value)}
+        onChange={(value) => setCode(value)}  // Update code as user types
       />
       <div className="buttons">
         <p>Code Editor</p>
+        <button onClick={handleSave}>Save Code</button>  {/* Save Button */}
         <button onClick={handleSubmit}>Run</button>
-        <button onClick={() => console.log("Previous button clicked")}>←</button>
-        <button onClick={() => console.log("Next button clicked")}>→</button>
         <button onClick={handleSubmit}>Submit</button>
       </div>
       <pre>{output}</pre>
@@ -112,4 +89,4 @@ const IDE = ({ question }) => {
   );
 };
 
-export { QuestionSelector, IDE };
+export default IDE;
