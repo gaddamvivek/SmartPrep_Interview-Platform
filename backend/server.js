@@ -1,10 +1,19 @@
 const express = require('express');
 const cors = require('cors');
-const authenticationRoutes = require('./routes/auth')
+const authenticationRoutes = require('./routes/auth');
 const mongoose = require('mongoose');
 const QuestionRoutes = require('./routes/questions');
-const axios = require('axios'); // Import axios for API calls
+const axios = require('axios');
+const admin = require('firebase-admin'); // Firebase Admin SDK for Google Auth
 require('dotenv').config();
+const User = require('./models/user'); // Import the User model
+
+// Initialize Firebase Admin SDK
+const serviceAccount = require('./path-to-your-firebase-adminsdk-key.json'); // Add path to your Firebase Admin SDK key file
+
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount),
+});
 
 const app = express();
 app.use(cors());
@@ -17,17 +26,42 @@ mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopol
 
 // Judge0 API details
 const JUDGE0_API_URL = 'https://judge0-ce.p.rapidapi.com';
-const RAPID_API_KEY = process.env.JUDGE0_API_KEY; // Your RapidAPI key here
+const RAPID_API_KEY = process.env.JUDGE0_API_KEY;
 
-// API Routes
-app.use('/api/Questions', QuestionRoutes);
-app.use('/auth',authenticationRoutes)
+// Google Sign-In Route
+app.post('/auth/google', async (req, res) => {
+  const { token } = req.body;
+
+  try {
+    // Verify the token using Firebase Admin SDK
+    const decodedToken = await admin.auth().verifyIdToken(token);
+    const { email, name, uid } = decodedToken;
+
+    // Check if the user already exists in MongoDB
+    let user = await User.findOne({ googleId: uid });
+
+    if (!user) {
+      // Create a new user if not found
+      user = new User({
+        googleId: uid,
+        email,
+        name,
+        provider: 'google',
+      });
+      await user.save();
+    }
+
+    // Send response with user data
+    res.status(200).json({ message: 'Login successful', user });
+  } catch (error) {
+    console.error('Error during Google authentication:', error);
+    res.status(500).json({ error: 'Google authentication failed' });
+  }
+});
 
 // Code submission endpoint
 app.post('/api/submit', async (req, res) => {
   const { code, testCases } = req.body;
-
-  // Prepare input for Judge0
   const inputString = testCases.map(tc => tc.input).join('\n');
 
   try {
@@ -49,7 +83,6 @@ app.post('/api/submit', async (req, res) => {
 
     const token = submissionResponse.data.token;
 
-    // Wait for result
     setTimeout(async () => {
       try {
         const resultResponse = await axios.get(
@@ -74,8 +107,8 @@ app.post('/api/submit', async (req, res) => {
   }
 });
 
-// use PORT = 5001 set in .env file
-const PORT = process.env.PORT;
+// Use PORT = 5001 set in .env file
+const PORT = process.env.PORT || 5001;
 app.listen(PORT, () => {
   console.log(`-- Server running on port ${PORT}. --`);
 });
