@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-
 const Question = ({ setQuestionId }) => {
   const [questions, setQuestions] = useState([]); // Store array of questions
   const [difficulty, setDifficulty] = useState('easy'); // Track selected difficulty
@@ -45,16 +44,19 @@ const Question = ({ setQuestionId }) => {
 
   // Display the current question
   const currentQuestion = questions[currentQuestionIndex];
+  
 
   return (
     <div>
-      <h2>Select Difficulty Level</h2>
+      <h2>Change Difficulty Level: </h2>
       <div>
-        {/* Difficulty buttons */}
-        <button onClick={() => setDifficulty('easy')}>Easy</button>
-        <button onClick={() => setDifficulty('medium')}>Medium</button>
-        <button onClick={() => setDifficulty('hard')}>Hard</button>
-      </div>
+      <select value={difficulty} onChange={(e) => setDifficulty(e.target.value)} required>
+      <option value="Difficulty" disabled>Select Difficulty Level</option>
+      <option value="easy">Easy</option>
+      <option value="medium">Medium</option>
+      <option value="hard">Hard</option>
+        </select>
+    </div>
       <div>
         <button onClick={handlePrevious} disabled={currentQuestionIndex === 0}>
           ← Previous

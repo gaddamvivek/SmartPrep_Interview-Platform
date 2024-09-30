@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import IDE from './IDE';
+import IDE from './IDE';  
 import './ide.css'; // Import your CSS file
 import Question from './Question';
 
