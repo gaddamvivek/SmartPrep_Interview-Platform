@@ -72,8 +72,10 @@ export const InterviewDetails = () => {
                     <option value="Coding">Coding</option>
                 </select>
             </div>
-            <button type = "button" onClick={onClickHandler}>Previous</button>
-            <button type="submit" onClick={() => setButtonClick(true)}>{slctround}</button>
+            <div className='btns'>
+                <button type = "button" onClick={onClickHandler}>Previous</button>
+                <button type="submit" onClick={() => setButtonClick(true)}>{slctround}</button>
+            </div>
         </form>
     </div>
   )

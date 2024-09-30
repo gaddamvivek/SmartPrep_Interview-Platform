@@ -6,7 +6,7 @@ export const Dashboard = () => {
       <NavBar showProfile={true} showNewInterview={true} />
       <div className="w-full h-1/2 p-10">
         <h2 className="text-3xl text-center font-semibold p-3">
-          Recent Interviews``
+          Recent Interviews
         </h2>
         <ul className="divide-y bg-[#E4B1F0] w-3/4 h-3/2 p-2 m-auto divide-gray-200">
         <li className="flex justify-between font-semibold">

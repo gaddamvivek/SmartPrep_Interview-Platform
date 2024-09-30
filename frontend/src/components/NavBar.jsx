@@ -14,7 +14,11 @@ export const NavBar = (props) => {
   const showSignIn = props.showSignIn ? props.showSignIn : false;
   const showProfile = props.showProfile ? props.showProfile : false;
   const handleSignIn = () => {
-    navigate('/login');
+    if(localStorage.getItem("logindata"))
+        navigate('/interviewdetails');
+    else
+        navigate('/login');
+
   };
   const handleHome = ()=>{
     navigate('/dashboard')

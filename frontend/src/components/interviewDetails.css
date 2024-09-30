@@ -13,7 +13,7 @@
   gap: 1.5rem;
 }
 .preprName{
-  width: 96.5%;
+  width: 100%;
 }
 .preprName input,
 .dropDown select {
@@ -40,8 +40,8 @@
   padding-right: 2.5rem;
 }
 
-button[type="submit"] {
-  background-color: #4a90e2;
+button{
+  background-color: #7e60bf;
   color: white;
   border: none;
   padding: 0.75rem;
@@ -51,8 +51,8 @@ button[type="submit"] {
   transition: background-color 0.3s ease;
 }
 
-button[type="submit"]:hover {
-  background-color: #3a7bc8;
+button:hover {
+  background-color: #433878;
 }
 
 /* Placeholder styling */
@@ -70,6 +70,20 @@ button[type="submit"]:hover {
 .dropDown,
 button[type="submit"] {
   animation: fadeIn 0.5s ease-out forwards;
+}
+.btns {
+  display: flex;            /* Use flexbox to align the buttons */
+  justify-content: space-between;  /* Spread the buttons evenly */
+  width: 100%;              /* Adjust width of the container */
+  padding: 10px;            /* Optional padding for better spacing */
+}
+
+.btns button {
+  flex: 1;                  /* Make buttons take equal space */
+  margin: 0 10px;           /* Add space between the buttons */
+  padding: 10px;            /* Add padding to buttons */
+  font-size: 16px;          /* Optional: increase font size for better visibility */
+  cursor: pointer;          /* Add pointer on hover */
 }
 
 .preprName { animation-delay: 0.1s; }
