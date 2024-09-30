@@ -1,6 +1,6 @@
 /* General styling */
 .container {
-  width: 100%;
+  width: 120%;
   max-width: 380px;
   margin: 100px auto;
   padding: 30px;
@@ -26,19 +26,20 @@
   }
 
   .nameContainer {
+    width: 120%;
     display: flex;
     justify-content: space-between;
-    margin: 10px 0;
+    margin: 15px 0;
   }
   
   .userName {
     display: flex;
-    gap: 1px;
-    width: 100%;
+    gap: 3px;
+    width: 120%;
   }
   
   .userName input {
-    width: 100%;  /* Make both inputs take equal space side by side */
+    width: 120%;  /* Make both inputs take equal space side by side */
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -52,7 +53,7 @@
   }
   
   .inputContainer input {
-    width: 94%;
+    width: 120%;
     padding: 12px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -83,7 +84,7 @@
   }
   
   .register-link {
-    color: #007BFF;
+    color: #433878;
     cursor: pointer;
   }
   
@@ -97,10 +98,10 @@
   }
   
   .submit {
-    width: 100%;
+    width: 120%;
     padding: 12px 0;
     text-align: center;
-    background-color: #007BFF;
+    background-color: #7360bf;
     color: white;
     border-radius: 5px;
     cursor: pointer;
@@ -109,7 +110,7 @@
   }
   
   .submit:hover {
-    background-color: #0056b3;
+    background-color: #433878;
     transform: translateY(-2px);
   }
   
@@ -119,7 +120,7 @@
 
   .loginsignupbtns {
     display: flex;
-    justify-content: space-between;  /* To spread the buttons evenly */
+    justify-content:space-evenly;  /* To spread the buttons evenly */
     gap: 10px;  /* Optional: adds some space between the buttons */
   }
   
