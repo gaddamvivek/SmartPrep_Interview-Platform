@@ -1,6 +1,6 @@
 /* General styling */
 .container {
-  width: 120%;
+  width: 100%;
   max-width: 380px;
   margin: 100px auto;
   padding: 30px;
@@ -11,103 +11,133 @@
   /* Optional for better design */
 }
 
-  .nameContainer {
-    width: 120%;
-    display: flex;
-    justify-content: space-between;
-    margin: 15px 0;
-  }
-  
-  .userName {
-    display: flex;
-    gap: 3px;
-    width: 120%;
-  }
-  
-  .userName input {
-    width: 120%;  /* Make both inputs take equal space side by side */
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-    transition: border-color 0.3s;
-  }
-  
-  /* Input fields styling */
-  .inputContainer {
-    margin: 10px 0;
-  }
-  
-  .inputContainer input {
-    width: 120%;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-    transition: border-color 0.3s;
-  }
-  
-  .inputContainer input:focus {
-    border-color: #007BFF;
-    outline: none;
-  }
-  
-  .forget-password {
-    text-align: right;
-    font-size: 14px;
-    color: #007BFF;
-    cursor: pointer;
-    margin-top: 5px;
-  }
-  
-  .forget-password span:hover {
-    text-decoration: underline;
-  }
-  
-  .Registerhere {
-    text-align: center;
-    margin-top: 15px;
-  }
-  
-  .register-link {
-    color: #433878;
-    cursor: pointer;
-  }
-  
-  .register-link:hover {
-    text-decoration: underline;
-  }
-  
-  /* Submit button styling */
-  .submitContainer {
-    margin-top: 20px;
-  }
-  
-  .submit {
-    width: 120%;
-    padding: 12px 0;
-    text-align: center;
-    background-color: #7360bf;
-    color: white;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: background-color 0.3s, transform 0.3s;
-  }
-  
-  .submit:hover {
-    background-color: #433878;
-    transform: translateY(-2px);
-  }
-  
-  .submit:active {
-    background-color: #004494;
-  }
+.nameContainer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin: 15px 0;
+}
 
-  .loginsignupbtns {
-    display: flex;
-    justify-content:space-evenly;  /* To spread the buttons evenly */
-    gap: 10px;  /* Optional: adds some space between the buttons */
-  }
-  
-  
+.userName {
+  display: flex;
+  gap: 3px;
+  width: 100%;
+}
+
+.userName input {
+  width: 48%;
+  /* Adjusted for equal space between first and last name */
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: border-color 0.3s;
+}
+
+/* Input fields styling */
+.inputContainer {
+  margin: 10px 0;
+}
+
+.inputContainer input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: border-color 0.3s;
+}
+
+.inputContainer input:focus {
+  border-color: #007BFF;
+  outline: none;
+}
+
+.forget-password {
+  text-align: right;
+  font-size: 14px;
+  color: #007BFF;
+  cursor: pointer;
+  margin-top: 5px;
+}
+
+.forget-password span:hover {
+  text-decoration: underline;
+}
+
+.Registerhere {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.register-link {
+  color: #433878;
+  cursor: pointer;
+}
+
+.register-link:hover {
+  text-decoration: underline;
+}
+
+/* Submit button styling */
+.submitContainer {
+  margin-top: 20px;
+}
+
+.submit {
+  width: 100%;
+  padding: 12px 0;
+  text-align: center;
+  background-color: #7360bf;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.submit:hover {
+  background-color: #433878;
+  transform: translateY(-2px);
+}
+
+.submit:active {
+  background-color: #004494;
+}
+
+.loginsignupbtns {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 10px;
+}
+
+.google-signin {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #db4437;
+  color: white;
+  border: none;
+  padding: 12px 0;
+  width: 100%;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+  margin-top: 20px;
+  /* Space between the regular login and Google login button */
+}
+
+.google-signin:hover {
+  background-color: #c33d2e;
+  transform: translateY(-2px);
+}
+
+.google-signin:active {
+  background-color: #b03024;
+}
+
+.google-icon {
+  width: 20px;
+  margin-right: 10px;
+}
