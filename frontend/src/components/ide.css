@@ -86,11 +86,12 @@
     padding: 10px 20px;
     border-radius: 4px;
     cursor: pointer;
+    transition: background-color 0.3s;
   }
 
-  button:hover {
-    background-color: #e7a820;
-  }
+  .buttons button:hover {
+    background-color: #4b1c8a; /* Lighter color on hover */
+}
 
   pre {
     background-color: #0e0d0d;

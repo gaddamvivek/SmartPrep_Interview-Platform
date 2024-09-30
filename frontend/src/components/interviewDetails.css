@@ -1,0 +1,92 @@
+.interviewDetails {
+  max-width: 800px;
+  margin: 8rem auto;
+  padding: 2rem;
+  background-color: #ffffff;
+  border-radius: 8px;
+  /*box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);*/
+}
+
+.formcss {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.preprName{
+  width: 100%;
+}
+.preprName input,
+.dropDown select {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.preprName input:focus,
+.dropDown select:focus {
+  outline: none;
+  border-color: #4a90e2;
+  box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2);
+}
+
+.dropDown select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23333' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  padding-right: 2.5rem;
+}
+
+button{
+  background-color: #7e60bf;
+  color: white;
+  border: none;
+  padding: 0.75rem;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #433878;
+}
+
+/* Placeholder styling */
+::placeholder {
+  color: #999;
+}
+
+/* Animation for form elements */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.preprName,
+.dropDown,
+button[type="submit"] {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+.btns {
+  display: flex;            /* Use flexbox to align the buttons */
+  justify-content: space-between;  /* Spread the buttons evenly */
+  width: 100%;              /* Adjust width of the container */
+  padding: 10px;            /* Optional padding for better spacing */
+}
+
+.btns button {
+  flex: 1;                  /* Make buttons take equal space */
+  margin: 0 10px;           /* Add space between the buttons */
+  padding: 10px;            /* Add padding to buttons */
+  font-size: 16px;          /* Optional: increase font size for better visibility */
+  cursor: pointer;          /* Add pointer on hover */
+}
+
+.preprName { animation-delay: 0.1s; }
+.dropDown:nth-of-type(1) { animation-delay: 0.2s; }
+.dropDown:nth-of-type(2) { animation-delay: 0.3s; }
+button[type="submit"] { animation-delay: 0.4s; }

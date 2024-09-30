@@ -1,0 +1,23 @@
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+
+export const Logout = () => {
+  const navigate = useNavigate();
+  window.localStorage.removeItem('isLoggedIn');
+  const logoutHandler = () => {
+    localStorage.removeItem('logindata');
+
+    // Redirect to login page
+    navigate('/');
+  };
+  return (
+    <div>
+      <button
+        className="bg-[#F9DBBA] m-1 hover:bg-[#1A4870] hover:text-white p-1 rounded-lg font-semibold"
+        onClick={logoutHandler}
+      >
+        Logout
+      </button>
+    </div>
+  );
+};

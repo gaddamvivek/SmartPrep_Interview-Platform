@@ -2,41 +2,46 @@ import React, { useState, useEffect } from 'react';
 import Editor from '@monaco-editor/react';
 import axios from 'axios';
 
-// IDE renders the Question based on QuestionId
-const IDE = ({ QuestionId }) => {
-  const [code, setCode] = useState('');
+const IDE = ({ QuestionId, savedCode, handleSaveCode }) => {
+  const [code, setCode] = useState('');  // Editor code
   const [output, setOutput] = useState('');
   const [testResults, setTestResults] = useState(null);
   const [testCases, setTestCases] = useState([]);
 
-  // Fetch Question including test cases when Question component mounts
+  // Load the saved code when the QuestionId changes
+  useEffect(() => {
+    setCode(savedCode || '');  // Set the editor with saved code or start with empty string
+  }, [QuestionId, savedCode]);
+
+  // Fetch test cases when QuestionId changes
   useEffect(() => {
     const fetchQuestion = async () => {
       try {
         const res = await axios.get(`http://localhost:5001/api/Questions/${QuestionId}`);
-        setTestCases(res.data.testCases); // Assuming your API returns test cases in this structure
+        setTestCases(res.data.testCases);
       } catch (error) {
         console.error('Error fetching Question:', error);
       }
     };
 
-    fetchQuestion();
+    if (QuestionId) fetchQuestion();
   }, [QuestionId]);
+
+  // Save the current code to the parent component when "Save" button is clicked
+  const handleSave = () => {
+    handleSaveCode(QuestionId, code);  // Call the parent function to save the code
+  };
 
   const handleSubmit = async () => {
     try {
       const res = await axios.post('http://localhost:5001/api/submit', {
         code: code,
-        testCases: testCases, // Send fetched test cases to server
+        testCases: testCases,
       });
 
       const { stdout, stderr, status } = res.data;
-
-      // Display output Result message
       const outputResult = stdout || stderr || `Execution status: ${status.description}`;
       setOutput(outputResult);
-
-      // Test results for passed test cases are yet to be handled
 
       const passedTestCases = res.data.passedTestCases || testCases.length;
       const totalTestCases = res.data.totalTestCases || testCases.length;
@@ -50,11 +55,31 @@ const IDE = ({ QuestionId }) => {
       setOutput('Error during submission');
     }
   };
-  const handleNext = async () => {
-    console.log("Button is clicked");
-   };
 
-  // Outputs to the coding question must be handled mentioning number of test cases passed is to be handled.
+  const handleRun = async () => {
+    try {
+      const res = await axios.post('http://localhost:5001/api/submit', {
+        code: code,
+        testCases: testCases,
+      });
+
+      const { stdout, stderr, status } = res.data;
+      const outputResult = stdout || stderr || `Execution status: ${status.description}`;
+      setOutput(outputResult);
+
+      const passedTestCases = res.data.passedTestCases || testCases.length;
+      const totalTestCases = res.data.totalTestCases || testCases.length;
+      setTestResults({
+        passed: passedTestCases,
+        total: totalTestCases,
+        outputs: res.data.outputs || [],
+      });
+    } catch (error) {
+      console.error('Error during submission:', error);
+      setOutput('Error during submission');
+    }
+};
+
 
   return (
     <div>
@@ -62,15 +87,13 @@ const IDE = ({ QuestionId }) => {
         height="500px"
         defaultLanguage="python"
         value={code}
-        onChange={(value) => setCode(value)}
+        onChange={(value) => setCode(value)}  // Update code as user types
       />
       <div className="buttons">
-      <p>Code Editor</p>
-      <button onClick={handleSubmit}>Run</button>
-      <button onClick={handleNext}>←</button>
-      <button onClick={handleNext}>→</button>
-
-      <button onClick={handleSubmit}>Submit</button>
+        <p>Code Editor</p>
+        <button onClick={handleSave}>Save Code</button>  {/* Save Button */}
+        <button onClick={handleRun}>Run</button>
+        <button onClick={handleSubmit}>Submit</button>
       </div>
       <pre>{output}</pre>
       {testResults && (
