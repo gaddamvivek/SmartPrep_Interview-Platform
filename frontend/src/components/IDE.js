@@ -1,27 +1,48 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Editor from '@monaco-editor/react';
 import axios from 'axios';
 
-// IDE renders the Question based on QuestionId
-const IDE = ({ QuestionId }) => {
+// Component to select a coding question based on difficulty
+const QuestionSelector = ({ onQuestionSelect }) => {
+  const [difficulty, setDifficulty] = useState('');
+  const [error, setError] = useState('');
+
+  const handleSelectDifficulty = async (selectedDifficulty) => {
+    setDifficulty(selectedDifficulty);
+    try {
+      const response = await axios.get(`http://localhost:5001/api/questions?difficulty=${selectedDifficulty}`);
+      
+      console.log(response.data);  // Log the response to check if the data is being fetched
+      onQuestionSelect(response.data);  // Pass the selected question to the parent component
+      setError('');
+    } catch (err) {
+      console.error('Error fetching question:', err);  // Log the error for debugging
+      setError('No question found for the selected difficulty.');
+    }
+  };
+
+  return (
+    <div>
+      <h2>Select Difficulty Level</h2>
+      <select onChange={(e) => handleSelectDifficulty(e.target.value)}>
+        <option value="">Select difficulty</option>
+        <option value="easy">Easy</option>
+        <option value="medium">Medium</option>
+        <option value="hard">Hard</option>
+      </select>
+  
+      {error && <p>{error}</p>}
+    </div>
+  );
+};
+
+// Component to handle the IDE (Code Editor) and the question display
+const IDE = ({ question }) => {
   const [code, setCode] = useState('');
   const [output, setOutput] = useState('');
   const [testResults, setTestResults] = useState(null);
-  const [testCases, setTestCases] = useState([]);
 
-  // Fetch Question including test cases when Question component mounts
-  useEffect(() => {
-    const fetchQuestion = async () => {
-      try {
-        const res = await axios.get(`http://localhost:5001/api/Questions/${QuestionId}`);
-        setTestCases(res.data.testCases); // Assuming your API returns test cases in this structure
-      } catch (error) {
-        console.error('Error fetching Question:', error);
-      }
-    };
-
-    fetchQuestion();
-  }, [QuestionId]);
+  const testCases = question ? question.testCases : [];
 
   const handleSubmit = async () => {
     try {
@@ -36,8 +57,6 @@ const IDE = ({ QuestionId }) => {
       const outputResult = stdout || stderr || `Execution status: ${status.description}`;
       setOutput(outputResult);
 
-      // Test results for passed test cases are yet to be handled
-
       const passedTestCases = res.data.passedTestCases || testCases.length;
       const totalTestCases = res.data.totalTestCases || testCases.length;
       setTestResults({
@@ -50,14 +69,17 @@ const IDE = ({ QuestionId }) => {
       setOutput('Error during submission');
     }
   };
-  const handleNext = async () => {
-    console.log("Button is clicked");
-   };
-
-  // Outputs to the coding question must be handled mentioning number of test cases passed is to be handled.
 
   return (
     <div>
+      {question && (
+        <div>
+          <h3>{question.title}</h3>
+          <p>{question.description}</p>
+          <p>Difficulty: {question.difficulty}</p>
+        </div>
+      )}
+
       <Editor
         height="500px"
         defaultLanguage="python"
@@ -65,12 +87,11 @@ const IDE = ({ QuestionId }) => {
         onChange={(value) => setCode(value)}
       />
       <div className="buttons">
-      <p>Code Editor</p>
-      <button onClick={handleSubmit}>Run</button>
-      <button onClick={handleNext}>←</button>
-      <button onClick={handleNext}>→</button>
-
-      <button onClick={handleSubmit}>Submit</button>
+        <p>Code Editor</p>
+        <button onClick={handleSubmit}>Run</button>
+        <button onClick={() => console.log("Previous button clicked")}>←</button>
+        <button onClick={() => console.log("Next button clicked")}>→</button>
+        <button onClick={handleSubmit}>Submit</button>
       </div>
       <pre>{output}</pre>
       {testResults && (
@@ -91,4 +112,4 @@ const IDE = ({ QuestionId }) => {
   );
 };
 
-export default IDE;
+export { QuestionSelector, IDE };
