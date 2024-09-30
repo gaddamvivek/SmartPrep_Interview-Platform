@@ -82,8 +82,6 @@ const IDE = ({ QuestionId, savedCode, handleSaveCode }) => {
     }
   };
 
-
-
   // Format timeRemaining into minutes and seconds
   const formatTime = (seconds) => {
     const minutes = Math.floor(seconds / 60);
@@ -91,13 +89,32 @@ const IDE = ({ QuestionId, savedCode, handleSaveCode }) => {
     return `${minutes}:${secs < 10 ? '0' : ''}${secs}`;
   };
 
+  const handleRun = async () => {
+    try {
+      const res = await axios.post('http://localhost:5001/api/submit', {
+        code: code,
+        testCases: testCases,
+      });
 
-  return (
-    <div>
-      <div className="interview-timer">
-        <h3>Time Remaining: {formatTime(timeRemaining)}</h3> {/* Display timer */}
-      </div>
-  
+      const { stdout, stderr, status } = res.data;
+      const outputResult = stdout || stderr || `Execution status: ${status.description}`;
+      setOutput(outputResult);
+
+      const passedTestCases = res.data.passedTestCases || testCases.length;
+      const totalTestCases = res.data.totalTestCases || testCases.length;
+      setTestResults({
+        passed: passedTestCases,
+        total: totalTestCases,
+        outputs: res.data.outputs || [],
+      });
+    } catch (error) {
+      console.error('Error during submission:', error);
+      setOutput('Error during submission');
+    }
+};
+
+
+  return (  
       <div>
         <Editor
           height="500px"
@@ -110,7 +127,7 @@ const IDE = ({ QuestionId, savedCode, handleSaveCode }) => {
       <div className="buttons">
         <p>Code Editor</p>
         <button onClick={handleSave}>Save Code</button>  {/* Save Button */}
-        <button onClick={handleSubmit}>Run</button>
+        <button onClick={handleRun}>Run</button>
         <button onClick={handleSubmit}>Submit</button>
       </div>
   

@@ -1,115 +1,129 @@
 /* General styling */
 .container {
-  width: 100%;
+  width: 120%;
   max-width: 380px;
   margin: 100px auto;
   padding: 30px;
   background-color: #fff;
   border-radius: 10px;
   font-family: 'Poppins', sans-serif;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  /* Optional for better design */
 }
+  .nameContainer {
+    width: 100%;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  .header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .header div {
+    font-size: 26px;
+    font-weight: 600;
+    color: #333;
+  }
 
-.nameContainer {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  margin: 15px 0;
-}
+  .nameContainer {
+    width: 120%;
+    display: flex;
+    justify-content: space-between;
+    margin: 15px 0;
+  }
+  
+  .userName {
+    display: flex;
+    gap: 3px;
+    width: 120%;
+  }
+  
+  .userName input {
+    width: 120%;  /* Make both inputs take equal space side by side */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+  }
+  
+  /* Input fields styling */
+  .inputContainer {
+    margin: 10px 0;
+  }
+  
+  .inputContainer input {
+    width: 120%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+  }
+  
+  .inputContainer input:focus {
+    border-color: #007BFF;
+    outline: none;
+  }
+  
+  .forget-password {
+    text-align: right;
+    font-size: 14px;
+    color: #007BFF;
+    cursor: pointer;
+    margin-top: 5px;
+  }
+  
+  .forget-password span:hover {
+    text-decoration: underline;
+  }
+  
+  .Registerhere {
+    text-align: center;
+    margin-top: 15px;
+  }
+  
+  .register-link {
+    color: #433878;
+    cursor: pointer;
+  }
+  
+  .register-link:hover {
+    text-decoration: underline;
+  }
+  
+  /* Submit button styling */
+  .submitContainer {
+    margin-top: 20px;
+  }
+  
+  .submit {
+    width: 120%;
+    padding: 12px 0;
+    text-align: center;
+    background-color: #7360bf;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.3s;
+  }
+  
+  .submit:hover {
+    background-color: #433878;
+    transform: translateY(-2px);
+  }
+  
+  .submit:active {
+    background-color: #004494;
+  }
 
-.userName {
-  display: flex;
-  gap: 3px;
-  width: 100%;
-}
-
-.userName input {
-  width: 48%;
-  /* Adjusted for equal space between first and last name */
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 16px;
-  transition: border-color 0.3s;
-}
-
-/* Input fields styling */
-.inputContainer {
-  margin: 10px 0;
-}
-
-.inputContainer input {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 16px;
-  transition: border-color 0.3s;
-}
-
-.inputContainer input:focus {
-  border-color: #007BFF;
-  outline: none;
-}
-
-.forget-password {
-  text-align: right;
-  font-size: 14px;
-  color: #007BFF;
-  cursor: pointer;
-  margin-top: 5px;
-}
-
-.forget-password span:hover {
-  text-decoration: underline;
-}
-
-.Registerhere {
-  text-align: center;
-  margin-top: 15px;
-}
-
-.register-link {
-  color: #433878;
-  cursor: pointer;
-}
-
-.register-link:hover {
-  text-decoration: underline;
-}
-
-/* Submit button styling */
-.submitContainer {
-  margin-top: 20px;
-}
-
-.submit {
-  width: 100%;
-  padding: 12px 0;
-  text-align: center;
-  background-color: #7360bf;
-  color: white;
-  border-radius: 5px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: background-color 0.3s, transform 0.3s;
-}
-
-.submit:hover {
-  background-color: #433878;
-  transform: translateY(-2px);
-}
-
-.submit:active {
-  background-color: #004494;
-}
-
-.loginsignupbtns {
-  display: flex;
-  justify-content: space-evenly;
-  gap: 10px;
-}
+  .loginsignupbtns {
+    display: flex;
+    justify-content:space-between; 
+    width:120%; /*Ensure full width
+    gap: 10px;  /* Optional: adds some space between the buttons */
+  }
 
 .google-signin {
   display: flex;
