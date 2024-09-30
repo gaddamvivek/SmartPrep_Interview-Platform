@@ -2,12 +2,15 @@ import React, { useState } from 'react';
 import IDE from './IDE';
 import './ide.css'; // Import your CSS file
 import Question from './Question';
+import Timer from './timer';
 
 export const OpenEditor = () => {
   const [QuestionId, setQuestionId] = useState('');  // To manage the QuestionId state
   const [savedCode, setSavedCode] = useState({});    // State to store saved code for each question
-  const handleExit = async () => {
-    console.log("Button is clicked");
+  const [testRun, setTestRun] = useState(true);
+  const handleExit =() => {
+    setTestRun(false);
+    console.log("Test Ended");
    };
   // Function to handle saving code for a specific question
   const handleSaveCode = (QuestionId, code) => {
@@ -22,6 +25,9 @@ export const OpenEditor = () => {
       <div className="app">
         <div className="heading">
           <h1>PrepSmart</h1>
+          <div className="rtime">
+            <Timer interviewTime={3600} setTestRun={setTestRun} testRun={testRun} />
+          </div>
           <button onClick={handleExit}>End Test</button>
         </div>
         <div className="content">
@@ -35,7 +41,7 @@ export const OpenEditor = () => {
               QuestionId={QuestionId}
               savedCode={savedCode[QuestionId] || ''} // Load saved code or empty string
               handleSaveCode={handleSaveCode}        // Pass save function to IDE
-            />  
+            />
           </div>
         </div>
       </div>
