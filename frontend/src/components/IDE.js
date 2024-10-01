@@ -82,13 +82,6 @@ const IDE = ({ QuestionId, savedCode, handleSaveCode }) => {
     }
   };
 
-  // Format timeRemaining into minutes and seconds
-  // const formatTime = (seconds) => {
-  //   const minutes = Math.floor(seconds / 60);
-  //   const secs = seconds % 60;
-  //   return `${minutes}:${secs < 10 ? '0' : ''}${secs}`;
-  // };
-
   const handleRun = async () => {
     try {
       const res = await axios.post('http://localhost:5001/api/submit', {
@@ -121,13 +114,13 @@ const IDE = ({ QuestionId, savedCode, handleSaveCode }) => {
           height="500px"
           defaultLanguage="python"
           value={code}
-          onChange={(value) => setCode(value)}  // Update code as user types
+          onChange={(value) => setCode(value)} 
         />
       </div>
   
       <div className="buttons">
         <p>Code Editor</p>
-        <button onClick={handleSave}>Save Code</button>  {/* Save Button */}
+        <button onClick={handleSave}>Save Code</button>  
         <button onClick={handleRun}>Run</button>
         <button onClick={handleSubmit}>Submit</button>
       </div>

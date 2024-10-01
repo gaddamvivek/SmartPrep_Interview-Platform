@@ -10,7 +10,7 @@
   }
 
   .heading {
-    background-color: #150971;
+    background-color: #6c62b9;
     justify-content: space-between;
     align-items: center;
     display: flex;
@@ -79,7 +79,7 @@
     margin: 0;
   }
   .buttons button {
-    background-color: #150971;
+    background-color: #6c62b9;
     color: white;
     border: 2px solid #ecf1f2;
     margin-top: 20px;
@@ -94,7 +94,7 @@
 }
 
   pre {
-    background-color: #0e0d0d;
+    background-color: #6c62b9;
     color: #fff;
     padding: 10px;
     border-radius: 5px;
@@ -112,7 +112,7 @@
     height:40;
   }
   .rtime h2 {
-    background-color: #150971;
+    background-color: #6c62b9;
     color: white;
     padding: 10px;
     display: flex;
