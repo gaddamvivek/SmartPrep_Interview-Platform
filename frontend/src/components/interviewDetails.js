@@ -30,9 +30,10 @@ export const InterviewDetails = () => {
         
             const result = await axios.post('http://localhost:5001/auth/interviewdetails', { prepname, diffLvl, slctround},{headers});
             console.log(result);
-            if(slctround === 'Coding' && buttonClick)
+            if(slctround === 'Coding' && buttonClick){
+                localStorage.removeItem('remainingTime');
                 navigate('/codeeditor');
-            else
+            }else
                 console.log(slctround)
             setPrepName('');
             setDifficultyLvl('');
