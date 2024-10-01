@@ -6,6 +6,7 @@ const QuestionRoutes = require('./routes/questions');
 const axios = require('axios');
 const path = require('path');
 const admin = require('firebase-admin'); // Firebase Admin SDK for Google Auth
+const feedbackRoutes = require('./routes/feedback');
 require('dotenv').config();
 const User = require('./models/user'); // Import the User model
 
@@ -19,6 +20,7 @@ const serviceAccount = require(path.join(__dirname, 'firebase-adminsdk-key.json'
 const app = express();
 app.use(cors());
 app.use(express.json());
+app.use('/api/feedback', feedbackRoutes);
 
 // MongoDB connection
 mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })

@@ -106,6 +106,15 @@ const IDE = ({ QuestionId, savedCode, handleSaveCode }) => {
     }
 };
 
+const handleEndTest = () => {
+  if (testResults) {
+    // Redirect to feedback with test case results
+    navigate('/feedback', { state: { passedTestCases: testResults.passed, totalTestCases: testResults.total } });
+  } else {
+    // Redirect to feedback with default values if no test results are available
+    navigate('/feedback', { state: { passedTestCases: 0, totalTestCases: 0 } });
+  }
+};
 
   return (  
     <div>
@@ -123,6 +132,7 @@ const IDE = ({ QuestionId, savedCode, handleSaveCode }) => {
         <button onClick={handleSave}>Save Code</button>  
         <button onClick={handleRun}>Run</button>
         <button onClick={handleSubmit}>Submit</button>
+        <button onClick={handleEndTest}>End Test</button>  {/* End Test Button */}
       </div>
   
       <pre>{output}</pre>
