@@ -8,10 +8,10 @@ export const OpenEditor = () => {
   const [QuestionId, setQuestionId] = useState('');  // To manage the QuestionId state
   const [savedCode, setSavedCode] = useState({});    // State to store saved code for each question
   const [testRun, setTestRun] = useState(true);
-  const handleExit =() => {
-    setTestRun(false);
-    console.log("Test Ended");
-   };
+  // const handleExit =() => {
+  //   setTestRun(false);
+  //   console.log("Test Ended");
+  //  };
   // Function to handle saving code for a specific question
   const handleSaveCode = (QuestionId, code) => {
     setSavedCode((prevSavedCode) => ({
@@ -28,7 +28,7 @@ export const OpenEditor = () => {
           <div className="rtime">
             <Timer interviewTime={1800} setTestRun={setTestRun} testRun={testRun} />
           </div>
-          <button onClick={handleExit}>End Test</button>
+          {/*<button onClick={handleExit}>End Test</button>*/}
         </div>
         <div className="content">
           {/* Pass setQuestionId as a prop */}

@@ -10,6 +10,7 @@ import { Home } from './components/Home';
 import GoogleSignInButton from './components/GoogleSignInButton';
 import SessionManager from './components/SessionManager';
 import PropTypes from 'prop-types';
+import Feedback from './components/feedback';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path="/codeeditor" element={<ProtectedRoutes><OpenEditor /></ProtectedRoutes>} />
           <Route path="/interviewdetails" element={<ProtectedRoutes><InterviewDetails /></ProtectedRoutes>} />
           <Route path="/google-signin" element={<GoogleSignInButton />} />
+          <Route path="/feedback" element={<Feedback />} />
         </Routes>
       </Router>
     </div>
