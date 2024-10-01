@@ -21,9 +21,9 @@ export const OpenEditor = () => {
   };
 
   return (
-    <div>
+    <div className='bg-[#e6dceb]'>
       <div className="app">
-        <div className="heading">
+        <div className="heading shadow-lg shadow-black font-semibold text-2xl">
           <h1>PrepSmart</h1>
           <div className="rtime">
             <Timer interviewTime={1800} setTestRun={setTestRun} testRun={testRun} />
