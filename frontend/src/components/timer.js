@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+ 
 
 const Timer = ({ interviewTime, setTestRun,testRun }) => {
   const [time, setTime] = useState(() => {

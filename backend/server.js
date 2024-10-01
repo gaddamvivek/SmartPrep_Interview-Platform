@@ -4,12 +4,13 @@ const authenticationRoutes = require('./routes/auth')
 const mongoose = require('mongoose');
 const QuestionRoutes = require('./routes/questions');
 const axios = require('axios');
+const path = require('path');
 const admin = require('firebase-admin'); // Firebase Admin SDK for Google Auth
 require('dotenv').config();
 const User = require('./models/user'); // Import the User model
 
 // Initialize Firebase Admin SDK
-const serviceAccount = require('/Users/gouthammalasani/Desktop/Edit Prep/ICSI518_Team1_PrepSmart/backend/firebase-adminsdk-key.json'); // Add path to your Firebase Admin SDK key file
+const serviceAccount = require(path.join(__dirname, 'firebase-adminsdk-key.json')); 
 
 // admin.initializeApp({
 //   credential: admin.credential.cert(serviceAccount),

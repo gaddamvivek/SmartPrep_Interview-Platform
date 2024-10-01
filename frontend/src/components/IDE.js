@@ -83,11 +83,11 @@ const IDE = ({ QuestionId, savedCode, handleSaveCode }) => {
   };
 
   // Format timeRemaining into minutes and seconds
-  const formatTime = (seconds) => {
-    const minutes = Math.floor(seconds / 60);
-    const secs = seconds % 60;
-    return `${minutes}:${secs < 10 ? '0' : ''}${secs}`;
-  };
+  // const formatTime = (seconds) => {
+  //   const minutes = Math.floor(seconds / 60);
+  //   const secs = seconds % 60;
+  //   return `${minutes}:${secs < 10 ? '0' : ''}${secs}`;
+  // };
 
   const handleRun = async () => {
     try {
@@ -115,6 +115,7 @@ const IDE = ({ QuestionId, savedCode, handleSaveCode }) => {
 
 
   return (  
+    <div>
       <div>
         <Editor
           height="500px"
@@ -149,7 +150,6 @@ const IDE = ({ QuestionId, savedCode, handleSaveCode }) => {
       )}
     </div>
   );
-  
 };
 
 IDE.propTypes = {
