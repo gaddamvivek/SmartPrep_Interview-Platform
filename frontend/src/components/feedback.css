@@ -1,0 +1,138 @@
+/* Main container for the feedback page with a light grey background */
+.feedback-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #f0f0f5; /* Updated to a soft grey for better contrast */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+    font-family: 'Poppins', sans-serif; /* Modern font for a cleaner look */
+    color: #333; /* Darker font color for readability */
+  }
+  
+  /* Header styles */
+  .feedback-container h2,
+  .feedback-container h3 {
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 24px; /* Increased font size for better visibility */
+    font-weight: 600; /* Make headings bold for emphasis */
+  }
+  
+  /* Center the performance message */
+  .feedback-container p {
+    font-size: 18px;
+    text-align: center;
+    color: #444; /* Slightly darker text color */
+    margin-bottom: 25px;
+  }
+  
+  /* Styling for the emoji feedback review system */
+  .feedback-review ul {
+    display: flex;
+    justify-content: space-around;
+    list-style-type: none;
+    padding: 0;
+    margin: 0 auto;
+    max-width: 500px;
+  }
+  
+  /* Style each feedback option with a cleaner look */
+  .feedback-option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 8px;
+    transition: background-color 0.3s, transform 0.2s ease;
+  }
+  
+  /* Add hover effect for better interactivity */
+  .feedback-option:hover {
+    background-color: #e6e6ff; /* Soft hover color */
+    transform: translateY(-2px); /* Small elevation on hover */
+  }
+  
+  /* Selected feedback option */
+  .feedback-option.selected {
+    background-color: #d4e1fa; /* Lighter blue for selected state */
+    border: 1px solid #ccc;
+  }
+  
+  .feedback-option input[type="radio"] {
+    display: none;
+  }
+  
+  .feedback-option i {
+    font-size: 40px; /* Larger emoji size for visibility */
+    margin-bottom: 5px;
+  }
+  
+  .feedback-option label {
+    font-size: 14px;
+    color: #333;
+  }
+  
+  /* Colors for emojis */
+  .feedback-option.excellent i {
+    color: #28a745;
+  }
+  
+  .feedback-option.good i {
+    color: #ffc107;
+  }
+  
+  .feedback-option.medium i {
+    color: #ff9800;
+  }
+  
+  .feedback-option.poor i {
+    color: #f44336;
+  }
+  
+  .feedback-option.very-bad i {
+    color: #dc3545;
+  }
+  
+  /* Feedback text area */
+  .feedback-textarea {
+    width: 100%;
+    padding: 12px;
+    margin-top: 20px;
+    margin-bottom: 25px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+    background-color: #fff;
+  }
+  
+  /* Submit feedback button with modern styling */
+  .submit-feedback-button {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background-color: #433878;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    font-size: 18px;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .submit-feedback-button:hover {
+    background-color: #7E60BF;
+  }
+  
+  /* Message after submitting feedback */
+  .feedback-message {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 18px;
+    color: #28a745;
+    font-family: 'Poppins', sans-serif;
+  }

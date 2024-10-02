@@ -5,7 +5,6 @@
   margin: 100px auto;
   padding: 30px;
   background-color: #fff;
-  border-radius: 10px;
   font-family: 'Poppins', sans-serif;
 }
   .nameContainer {
@@ -125,6 +124,37 @@
     gap: 10px
   }
 
+    justify-content:space-between; 
+    width:120%; /*Ensure full width
+    gap: 10px;  /* Optional: adds some space between the buttons */
+  }
 
-  
-  
+  .google-signin {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    border-radius: 5px; /* Changed to px for consistency */
+    border: 2px solid grey; /* Set border width and color in shorthand */
+    color: black;
+    padding: 12px 0;
+    width: 120%;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    margin-top: 20px;
+  }
+
+.google-signin:hover {
+  background-color: grey;
+  transform: translateY(-2px);
+}
+
+.google-signin:active {
+  background-color: grey;
+}
+
+.google-icon {
+  width: 20px;
+  margin-right: 10px;
+}

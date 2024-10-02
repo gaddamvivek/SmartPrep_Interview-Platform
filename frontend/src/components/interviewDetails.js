@@ -2,7 +2,8 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import './interviewDetails.css';
 import axios from 'axios';
-import { Dashboard } from './dashboard';
+// import { Dashboard } from './dashboard';
+
 export const InterviewDetails = () => {
     const [prepname,setPrepName] = useState('');
     const [diffLvl,setDifficultyLvl] = useState('');
@@ -14,11 +15,12 @@ export const InterviewDetails = () => {
     }
     const handleSubmit = async (e) => {
         e.preventDefault(); // Prevent page reload
-        const interviewData = {
-          preparationName: prepname,
-          difficultyLevel: diffLvl,
-          round: slctround,
-        };
+
+        // const interviewData = {
+        //   preparationName: prepname,
+        //   difficultyLevel: diffLvl,
+        //   round: slctround,
+        // };
         try {
             const uname = JSON.parse(localStorage.getItem("logindata"));
             //console.log(uname);
@@ -28,9 +30,10 @@ export const InterviewDetails = () => {
         
             const result = await axios.post('http://localhost:5001/auth/interviewdetails', { prepname, diffLvl, slctround},{headers});
             console.log(result);
-            if(slctround === 'Coding' && buttonClick)
+            if(slctround === 'Coding' && buttonClick){
+                localStorage.removeItem('remainingTime');
                 navigate('/codeeditor');
-            else
+            }else
                 console.log(slctround)
             setPrepName('');
             setDifficultyLvl('');
