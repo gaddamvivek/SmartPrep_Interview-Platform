@@ -4,9 +4,10 @@ const jwt = require('jsonwebtoken');
 const User = require('../models/user'); // Import the User model
 const IDS  = require('../models/intrwdtlsschema')
 const router = express.Router();
+const admin = require('../firebaseAdmin');
 router.use(express.json())
 require('dotenv').config();
-const admin = require('../firebaseAdmin');
+
 
 // Register route
 router.post('/register', async (req, res) => {
@@ -22,6 +23,7 @@ router.post('/register', async (req, res) => {
         await user.save();
         res.send('User registered successfully');
     } catch (err) {
+        console.error('Error details:', err);
         res.status(500).send('Error registering user');
     }
 });
@@ -117,8 +119,5 @@ router.post('/google', async (req, res) => {
         res.status(500).json({ error: 'Token verification failed' });
     }
 });
-
-module.exports = router;
-
 
 module.exports = router;
