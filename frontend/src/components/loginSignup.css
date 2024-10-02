@@ -120,8 +120,11 @@
 
   .loginsignupbtns {
     display: flex;
-    justify-content:space-evenly;  /* To spread the buttons evenly */
-    gap: 10px;  /* Optional: adds some space between the buttons */
+    justify-content: space-between;  /* Distribute buttons evenly */
+    width: 120%;  /* Ensure the container takes full width */
+    gap: 10px
   }
+
+
   
   
