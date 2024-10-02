@@ -68,12 +68,12 @@ const Feedback = () => {
   };
 
   return (
-    <div className="feedback-container">
+    <div className="feedback-container font-inconsolata">
       <h2>Your Performance</h2>
       <p>You passed {passedTestCases} out of {totalTestCases} test cases.</p>
 
       <h3>How was your interview experience?</h3>
-      <div className="feedback-review">
+      <div className="feedback-review font-inconsolata">
         <ul>
           <li
             className={`feedback-option excellent ${review === 'Excellent' ? 'selected' : ''}`}

@@ -25,7 +25,7 @@ export const NavBar = (props) => {
   };
 
   return (
-    <nav className=" relative grid grid-cols-3 justify-between items-center p-2 shadow-white shadow-lg">
+    <nav className=" relative grid grid-cols-3 justify-between font-rubik items-center p-2 shadow-white shadow-lg">
       <div
         onClick={handleHome}
         className="text-6xl cursor-pointer font-semibold font-mono"
