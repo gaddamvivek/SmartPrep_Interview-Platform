@@ -11,7 +11,6 @@ const admin = require('../firebaseAdmin');
 // Register route
 router.post('/register', async (req, res) => {
     const { fname, lname, username, email, password } = req.body;
-    console.log(fname)
 
     try {
         const userMail = await User.findOne({ email });
