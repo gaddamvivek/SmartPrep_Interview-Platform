@@ -4,7 +4,7 @@ import SessionManager from '../components/SessionManager';
 
 export const Dashboard = () => {
   return (
-    <div className="h-full bg-[#e6dceb] flex flex-col justify-end">
+    <div className="h-full bg-[#e6dceb] flex flex-col justify-end font-rubik">
       <SessionManager inactivityDuration={15 * 60 * 1000} />
 
       <NavBar showProfile={true} showNewInterview={true} />
@@ -13,7 +13,7 @@ export const Dashboard = () => {
         <h2 className="text-3xl text-center font-semibold p-3">
           Recent Interviews
         </h2>
-        <ul className="divide-y rounded-xl bg-[#d2bceb] w-1/2 h-3/2 p-2 m-auto divide-gray-300 shadow-gray-500 shadow-xl">
+        <ul className="divide-y rounded-xl bg-[#d2bceb] w-1/2 h-3/2 p-2 m-auto divide-gray-300 shadow-gray-500 shadow-lg">
           <li className="flex justify-between text-xl font-bold p-2">
             <p className="">Prep Name</p>
             <p className="">Date</p>

@@ -70,12 +70,12 @@ export const LoginSignup = () => {
   };
 
   return (
-    <div className="container">
-      <div className="header">
-        <div>Login</div>
+    <div className="container font-rubik">
+      <div className="header font-rubik">
+        <div className='font-rubik'>Login</div>
       </div>
       <form onSubmit={onSubmitHandler}>
-        <div className="inputContainer">
+        <div className="inputContainer font-rubik">
           <input
             type="email"
             placeholder="Email address"
