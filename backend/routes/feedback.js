@@ -1,7 +1,5 @@
 const express = require('express');
-const { submitFeedback } = require('../controllers/feedbackController');  // Ensure correct import
+const { submitFeedback } = require('../controllers/feedbackController'); 
 const router = express.Router();
-
-router.post('/submit', submitFeedback);  // Define the POST route for feedback
-
+router.post('/submit', submitFeedback); 
 module.exports = router;
