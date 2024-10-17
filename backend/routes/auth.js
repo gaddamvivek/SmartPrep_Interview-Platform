@@ -5,6 +5,8 @@ const User = require('../models/user'); // Import the User model
 const IDS  = require('../models/intrwdtlsschema')
 const router = express.Router();
 const admin = require('../firebaseAdmin');
+const sessionTable = require('../models/sessionTable');
+
 router.use(express.json())
 require('dotenv').config();
 
@@ -27,6 +29,26 @@ router.post('/register', async (req, res) => {
         res.status(500).send('Error registering user');
     }
 });
+
+router.post('/sessions', async (req, res) => {
+    try {
+        const { userEmail/*, userSolution, questionTitle */} = req.body;
+
+        const newSession = new sessionTable({
+            userEmail,
+            //userSolution,
+            //questionTitle,
+        });
+
+        await newSession.save();
+        console.log('Session saved successfully:', newSession); // Log success message
+        res.status(201).json({ message: 'Coding session saved successfully!' });
+    } catch (error) {
+        console.error('Error saving session:', error);
+        res.status(500).json({ error: 'Error saving session' });
+    }
+});
+
 
 //Interview Details route
 // Interview Details route

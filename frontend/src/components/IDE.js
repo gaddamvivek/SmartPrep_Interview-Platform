@@ -12,11 +12,17 @@ const IDE = ({ QuestionId, savedCode, handleSaveCode }) => {
   const [timeRemaining, setTimeRemaining] = useState(30 * 60); // 30 minutes in seconds
   const navigate = useNavigate(); // For navigation after interview ends
 
+  const [userEmail, setUserEmail] = useState('');
   // Load the saved code when the QuestionId changes
   useEffect(() => {
     setCode(savedCode || '');  // Set the editor with saved code or start with empty string
   }, [QuestionId, savedCode]);
-
+  
+    useEffect(() => {
+      // Fetch the user email from localStorage
+      const storedEmail = localStorage.getItem('userEmail');
+      setUserEmail(storedEmail);
+    }, []);
   // Fetch test cases when QuestionId changes
   useEffect(() => {
     const fetchQuestion = async () => {
@@ -106,15 +112,33 @@ const IDE = ({ QuestionId, savedCode, handleSaveCode }) => {
     }
 };
 
-const handleEndTest = () => {
-  if (testResults) {
-    // Redirect to feedback with test case results
-    navigate('/feedback', { state: { passedTestCases: testResults.passed, totalTestCases: testResults.total } });
-  } else {
-    // Redirect to feedback with default values if no test results are available
-    navigate('/feedback', { state: { passedTestCases: 0, totalTestCases: 0 } });
+const handleEndTest = async () => {
+  try {
+    // Make a POST request to save the session in the database
+   const result= await axios.post('http://localhost:5001/auth/sessions', {
+      userEmail:userEmail,
+      //userSolution: savedCode,
+      //questionTitle: QuestionId, // Use questionTitle variable here
+    });
+    if(result)
+    {
+      console.log("email saved");
+    }
+
+    // Redirect to the feedback page with test case results after saving
+    if (testResults) {
+      navigate('/feedback', { state: { passedTestCases: testResults.passed, totalTestCases: testResults.total } });
+    } else {
+      navigate('/feedback', { state: { passedTestCases: 0, totalTestCases: 0 } });
+    }
+
+    alert('Session data saved successfully!');
+  } catch (error) {
+    console.error('Error saving session:', error);
+    alert('Error saving session');
   }
 };
+
 
   return (  
     <div>
