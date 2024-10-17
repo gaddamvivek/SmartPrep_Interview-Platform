@@ -33,7 +33,14 @@ export const InterviewDetails = () => {
             if(slctround === 'Coding' && buttonClick){
                 localStorage.removeItem('remainingTime');
                 navigate('/codeeditor');
-            }else
+            }                
+            // Updated for Technical questions
+            else if (slctround === 'Technical questions' && buttonClick) {
+                localStorage.removeItem('remainingTime');
+                navigate('/technicalinterview'); // Redirect to the technical interview route
+            }
+              
+            
                 console.log(slctround)
             setPrepName('');
             setDifficultyLvl('');
