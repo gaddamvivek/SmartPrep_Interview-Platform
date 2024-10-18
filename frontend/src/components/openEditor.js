@@ -41,6 +41,7 @@ export const OpenEditor = () => {
               QuestionId={QuestionId}
               savedCode={savedCode[QuestionId] || ''} // Load saved code or empty string
               handleSaveCode={handleSaveCode}        // Pass save function to IDE
+              savedCodeMap={savedCode}
             />
           </div>
         </div>

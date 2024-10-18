@@ -31,12 +31,16 @@ router.post('/register', async (req, res) => {
 });
 
 router.post('/sessions', async (req, res) => {
-    try {
-        const { userEmail, timeTaken} = req.body;
-
+        const { userEmail, timeTaken, solutions} = req.body;
+        const formattedSolutions = Object.entries(solutions).map(([questionId, userSolution]) => ({
+            questionTitle: questionId, // Use questionId as questionTitle
+            userSolution: userSolution // The solution code
+        }));
+        try {
         const newSession = new sessionTable({
             userEmail,
             timeTaken,
+            questions: formattedSolutions,
         });
 
         await newSession.save();

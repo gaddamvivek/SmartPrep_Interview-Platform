@@ -4,7 +4,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom'; // For navigation after timeout
 import PropTypes from 'prop-types'; 
 
-const IDE = ({ QuestionId, savedCode, handleSaveCode }) => {
+const IDE = ({ QuestionId, savedCode, handleSaveCode,savedCodeMap }) => {
   const [code, setCode] = useState('');  // Editor code
   const [output, setOutput] = useState('');
   const [testResults, setTestResults] = useState(null);
@@ -127,12 +127,11 @@ const handleEndTest = async () => {
    const result= await axios.post('http://localhost:5001/auth/sessions', {
       userEmail:userEmail,
       timeTaken:formattedTimeTaken,
-      //userSolution: savedCode,
-      //questionTitle: QuestionId, // Use questionTitle variable here
+      solutions:savedCodeMap  // Send all saved solutions
     });
     if(result)
     {
-      console.log("email saved");
+      console.log("Session saved");
     }
 
     // Redirect to the feedback page with test case results after saving
@@ -193,6 +192,7 @@ IDE.propTypes = {
   QuestionId: PropTypes.string.isRequired, // or .number if it's numeric
   savedCode: PropTypes.string.isRequired,
   handleSaveCode: PropTypes.func.isRequired,
+  savedCodeMap: PropTypes.object.isRequired,
 };
 
 export default IDE;
