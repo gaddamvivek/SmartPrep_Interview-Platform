@@ -4,19 +4,24 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom'; // For navigation after timeout
 import PropTypes from 'prop-types'; 
 
-const IDE = ({ QuestionId, savedCode, handleSaveCode }) => {
+const IDE = ({ QuestionId, savedCode, handleSaveCode,savedCodeMap }) => {
   const [code, setCode] = useState('');  // Editor code
   const [output, setOutput] = useState('');
   const [testResults, setTestResults] = useState(null);
   const [testCases, setTestCases] = useState([]);
   const [timeRemaining, setTimeRemaining] = useState(30 * 60); // 30 minutes in seconds
   const navigate = useNavigate(); // For navigation after interview ends
-
+  const [userEmail, setUserEmail] = useState('');
   // Load the saved code when the QuestionId changes
   useEffect(() => {
     setCode(savedCode || '');  // Set the editor with saved code or start with empty string
   }, [QuestionId, savedCode]);
-
+  
+    useEffect(() => {
+      // Fetch the user email from localStorage
+      const storedEmail = localStorage.getItem('userEmail');
+      setUserEmail(storedEmail);
+    }, []);
   // Fetch test cases when QuestionId changes
   useEffect(() => {
     const fetchQuestion = async () => {
@@ -105,16 +110,44 @@ const IDE = ({ QuestionId, savedCode, handleSaveCode }) => {
       setOutput('Error during submission');
     }
 };
+const formatTime = (totalSeconds) => {
+  const hours = Math.floor(totalSeconds / 3600);
+  const minutes = Math.floor((totalSeconds % 3600) / 60);
+  const seconds = totalSeconds % 60;
 
-const handleEndTest = () => {
-  if (testResults) {
-    // Redirect to feedback with test case results
-    navigate('/feedback', { state: { passedTestCases: testResults.passed, totalTestCases: testResults.total } });
-  } else {
-    // Redirect to feedback with default values if no test results are available
-    navigate('/feedback', { state: { passedTestCases: 0, totalTestCases: 0 } });
+  return `${hours}h ${minutes}m ${seconds}s`;
+};
+
+
+const handleEndTest = async () => {
+  try {
+    const totalInterviewTimeInSeconds = 30 * 60 - timeRemaining; // Calculate total time taken in seconds
+    const formattedTimeTaken = formatTime(totalInterviewTimeInSeconds);
+    // Make a POST request to save the session in the database
+   const result= await axios.post('http://localhost:5001/auth/sessions', {
+      userEmail:userEmail,
+      timeTaken:formattedTimeTaken,
+      solutions:savedCodeMap  // Send all saved solutions
+    });
+    if(result)
+    {
+      console.log("Session saved");
+    }
+
+    // Redirect to the feedback page with test case results after saving
+    if (testResults) {
+      navigate('/feedback', { state: { passedTestCases: testResults.passed, totalTestCases: testResults.total } });
+    } else {
+      navigate('/feedback', { state: { passedTestCases: 0, totalTestCases: 0 } });
+    }
+
+    alert('Session data saved successfully!');
+  } catch (error) {
+    console.error('Error saving session:', error);
+    alert('Error saving session');
   }
 };
+
 
   return (  
     <div>
@@ -159,6 +192,7 @@ IDE.propTypes = {
   QuestionId: PropTypes.string.isRequired, // or .number if it's numeric
   savedCode: PropTypes.string.isRequired,
   handleSaveCode: PropTypes.func.isRequired,
+  savedCodeMap: PropTypes.object.isRequired,
 };
 
 export default IDE;
