@@ -32,12 +32,11 @@ router.post('/register', async (req, res) => {
 
 router.post('/sessions', async (req, res) => {
     try {
-        const { userEmail/*, userSolution, questionTitle */} = req.body;
+        const { userEmail, timeTaken} = req.body;
 
         const newSession = new sessionTable({
             userEmail,
-            //userSolution,
-            //questionTitle,
+            timeTaken,
         });
 
         await newSession.save();

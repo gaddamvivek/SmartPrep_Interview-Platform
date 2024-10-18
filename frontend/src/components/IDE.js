@@ -11,7 +11,6 @@ const IDE = ({ QuestionId, savedCode, handleSaveCode }) => {
   const [testCases, setTestCases] = useState([]);
   const [timeRemaining, setTimeRemaining] = useState(30 * 60); // 30 minutes in seconds
   const navigate = useNavigate(); // For navigation after interview ends
-
   const [userEmail, setUserEmail] = useState('');
   // Load the saved code when the QuestionId changes
   useEffect(() => {
@@ -111,12 +110,23 @@ const IDE = ({ QuestionId, savedCode, handleSaveCode }) => {
       setOutput('Error during submission');
     }
 };
+const formatTime = (totalSeconds) => {
+  const hours = Math.floor(totalSeconds / 3600);
+  const minutes = Math.floor((totalSeconds % 3600) / 60);
+  const seconds = totalSeconds % 60;
+
+  return `${hours}h ${minutes}m ${seconds}s`;
+};
+
 
 const handleEndTest = async () => {
   try {
+    const totalInterviewTimeInSeconds = 30 * 60 - timeRemaining; // Calculate total time taken in seconds
+    const formattedTimeTaken = formatTime(totalInterviewTimeInSeconds);
     // Make a POST request to save the session in the database
    const result= await axios.post('http://localhost:5001/auth/sessions', {
       userEmail:userEmail,
+      timeTaken:formattedTimeTaken,
       //userSolution: savedCode,
       //questionTitle: QuestionId, // Use questionTitle variable here
     });
