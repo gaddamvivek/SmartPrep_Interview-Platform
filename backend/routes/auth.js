@@ -33,9 +33,10 @@ router.post('/register', async (req, res) => {
 router.post('/sessions', async (req, res) => {
         const { userEmail, timeTaken, solutions} = req.body;
         const formattedSolutions = Object.entries(solutions).map(([questionId, userSolution]) => ({
-            questionTitle: questionId, // Use questionId as questionTitle
+            questionID: questionId, // Use questionId as questionTitle
             userSolution: userSolution // The solution code
         }));
+        console.log(formattedSolutions);
         try {
         const newSession = new sessionTable({
             userEmail,
