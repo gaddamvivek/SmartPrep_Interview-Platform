@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 import axios from 'axios';
 import TechAnswerInputs from './TechAnswerInputs';
+import './TechnicalInterview.css';
 
 const TechnicalInterview = ({ permissions }) => {
   const [questions, setQuestions] = useState([{ _id: 1, title: 'What is React?', description: 'Explain the basic concepts of React.' },
@@ -13,13 +14,13 @@ const TechnicalInterview = ({ permissions }) => {
 
 
   useEffect(() => {
-    //fetchQuestions();
+    fetchQuestions();
   }, [difficulty]);
 
   const fetchQuestions = async () => {
     try {
-      const response = await axios.get(`/api/tech/getRandomTechnicalQuestions?difficulty=${difficulty}`);
-      console.log(response.data)
+      const response = await axios.get(`api/tech/getRandomTechnicalQuestions?difficulty=medium`);
+      alert(response.data)
       //setQuestions(response.data.slice(0, 3)); // Get only 3 questions
       setCurrentQuestionIndex(0); // Reset to first question when difficulty changes
     } catch (error) {
@@ -71,54 +72,53 @@ const TechnicalInterview = ({ permissions }) => {
 
   return (
     <div>
-      <h1>Technical Interview Platform</h1>
-
-      {/* Display current question index out of total */}
-      <div>
-        <h2>
-          Question {currentQuestionIndex + 1} of {questions.length}
-        </h2>
+      {/* Header Section */}
+      <div className="header">
+        <span>PrepSmart</span>
       </div>
-
-      {/* Difficulty selection */}
-      <div>
-        <label>Select Difficulty: </label>
-        <select value={difficulty} onChange={(e) => setDifficulty(e.target.value)}>
-          <option value="easy">Easy</option>
-          <option value="medium">Medium</option>
-          <option value="hard">Hard</option>
-        </select>
-      </div>
-
-      {/* Display Single Question */}
-      <div>
-        {questions.length > 0 && (
-          <div>
-            <h3>Question: {questions[currentQuestionIndex].title}</h3>
-            <p>{questions[currentQuestionIndex].description}</p>
+  
+      {/* Main Container */}
+      <div className="technical-interview-container">
+        
+        {/* Left Section: Questions */}
+        <div className="question-section">
+        <h2>Technical Interview</h2>
+          <div className="difficulty-selection">
+            <label>Change Difficulty Level: </label>
+            <select value={difficulty} onChange={(e) => setDifficulty(e.target.value)}>
+              <option value="easy">Easy</option>
+              <option value="medium">Medium</option>
+              <option value="hard">Hard</option>
+            </select>
           </div>
-        )}
+  
+          {/* Navigation Buttons */}
+          <div className="question-navigation">
+            <button onClick={previousQuestion} disabled={currentQuestionIndex === 0}>Previous</button>
+            <button onClick={nextQuestion} disabled={currentQuestionIndex === questions.length - 1}>Next</button>
+          </div>
+  
+          {/* Display the current question */}
+          {questions.length > 0 && (
+            <div>
+              <h3>Question: {questions[currentQuestionIndex].title}</h3>
+              <p>{questions[currentQuestionIndex].description}</p>
+            </div>
+          )}
+        </div>
+  
+        {/* Right Section: Answer Input */}
+        <div className="answer-section">
+          <TechAnswerInputs 
+            permissions={permissions}
+            saveAnswer={saveAnswer}
+            currentAnswer={answers[questions[currentQuestionIndex]?._id] || ''} 
+            onSubmitAnswers={submitAnswers}
+          />
+        </div>
       </div>
-
-      {/* Navigation Buttons for Questions */}
-      <div>
-        <button onClick={previousQuestion} disabled={currentQuestionIndex === 0}>
-          Previous Question
-        </button>
-        <button onClick={nextQuestion} disabled={currentQuestionIndex === questions.length - 1}>
-          Next Question
-        </button>
-      </div>
-
-      {/* Answer Input and Save */}
-      <TechAnswerInputs 
-        permissions={permissions}
-        saveAnswer={saveAnswer}
-        currentAnswer={answers[questions[currentQuestionIndex]?._id] || ''} // Pass the saved answer for the current question
-        onSubmitAnswers={submitAnswers}
-      />
     </div>
-  );
-};
+  )};
+  
 
 export default TechnicalInterview;

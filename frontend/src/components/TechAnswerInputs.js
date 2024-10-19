@@ -88,11 +88,13 @@ const TechAnswerInputs = ({ permissions, saveAnswer, currentAnswer, onSubmitAnsw
       </div>
 
       {permissions.cameraGranted ? (
-        <div>
-          <Webcam audio={true} ref={webcamRef} screenshotFormat="image/jpeg" />
+        <div className='Video'>
+          <div>
+          <Webcam audio={true} ref={webcamRef} screenshotFormat="image/jpeg" width="320" height="240"/>
           <div>
             <button onClick={startVideoRecording} disabled={isVideoRecording}>Start Video Recording</button>
             <button onClick={stopVideoRecording} disabled={!isVideoRecording}>Stop Video Recording</button>
+          </div>
           </div>
           {videoBlob && (
             <div>
@@ -100,6 +102,7 @@ const TechAnswerInputs = ({ permissions, saveAnswer, currentAnswer, onSubmitAnsw
               <button onClick={saveVideo}>Save Video</button>
             </div>
           )}
+
         </div>
       ) : (
         <p>Camera permission is not granted. Video recording is disabled.</p>
