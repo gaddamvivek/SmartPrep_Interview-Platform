@@ -1,5 +1,4 @@
-// TechAnswerInputs.js
-import React, { useState, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 import Webcam from 'react-webcam';
 
@@ -12,6 +11,10 @@ const TechAnswerInputs = ({ permissions, saveAnswer, currentAnswer, onSubmitAnsw
   const webcamRef = useRef(null);
   const mediaRecorderRef = useRef(null);
   const { transcript, resetTranscript } = useSpeechRecognition();
+
+  useEffect(() => {
+    setTranscriptText(currentAnswer || ''); // Update transcript when currentAnswer changes
+  }, [currentAnswer]);
 
   const handleTranscriptChange = (e) => {
     setTranscriptText(e.target.value);

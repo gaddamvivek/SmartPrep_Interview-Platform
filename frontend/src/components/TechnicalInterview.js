@@ -4,56 +4,27 @@ import axios from 'axios';
 import TechAnswerInputs from './TechAnswerInputs';
 
 const TechnicalInterview = ({ permissions }) => {
-  const [questions, setQuestions] = useState([]);
+  const [questions, setQuestions] = useState([{ _id: 1, title: 'What is React?', description: 'Explain the basic concepts of React.' },
+    { _id: 2, title: 'What is Node.js?', description: 'Describe the main features of Node.js.' },
+    { _id: 3, title: 'What is MongoDB?', description: 'What are the advantages of using MongoDB?' }]);
   const [difficulty, setDifficulty] = useState('easy');
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [answers, setAnswers] = useState({});
 
-  const { transcript, resetTranscript } = useSpeechRecognition();
 
   useEffect(() => {
-    fetchQuestions();
+    //fetchQuestions();
   }, [difficulty]);
 
   const fetchQuestions = async () => {
     try {
       const response = await axios.get(`/api/tech/getRandomTechnicalQuestions?difficulty=${difficulty}`);
-      setQuestions(response.data);
+      console.log(response.data)
+      //setQuestions(response.data.slice(0, 3)); // Get only 3 questions
       setCurrentQuestionIndex(0); // Reset to first question when difficulty changes
     } catch (error) {
       console.error('Error fetching questions:', error);
     }
-  };
-
-  const startRecording = () => {
-    SpeechRecognition.startListening({ continuous: true });
-    setRecording(true);
-  };
-
-  const stopRecording = async () => {
-    SpeechRecognition.stopListening();
-    setRecording(false);
-
-    // Save the transcript to the answers state
-    const currentQuestion = questions[currentQuestionIndex];
-    if (currentQuestion) {
-      setAnswers((prevAnswers) => ({
-        ...prevAnswers,
-        [currentQuestion._id]: transcript,
-      }));
-
-      // Save answer to the server
-      try {
-        await axios.post('/api/tech/get/RecordAnswer', {
-          questionId: currentQuestion._id,
-          transcript,
-        });
-        console.log('Answer saved successfully');
-      } catch (error) {
-        console.error('Error saving answer:', error);
-      }
-    }
-    resetTranscript();
   };
 
   const nextQuestion = () => {
@@ -68,28 +39,23 @@ const TechnicalInterview = ({ permissions }) => {
     }
   };
 
-  const capturePhoto = async () => {
-    const imageSrc = webcamRef.current.getScreenshot();
-    console.log('Captured image:', imageSrc);
-    // Save or upload the image to the server
-    try {
-      await axios.post('/api/tech/capturePhoto', { imageSrc });
-      console.log('Image captured successfully');
-    } catch (error) {
-      console.error('Error capturing image:', error);
-    }
-  };
   const saveAnswer = (answer) => {
-    setAnswers((prevAnswers) => ({
-      ...prevAnswers,
-      [currentQuestionIndex]: answer,
-    }));
+    const currentQuestion = questions[currentQuestionIndex];
+    if (currentQuestion) {
+      setAnswers((prevAnswers) => ({
+        ...prevAnswers,
+        [currentQuestion._id]: answer, // Save the answer for the current question
+      }));
+    }
     alert('Answer saved!');
   };
 
   const submitAnswers = async () => {
     const intervieweeId = '12345'; // Replace with actual interviewee ID
-    const formattedAnswers = Object.values(answers);
+    const formattedAnswers = Object.keys(answers).map((questionId) => ({
+      questionId,
+      answer: answers[questionId],
+    }));
 
     try {
       await axios.post('http://localhost:5001/api/submit-answers', {
@@ -107,6 +73,13 @@ const TechnicalInterview = ({ permissions }) => {
     <div>
       <h1>Technical Interview Platform</h1>
 
+      {/* Display current question index out of total */}
+      <div>
+        <h2>
+          Question {currentQuestionIndex + 1} of {questions.length}
+        </h2>
+      </div>
+
       {/* Difficulty selection */}
       <div>
         <label>Select Difficulty: </label>
@@ -121,7 +94,7 @@ const TechnicalInterview = ({ permissions }) => {
       <div>
         {questions.length > 0 && (
           <div>
-            <h2>Question {currentQuestionIndex + 1}: {questions[currentQuestionIndex].title}</h2>
+            <h3>Question: {questions[currentQuestionIndex].title}</h3>
             <p>{questions[currentQuestionIndex].description}</p>
           </div>
         )}
@@ -137,10 +110,11 @@ const TechnicalInterview = ({ permissions }) => {
         </button>
       </div>
 
+      {/* Answer Input and Save */}
       <TechAnswerInputs 
         permissions={permissions}
         saveAnswer={saveAnswer}
-        currentAnswer={answers[currentQuestionIndex]}
+        currentAnswer={answers[questions[currentQuestionIndex]?._id] || ''} // Pass the saved answer for the current question
         onSubmitAnswers={submitAnswers}
       />
     </div>

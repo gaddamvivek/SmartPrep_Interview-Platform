@@ -1,20 +1,27 @@
 const mongoose = require('mongoose');
 
 const AnswerSchema = new mongoose.Schema({
+  questionId: {
+    type: String,
+    required: true,
+  },
+  answer: {
+    type: String,
+    required: true,
+  }
+});
+
+const InterviewResponseSchema = new mongoose.Schema({
   intervieweeId: {
     type: String,
     required: true,
   },
   answers: {
-    type: [String], // Array of strings (answers)
+    type: [AnswerSchema], // Array of AnswerSchema objects
     required: true,
-  },
-  submittedAt: {
-    type: Date,
-    default: Date.now,
   },
 });
 
-const Answer = mongoose.model('Answer', AnswerSchema);
+const InterviewResponse = mongoose.model('InterviewResponse', InterviewResponseSchema);
 
-module.exports = Answer;
+module.exports = InterviewResponse;
