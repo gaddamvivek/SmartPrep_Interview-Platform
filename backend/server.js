@@ -7,15 +7,14 @@ const axios = require('axios');
 const path = require('path');
 const admin = require('firebase-admin'); // Firebase Admin SDK for Google Auth
 const feedbackRoutes = require('./routes/feedback'); //feedback route
+const techQnRoutes = require('./routes/techQn'); // technical questions route
+const answerRoutes = require('./routes/answerRoutes');
 require('dotenv').config();
 const User = require('./models/user'); // Import the User model
+const Answer = require('./models/Answer');
 
 // Initialize Firebase Admin SDK
 const serviceAccount = require(path.join(__dirname, 'firebase-adminsdk-key.json')); 
-
-// admin.initializeApp({
-//   credential: admin.credential.cert(serviceAccount),
-// });
 
 const app = express();
 app.use(cors());
@@ -33,6 +32,7 @@ const RAPID_API_KEY = process.env.JUDGE0_API_KEY;
 
 app.use('/api/Questions', QuestionRoutes);
 app.use('/auth', authenticationRoutes);
+app.use('/api/tech', techQnRoutes); // Technical questions routes
 // Google Sign-In Route
 app.post('/auth/google', async (req, res) => {
   const { token } = req.body;
@@ -68,6 +68,28 @@ app.post('/auth/google', async (req, res) => {
 // API Routes
 app.use('/api/Questions', QuestionRoutes);
 app.use('/auth', authenticationRoutes);
+app.use('/api/answers', answerRoutes);
+
+// API route to submit answers for technical interview
+app.post('/api/submit-answers', async (req, res) => {
+  const { intervieweeId, answers } = req.body;
+
+  try {
+    // Create a new Answer document in MongoDB
+    const newAnswer = new Answer({
+      intervieweeId,
+      answers
+    });
+
+    await newAnswer.save();  // Save the document to MongoDB
+    res.status(200).json({ message: 'Answers submitted successfully' });
+  } catch (error) {
+    console.log(intervieweeId,answers);
+    console.log(error);
+    res.status(500).json({ message: 'Error saving answers', error });
+  }
+});
+
 
 // Code submission endpoint
 app.post('/api/submit', async (req, res) => {
@@ -114,60 +136,6 @@ app.post('/api/submit', async (req, res) => {
   } catch (error) {
     console.error('Error during submission:', error);
     res.status(500).json({ error: 'Error submitting code' });
-  }
-});
-
-// New endpoint for dynamic question generation
-app.post('/api/generateQuestion', async (req, res) => {
-  const { difficulty } = req.body; // Get difficulty from request body ('easy', 'medium', 'hard')
-
-  try {
-    const prompt = `
-      Generate a Python coding question based on difficulty "${difficulty}". Provide the following:
-      1. A title for the problem.
-      2. A description of the problem.
-      3. Two test cases with inputs and expected outputs.
-      4. A Python function that solves the problem.
-    `;
-
-    // Call OpenAI API to generate coding question
-    const response = await axios.post(
-      'https://api.openai.com/v1/completions',
-      {
-        model: 'text-davinci-003',  // Use a suitable model
-        prompt: prompt,
-        max_tokens: 300,
-        temperature: 0.7,
-      },
-      {
-        headers: {
-          'Authorization': `Bearer ${GEMINI_API_KEY}`,
-          'Content-Type': 'application/json',
-        },
-      }
-    );
-
-    const generatedText = response.data.choices[0].text;
-
-    // Parse the generated text into question fields
-    const [title, description, testCase1, testCase2, solution] = generatedText.split('\n').filter(line => line.trim() !== '');
-
-    const question = {
-      title: title.trim(),
-      description: description.trim(),
-      testCases: [
-        { input: testCase1.split('Input: ')[1], output: testCase1.split('Output: ')[1] },
-        { input: testCase2.split('Input: ')[1], output: testCase2.split('Output: ')[1] }
-      ],
-      solution: solution.trim()
-    };
-
-    // Return the newly generated question
-    res.json(question);
-
-  } catch (error) {
-    console.error('Error generating question:', error);
-    res.status(500).json({ error: 'Error generating question' });
   }
 });
 
