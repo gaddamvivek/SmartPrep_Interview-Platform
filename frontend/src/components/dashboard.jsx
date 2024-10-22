@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavBar } from './NavBar';
 import SessionManager from '../components/SessionManager';
+import interviews from '../interviewsData';
 
 export const Dashboard = () => {
   return (
@@ -19,21 +20,18 @@ export const Dashboard = () => {
             <p className="">Date</p>
             <p className="">Level</p>
           </li>
-          <li className="flex justify-between">
-            <p className="">Python Practice</p>
-            <p className="">09/28/2024</p>
-            <p className="">Medium</p>
-          </li>
-          <li className="flex justify-between">
-            <p className="">Js Beginning</p>
-            <p className="">09/25/2024</p>
-            <p className="">Easy</p>
-          </li>
-          <li className="flex justify-between">
-            <p className="">React Work</p>
-            <p className="">09/20/2024</p>
-            <p className="">Hard</p>
-          </li>
+          {interviews.map((item, index) => {
+            return (
+              <li
+                key={index}
+                className="flex justify-between text-xl font-bold p-2"
+              >
+                <p className="">{item.prepName}</p>
+                <p className="">{item.date}</p>
+                <p className="">{item.level}</p>
+              </li>
+            );
+          })}
         </ul>
       </div>
 
@@ -46,16 +44,12 @@ export const Dashboard = () => {
         <div className="w-full rounded-md  font-semibold text-center content-center">
           <div className="text-2xl font-semibold">787</div>
           <div className="flex gap-3 justify-center">Interviews Attended</div>
-          <div className="text-xs  font-normal">
-            Sept 2024 - Present
-          </div>
+          <div className="text-xs  font-normal">Sept 2024 - Present</div>
         </div>
         <div className="w-full rounded-md  font-semibold text-center content-center">
           <div className="text-2xl font-semibold">787</div>
           <div className="flex gap-3 justify-center">Interviews Attended</div>
-          <div className="text-xs  font-normal">
-            Sept 2024 - Present
-          </div>
+          <div className="text-xs  font-normal">Sept 2024 - Present</div>
         </div>
       </div>
     </div>
