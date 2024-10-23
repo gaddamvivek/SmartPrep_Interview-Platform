@@ -16,9 +16,13 @@ export const NavBar = (props) => {
   const showProfile = props.showProfile || false;
 
   const handleSignIn = () => {
-    if (localStorage.getItem('logindata')) navigate('/interviewdetails');
+    if (localStorage.getItem('logindata')) navigate('/dashboard');
     else navigate('/login');
   };
+  const handleNewInterview = () => {
+    if (localStorage.getItem('logindata')) navigate('/interviewdetails');
+    else navigate('/login');
+  }
 
   const handleHome = () => {
     navigate('/dashboard');
@@ -35,7 +39,7 @@ export const NavBar = (props) => {
       {showNewInterview && (
         <div className="flex justify-center">
           <div
-            onClick={handleSignIn}
+            onClick={handleNewInterview}
             className="text-center font-semibold cursor-pointer text-lg bg-[#7360bf] p-2 rounded-lg text-[#ffffff] hover:bg-[#433878] w-fit"
           >
             New Interview
