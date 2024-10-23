@@ -2,12 +2,11 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import './interviewDetails.css';
 import axios from 'axios';
-// import { Dashboard } from './dashboard';
 
 export const InterviewDetails = () => {
     const [prepname,setPrepName] = useState('');
     const [diffLvl,setDifficultyLvl] = useState('');
-    const [slctround,setRound] = useState('Technical Questions');
+    const [slctround,setRound] = useState('');
     const [buttonClick,setButtonClick] = useState(false);
     const navigate = useNavigate();
     const onClickHandler = () => {
@@ -15,15 +14,8 @@ export const InterviewDetails = () => {
     }
     const handleSubmit = async (e) => {
         e.preventDefault(); // Prevent page reload
-
-        // const interviewData = {
-        //   preparationName: prepname,
-        //   difficultyLevel: diffLvl,
-        //   round: slctround,
-        // };
         try {
             const uname = JSON.parse(localStorage.getItem("logindata"));
-            //console.log(uname);
             const headers = {
                 Authorization: `Bearer ${uname}`,  // Send the token in the Authorization header
             };
@@ -39,9 +31,11 @@ export const InterviewDetails = () => {
                 localStorage.removeItem('remainingTime');
                 navigate('/technicalinterview'); // Redirect to the technical interview route
             }
+
               
             
                 console.log(slctround)
+
             setPrepName('');
             setDifficultyLvl('');
             setRound('');
@@ -84,7 +78,7 @@ export const InterviewDetails = () => {
             </div>
             <div className='btns'>
                 <button type = "button" onClick={onClickHandler}>Previous</button>
-                <button type="submit" onClick={() => setButtonClick(true)}>{slctround}</button>
+                <button type="submit" onClick={() => setButtonClick(true)}>Next</button>
             </div>
         </form>
     </div>
