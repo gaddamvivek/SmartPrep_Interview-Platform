@@ -1,28 +1,24 @@
 import React, { useState, useEffect } from 'react';
-import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 import axios from 'axios';
+import PropTypes from 'prop-types';
 import TechAnswerInputs from './TechAnswerInputs';
 import './TechnicalInterview.css';
 
 const TechnicalInterview = ({ permissions }) => {
-  const [questions, setQuestions] = useState([{ _id: 1, title: 'What is React?', description: 'Explain the basic concepts of React.' },
-    { _id: 2, title: 'What is Node.js?', description: 'Describe the main features of Node.js.' },
-    { _id: 3, title: 'What is MongoDB?', description: 'What are the advantages of using MongoDB?' }]);
+  const [questions, setQuestions] = useState([]);
   const [difficulty, setDifficulty] = useState('easy');
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [answers, setAnswers] = useState({});
 
-
   useEffect(() => {
-    fetchQuestions();
+    fetchQuestions(difficulty); // Fetch questions when the component mounts or difficulty changes
   }, [difficulty]);
 
-  const fetchQuestions = async () => {
+  const fetchQuestions = async (difficulty) => {
     try {
-      const response = await axios.get(`api/tech/getRandomTechnicalQuestions?difficulty=medium`);
-      alert(response.data)
-      //setQuestions(response.data.slice(0, 3)); // Get only 3 questions
-      setCurrentQuestionIndex(0); // Reset to first question when difficulty changes
+      const response = await axios.get(`http://localhost:5001/api/tech/getRandomTechnicalQuestions?difficulty=${difficulty}`);
+      setQuestions(response.data.slice(0, 3)); // Assuming you only want 3 questions at a time
+      setCurrentQuestionIndex(0); // Reset to the first question when questions are fetched
     } catch (error) {
       console.error('Error fetching questions:', error);
     }
@@ -76,13 +72,13 @@ const TechnicalInterview = ({ permissions }) => {
       <div className="header">
         <span>PrepSmart</span>
       </div>
-  
+
       {/* Main Container */}
       <div className="technical-interview-container">
         
         {/* Left Section: Questions */}
         <div className="question-section">
-        <h2>Technical Interview</h2>
+          <h2>Technical Interview</h2>
           <div className="difficulty-selection">
             <label>Change Difficulty Level: </label>
             <select value={difficulty} onChange={(e) => setDifficulty(e.target.value)}>
@@ -91,13 +87,13 @@ const TechnicalInterview = ({ permissions }) => {
               <option value="hard">Hard</option>
             </select>
           </div>
-  
+
           {/* Navigation Buttons */}
           <div className="question-navigation">
             <button onClick={previousQuestion} disabled={currentQuestionIndex === 0}>Previous</button>
             <button onClick={nextQuestion} disabled={currentQuestionIndex === questions.length - 1}>Next</button>
           </div>
-  
+
           {/* Display the current question */}
           {questions.length > 0 && (
             <div>
@@ -106,7 +102,7 @@ const TechnicalInterview = ({ permissions }) => {
             </div>
           )}
         </div>
-  
+
         {/* Right Section: Answer Input */}
         <div className="answer-section">
           <TechAnswerInputs 
@@ -118,7 +114,14 @@ const TechnicalInterview = ({ permissions }) => {
         </div>
       </div>
     </div>
-  )};
-  
+  );
+};
+
+// Add prop types validation
+TechnicalInterview.propTypes = {
+  permissions: PropTypes.object.isRequired, // Assuming permissions is an object, adjust the type accordingly
+};
 
 export default TechnicalInterview;
+
+
