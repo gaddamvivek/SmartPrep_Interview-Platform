@@ -6,6 +6,7 @@ const IDS  = require('../models/intrwdtlsschema')
 const router = express.Router();
 const admin = require('../firebaseAdmin');
 const sessionTable = require('../models/sessionTable');
+const Answer = require('../models/Answer');
 
 router.use(express.json())
 require('dotenv').config();
@@ -50,6 +51,25 @@ router.post('/sessions', async (req, res) => {
     } catch (error) {
         console.error('Error saving session:', error);
         res.status(500).json({ error: 'Error saving session' });
+    }
+});
+
+router.post('/tsessions', async (req, res) => {
+    const { userEmail, timeTaken, answers } = req.body;
+
+    try {
+        const newAnswer = new Answer({
+            userEmail,
+            timeTaken,
+            answers,
+        });
+
+        await newAnswer.save();
+        console.log('Session saved successfully:', newAnswer);
+        res.status(201).json({ message: 'Answers saved successfully!' });
+    } catch (error) {
+        console.error('Error saving session:', error);
+        res.status(500).json({ message: 'Error saving answers', error });
     }
 });
 

@@ -1,11 +1,11 @@
-const express = require('express');
+/*const express = require('express');
 const Answer = require('../models/Answer');
 
 const router = express.Router();
 
 // Save answers
 router.post('/save', async (req, res) => {
-  const { intervieweeId, answers } = req.body;
+  const { userEmail, timeTaken, intervieweeId, answers } = req.body;
 
   if (!intervieweeId || !answers || !Array.isArray(answers)) {
     return res.status(400).json({ message: 'Invalid data. Interviewee ID and answers are required.' });
@@ -13,6 +13,8 @@ router.post('/save', async (req, res) => {
 
   try {
     const newAnswer = new Answer({
+      userEmail,
+      timeTaken,
       intervieweeId,
       answers,
     });
@@ -34,4 +36,4 @@ router.get('/', async (req, res) => {
   }
 });
 
-module.exports = router;
+module.exports = router;*/

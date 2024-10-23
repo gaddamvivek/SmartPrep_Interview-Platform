@@ -8,10 +8,10 @@ const path = require('path');
 const admin = require('firebase-admin'); // Firebase Admin SDK for Google Auth
 const feedbackRoutes = require('./routes/feedback'); //feedback route
 const techQnRoutes = require('./routes/techQn'); // technical questions route
-const answerRoutes = require('./routes/answerRoutes');
+//const answerRoutes = require('./routes/answerRoutes');
 require('dotenv').config();
 const User = require('./models/user'); // Import the User model
-const Answer = require('./models/Answer');
+//const Answer = require('./models/Answer');
 
 // Initialize Firebase Admin SDK
 const serviceAccount = require(path.join(__dirname, 'firebase-adminsdk-key.json')); 
@@ -68,10 +68,10 @@ app.post('/auth/google', async (req, res) => {
 // API Routes
 app.use('/api/Questions', QuestionRoutes);
 app.use('/auth', authenticationRoutes);
-app.use('/api/answers', answerRoutes);
+//app.use('/api/answers', answerRoutes);
 
 // API route to submit answers for technical interview
-app.post('/api/submit-answers', async (req, res) => {
+/*app.post('/api/submit-answers', async (req, res) => {
   const { intervieweeId, answers } = req.body;
 
   try {
@@ -88,7 +88,7 @@ app.post('/api/submit-answers', async (req, res) => {
     console.log(error);
     res.status(500).json({ message: 'Error saving answers', error });
   }
-});
+});*/
 
 
 // Code submission endpoint
