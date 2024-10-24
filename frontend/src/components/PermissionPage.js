@@ -51,6 +51,7 @@ const PermissionPage = ({ onPermissionGranted }) => {
   };
 
   const proceedToInterview = () => {
+    localStorage.setItem('interviewSessionActive', 'true'); // Mark interview session as active
     onPermissionGranted({ cameraGranted, microphoneGranted });
   };
 
