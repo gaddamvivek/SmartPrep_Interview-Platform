@@ -40,11 +40,11 @@ export const LoginSignup = () => {
     }
     try {
       const result = await axios.post('http://localhost:5001/auth/login', { email, password });
-      console.log(result)
       if(result){
         window.localStorage.setItem("isLoggedIn", true);   
         localStorage.setItem("logindata",JSON.stringify(result.data.accessToken))
         localStorage.setItem("userEmail", email)
+        localStorage.setItem("userName", result.data.userName)
         navigate('/dashboard') 
       }
       // Reset form fields
@@ -69,6 +69,9 @@ export const LoginSignup = () => {
     setPasswordError('');
     navigate('/Signup');
   };
+  const forgetPasswordHandler = () => {
+    navigate('/forgetpassword');
+  }
 
   return (
     <div className="container font-rubik">
@@ -104,7 +107,7 @@ export const LoginSignup = () => {
           </div>
         </div>
         <div className="forget-password">
-          Forget password? <span>Click Here!</span>
+          Forget password? <span onClick = {forgetPasswordHandler}>Click Here!</span>
         </div>
         <p className="Registerhere" style={{ color: '#393f81' }}>
           Don&apos;t have an account?

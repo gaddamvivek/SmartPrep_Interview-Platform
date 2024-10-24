@@ -31,11 +31,6 @@ export const InterviewDetails = () => {
                 localStorage.removeItem('remainingTime');
                 navigate('/technicalinterview'); // Redirect to the technical interview route
             }
-
-              
-            
-                console.log(slctround)
-
             setPrepName('');
             setDifficultyLvl('');
             setRound('');
