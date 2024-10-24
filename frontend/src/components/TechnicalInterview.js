@@ -113,7 +113,7 @@ const TechnicalInterview = ({ permissions }) => {
      const result= await axios.post('http://localhost:5001/auth/tsessions', {
         userEmail:userEmail,
         timeTaken:formattedTimeTaken,
-        solutions:formattedAnswers, // Send all saved solutions
+        answers:formattedAnswers, // Send all saved solutions
       });
       if(result)
       {
