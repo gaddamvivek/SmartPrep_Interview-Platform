@@ -7,7 +7,26 @@
     box-sizing: border-box;
   }
   
-
+  .time h2 {
+    background-color: #6a4aa3;
+    color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+  }
+  /* Header section */
+  .header {
+    background-color: #6a4aa3; /* Purple header */
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
   
   
   /* Left section: Question details */
