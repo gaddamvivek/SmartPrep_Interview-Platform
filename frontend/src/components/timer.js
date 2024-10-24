@@ -36,6 +36,7 @@ const Timer = ({ interviewTime, setTestRun,testRun }) => {
     return `${minutes.toString().padStart(2, '0')}:${remainingSeconds.toString().padStart(2, '0')}`;
   };
 
+  console.log('timer is working');
 
   return (
     <div>

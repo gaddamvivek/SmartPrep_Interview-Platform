@@ -7,6 +7,15 @@
     box-sizing: border-box;
   }
   
+  .time h2 {
+    background-color: #6a4aa3;
+    color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+  }
   /* Header section */
   .header {
     background-color: #6a4aa3; /* Purple header */

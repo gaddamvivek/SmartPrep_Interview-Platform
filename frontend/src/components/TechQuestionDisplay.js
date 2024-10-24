@@ -1,6 +1,6 @@
 // TechQuestionDisplay.js
-import React from 'react';
-import Timer from './timer';
+import React, { useState } from 'react';
+//import TechnicalInterview from './TechnicalInterview';
 
 const TechQuestionDisplay = ({ questions, currentQuestionIndex, nextQuestion, previousQuestion }) => {
   // Log the props to ensure they are being passed correctly
@@ -10,9 +10,6 @@ const TechQuestionDisplay = ({ questions, currentQuestionIndex, nextQuestion, pr
   return (
     <div>
       <h2>Technical Interview Platform</h2>
-      <div className="time">
-            <Timer interviewTime={1800} setTestRun={setTestRun} testRun={testRun} />
-          </div>
       {questions.length > 0 && (
         <div>
           <h3>Question {currentQuestionIndex + 1}: {questions[currentQuestionIndex].title}</h3>

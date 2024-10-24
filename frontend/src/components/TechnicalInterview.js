@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
 import TechAnswerInputs from './TechAnswerInputs';
 import './TechnicalInterview.css';
+import Timer from './timer';
 
 const TechnicalInterview = ({ permissions }) => {
   const [questions, setQuestions] = useState([]);
@@ -13,6 +14,7 @@ const TechnicalInterview = ({ permissions }) => {
   const [userEmail, setUserEmail] = useState('');
   const [timeRemaining, setTimeRemaining] = useState(30 * 60);
   const navigate = useNavigate();
+  const [testRun, setTestRun] = useState(true);
 
   useEffect(() => {
     fetchQuestions(difficulty); // Fetch questions when the component mounts or difficulty changes
@@ -131,7 +133,10 @@ const TechnicalInterview = ({ permissions }) => {
       {/* Header Section */}
       <div className="header">
         <span>PrepSmart</span>
-      </div>
+      <div className="time">
+            <Timer interviewTime={900} setTestRun={setTestRun} testRun={testRun} />
+          </div>
+          </div>
 
       {/* Main Container */}
       <div className="technical-interview-container">
