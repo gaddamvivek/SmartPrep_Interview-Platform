@@ -9,7 +9,7 @@ const IDE = ({ QuestionId, savedCode, handleSaveCode,savedCodeMap }) => {
   const [output, setOutput] = useState('');
   const [testResults, setTestResults] = useState(null);
   const [testCases, setTestCases] = useState([]);
-  const [timeRemaining, setTimeRemaining] = useState(30 * 60); // 30 minutes in seconds
+  const [timeRemaining, setTimeRemaining] = useState(30); // 30 minutes in seconds
   const navigate = useNavigate(); // For navigation after interview ends
   const [userEmail, setUserEmail] = useState('');
   // Load the saved code when the QuestionId changes
@@ -46,7 +46,7 @@ const IDE = ({ QuestionId, savedCode, handleSaveCode,savedCodeMap }) => {
     if (timeRemaining <= 0) {
       // Time is up, navigate to the feedback page
       alert("Time's up! Redirecting to the feedback page.");
-      navigate('/feedback'); // Adjust the path as needed
+      handleEndTest(); // Adjust the path as needed
       return;
     }
 
@@ -121,7 +121,7 @@ const formatTime = (totalSeconds) => {
 
 const handleEndTest = async () => {
   try {
-    const totalInterviewTimeInSeconds = 30 * 60 - timeRemaining; // Calculate total time taken in seconds
+    const totalInterviewTimeInSeconds = 30 - timeRemaining; // Calculate total time taken in seconds
     const formattedTimeTaken = formatTime(totalInterviewTimeInSeconds);
     // Make a POST request to save the session in the database
    const result= await axios.post('http://localhost:5001/auth/sessions', {
