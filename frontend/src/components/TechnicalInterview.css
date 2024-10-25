@@ -7,6 +7,7 @@
     box-sizing: border-box;
   }
   
+
   .time h2 {
     background-color: #6a4aa3;
     color: white;
@@ -28,7 +29,7 @@
     font-weight: bold;
   }
   
-  
+
   /* Left section: Question details */
   .question-section {
     flex: 1;

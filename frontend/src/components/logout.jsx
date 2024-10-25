@@ -6,6 +6,8 @@ export const Logout = () => {
   window.localStorage.removeItem('isLoggedIn');
   const logoutHandler = () => {
     localStorage.removeItem('logindata');
+    localStorage.removeItem('userEmail');
+    localStorage.removeItem('userName');
 
     // Redirect to login page
     navigate('/');

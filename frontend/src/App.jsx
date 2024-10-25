@@ -12,6 +12,7 @@ import GoogleSignInButton from './components/GoogleSignInButton';
 import SessionManager from './components/SessionManager';
 import PropTypes from 'prop-types';
 import Feedback from './components/feedback';
+import { ForgetPassword } from './components/forgetpassword';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path="/login" element={<LoginSignup />} />
           <Route path="/dashboard" element={<ProtectedRoutes><Dashboard /></ProtectedRoutes>} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/forgetpassword" element={<ForgetPassword />} />
           <Route path="/codeeditor" element={<ProtectedRoutes><OpenEditor /></ProtectedRoutes>} />
           <Route path="/technicalinterview" element={<ProtectedRoutes><InterviewContainer /></ProtectedRoutes>} />
           <Route path="/interviewdetails" element={<ProtectedRoutes><InterviewDetails /></ProtectedRoutes>} />

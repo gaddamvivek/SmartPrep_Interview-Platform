@@ -14,6 +14,7 @@ export const Signup = () => {
   const [usernameError, setusernameError] = useState('');
   const [password, setPassword] = useState('');
   const [passwordError, setPasswordError] = useState('');
+  const [confirmPassword,setConfirmPassword] = useState('');
   const navigate = useNavigate();
 
   const onClickHandler = () => {
@@ -57,8 +58,12 @@ export const Signup = () => {
       return;
     }
 
-    if (password.length < 7) {
+    if (password.length < 8) {
       setPasswordError('The password must be 8 characters or longer');
+      return;
+    }
+    if(password != confirmPassword){
+      alert('Password Mismatch, Please try Again!!!')
       return;
     }
 
@@ -78,6 +83,7 @@ export const Signup = () => {
       setusername('');
       setemail('');
       setPassword('');
+      setConfirmPassword('');
     } catch (err) {
       if (err.response && err.response.data) {
         console.error(err.response.data);
@@ -140,6 +146,16 @@ export const Signup = () => {
               placeholder="Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+            <label className="errorLabel">{passwordError}</label>
+          </div>
+          <div className="inputContainer">
+            <input
+              type="password"
+              placeholder="Confirm Password"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
               required
             />
             <label className="errorLabel">{passwordError}</label>

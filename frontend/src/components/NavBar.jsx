@@ -1,11 +1,13 @@
 import PropTypes from 'prop-types';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Logout } from './logout';
 import { useNavigate } from 'react-router-dom';
 import logo from '../assets/images/logo-nav.png';
 
 export const NavBar = (props) => {
   const [isProfileOpen, setIsProfileOpen] = useState(false);
+  const [email,setEmail] = useState('');
+  const [userName, setUserName] = useState('');
   const navigate = useNavigate();
   const handleProfileButton = () => {
     setIsProfileOpen((prevState) => !prevState);
@@ -15,6 +17,14 @@ export const NavBar = (props) => {
   const showSignIn = props.showSignIn || false;
   const showProfile = props.showProfile || false;
 
+  useEffect(() => {
+    // Retrieve user info from localStorage
+    const userEmail = localStorage.getItem('userEmail');
+    const uName = localStorage.getItem('userName');
+
+    setEmail(userEmail);
+    setUserName(uName);
+  }, []);  
   const handleSignIn = () => {
     if (localStorage.getItem('logindata')) navigate('/interviewdetails');
     else navigate('/login');
@@ -62,9 +72,11 @@ export const NavBar = (props) => {
           </div>
           {isProfileOpen && (
             <div className="p-3 min-w-44 bg-[#7360bf] text-white text-center absolute top-16 rounded-lg py-3 ">
-              <div className="">Username</div>
+              <div className="">
+                {userName}
+              </div>
               <div className="" id="profile-email">
-                Email
+                {email}
               </div>
               <hr />
               <Logout />

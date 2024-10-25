@@ -29,6 +29,13 @@ const TechnicalInterview = ({ permissions }) => {
       console.error('Error fetching questions:', error);
     }
   };
+  const handleSpeech = () => {
+    const syn = window.speechSynthesis;
+    const currentQuestion = questions[currentQuestionIndex].title;
+    console.log(currentQuestion)
+    const utterance = new SpeechSynthesisUtterance(currentQuestion);
+    syn.speak(utterance)
+  }
 
   const nextQuestion = () => {
     if (currentQuestionIndex < questions.length - 1) {
@@ -163,6 +170,7 @@ const TechnicalInterview = ({ permissions }) => {
           {questions.length > 0 && (
             <div>
               <h3>Question: {questions[currentQuestionIndex].title}</h3>
+              <button onClick = {handleSpeech}>speech</button>
               <p>{questions[currentQuestionIndex].description}</p>
             </div>
           )}
