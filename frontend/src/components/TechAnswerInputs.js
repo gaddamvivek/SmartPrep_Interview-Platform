@@ -103,7 +103,7 @@ const TechAnswerInputs = ({ permissions, saveAnswer, currentAnswer, onSubmitAnsw
       {permissions.cameraGranted ? (
         <div className='video-container'>
           <Webcam
-            audio={true}
+            audio={false}
             ref={webcamRef}
             screenshotFormat="image/jpeg"
             className="webcam-feed"
@@ -125,7 +125,7 @@ const TechAnswerInputs = ({ permissions, saveAnswer, currentAnswer, onSubmitAnsw
       )}
 
       <div>
-        <button onClick={onSubmitAnswers}>Submit All Answers</button>
+        <button onClick={onSubmitAnswers}>End Test</button>
       </div>
     </div>
   );

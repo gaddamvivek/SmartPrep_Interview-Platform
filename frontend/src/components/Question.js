@@ -13,7 +13,6 @@ const Question = ({ setQuestionId }) => {
     try {
       const res = await axios.get(`http://localhost:5001/api/questions/Random?difficulty=${selectedDifficulty}`);
       setQuestions(res.data); // Assuming the API returns an array of 3 questions
-      alert(res.data);
       setQuestionId(res.data[0]._id); // Set the first question ID
     } catch (error) {
       console.error('Error fetching questions:', error);
