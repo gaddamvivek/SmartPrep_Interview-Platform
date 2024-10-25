@@ -12,9 +12,10 @@ const TechnicalInterview = ({ permissions }) => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [answers, setAnswers] = useState({});
   const [userEmail, setUserEmail] = useState('');
-  const [timeRemaining, setTimeRemaining] = useState(30 * 60);
+  const [timeRemaining, setTimeRemaining] = useState(30*60);
   const navigate = useNavigate();
   const [testRun, setTestRun] = useState(true);
+  const [prName,setPrName]=useState('');
 
   useEffect(() => {
     fetchQuestions(difficulty); // Fetch questions when the component mounts or difficulty changes
@@ -59,27 +60,35 @@ const TechnicalInterview = ({ permissions }) => {
     }
     alert('Answer saved!');
   };
+
   useEffect(() => {
+  
     if (timeRemaining <= 0) {
-      // Time is up, navigate to the feedback page
       alert("Time's up! Redirecting to the feedback page.");
-      navigate('/feedback'); // Adjust the path as needed
+      submitAnswers();
       return;
     }
-
     const timerInterval = setInterval(() => {
-      setTimeRemaining((prevTime) => prevTime - 1);
+      setTimeRemaining((prevTime) => {
+        return prevTime - 1;
+      });
     }, 1000);
-
-    // Clean up the interval when the component unmounts
+  
     return () => clearInterval(timerInterval);
   }, [timeRemaining, navigate]);
 
+ // Fetch the user email from localStorage
   useEffect(() => {
-    // Fetch the user email from localStorage
     const storedEmail = localStorage.getItem('userEmail');
     setUserEmail(storedEmail);
   }, []);
+ // Fetch the user preparation name from localStorage
+  useEffect(()=>{
+    const storedPname=localStorage.getItem('pname');
+    console.log(storedPname);
+    setPrName(storedPname);
+  },[]);
+  //formating the time for database storage
   const formatTime = (totalSeconds) => {
     const hours = Math.floor(totalSeconds / 3600);
     const minutes = Math.floor((totalSeconds % 3600) / 60);
@@ -87,41 +96,22 @@ const TechnicalInterview = ({ permissions }) => {
     return `${hours}h ${minutes}m ${seconds}s`;
   };
 
-  /*const submitAnswers = async () => {
-   // const intervieweeId = '12345'; // Replace with actual interviewee ID
-    const formattedAnswers = Object.keys(answers).map((questionId) => ({
-      questionId,
-      answer: answers[questionId],
-    }));
-
-    try {
-      const totalInterviewTimeInSeconds = 30 * 60 - timeRemaining; // Calculate total time taken in seconds
-      const formattedTimeTaken = formatTime(totalInterviewTimeInSeconds);
-      await axios.post('http://localhost:5001/api/submit-answers', {
-        userEmail:userEmail,
-        timeTaken:formattedTimeTaken,
-        answers: formattedAnswers,
-      });
-      alert('Answers submitted successfully');
-    } catch (error) {
-      console.error('Error submitting answers:', error);
-      alert('Error submitting answers');
-    }
-  };*/
   const submitAnswers= async () => {
     const formattedAnswers = Object.keys(answers).map((questionId) => ({
       questionId,
       answer: answers[questionId],
     }));
     try {
-      const totalInterviewTimeInSeconds = 30 * 60 - timeRemaining; // Calculate total time taken in seconds
+      const totalInterviewTimeInSeconds = 30*60 - timeRemaining; // Calculate total time taken in seconds
       const formattedTimeTaken = formatTime(totalInterviewTimeInSeconds);
       // Make a POST request to save the session in the database
      const result= await axios.post('http://localhost:5001/auth/tsessions', {
         userEmail:userEmail,
+        preparationName:prName,
         timeTaken:formattedTimeTaken,
-        solutions:formattedAnswers, // Send all saved solutions
+        answers:formattedAnswers, // Send all saved solutions
       });
+      console.log(prName);
       if(result)
       {
         console.log("Session saved");
@@ -141,7 +131,7 @@ const TechnicalInterview = ({ permissions }) => {
       <div className="header">
         <span>PrepSmart</span>
       <div className="time">
-            <Timer interviewTime={900} setTestRun={setTestRun} testRun={testRun} />
+            <Timer interviewTime={1800} setTestRun={setTestRun} testRun={testRun} />
           </div>
           </div>
 

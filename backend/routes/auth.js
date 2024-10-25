@@ -49,7 +49,7 @@ router.post('/register', async (req, res) => {
 });
 
 router.post('/sessions', async (req, res) => {
-        const { userEmail, timeTaken, solutions} = req.body;
+        const { userEmail, preparationName, timeTaken, solutions} = req.body;
         const formattedSolutions = Object.entries(solutions).map(([questionId, userSolution]) => ({
             questionID: questionId, // Use questionId as questionTitle
             userSolution: userSolution // The solution code
@@ -58,6 +58,7 @@ router.post('/sessions', async (req, res) => {
         try {
         const newSession = new sessionTable({
             userEmail,
+            preparationName,
             timeTaken,
             questions: formattedSolutions,
         });
@@ -72,11 +73,12 @@ router.post('/sessions', async (req, res) => {
 });
 
 router.post('/tsessions', async (req, res) => {
-    const { userEmail, timeTaken, answers } = req.body;
+    const { userEmail, preparationName, timeTaken, answers } = req.body;
 
     try {
         const newAnswer = new Answer({
             userEmail,
+            preparationName,
             timeTaken,
             answers,
         });
