@@ -12,10 +12,8 @@ const AnswerSchema = new mongoose.Schema({
 });
 
 const InterviewResponseSchema = new mongoose.Schema({
-  intervieweeId: {
-    type: String,
-    required: true,
-  },
+  userEmail: { type: String, required: true },
+  timeTaken: { type: String, required: true },
   answers: {
     type: [AnswerSchema], // Array of AnswerSchema objects
     required: true,

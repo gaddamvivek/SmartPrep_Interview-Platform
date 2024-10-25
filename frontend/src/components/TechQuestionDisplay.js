@@ -1,5 +1,6 @@
 // TechQuestionDisplay.js
-import React from 'react';
+import React, { useState } from 'react';
+//import TechnicalInterview from './TechnicalInterview';
 
 const TechQuestionDisplay = ({ questions, currentQuestionIndex, nextQuestion, previousQuestion }) => {
   // Log the props to ensure they are being passed correctly
