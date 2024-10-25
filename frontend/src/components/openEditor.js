@@ -26,7 +26,7 @@ export const OpenEditor = () => {
         <div className="heading shadow-lg shadow-black font-semibold text-2xl">
           <h1>PrepSmart</h1>
           <div className="rtime">
-            <Timer interviewTime={30} setTestRun={setTestRun} testRun={testRun} />
+            <Timer interviewTime={1800} setTestRun={setTestRun} testRun={testRun} />
           </div>
           {/*<button onClick={handleExit}>End Test</button>*/}
         </div>

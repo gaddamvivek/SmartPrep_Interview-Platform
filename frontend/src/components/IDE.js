@@ -9,9 +9,10 @@ const IDE = ({ QuestionId, savedCode, handleSaveCode,savedCodeMap }) => {
   const [output, setOutput] = useState('');
   const [testResults, setTestResults] = useState(null);
   const [testCases, setTestCases] = useState([]);
-  const [timeRemaining, setTimeRemaining] = useState(30); // 30 minutes in seconds
+  const [timeRemaining, setTimeRemaining] = useState(30*60); // 30 minutes in seconds
   const navigate = useNavigate(); // For navigation after interview ends
   const [userEmail, setUserEmail] = useState('');
+  const [prName,setPrName]=useState('');
   // Load the saved code when the QuestionId changes
   useEffect(() => {
     setCode(savedCode || '');  // Set the editor with saved code or start with empty string
@@ -22,6 +23,11 @@ const IDE = ({ QuestionId, savedCode, handleSaveCode,savedCodeMap }) => {
       const storedEmail = localStorage.getItem('userEmail');
       setUserEmail(storedEmail);
     }, []);
+    useEffect(()=>{
+      const storedPname=localStorage.getItem('pname');
+      console.log(storedPname);
+      setPrName(storedPname);
+    },[]);
   // Fetch test cases when QuestionId changes
   useEffect(() => {
     const fetchQuestion = async () => {
@@ -46,7 +52,7 @@ const IDE = ({ QuestionId, savedCode, handleSaveCode,savedCodeMap }) => {
     if (timeRemaining <= 0) {
       // Time is up, navigate to the feedback page
       alert("Time's up! Redirecting to the feedback page.");
-      handleEndTest(); // Adjust the path as needed
+      handleEndTest();
       return;
     }
 
@@ -121,11 +127,12 @@ const formatTime = (totalSeconds) => {
 
 const handleEndTest = async () => {
   try {
-    const totalInterviewTimeInSeconds = 30 - timeRemaining; // Calculate total time taken in seconds
+    const totalInterviewTimeInSeconds = 30*60 - timeRemaining; // Calculate total time taken in seconds
     const formattedTimeTaken = formatTime(totalInterviewTimeInSeconds);
     // Make a POST request to save the session in the database
    const result= await axios.post('http://localhost:5001/auth/sessions', {
       userEmail:userEmail,
+      preparationName:prName,
       timeTaken:formattedTimeTaken,
       solutions:savedCodeMap  // Send all saved solutions
     });
