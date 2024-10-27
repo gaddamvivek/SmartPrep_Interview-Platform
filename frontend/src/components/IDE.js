@@ -129,8 +129,8 @@ const handleEndTest = async () => {
   try {
     const totalInterviewTimeInSeconds = 30*60 - timeRemaining; // Calculate total time taken in seconds
     const formattedTimeTaken = formatTime(totalInterviewTimeInSeconds);
-    // Make a POST request to save the session in the database
-   const result= await axios.post('http://localhost:5001/auth/sessions', {
+    localStorage.removeItem('sessionQuestions');
+    const result= await axios.post('http://localhost:5001/auth/sessions', {
       userEmail:userEmail,
       preparationName:prName,
       timeTaken:formattedTimeTaken,
