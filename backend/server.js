@@ -9,7 +9,7 @@ const path = require('path');
 const admin = require('firebase-admin'); // Firebase Admin SDK for Google Auth
 const feedbackRoutes = require('./routes/feedback'); //feedback route
 const techQnRoutes = require('./routes/techQn'); // technical questions route
-//const answerRoutes = require('./routes/answerRoutes');
+const answerRoutes = require('./routes/answerRoutes');
 require('dotenv').config();
 const User = require('./models/user'); // Import the User model
 //const Answer = require('./models/Answer');

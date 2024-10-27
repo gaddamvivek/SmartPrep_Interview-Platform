@@ -1,4 +1,4 @@
-/*const express = require('express');
+const express = require('express');
 const Answer = require('../models/Answer');
 
 const router = express.Router();
@@ -36,4 +36,4 @@ router.get('/', async (req, res) => {
   }
 });
 
-module.exports = router;*/
+module.exports = router;

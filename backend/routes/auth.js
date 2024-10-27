@@ -119,10 +119,21 @@ router.post('/interviewdetails', async (req, res) => {
                 console.log(fetchedDetails)
                 username = fetchedDetails.uname;
         // If the token was valid, save interview details
-                const ids = new IDS({ username, prepname, diffLvl, slctround });
-                await ids.save();                
-                return res.send('success');
+                // const ids = new IDS({ username, prepname, diffLvl, slctround });
+                // await ids.save();                
+                // return res.send('success');
 
+                const ids = new IDSchema({ username, prepname, diffLvl, slctround });
+                await ids.save();
+                const savedDetails = await IDSchema.findOne({ username, prepname, diffLvl, slctround });
+                if (savedDetails) {
+                    console.log('Data saved successfully:', savedDetails);
+                    res.status(201).json({ message: 'Interview details saved successfully!' });
+                } else {
+                    console.log('Data not saved.');
+                    res.status(500).json({ error: 'Error saving interview details' });
+                }
+                
             } catch (error) {
                 console.log(error);
                 return res.status(401).json({ message: "Token verification failed" }); 
@@ -134,16 +145,7 @@ router.post('/interviewdetails', async (req, res) => {
 
 
         // If the token was valid, save interview details
-        const ids = new IDSchema({ username, prepname, diffLvl, slctround });
-        await ids.save();
-        const savedDetails = await IDSchema.findOne({ username, prepname, diffLvl, slctround });
-        if (savedDetails) {
-            console.log('Data saved successfully:', savedDetails);
-            res.status(201).json({ message: 'Interview details saved successfully!' });
-        } else {
-            console.log('Data not saved.');
-            res.status(500).json({ error: 'Error saving interview details' });
-        }
+        
 
 
     } catch (err) {
