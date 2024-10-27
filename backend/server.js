@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const authenticationRoutes = require('./routes/auth')
+const userRoutes = require('./routes/user.js')
 const mongoose = require('mongoose');
 const QuestionRoutes = require('./routes/questions');
 const axios = require('axios');
@@ -68,7 +69,12 @@ app.post('/auth/google', async (req, res) => {
 // API Routes
 app.use('/api/Questions', QuestionRoutes);
 app.use('/auth', authenticationRoutes);
+
+app.use('/api/answers', answerRoutes);
+app.use('/api/user', userRoutes);
+
 //app.use('/api/answers', answerRoutes);
+
 
 // API route to submit answers for technical interview
 /*app.post('/api/submit-answers', async (req, res) => {
