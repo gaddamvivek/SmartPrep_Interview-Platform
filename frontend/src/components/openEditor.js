@@ -47,7 +47,6 @@ export const OpenEditor = (props) => {
           <div className="rtime">
             <Timer interviewTime={1800} setTestRun={setTestRun} testRun={testRun} />
           </div>
-          
         <div className="flex font-semibold relative items-center justify-end gap-3">
           <div
             onClick={handleProfileButton}

@@ -16,10 +16,10 @@ const TechnicalInterview = ({ permissions, showProfile }) => {
   const [email, setEmail] = useState('');
   const [userName, setUserName] = useState('');
   const [userEmail, setUserEmail] = useState('');
-  const [timeRemaining, setTimeRemaining] = useState(30 * 60);
+  const [timeRemaining, setTimeRemaining] = useState(30*60);
   const navigate = useNavigate();
   const [testRun, setTestRun] = useState(true);
-
+  const [prName,setPrName]=useState('');
   useEffect(() => {
     fetchQuestions(difficulty); // Fetch questions when the component mounts or difficulty changes
   }, [difficulty]);
@@ -84,7 +84,7 @@ const TechnicalInterview = ({ permissions, showProfile }) => {
     if (timeRemaining <= 0) {
       // Time is up, navigate to the feedback page
       alert("Time's up! Redirecting to the feedback page.");
-      navigate('/feedback'); // Adjust the path as needed
+      submitAnswers(); // Adjust the path as needed
       return;
     }
 
@@ -101,6 +101,12 @@ const TechnicalInterview = ({ permissions, showProfile }) => {
     const storedEmail = localStorage.getItem('userEmail');
     setUserEmail(storedEmail);
   }, []);
+  // Fetch the user preparation name from localStorage
+  useEffect(()=>{
+    const storedPname=localStorage.getItem('pname');
+    console.log(storedPname);
+    setPrName(storedPname);
+  },[]);
   const formatTime = (totalSeconds) => {
     const hours = Math.floor(totalSeconds / 3600);
     const minutes = Math.floor((totalSeconds % 3600) / 60);
@@ -114,13 +120,13 @@ const TechnicalInterview = ({ permissions, showProfile }) => {
       answer: answers[questionId],
     }));
     try {
-      const totalInterviewTimeInSeconds = 30 * 60 - timeRemaining; // Calculate total time taken in seconds
+      const totalInterviewTimeInSeconds = 30*60 - timeRemaining; // Calculate total time taken in seconds
       const formattedTimeTaken = formatTime(totalInterviewTimeInSeconds);
-      // Make a POST request to save the session in the database
      const result= await axios.post('http://localhost:5001/auth/tsessions', {
         userEmail:userEmail,
+        preparationName:prName,
         timeTaken:formattedTimeTaken,
-        solutions:formattedAnswers, // Send all saved solutions
+        answers:formattedAnswers, // Send all saved solutions
       });
       if(result)
       {
