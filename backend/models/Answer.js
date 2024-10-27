@@ -12,16 +12,15 @@ const AnswerSchema = new mongoose.Schema({
 });
 
 const InterviewResponseSchema = new mongoose.Schema({
-  intervieweeId: {
-    type: String,
-    required: true,
-  },
+  userEmail: { type: String, required: true },
+  preparationName:{type :String, required: true},
+  timeTaken: { type: String, required: true },
   answers: {
     type: [AnswerSchema], // Array of AnswerSchema objects
     required: true,
   },
 });
 
-const InterviewResponse = mongoose.model('InterviewResponse', InterviewResponseSchema);
+const TechnicalSession = mongoose.model('TechnicalSession', InterviewResponseSchema);
 
-module.exports = InterviewResponse;
+module.exports = TechnicalSession;

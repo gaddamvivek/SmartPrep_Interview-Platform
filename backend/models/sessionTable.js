@@ -6,9 +6,10 @@ const CodingSolutionsSchema = new mongoose.Schema({
 });
 const sessionTableSchema= new mongoose.Schema({
     userEmail: { type: String, required: true },
+    preparationName: { type: String, required: true },
     timeTaken: { type: String, required: true },
     questions: [CodingSolutionsSchema]
 });
 
-module.exports = mongoose.model('sessionTable', sessionTableSchema);
+module.exports = mongoose.model('Codingsession', sessionTableSchema);
 

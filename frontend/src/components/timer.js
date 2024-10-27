@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
- 
+import PropTypes from 'prop-types';
 
 const Timer = ({ interviewTime, setTestRun,testRun }) => {
   const [time, setTime] = useState(() => {
@@ -36,7 +36,6 @@ const Timer = ({ interviewTime, setTestRun,testRun }) => {
     return `${minutes.toString().padStart(2, '0')}:${remainingSeconds.toString().padStart(2, '0')}`;
   };
 
-
   return (
     <div>
       {endTest ? (<h2>Test Ended</h2>) : 
@@ -46,5 +45,12 @@ const Timer = ({ interviewTime, setTestRun,testRun }) => {
     </div>
   );
 };
+
+Timer.propTypes = {
+  interviewTime: PropTypes.number.isRequired,
+  setTestRun: PropTypes.func.isRequired,
+  testRun: PropTypes.bool.isRequired,
+};
+
 
 export default Timer;

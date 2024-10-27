@@ -9,9 +9,10 @@ const IDE = ({ QuestionId, savedCode, handleSaveCode,savedCodeMap }) => {
   const [output, setOutput] = useState('');
   const [testResults, setTestResults] = useState(null);
   const [testCases, setTestCases] = useState([]);
-  const [timeRemaining, setTimeRemaining] = useState(30 * 60); // 30 minutes in seconds
+  const [timeRemaining, setTimeRemaining] = useState(30*60); // 30 minutes in seconds
   const navigate = useNavigate(); // For navigation after interview ends
   const [userEmail, setUserEmail] = useState('');
+  const [prName,setPrName]=useState('');
   // Load the saved code when the QuestionId changes
   useEffect(() => {
     setCode(savedCode || '');  // Set the editor with saved code or start with empty string
@@ -22,6 +23,11 @@ const IDE = ({ QuestionId, savedCode, handleSaveCode,savedCodeMap }) => {
       const storedEmail = localStorage.getItem('userEmail');
       setUserEmail(storedEmail);
     }, []);
+    useEffect(()=>{
+      const storedPname=localStorage.getItem('pname');
+      console.log(storedPname);
+      setPrName(storedPname);
+    },[]);
   // Fetch test cases when QuestionId changes
   useEffect(() => {
     const fetchQuestion = async () => {
@@ -46,7 +52,7 @@ const IDE = ({ QuestionId, savedCode, handleSaveCode,savedCodeMap }) => {
     if (timeRemaining <= 0) {
       // Time is up, navigate to the feedback page
       alert("Time's up! Redirecting to the feedback page.");
-      navigate('/feedback'); // Adjust the path as needed
+      handleEndTest();
       return;
     }
 
@@ -120,24 +126,49 @@ const formatTime = (totalSeconds) => {
 
 
 const handleEndTest = async () => {
+  // Show confirmation alert to the user
+  const userConfirmed = window.confirm("Are you sure you want to end the test? Your session will not be saved if you end it before time runs out.");
+
+  if (!userConfirmed) {
+    // User canceled ending the test
+    return;
+  }
+
   try {
-    const totalInterviewTimeInSeconds = 30 * 60 - timeRemaining; // Calculate total time taken in seconds
+    const totalInterviewTimeInSeconds = 30*60 - timeRemaining; // Calculate total time taken in seconds
     const formattedTimeTaken = formatTime(totalInterviewTimeInSeconds);
+    
+    // If the user ended the test early (e.g., timeRemaining > 0), show a warning that the session won't be saved
+    if (timeRemaining > 0) {
+      alert("You ended the test before time ran out. Your session will not be saved.");
+      navigate('/feedback', { state: { passedTestCases: 0, totalTestCases: 0 } });
+      return; // Stop further execution, session won't be saved
+    }
+
     // Make a POST request to save the session in the database
+
+    const result = await axios.post('http://localhost:5001/auth/sessions', {
+      userEmail: userEmail,
+      timeTaken: formattedTimeTaken,
+      solutions: savedCodeMap  // Send all saved solutions
+
    const result= await axios.post('http://localhost:5001/auth/sessions', {
       userEmail:userEmail,
+      preparationName:prName,
       timeTaken:formattedTimeTaken,
       solutions:savedCodeMap  // Send all saved solutions
+
     });
-    if(result)
-    {
+
+    if (result) {
       console.log("Session saved");
     }
 
-    // Redirect to the feedback page with test case results after saving
+    // Redirect to feedback page with test case results after saving
     if (testResults) {
       navigate('/feedback', { state: { passedTestCases: testResults.passed, totalTestCases: testResults.total } });
     } else {
+      alert("Your session will not be stored");
       navigate('/feedback', { state: { passedTestCases: 0, totalTestCases: 0 } });
     }
 
@@ -147,6 +178,7 @@ const handleEndTest = async () => {
     alert('Error saving session');
   }
 };
+
 
 
   return (  

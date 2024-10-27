@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 import Webcam from 'react-webcam';
+import PropTypes from 'prop-types'; // Import PropTypes
 
 const TechAnswerInputs = ({ permissions, saveAnswer, currentAnswer, onSubmitAnswers }) => {
   const [recording, setRecording] = useState(false);
@@ -13,46 +14,46 @@ const TechAnswerInputs = ({ permissions, saveAnswer, currentAnswer, onSubmitAnsw
   const { transcript, resetTranscript } = useSpeechRecognition();
 
   useEffect(() => {
-    setTranscriptText(currentAnswer || ''); // Update transcript when currentAnswer changes
+    setTranscriptText(currentAnswer || ''); // Update transcript when currentAnswer changes 
   }, [currentAnswer]);
 
   const handleTranscriptChange = (e) => {
     setTranscriptText(e.target.value);
   };
 
-  const startRecording = () => {
-    SpeechRecognition.startListening({ continuous: true });
-    setRecording(true);
+  const toggleRecording = () => {
+    if (recording) {
+      SpeechRecognition.stopListening();
+      setRecording(false);
+      setTranscriptText(transcript);
+      resetTranscript();
+    } else {
+      SpeechRecognition.startListening({ continuous: true });
+      setRecording(true);
+    }
   };
 
-  const stopRecording = () => {
-    SpeechRecognition.stopListening();
-    setRecording(false);
-    setTranscriptText(transcript);
-    resetTranscript();
-  };
-
-  const startVideoRecording = () => {
-    setIsVideoRecording(true);
-    mediaRecorderRef.current = new MediaRecorder(webcamRef.current.stream, {
-      mimeType: 'video/webm',
-    });
-    const videoChunks = [];
-    mediaRecorderRef.current.ondataavailable = (event) => {
-      if (event.data.size > 0) {
-        videoChunks.push(event.data);
-      }
-    };
-    mediaRecorderRef.current.onstop = () => {
-      const videoBlob = new Blob(videoChunks, { type: 'video/webm' });
-      setVideoBlob(videoBlob);
-    };
-    mediaRecorderRef.current.start();
-  };
-
-  const stopVideoRecording = () => {
-    setIsVideoRecording(false);
-    mediaRecorderRef.current.stop();
+  const toggleVideoRecording = () => {
+    if (isVideoRecording) {
+      mediaRecorderRef.current.stop();
+      setIsVideoRecording(false);
+    } else {
+      setIsVideoRecording(true);
+      mediaRecorderRef.current = new MediaRecorder(webcamRef.current.stream, {
+        mimeType: 'video/webm',
+      });
+      const videoChunks = [];
+      mediaRecorderRef.current.ondataavailable = (event) => {
+        if (event.data.size > 0) {
+          videoChunks.push(event.data);
+        }
+      };
+      mediaRecorderRef.current.onstop = () => {
+        const videoBlob = new Blob(videoChunks, { type: 'video/webm' });
+        setVideoBlob(videoBlob);
+      };
+      mediaRecorderRef.current.start();
+    }
   };
 
   const saveVideo = async () => {
@@ -69,13 +70,25 @@ const TechAnswerInputs = ({ permissions, saveAnswer, currentAnswer, onSubmitAnsw
       
       {permissions.microphoneGranted ? (
         <div>
-          <button onClick={startRecording} disabled={recording}>Record Answer</button>
-          <button onClick={stopRecording} disabled={!recording}>Stop Recording</button>
+          {recording ? (
+            <div>
+              <p>recording answer</p>
+            </div>
+          ) : (
+            <div>
+              <p>press button to record answer</p>
+            </div>
+          )}
+          <button onClick={toggleRecording}>
+            {recording ? 'Stop Recording' : 'Start Recording'}
+          </button>
+          
           <p>Transcript: {transcript}</p>
         </div>
       ) : (
         <p>Microphone permission is not granted. You can type your answer below.</p>
       )}
+
 
       <textarea 
         value={transcriptText} 
@@ -88,13 +101,17 @@ const TechAnswerInputs = ({ permissions, saveAnswer, currentAnswer, onSubmitAnsw
       </div>
 
       {permissions.cameraGranted ? (
-        <div className='Video'>
+        <div className='video-container'>
+          <Webcam
+            audio={false}
+            ref={webcamRef}
+            screenshotFormat="image/jpeg"
+            className="webcam-feed"
+          />
           <div>
-          <Webcam audio={true} ref={webcamRef} screenshotFormat="image/jpeg" width="320" height="240"/>
-          <div>
-            <button onClick={startVideoRecording} disabled={isVideoRecording}>Start Video Recording</button>
-            <button onClick={stopVideoRecording} disabled={!isVideoRecording}>Stop Video Recording</button>
-          </div>
+            <button onClick={toggleVideoRecording}>
+              {isVideoRecording ? 'Stop Video Recording' : 'Start Video Recording'}
+            </button>
           </div>
           {videoBlob && (
             <div>
@@ -102,17 +119,25 @@ const TechAnswerInputs = ({ permissions, saveAnswer, currentAnswer, onSubmitAnsw
               <button onClick={saveVideo}>Save Video</button>
             </div>
           )}
-
         </div>
       ) : (
         <p>Camera permission is not granted. Video recording is disabled.</p>
       )}
 
       <div>
-        <button onClick={onSubmitAnswers}>Submit All Answers</button>
+        <button onClick={onSubmitAnswers}>End Test</button>
       </div>
     </div>
   );
 };
-
+// Define prop types
+TechAnswerInputs.propTypes = {
+  permissions: PropTypes.shape({
+    microphoneGranted: PropTypes.bool.isRequired, // Define specific structure for permissions object
+    cameraGranted: PropTypes.bool.isRequired,
+  }).isRequired,
+  saveAnswer: PropTypes.func.isRequired,
+  currentAnswer: PropTypes.string.isRequired, // Assuming currentAnswer is a string, adjust as needed
+  onSubmitAnswers: PropTypes.func.isRequired,
+};
 export default TechAnswerInputs;

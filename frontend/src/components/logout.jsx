@@ -5,7 +5,18 @@ export const Logout = () => {
   const navigate = useNavigate();
   window.localStorage.removeItem('isLoggedIn');
   const logoutHandler = () => {
+
+    if (location.pathname === '/codeeditor' || location.pathname === '/technicalinterview') {
+      const confirmLogout = window.confirm("Are you sure you want to log out? Your session history will not be stored.");
+      if (!confirmLogout) return;
+    } else {
+      const confirmLogout = window.confirm("Are you sure you want to log out?");
+      if (!confirmLogout) return;
+    }
+
     localStorage.removeItem('logindata');
+    localStorage.removeItem('userEmail');
+    localStorage.removeItem('userName');
 
     // Redirect to login page
     navigate('/');

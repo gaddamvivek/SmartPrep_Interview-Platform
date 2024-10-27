@@ -120,3 +120,24 @@
     align-items: center;
     flex: 1;
   }
+
+.profile-dropdown {
+  position: absolute;
+  top: 4rem; /* Adjust this as needed */
+  min-width: 8rem; /* Reduced width */
+  background-color: #7360bf;
+  color: white;
+  text-align: center;
+  border-radius: 0.5rem;
+  padding: 0.5rem; /* Reduced padding */
+  z-index: 50; /* Ensures it stays on top */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.profile-dropdown hr {
+  margin: 0.3rem 0; /* Reduced margin */
+}
+
+.profile-dropdown div {
+  margin: 0.3rem 0; /* Reduced margin for individual items */
+}
