@@ -126,25 +126,49 @@ const formatTime = (totalSeconds) => {
 
 
 const handleEndTest = async () => {
+  // Show confirmation alert to the user
+  const userConfirmed = window.confirm("Are you sure you want to end the test? Your session will not be saved if you end it before time runs out.");
+
+  if (!userConfirmed) {
+    // User canceled ending the test
+    return;
+  }
+
   try {
     const totalInterviewTimeInSeconds = 30*60 - timeRemaining; // Calculate total time taken in seconds
     const formattedTimeTaken = formatTime(totalInterviewTimeInSeconds);
+    
+    // If the user ended the test early (e.g., timeRemaining > 0), show a warning that the session won't be saved
+    if (timeRemaining > 0) {
+      alert("You ended the test before time ran out. Your session will not be saved.");
+      navigate('/feedback', { state: { passedTestCases: 0, totalTestCases: 0 } });
+      return; // Stop further execution, session won't be saved
+    }
+
     // Make a POST request to save the session in the database
+
+    const result = await axios.post('http://localhost:5001/auth/sessions', {
+      userEmail: userEmail,
+      timeTaken: formattedTimeTaken,
+      solutions: savedCodeMap  // Send all saved solutions
+
    const result= await axios.post('http://localhost:5001/auth/sessions', {
       userEmail:userEmail,
       preparationName:prName,
       timeTaken:formattedTimeTaken,
       solutions:savedCodeMap  // Send all saved solutions
+
     });
-    if(result)
-    {
+
+    if (result) {
       console.log("Session saved");
     }
 
-    // Redirect to the feedback page with test case results after saving
+    // Redirect to feedback page with test case results after saving
     if (testResults) {
       navigate('/feedback', { state: { passedTestCases: testResults.passed, totalTestCases: testResults.total } });
     } else {
+      alert("Your session will not be stored");
       navigate('/feedback', { state: { passedTestCases: 0, totalTestCases: 0 } });
     }
 
@@ -154,6 +178,7 @@ const handleEndTest = async () => {
     alert('Error saving session');
   }
 };
+
 
 
   return (  

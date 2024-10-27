@@ -8,7 +8,7 @@ export const Dashboard = () => {
       <SessionManager inactivityDuration={15 * 60 * 1000} />
 
       <NavBar showProfile={true} showNewInterview={true} />
-
+  
       <div className="w-full p-10">
         <h2 className="text-3xl text-center font-semibold p-3">
           Recent Interviews

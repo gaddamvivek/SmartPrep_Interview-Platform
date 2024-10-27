@@ -114,4 +114,25 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   }
   
+  .heading {
+    color: white; /* Ensure all text in heading is white */
+  }
+
+  .heading h1 {
+    margin-right: 540px; 
+  }
+  
+  .rtime {
+    margin-right: 600px; /* Adds spacing before the profile dropdown */
+  }
+  
+  .profile-dropdown {
+    margin-top: 10px; /* Adds spacing above the dropdown when open */
+    /* background-color: #444; Background color for dropdown */
+    color: white; 
+  }
+  
+  .profile-dropdown div {
+    margin-bottom: 5px; /* Adds spacing between items in the profile dropdown */
+  }
   

@@ -2,15 +2,19 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
+import { Logout } from './logout';
 import TechAnswerInputs from './TechAnswerInputs';
 import './TechnicalInterview.css';
 import Timer from './timer';
 
-const TechnicalInterview = ({ permissions }) => {
+const TechnicalInterview = ({ permissions, showProfile }) => {
   const [questions, setQuestions] = useState([]);
   const [difficulty, setDifficulty] = useState('easy');
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [answers, setAnswers] = useState({});
+  const [isProfileOpen, setIsProfileOpen] = useState(false);
+  const [email, setEmail] = useState('');
+  const [userName, setUserName] = useState('');
   const [userEmail, setUserEmail] = useState('');
   const [timeRemaining, setTimeRemaining] = useState(30*60);
   const navigate = useNavigate();
@@ -30,6 +34,23 @@ const TechnicalInterview = ({ permissions }) => {
       console.error('Error fetching questions:', error);
     }
   };
+
+  const handleProfileButton = () => {
+    console.log("Profile button clicked");  // Debugging log for button click
+    setIsProfileOpen((prevState) => !prevState);
+  };
+
+  useEffect(() => {
+    console.log("showProfile prop:", showProfile);  // Debugging log for showProfile prop
+
+    // Retrieve user info from localStorage
+    const userEmail = localStorage.getItem('userEmail');
+    const uName = localStorage.getItem('userName');
+
+    setEmail(userEmail);
+    setUserName(uName);
+  }, []);
+
   const handleSpeech = () => {
     const syn = window.speechSynthesis;
     const currentQuestion = questions[currentQuestionIndex].title;
@@ -129,11 +150,36 @@ const TechnicalInterview = ({ permissions }) => {
     <div>
       {/* Header Section */}
       <div className="header">
+
+        <div className="heading shadow-lg shadow-black font-semibold text-2xl">
+          <h1>PrepSmart</h1>
+          <div className="rtime">
+
         <span>PrepSmart</span>
       <div className="time">
+
             <Timer interviewTime={1800} setTestRun={setTestRun} testRun={testRun} />
           </div>
+          
+          {/* Profile Dropdown */}
+          <div className="flex font-semibold relative items-center justify-end gap-3">
+            <div
+              onClick={handleProfileButton}
+              className="relative cursor-pointer"
+            >
+              Profile
+            </div>
+            {isProfileOpen && (
+              <div className="profile-dropdown">
+                <div>{userName}</div>
+                <div id="profile-email">{email}</div>
+                <hr />
+                <Logout />
+              </div>
+            )}
           </div>
+        </div>
+      </div>
 
       {/* Main Container */}
       <div className="technical-interview-container">
@@ -183,7 +229,13 @@ const TechnicalInterview = ({ permissions }) => {
 // Add prop types validation
 TechnicalInterview.propTypes = {
   permissions: PropTypes.object.isRequired, // Assuming permissions is an object, adjust the type accordingly
+  showProfile: PropTypes.bool.isRequired,
 };
+
+// TechnicalInterview.propTypes = {
+//   // showSignIn: PropTypes.bool,
+//   showProfile: PropTypes.bool,
+// };
 
 export default TechnicalInterview;
 
