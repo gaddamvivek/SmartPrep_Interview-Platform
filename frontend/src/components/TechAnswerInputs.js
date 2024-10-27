@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 import Webcam from 'react-webcam';
-import PropTypes from 'prop-types'; // Import PropTypes
+import PropTypes from 'prop-types';
 
 const TechAnswerInputs = ({ permissions, saveAnswer, currentAnswer, onSubmitAnswers }) => {
   const [recording, setRecording] = useState(false);
@@ -14,7 +14,7 @@ const TechAnswerInputs = ({ permissions, saveAnswer, currentAnswer, onSubmitAnsw
   const { transcript, resetTranscript } = useSpeechRecognition();
 
   useEffect(() => {
-    setTranscriptText(currentAnswer || ''); // Update transcript when currentAnswer changes 
+    setTranscriptText(currentAnswer || '');
   }, [currentAnswer]);
 
   const handleTranscriptChange = (e) => {
@@ -33,11 +33,8 @@ const TechAnswerInputs = ({ permissions, saveAnswer, currentAnswer, onSubmitAnsw
     }
   };
 
-  const toggleVideoRecording = () => {
-    if (isVideoRecording) {
-      mediaRecorderRef.current.stop();
-      setIsVideoRecording(false);
-    } else {
+  const startVideoRecording = () => {
+    if (webcamRef.current && webcamRef.current.stream) {
       setIsVideoRecording(true);
       mediaRecorderRef.current = new MediaRecorder(webcamRef.current.stream, {
         mimeType: 'video/webm',
@@ -51,16 +48,33 @@ const TechAnswerInputs = ({ permissions, saveAnswer, currentAnswer, onSubmitAnsw
       mediaRecorderRef.current.onstop = () => {
         const videoBlob = new Blob(videoChunks, { type: 'video/webm' });
         setVideoBlob(videoBlob);
+
+        // Save the video blob URL to local storage
+        const videoUrl = URL.createObjectURL(videoBlob);
+        localStorage.setItem('savedVideoUrl', videoUrl);
       };
       mediaRecorderRef.current.start();
+    } else {
+      console.error("Webcam stream is not available for recording.");
     }
   };
 
-  const saveVideo = async () => {
-    if (videoBlob) {
-      const formData = new FormData();
-      formData.append('file', videoBlob, 'interview_video.webm');
-      // Handle the video save here...
+  const stopVideoRecording = () => {
+    if (isVideoRecording && mediaRecorderRef.current) {
+      mediaRecorderRef.current.stop();
+      setIsVideoRecording(false);
+    }
+  };
+
+  const handleEndSession = () => {
+    stopVideoRecording();
+    onSubmitAnswers();
+  };
+
+  // Start recording when webcam stream is ready
+  const handleUserMedia = () => {
+    if (permissions.cameraGranted) {
+      startVideoRecording();
     }
   };
 
@@ -72,11 +86,11 @@ const TechAnswerInputs = ({ permissions, saveAnswer, currentAnswer, onSubmitAnsw
         <div>
           {recording ? (
             <div>
-              <p>recording answer</p>
+              <p>Recording answer</p>
             </div>
           ) : (
             <div>
-              <p>press button to record answer</p>
+              <p>Press button to record answer</p>
             </div>
           )}
           <button onClick={toggleRecording}>
@@ -88,7 +102,6 @@ const TechAnswerInputs = ({ permissions, saveAnswer, currentAnswer, onSubmitAnsw
       ) : (
         <p>Microphone permission is not granted. You can type your answer below.</p>
       )}
-
 
       <textarea 
         value={transcriptText} 
@@ -103,20 +116,16 @@ const TechAnswerInputs = ({ permissions, saveAnswer, currentAnswer, onSubmitAnsw
       {permissions.cameraGranted ? (
         <div className='video-container'>
           <Webcam
-            audio={false}
+            audio={permissions.microphoneGranted}
+            muted={true}
             ref={webcamRef}
             screenshotFormat="image/jpeg"
             className="webcam-feed"
+            onUserMedia={handleUserMedia}  // Trigger recording when webcam stream is ready
           />
-          <div>
-            <button onClick={toggleVideoRecording}>
-              {isVideoRecording ? 'Stop Video Recording' : 'Start Video Recording'}
-            </button>
-          </div>
           {videoBlob && (
             <div>
-              <video src={URL.createObjectURL(videoBlob)} controls width="320" height="240" />
-              <button onClick={saveVideo}>Save Video</button>
+              <p>Video saved in local storage.</p>
             </div>
           )}
         </div>
@@ -125,19 +134,21 @@ const TechAnswerInputs = ({ permissions, saveAnswer, currentAnswer, onSubmitAnsw
       )}
 
       <div>
-        <button onClick={onSubmitAnswers}>End Test</button>
+        <button onClick={handleEndSession}>End Test</button>
       </div>
     </div>
   );
 };
+
 // Define prop types
 TechAnswerInputs.propTypes = {
   permissions: PropTypes.shape({
-    microphoneGranted: PropTypes.bool.isRequired, // Define specific structure for permissions object
+    microphoneGranted: PropTypes.bool.isRequired,
     cameraGranted: PropTypes.bool.isRequired,
   }).isRequired,
   saveAnswer: PropTypes.func.isRequired,
-  currentAnswer: PropTypes.string.isRequired, // Assuming currentAnswer is a string, adjust as needed
+  currentAnswer: PropTypes.string.isRequired,
   onSubmitAnswers: PropTypes.func.isRequired,
 };
+
 export default TechAnswerInputs;

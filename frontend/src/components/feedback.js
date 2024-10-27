@@ -12,6 +12,14 @@ const Feedback = () => {
   const [feedback, setFeedback] = useState('');  // User feedback
   const [message, setMessage] = useState('');  // Success or error message
   const [userId, setUserId] = useState(null);  // Store userId, default is null
+  const [savedVideoUrl, setSavedVideoUrl] = useState(null);
+  useEffect(() => {
+    // Retrieve the saved video URL from local storage
+    const videoUrl = localStorage.getItem('savedVideoUrl');
+    if (videoUrl) {
+      setSavedVideoUrl(videoUrl);
+    }
+  }, []);
 
   // Function to map the selected review to a numeric value
   const mapReviewToNumber = (rating) => {
@@ -72,6 +80,20 @@ const Feedback = () => {
       <h2>Your Performance</h2>
       <p>You passed {passedTestCases} out of {totalTestCases} test cases.</p>
 
+      {savedVideoUrl ? (
+        <div style={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          marginTop: '20px',
+        }}>
+          
+          <video src={savedVideoUrl} controls width="320" height="240" />
+        </div>
+      ) : (
+        <p>No recording available for this session.</p>
+      )}
+
       <h3>How was your interview experience?</h3>
       <div className="feedback-review font-inconsolata">
         <ul>
@@ -120,6 +142,7 @@ const Feedback = () => {
         placeholder="Leave your feedback here"
         className="feedback-textarea"
       />
+      
 
       <button onClick={handleSubmitFeedback} className="submit-feedback-button">Submit Feedback</button>
 
