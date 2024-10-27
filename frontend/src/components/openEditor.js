@@ -1,7 +1,12 @@
+
 import React, { useState, useEffect } from 'react';
 import IDE from './IDE';  
 import PropTypes from 'prop-types';
 import { Logout } from './logout';
+
+import React, { useState } from 'react';
+import IDE from './IDE';
+
 import './ide.css'; // Import your CSS file
 import Question from './Question';
 import Timer from './timer';
