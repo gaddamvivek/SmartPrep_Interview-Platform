@@ -29,7 +29,7 @@ const staticQuestions = [
       { input: "0", output: "1" }
     ],
     solution: `def factorial(n):\n    if n == 0:\n        return 1\n    return n * factorial(n - 1)\n`,
-    difficulty: "medium"  // Added difficulty level
+    difficulty: "medium"
   },
   {
     title: "Fibonacci Sequence",
@@ -39,94 +39,78 @@ const staticQuestions = [
       { input: "10", output: "55" }
     ],
     solution: `def fibonacci(n):\n    if n <= 0:\n        return 0\n    elif n == 1:\n        return 1\n    else:\n        return fibonacci(n - 1) + fibonacci(n - 2)\n`,
-    difficulty: "hard"  // Added difficulty level
+    difficulty: "hard"
   }
 ];
 
 async function generateCodingQuestions(prompt) {
   try {
     const result = await model.generateContent(prompt);
-    
-    // Log the full response to see its structure
-    console.log("Full response from GPT model:", result);
-
-    // Extract the text from the response
     const text = result.response.text();
-    console.log("Response text:", text);  // Log the raw text
 
     if (!text) {
       throw new Error("Received empty text from the model.");
     }
 
-    // Remove Markdown formatting
     const jsonString = text.replace(/```json|```/g, '').trim();
-
-    // Replace Python boolean keywords with JSON compliant ones
     const formattedJsonString = jsonString.replace(/True/g, 'true').replace(/False/g, 'false');
 
-    // Parse the cleaned JSON response
-    const jsonResponse = JSON.parse(formattedJsonString);
-
-    // Validate that the essential fields are present
-    const title = jsonResponse.title;
-    const description = jsonResponse.description;
-    const solution = jsonResponse.solution?.code || jsonResponse.solution;  // Accessing the 'code' property or fallback
-    const testCases = jsonResponse.test_cases || jsonResponse.test_cases;  // Directly access test_cases
-
-    if (!title || !description || !solution || !Array.isArray(testCases) || testCases.length === 0) {
-      throw new Error("Generated question is missing required fields.");
+    let jsonResponse;
+    try {
+      jsonResponse = JSON.parse(formattedJsonString);
+    } catch (parseError) {
+      console.error("Failed to parse JSON:", formattedJsonString);
+      throw parseError;
     }
 
-    // Transform test cases to match expected structure
-    const formattedTestCases = testCases.map(tc => ({
-      input: JSON.stringify(tc.input),  // Convert input to string
-      output: tc.expected_output  // Use expected_output directly
-    }));
-
-    // Determine difficulty based on the prompt
-    let difficulty;
-    if (prompt.toLowerCase().includes("easy")) {
-      difficulty = "easy";
-    } else if (prompt.toLowerCase().includes("medium")) {
-      difficulty = "medium";
-    } else if (prompt.toLowerCase().includes("hard")) {
-      difficulty = "hard";
-    } else {
-      throw new Error("Difficulty level not specified in the prompt.");
+    if (!Array.isArray(jsonResponse)) {
+      throw new Error("Expected an array of questions.");
     }
 
-    return {
-      title,
-      description,
-      testCases: formattedTestCases,
-      solution,
-      difficulty  // Add the difficulty field here
-    };
+    return jsonResponse.map((question) => {
+      const { title, description, test_cases: testCases } = question;
+      const solution = question.solution?.code || question.solution;
+
+      if (!title || !description || !solution || !Array.isArray(testCases)) {
+        throw new Error("Generated question is missing required fields.");
+      }
+
+      const formattedTestCases = testCases.map(tc => ({
+        input: JSON.stringify(tc.input),
+        output: tc.expected_output
+      }));
+
+      const difficulty = prompt.toLowerCase().match(/(easy|medium|hard)/)?.[0];
+      return {
+        title,
+        description,
+        testCases: formattedTestCases,
+        solution,
+        difficulty
+      };
+    });
   } catch (error) {
     console.error("Error generating content:", error);
-    return null;
+    return [];
   }
 }
 
-
-// For Hard Questions String in JSON should be managed in python solution. 
 async function seedDatabase() {
   await Question.deleteMany({});
   await Question.insertMany(staticQuestions);
   console.log("-- MongoDB Database seeded with Static Questions. --");
 
   const prompts = [
-    "Generate an easy level coding question in Python with title, description, test cases, and solution in JSON format",
-    "Generate a medium level coding question in Python with title, description, test cases, and solution in JSON format",
-    "Generate a hard level coding question in Python with title, description, test cases, and solution in JSON format"
+    "Generate 3 easy level coding questions in Python with title, description, test cases (including arrays) and solution in JSON format",
+    "Generate 3 medium level coding questions in Python with title, description, test cases (including arrays) and solution in JSON format",
+    "Generate 3 hard level coding questions in Python with title, description, test cases (including arrays) and solution in JSON format"
   ];
 
   for (const prompt of prompts) {
-    const questionText = await generateCodingQuestions(prompt);
+    const questions = await generateCodingQuestions(prompt);
 
-    if (questionText) {
+    for (const questionText of questions) {
       try {
-        // Store the generated question in the database
         await Question.create({
           title: questionText.title,
           description: questionText.description,
@@ -138,8 +122,6 @@ async function seedDatabase() {
       } catch (insertError) {
         console.error("Error inserting question into database:", insertError);
       }
-    } else {
-      console.error("Failed to generate question for prompt:", prompt);
     }
   }
 
@@ -148,3 +130,4 @@ async function seedDatabase() {
 }
 
 seedDatabase();
+
