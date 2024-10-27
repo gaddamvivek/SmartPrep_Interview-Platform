@@ -6,7 +6,7 @@ const InterviewDetailsSchema = new mongoose.Schema(
     prepname: { type: String, required: true },
     diffLvl: { type: String, required: true },
     slctround: { type: String, required: true },
-    date: { type: Date, default: Date.now },
+    date: { type: Date, default: Date.now, required: false },
   },
   { versionKey: "version" }
 );

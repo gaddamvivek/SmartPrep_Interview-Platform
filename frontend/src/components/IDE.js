@@ -147,10 +147,7 @@ const handleEndTest = async () => {
 
     // Make a POST request to save the session in the database
 
-    const result = await axios.post('http://localhost:5001/auth/sessions', {
-      userEmail: userEmail,
-      timeTaken: formattedTimeTaken,
-      solutions: savedCodeMap  // Send all saved solutions
+
 
    const result= await axios.post('http://localhost:5001/auth/sessions', {
       userEmail:userEmail,
