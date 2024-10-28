@@ -25,6 +25,11 @@ export const InterviewDetails = () => {
             localStorage.setItem("pname",prepname);
             console.log(prepname)
             if(slctround === 'Coding' && buttonClick){
+                const sessionStartTime = new Date();
+            const startDate = sessionStartTime.toLocaleDateString('en-US');
+            const startTime = sessionStartTime.toLocaleTimeString('en-US', { hour12: false });
+            localStorage.setItem("codingSessionStartDate", startDate);
+            localStorage.setItem("codingSessionStartTime", startTime);
                 localStorage.removeItem('remainingTime');
                 navigate('/codeeditor');
             }                
