@@ -3,6 +3,8 @@ const mongoose = require('mongoose');
 // Schema for individual coding solutions
 const CodingSolutionsSchema = new mongoose.Schema({
     questionID: { type: String, required: true },
+    questiontitle: { type: String, required: true },
+    aisolution:{ type: String, required: true },
     userSolution: { type: String, required: true },
     testCases: [
         {

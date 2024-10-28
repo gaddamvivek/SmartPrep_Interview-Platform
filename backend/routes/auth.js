@@ -119,6 +119,8 @@ router.post('/testsubmit', async (req, res) => {
             const question = questions.find(q => q._id.toString() === solution.questionID);
             return {
                 questionID: solution.questionID,
+                questiontitle:question.title,
+                aisolution:question.solution,
                 userSolution: solution.userSolution,
                 testCases: question ? question.testCases.map(testCases => ({
                     input: testCases.input,
