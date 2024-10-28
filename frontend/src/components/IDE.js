@@ -13,6 +13,8 @@ const IDE = ({ QuestionId, savedCode, handleSaveCode,savedCodeMap }) => {
   const navigate = useNavigate(); // For navigation after interview ends
   const [userEmail, setUserEmail] = useState('');
   const [prName,setPrName]=useState('');
+  const [startDate,setStartDate]=useState('');
+  const [startTime,setStartTime]=useState('');
   // Load the saved code when the QuestionId changes
   useEffect(() => {
     setCode(savedCode || '');  // Set the editor with saved code or start with empty string
@@ -27,6 +29,16 @@ const IDE = ({ QuestionId, savedCode, handleSaveCode,savedCodeMap }) => {
       const storedPname=localStorage.getItem('pname');
       console.log(storedPname);
       setPrName(storedPname);
+    },[]);
+    useEffect(()=>{
+      const storedStartDate=localStorage.getItem('codingSessionStartDate');
+      console.log(storedStartDate);
+      setStartDate(storedStartDate);
+    },[]);
+    useEffect(()=>{
+      const storedStartTime=localStorage.getItem('codingSessionStartTime');
+      console.log(storedStartTime);
+      setStartTime(storedStartTime);
     },[]);
   // Fetch test cases when QuestionId changes
   useEffect(() => {
@@ -66,6 +78,20 @@ const IDE = ({ QuestionId, savedCode, handleSaveCode,savedCodeMap }) => {
 
   // Handle code submission to backend
   const handleSubmit = async () => {
+    try{
+      const result=await axios.post('http://localhost:5001/auth/testsubmit',{
+      solutions:savedCodeMap
+      });
+      console.log("Server response:", result.data);
+      if(result)
+        {
+          console.log("question and  saved for testing");
+        }
+        alert('Session data saved successfully!');
+      } catch (error) {
+        console.error('Error saving question ans ans session:', error);
+        alert('Error saving question and ans session');
+      }
     try {
       const res = await axios.post('http://localhost:5001/api/submit', {
         code: code,
@@ -126,6 +152,9 @@ const formatTime = (totalSeconds) => {
 
 
 const handleEndTest = async () => {
+  const today = new Date();
+  const formattedDate = `${today.getMonth() + 1}/${today.getDate()}/${today.getFullYear()}`;
+  const formattedTime = today.toLocaleTimeString('en-GB');
 
   try {
     const totalInterviewTimeInSeconds = 30*60 - timeRemaining; // Calculate total time taken in seconds
@@ -135,6 +164,10 @@ const handleEndTest = async () => {
     const result= await axios.post('http://localhost:5001/auth/sessions', {
       userEmail:userEmail,
       preparationName:prName,
+      sessionStartDate:startDate,
+      sessionEndDate:formattedDate,
+      sessionStartTime:startTime,
+      sessionEndTime: formattedTime,
       timeTaken:formattedTimeTaken,
       solutions:savedCodeMap  // Send all saved solutions
 
