@@ -2,15 +2,20 @@ import React, { useState } from 'react';
 import './loginSignup.css';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import GoogleSignInButton from './GoogleSignInButton'; // Import Google Sign-In Button component
 
 
 export const LoginSignup = () => {
-  const [email, setemail] = useState('');
+  const [email, setEmail] = useState('');
   const [mailError, setMailError] = useState('');
   const [password, setPassword] = useState('');
   const [passwordError, setPasswordError] = useState('');
-
+  const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+  const togglePasswordVisibility = () => {
+    setIsPasswordVisible(!isPasswordVisible);
+  };
   const navigate = useNavigate();
   const onSubmitHandler = async (e) => {
     e.preventDefault();
@@ -48,7 +53,7 @@ export const LoginSignup = () => {
         navigate('/dashboard') 
       }
       // Reset form fields
-      setemail('');
+      setEmail('');
       setPassword('');
     } catch (err) {
       if (err.response && err.response.data) {
@@ -63,7 +68,7 @@ export const LoginSignup = () => {
 
   const toggleToSignup = () => {
     // Clear form fields and errors before switching
-    setemail('');
+    setEmail('');
     setPassword('');
     setMailError('');
     setPasswordError('');
@@ -75,39 +80,43 @@ export const LoginSignup = () => {
 
   return (
     <div className="container font-rubik">
-      <div className="header font-rubik">
-        <div className='font-rubik'>Login</div>
+      <div className="header">
+        <div>Login</div>
       </div>
       <form onSubmit={onSubmitHandler}>
-        <div className="inputContainer font-rubik">
+        <div className="inputContainer">
           <input
             type="email"
             placeholder="Email address"
             value={email}
-            onChange={(e) => setemail(e.target.value)}
+            onChange={(e) => setEmail(e.target.value)}
             required
           />
           <label className="errorLabel">{mailError}</label>
         </div>
         <div className="inputContainer">
           <input
-            type="password"
+            type={isPasswordVisible ? "text" : "password"}
             placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
           />
+          <span
+            onClick={togglePasswordVisibility}
+            className="icon-toggle"
+          >
+            <FontAwesomeIcon icon={isPasswordVisible ? faEyeSlash : faEye} />
+          </span>
           <label className="errorLabel">{passwordError}</label>
         </div>
         <div className="submitContainer">
-          <div>
-            <button className="submit" type="submit">
-              Login
-            </button>
-          </div>
+          <button className="submit" type="submit">
+            Login
+          </button>
         </div>
         <div className="forget-password">
-          Forget password? <span onClick = {forgetPasswordHandler}>Click Here!</span>
+          Forget password? <span onClick={forgetPasswordHandler}>Click Here!</span>
         </div>
         <p className="Registerhere" style={{ color: '#393f81' }}>
           Don&apos;t have an account?

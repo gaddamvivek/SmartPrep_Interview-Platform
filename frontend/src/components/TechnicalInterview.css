@@ -17,19 +17,6 @@
     align-items: center;
     flex: 1;
   }
-  /* Header section */
-  .header {
-    background-color: #6a4aa3; /* Purple header */
-    color: white;
-    padding: 15px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 1.5rem;
-    font-weight: bold;
-  }
-  
-
   /* Left section: Question details */
   .question-section {
     flex: 1;

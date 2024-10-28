@@ -5,6 +5,7 @@ export const Logout = () => {
   const navigate = useNavigate();
   window.localStorage.removeItem('isLoggedIn');
   const logoutHandler = () => {
+    
 
     if (location.pathname === '/codeeditor' || location.pathname === '/technicalinterview') {
       const confirmLogout = window.confirm("Are you sure you want to log out? Your session history will not be stored.");
@@ -13,10 +14,13 @@ export const Logout = () => {
       const confirmLogout = window.confirm("Are you sure you want to log out?");
       if (!confirmLogout) return;
     }
+    
+     // Clear local storage
+    localStorage.clear();
 
-    localStorage.removeItem('logindata');
-    localStorage.removeItem('userEmail');
-    localStorage.removeItem('userName');
+//     localStorage.removeItem('logindata');
+//     localStorage.removeItem('userEmail');
+//     localStorage.removeItem('userName');
 
     // Redirect to login page
     navigate('/');
