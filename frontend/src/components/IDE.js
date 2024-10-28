@@ -66,6 +66,20 @@ const IDE = ({ QuestionId, savedCode, handleSaveCode,savedCodeMap }) => {
 
   // Handle code submission to backend
   const handleSubmit = async () => {
+    try{
+      const result=await axios.post('http://localhost:5001/auth/testsubmit',{
+      solutions:savedCodeMap
+      });
+      console.log("Server response:", result.data);
+      if(result)
+        {
+          console.log("question and  saved for testing");
+        }
+        alert('Session data saved successfully!');
+      } catch (error) {
+        console.error('Error saving question ans ans session:', error);
+        alert('Error saving question and ans session');
+      }
     try {
       const res = await axios.post('http://localhost:5001/api/submit', {
         code: code,
