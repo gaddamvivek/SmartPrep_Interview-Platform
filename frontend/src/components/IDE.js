@@ -160,7 +160,8 @@ const handleEndTest = async () => {
     const totalInterviewTimeInSeconds = 30*60 - timeRemaining; // Calculate total time taken in seconds
     const formattedTimeTaken = formatTime(totalInterviewTimeInSeconds);
 
-   const result= await axios.post('http://localhost:5001/auth/sessions', {
+    localStorage.removeItem('sessionQuestions');
+    const result= await axios.post('http://localhost:5001/auth/sessions', {
       userEmail:userEmail,
       preparationName:prName,
       sessionStartDate:startDate,

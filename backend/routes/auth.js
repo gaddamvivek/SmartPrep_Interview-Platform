@@ -13,8 +13,8 @@ const test = require('../models/testcases');
 router.use(express.json())
 require('dotenv').config();
 
-//checkEmail route
-router.post('/checkEmail', async(req,res) => {
+//forgetpassword route
+router.post('/forgetpassword', async(req,res) => {
     const {email,password} = req.body;
     try{
         const userMail = await User.findOne({email});
@@ -56,7 +56,6 @@ router.post('/sessions', async (req, res) => {
             questionID: questionId, // Use questionId as questionTitle
             userSolution: userSolution // The solution code
         }));
-        console.log(formattedSolutions);
         try {
         const newSession = new sessionTable({
             userEmail,
@@ -101,6 +100,7 @@ router.post('/tsessions', async (req, res) => {
         res.status(500).json({ message: 'Error saving answers', error });
     }
 });
+
 
 router.post('/testsubmit', async (req, res) => {
     console.log("Received data:", req.body);
@@ -152,7 +152,6 @@ router.post('/testsubmit', async (req, res) => {
         res.status(500).json({ message: 'Error saving solutions for testing', error });
     }
 });
-
 
 
 // Interview Details route
@@ -239,8 +238,6 @@ router.post('/login', async (req, res) => {
         res.status(500).send('Error logging in');
     }
 })
-
-
 
 router.post('/google', async (req, res) => {
     const { token } = req.body;

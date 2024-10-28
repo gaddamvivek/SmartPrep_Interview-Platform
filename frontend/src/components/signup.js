@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import './loginSignup.css';
 import axios from 'axios';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom';
 
 export const Signup = () => {
@@ -16,6 +18,14 @@ export const Signup = () => {
   const [passwordError, setPasswordError] = useState('');
   const [confirmPassword,setConfirmPassword] = useState('');
   const navigate = useNavigate();
+  const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+  const [isConfirmPasswordVisible, setIsConfirmPasswordVisible] = useState(false);
+  const togglePasswordVisibility = () => {
+    setIsPasswordVisible(!isPasswordVisible);
+  };
+  const toggleConfirmPasswordVisibility = () => {
+    setIsConfirmPasswordVisible(!isConfirmPasswordVisible);
+  };
 
   const onClickHandler = () => {
     console.log('Login button clicked');
@@ -99,6 +109,7 @@ export const Signup = () => {
     <div className="container">
       <div className="header">
         <div>Sign Up</div>
+      </div>
         <form onSubmit={onSubmitHandler}>
           <div className="nameContainer">
             <div className="userName">
@@ -142,22 +153,34 @@ export const Signup = () => {
           </div>
           <div className="inputContainer">
             <input
-              type="password"
+              type={isPasswordVisible ? "text" : "password"}
               placeholder="Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
             />
+            <span
+            onClick={togglePasswordVisibility}
+            className="icon-toggle"
+          >
+            <FontAwesomeIcon icon={isPasswordVisible ? faEyeSlash : faEye} />
+          </span>
             <label className="errorLabel">{passwordError}</label>
           </div>
           <div className="inputContainer">
             <input
-              type="password"
+              type={isConfirmPasswordVisible ? "text" : "password"}
               placeholder="Confirm Password"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
               required
             />
+            <span
+              onClick={toggleConfirmPasswordVisibility}
+              className="absolute -right-14 top-1/2 transform -translate-y-1/2 text-gray-500 cursor-pointer"
+            >
+              <FontAwesomeIcon icon={isConfirmPasswordVisible ? faEyeSlash : faEye} />
+            </span>
             <label className="errorLabel">{passwordError}</label>
           </div>
           <div className="loginsignupbtns">
@@ -171,7 +194,6 @@ export const Signup = () => {
             </button>
           </div>
         </form>
-      </div>
     </div>
   );
 };
