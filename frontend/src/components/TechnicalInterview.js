@@ -2,20 +2,24 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
+import { Logout } from './logout';
 import TechAnswerInputs from './TechAnswerInputs';
 import './TechnicalInterview.css';
 import Timer from './timer';
 
-const TechnicalInterview = ({ permissions }) => {
+const TechnicalInterview = ({ permissions, showProfile }) => {
   const [questions, setQuestions] = useState([]);
   const [difficulty, setDifficulty] = useState('easy');
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [answers, setAnswers] = useState({});
+  const [isProfileOpen, setIsProfileOpen] = useState(false);
+  const [email, setEmail] = useState('');
+  const [userName, setUserName] = useState('');
   const [userEmail, setUserEmail] = useState('');
-  const [timeRemaining, setTimeRemaining] = useState(30 * 60);
+  const [timeRemaining, setTimeRemaining] = useState(30*60);
   const navigate = useNavigate();
   const [testRun, setTestRun] = useState(true);
-
+  const [prName,setPrName]=useState('');
   useEffect(() => {
     fetchQuestions(difficulty); // Fetch questions when the component mounts or difficulty changes
   }, [difficulty]);
@@ -32,14 +36,22 @@ const TechnicalInterview = ({ permissions }) => {
     }
   };
 
-  const initializeAnswers = (fetchedQuestions) => {
-    const initialAnswers = {};
-    fetchedQuestions.forEach((question) => {
-      initialAnswers[question._id] = ''; // Initialize each question's answer with an empty string
-    });
-    setAnswers(initialAnswers);
+  const handleProfileButton = () => {
+    console.log("Profile button clicked");  // Debugging log for button click
+    setIsProfileOpen((prevState) => !prevState);
   };
-  
+
+  useEffect(() => {
+    console.log("showProfile prop:", showProfile);  // Debugging log for showProfile prop
+
+    // Retrieve user info from localStorage
+    const userEmail = localStorage.getItem('userEmail');
+    const uName = localStorage.getItem('userName');
+
+    setEmail(userEmail);
+    setUserName(uName);
+  }, []);
+
   const handleSpeech = () => {
     const syn = window.speechSynthesis;
     const currentQuestion = questions[currentQuestionIndex].title;
@@ -76,7 +88,7 @@ const TechnicalInterview = ({ permissions }) => {
     if (timeRemaining <= 0) {
       // Time is up, navigate to the feedback page
       alert("Time's up! Redirecting to the feedback page.");
-      navigate('/feedback'); // Adjust the path as needed
+      submitAnswers(); // Adjust the path as needed
       return;
     }
 
@@ -93,25 +105,53 @@ const TechnicalInterview = ({ permissions }) => {
     const storedEmail = localStorage.getItem('userEmail');
     setUserEmail(storedEmail);
   }, []);
+  // Fetch the user preparation name from localStorage
+  useEffect(()=>{
+    const storedPname=localStorage.getItem('pname');
+    console.log(storedPname);
+    setPrName(storedPname);
+  },[]);
   const formatTime = (totalSeconds) => {
     const hours = Math.floor(totalSeconds / 3600);
     const minutes = Math.floor((totalSeconds % 3600) / 60);
     const seconds = totalSeconds % 60;
     return `${hours}h ${minutes}m ${seconds}s`;
   };
+
+  /*const submitAnswers = async () => {
+   // const intervieweeId = '12345'; // Replace with actual interviewee ID
+    const formattedAnswers = Object.keys(answers).map((questionId) => ({
+      questionId,
+      answer: answers[questionId],
+    }));
+
+    try {
+      const totalInterviewTimeInSeconds = 30 * 60 - timeRemaining; // Calculate total time taken in seconds
+      const formattedTimeTaken = formatTime(totalInterviewTimeInSeconds);
+      await axios.post('http://localhost:5001/api/submit-answers', {
+        userEmail:userEmail,
+        timeTaken:formattedTimeTaken,
+        answers: formattedAnswers,
+      });
+      alert('Answers submitted successfully');
+    } catch (error) {
+      console.error('Error submitting answers:', error);
+      alert('Error submitting answers');
+    }
+  };*/
   const submitAnswers= async () => {
     const formattedAnswers = Object.keys(answers).map((questionId) => ({
       questionId,
       answer: answers[questionId],
     }));
     try {
-      const totalInterviewTimeInSeconds = 30 * 60 - timeRemaining; // Calculate total time taken in seconds
+      const totalInterviewTimeInSeconds = 30*60 - timeRemaining; // Calculate total time taken in seconds
       const formattedTimeTaken = formatTime(totalInterviewTimeInSeconds);
-      // Make a POST request to save the session in the database
      const result= await axios.post('http://localhost:5001/auth/tsessions', {
         userEmail:userEmail,
+        preparationName:prName,
         timeTaken:formattedTimeTaken,
-        solutions:formattedAnswers, // Send all saved solutions
+        answers:formattedAnswers, // Send all saved solutions
       });
       if(result)
       {
@@ -130,11 +170,31 @@ const TechnicalInterview = ({ permissions }) => {
     <div>
       {/* Header Section */}
       <div className="header">
-        <span>PrepSmart</span>
-      <div className="time">
-            <Timer interviewTime={900} setTestRun={setTestRun} testRun={testRun} />
+        <div className="heading shadow-lg shadow-black font-semibold text-2xl">
+          <h1>PrepSmart</h1>
+          <div className="rtime">
+            <Timer interviewTime={1800} setTestRun={setTestRun} testRun={testRun} />
           </div>
+          
+          {/* Profile Dropdown */}
+          <div className="flex font-semibold relative items-center justify-end gap-3">
+            <div
+              onClick={handleProfileButton}
+              className="relative cursor-pointer"
+            >
+              Profile
+            </div>
+            {isProfileOpen && (
+              <div className="profile-dropdown">
+                <div>{userName}</div>
+                <div id="profile-email">{email}</div>
+                <hr />
+                <Logout />
+              </div>
+            )}
           </div>
+        </div>
+      </div>
 
       {/* Main Container */}
       <div className="technical-interview-container">
@@ -185,7 +245,13 @@ const TechnicalInterview = ({ permissions }) => {
 // Add prop types validation
 TechnicalInterview.propTypes = {
   permissions: PropTypes.object.isRequired, // Assuming permissions is an object, adjust the type accordingly
+  showProfile: PropTypes.bool.isRequired,
 };
+
+// TechnicalInterview.propTypes = {
+//   // showSignIn: PropTypes.bool,
+//   showProfile: PropTypes.bool,
+// };
 
 export default TechnicalInterview;
 
