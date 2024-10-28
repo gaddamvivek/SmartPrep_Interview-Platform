@@ -23,12 +23,23 @@ const TechnicalInterview = ({ permissions }) => {
   const fetchQuestions = async (difficulty) => {
     try {
       const response = await axios.get(`http://localhost:5001/api/tech/getRandomTechnicalQuestions?difficulty=${difficulty}`);
-      setQuestions(response.data.slice(0, 3)); // Assuming you only want 3 questions at a time
+      const fetchedQuestions = response.data.slice(0, 3);
+      setQuestions(fetchedQuestions); // Assuming you only want 3 questions at a time
       setCurrentQuestionIndex(0); // Reset to the first question when questions are fetched
+      initializeAnswers(fetchedQuestions);
     } catch (error) {
       console.error('Error fetching questions:', error);
     }
   };
+
+  const initializeAnswers = (fetchedQuestions) => {
+    const initialAnswers = {};
+    fetchedQuestions.forEach((question) => {
+      initialAnswers[question._id] = ''; // Initialize each question's answer with an empty string
+    });
+    setAnswers(initialAnswers);
+  };
+  
   const handleSpeech = () => {
     const syn = window.speechSynthesis;
     const currentQuestion = questions[currentQuestionIndex].title;
@@ -37,8 +48,10 @@ const TechnicalInterview = ({ permissions }) => {
     syn.speak(utterance)
   }
 
+
   const nextQuestion = () => {
     if (currentQuestionIndex < questions.length - 1) {
+      
       setCurrentQuestionIndex(currentQuestionIndex + 1);
     }
   };
@@ -86,28 +99,6 @@ const TechnicalInterview = ({ permissions }) => {
     const seconds = totalSeconds % 60;
     return `${hours}h ${minutes}m ${seconds}s`;
   };
-
-  /*const submitAnswers = async () => {
-   // const intervieweeId = '12345'; // Replace with actual interviewee ID
-    const formattedAnswers = Object.keys(answers).map((questionId) => ({
-      questionId,
-      answer: answers[questionId],
-    }));
-
-    try {
-      const totalInterviewTimeInSeconds = 30 * 60 - timeRemaining; // Calculate total time taken in seconds
-      const formattedTimeTaken = formatTime(totalInterviewTimeInSeconds);
-      await axios.post('http://localhost:5001/api/submit-answers', {
-        userEmail:userEmail,
-        timeTaken:formattedTimeTaken,
-        answers: formattedAnswers,
-      });
-      alert('Answers submitted successfully');
-    } catch (error) {
-      console.error('Error submitting answers:', error);
-      alert('Error submitting answers');
-    }
-  };*/
   const submitAnswers= async () => {
     const formattedAnswers = Object.keys(answers).map((questionId) => ({
       questionId,
@@ -183,6 +174,7 @@ const TechnicalInterview = ({ permissions }) => {
             saveAnswer={saveAnswer}
             currentAnswer={answers[questions[currentQuestionIndex]?._id] || ''} 
             onSubmitAnswers={submitAnswers}
+            currentQuestionIndex={currentQuestionIndex}
           />
         </div>
       </div>

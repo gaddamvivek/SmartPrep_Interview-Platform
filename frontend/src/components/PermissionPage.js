@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { useNavigate } from 'react-router-dom';
+import { ArrowLeftIcon } from "@heroicons/react/24/solid";
+
 
 const PermissionPage = ({ onPermissionGranted }) => {
   const [cameraGranted, setCameraGranted] = useState(false);
   const [microphoneGranted, setMicrophoneGranted] = useState(false);
   const [mediaStream, setMediaStream] = useState(null);
   const [micStream, setMicStream] = useState(null);
+  const navigate = useNavigate();
 
   const handleCameraPermission = async () => {
     if (cameraGranted) {
@@ -53,6 +57,13 @@ const PermissionPage = ({ onPermissionGranted }) => {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100 p-6">
       <div className="bg-white shadow-lg rounded-lg p-8 max-w-lg w-full">
+      <button
+        onClick={() => navigate('/interviewdetails')}
+        className="flex  px-4 py-2 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 ml-4 mt-4"
+      >
+        <ArrowLeftIcon className="h-5 w-5 mr-2" />
+        Back
+      </button>
         <h1 className="text-3xl text-black font-semibold text-center mb-6">Welcome</h1>
         <h2 className="text-xl font-semibold text-center mb-4">Technical Interview</h2>
         <p className="text-center mb-8">30 minutes</p>
@@ -60,7 +71,7 @@ const PermissionPage = ({ onPermissionGranted }) => {
         <div className="space-y-4">
           <div className="flex items-center">
             <div className="w-8 h-8 flex items-center justify-center text-lg bg-gray-200 rounded-full">⏱</div>
-            <p className="ml-4 text-gray-700">Test will run for 30 minutes. This is a timed test. At the end, responses will be auto-saved.</p>
+            <p className="ml-4 text-gray-700">Test will run for 30 minutes. This is a timed test.</p>
           </div>
           <div className="flex items-center">
             <div className="w-8 h-8 flex items-center justify-center text-lg bg-gray-200 rounded-full">⏸</div>
