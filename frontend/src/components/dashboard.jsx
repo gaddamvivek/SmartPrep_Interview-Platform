@@ -1,6 +1,29 @@
+
 import React from 'react';
 import { NavBar } from './NavBar';
 import SessionManager from '../components/SessionManager';
+import InterviewLogs from './InterviewLogs';
+import UserStatCard from './userStatCard';
+import { UserDashboardStats } from './UserDashboardStats';
+
+// export const Dashboard = () => {
+//   return (
+//     <div className="h-full bg-[#e6dceb] flex flex-col justify-end font-rubik">
+//       <SessionManager inactivityDuration={15 * 60 * 1000} />
+
+//       <NavBar showProfile={true} showNewInterview={true} />
+
+//       <InterviewLogs email={'Arangdal@albany.edu'} />
+
+//       <hr />
+
+//       <UserDashboardStats email={'Arangdal@albany.edu'} />
+//     </div>
+//   );
+// };
+
+
+
 
 export const Dashboard = () => {
   return (
@@ -8,7 +31,7 @@ export const Dashboard = () => {
       <SessionManager inactivityDuration={15 * 60 * 1000} />
 
       <NavBar showProfile={true} showNewInterview={true} />
-
+  
       <div className="w-full p-10">
         <h2 className="text-3xl text-center font-semibold p-3">
           Recent Interviews
@@ -61,3 +84,4 @@ export const Dashboard = () => {
     </div>
   );
 };
+

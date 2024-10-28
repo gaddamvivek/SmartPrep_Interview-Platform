@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const authenticationRoutes = require('./routes/auth')
+const userRoutes = require('./routes/user.js')
 const mongoose = require('mongoose');
 const QuestionRoutes = require('./routes/questions');
 const axios = require('axios');
@@ -8,7 +9,7 @@ const path = require('path');
 const admin = require('firebase-admin'); // Firebase Admin SDK for Google Auth
 const feedbackRoutes = require('./routes/feedback'); //feedback route
 const techQnRoutes = require('./routes/techQn'); // technical questions route
-//const answerRoutes = require('./routes/answerRoutes');
+const answerRoutes = require('./routes/answerRoutes');
 require('dotenv').config();
 const User = require('./models/user'); // Import the User model
 //const Answer = require('./models/Answer');
@@ -68,7 +69,12 @@ app.post('/auth/google', async (req, res) => {
 // API Routes
 app.use('/api/Questions', QuestionRoutes);
 app.use('/auth', authenticationRoutes);
+
+app.use('/api/answers', answerRoutes);
+app.use('/api/user', userRoutes);
+
 //app.use('/api/answers', answerRoutes);
+
 
 // API route to submit answers for technical interview
 /*app.post('/api/submit-answers', async (req, res) => {

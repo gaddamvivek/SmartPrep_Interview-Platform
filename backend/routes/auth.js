@@ -2,7 +2,7 @@ const express = require('express');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const User = require('../models/user'); // Import the User model
-const IDS  = require('../models/intrwdtlsschema')
+const IDSchema  = require('../models/intrwdtlsschema')
 const router = express.Router();
 const admin = require('../firebaseAdmin');
 const sessionTable = require('../models/sessionTable');
@@ -107,12 +107,30 @@ router.post('/interviewdetails', async (req, res) => {
                     throw new Error("Secret key not found");
                 }
                 const fetchedDetails = jwt.verify(token, process.env.TOKEN_SECRET_KEY);
+
+                username = fetchedDetails.mailid;
+                console.log("User mail ID:", username);
+
+                // Send a response and return to avoid further code execution
+
                 console.log(fetchedDetails)
                 username = fetchedDetails.uname;
         // If the token was valid, save interview details
-                const ids = new IDS({ username, prepname, diffLvl, slctround });
-                await ids.save();                
-                return res.send('success');
+                // const ids = new IDS({ username, prepname, diffLvl, slctround });
+                // await ids.save();                
+                // return res.send('success');
+
+                const ids = new IDSchema({ username, prepname, diffLvl, slctround });
+                await ids.save();
+                const savedDetails = await IDSchema.findOne({ username, prepname, diffLvl, slctround });
+                if (savedDetails) {
+                    console.log('Data saved successfully:', savedDetails);
+                    res.status(201).json({ message: 'Interview details saved successfully!' });
+                } else {
+                    console.log('Data not saved.');
+                    res.status(500).json({ error: 'Error saving interview details' });
+                }
+                
             } catch (error) {
                 console.log(error);
                 return res.status(401).json({ message: "Token verification failed" }); 
@@ -121,6 +139,12 @@ router.post('/interviewdetails', async (req, res) => {
             console.error("Authorization header missing or incorrect");
             return res.status(401).json({ message: "Authorization header missing" }); 
         }
+
+
+        // If the token was valid, save interview details
+        
+
+
     } catch (err) {
         res.status(500).send('Error'); 
     }
