@@ -128,6 +128,7 @@ router.post('/testsubmit', async (req, res) => {
             return {
                 questionID: solution.questionID,
                 questiontitle:question.title,
+                questiondescription:question.description,
                 aisolution:question.solution,
                 userSolution: solution.userSolution,
                 testCases: question ? question.testCases.map(testCases => ({

@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const CodingSolutionsSchema = new mongoose.Schema({
     questionID: { type: String, required: true },
     questiontitle: { type: String, required: true },
+    questiondescription:{ type: String, required: true },
     aisolution:{ type: String, required: true },
     userSolution: { type: String, required: true },
     testCases: [
