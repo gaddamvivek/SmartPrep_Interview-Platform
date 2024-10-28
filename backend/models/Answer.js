@@ -14,6 +14,10 @@ const AnswerSchema = new mongoose.Schema({
 const InterviewResponseSchema = new mongoose.Schema({
   userEmail: { type: String, required: true },
   preparationName:{type :String, required: true},
+  sessionStartDate:{ type: String, required: true },
+  sessionEndDate:{ type: String, required: true },
+  sessionStartTime:{ type: String, required: true },
+  sessionEndTime:{ type: String, required: true },
   timeTaken: { type: String, required: true },
   answers: {
     type: [AnswerSchema], // Array of AnswerSchema objects

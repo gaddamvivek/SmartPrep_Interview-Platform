@@ -25,7 +25,7 @@ export const InterviewDetails = () => {
             localStorage.setItem("pname",prepname);
             console.log(prepname)
             if(slctround === 'Coding' && buttonClick){
-                const sessionStartTime = new Date();
+            const sessionStartTime = new Date();
             const startDate = sessionStartTime.toLocaleDateString('en-US');
             const startTime = sessionStartTime.toLocaleTimeString('en-US', { hour12: false });
             localStorage.setItem("codingSessionStartDate", startDate);
@@ -35,6 +35,13 @@ export const InterviewDetails = () => {
             }                
             // Updated for Technical questions
             else if (slctround === 'Technical questions' && buttonClick) {
+            const sessionStartTime = new Date();
+            const tstartDate = sessionStartTime.toLocaleDateString('en-US');
+            const tstartTime = sessionStartTime.toLocaleTimeString('en-US', { hour12: false });
+            localStorage.setItem("technicalSessionStartDate", tstartDate);
+            localStorage.setItem("technicalSessionStartTime", tstartTime);
+            console.log(tstartDate);
+            console.log(tstartTime);
                 localStorage.removeItem('remainingTime');
                 navigate('/technicalinterview'); // Redirect to the technical interview route
             }
