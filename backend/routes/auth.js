@@ -38,7 +38,6 @@ router.post('/register', async (req, res) => {
         if (userMail)
             return res.status(400).send("Email already exists");
         const hashedPassword = await bcrypt.hash(password, 10);
-        console.log(hashedPassword)
         const user = new User({ fname, lname, username, email, password: hashedPassword });
         await user.save();
         res.send('User registered successfully');
@@ -63,7 +62,6 @@ router.post('/sessions', async (req, res) => {
         });
 
         await newSession.save();
-        console.log('Session saved successfully:', newSession); // Log success message
         res.status(201).json({ message: 'Coding session saved successfully!' });
     } catch (error) {
         console.error('Error saving session:', error);
@@ -107,7 +105,6 @@ router.post('/interviewdetails', async (req, res) => {
                     throw new Error("Secret key not found");
                 }
                 const fetchedDetails = jwt.verify(token, process.env.TOKEN_SECRET_KEY);
-                console.log(fetchedDetails)
                 username = fetchedDetails.uname;
         // If the token was valid, save interview details
                 const ids = new IDS({ username, prepname, diffLvl, slctround });

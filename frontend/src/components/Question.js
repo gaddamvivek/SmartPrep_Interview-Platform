@@ -10,7 +10,7 @@ const Question = ({ setQuestionId }) => {
   const navigate = useNavigate(); 
 
   const startSession = () => {
-    localStorage.setItem('codingSessionActive', 'true'); 
+  //  localStorage.setItem('codingSessionActive', 'true'); 
     console.log('Session started');
   };
 

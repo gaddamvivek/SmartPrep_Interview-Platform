@@ -129,6 +129,7 @@ const handleEndTest = async () => {
   try {
     const totalInterviewTimeInSeconds = 30*60 - timeRemaining; // Calculate total time taken in seconds
     const formattedTimeTaken = formatTime(totalInterviewTimeInSeconds);
+    localStorage.removeItem('codingSessionActive')
     localStorage.removeItem('sessionQuestions');
     const result= await axios.post('http://localhost:5001/auth/sessions', {
       userEmail:userEmail,
@@ -147,7 +148,6 @@ const handleEndTest = async () => {
     } else {
       navigate('/feedback', { state: { passedTestCases: 0, totalTestCases: 0 } });
     }
-
     alert('Session data saved successfully!');
   } catch (error) {
     console.error('Error saving session:', error);
