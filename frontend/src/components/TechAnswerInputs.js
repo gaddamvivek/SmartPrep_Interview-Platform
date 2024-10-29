@@ -3,7 +3,7 @@ import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognitio
 import Webcam from 'react-webcam';
 import PropTypes from 'prop-types';
 
-const TechAnswerInputs = ({ permissions, saveAnswer, currentAnswer, onSubmitAnswers }) => {
+const TechAnswerInputs = ({ permissions, saveAnswer, currentAnswer, onSubmitAnswers ,currentQuestionIndex}) => {
   const [recording, setRecording] = useState(false);
   const [transcriptText, setTranscriptText] = useState(currentAnswer || '');
   const [isVideoRecording, setIsVideoRecording] = useState(false);
@@ -15,7 +15,13 @@ const TechAnswerInputs = ({ permissions, saveAnswer, currentAnswer, onSubmitAnsw
 
   useEffect(() => {
     setTranscriptText(currentAnswer || '');
-  }, [currentAnswer]);
+  }, [currentAnswer,currentQuestionIndex]);
+
+  useEffect(() => {
+    // Reset recording state and transcript each time the question changes
+    setRecording(false);
+    resetTranscript();
+  }, [currentQuestionIndex]);
 
   const handleTranscriptChange = (e) => {
     setTranscriptText(e.target.value);
@@ -149,6 +155,7 @@ TechAnswerInputs.propTypes = {
   saveAnswer: PropTypes.func.isRequired,
   currentAnswer: PropTypes.string.isRequired,
   onSubmitAnswers: PropTypes.func.isRequired,
+  currentQuestionIndex: PropTypes.func.isRequired,
 };
 
 export default TechAnswerInputs;

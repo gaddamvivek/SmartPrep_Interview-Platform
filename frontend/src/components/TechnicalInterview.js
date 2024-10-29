@@ -29,8 +29,10 @@ const TechnicalInterview = ({ permissions, showProfile }) => {
   const fetchQuestions = async (difficulty) => {
     try {
       const response = await axios.get(`http://localhost:5001/api/tech/getRandomTechnicalQuestions?difficulty=${difficulty}`);
-      setQuestions(response.data.slice(0, 3)); // Assuming you only want 3 questions at a time
+      const fetchedQuestions = response.data.slice(0, 3);
+      setQuestions(fetchedQuestions); // Assuming you only want 3 questions at a time
       setCurrentQuestionIndex(0); // Reset to the first question when questions are fetched
+      initializeAnswers(fetchedQuestions);
     } catch (error) {
       console.error('Error fetching questions:', error);
     }
@@ -60,8 +62,10 @@ const TechnicalInterview = ({ permissions, showProfile }) => {
     syn.speak(utterance)
   }
 
+
   const nextQuestion = () => {
     if (currentQuestionIndex < questions.length - 1) {
+      
       setCurrentQuestionIndex(currentQuestionIndex + 1);
     }
   };
@@ -126,6 +130,27 @@ const TechnicalInterview = ({ permissions, showProfile }) => {
     return `${hours}h ${minutes}m ${seconds}s`;
   };
 
+  /*const submitAnswers = async () => {
+   // const intervieweeId = '12345'; // Replace with actual interviewee ID
+    const formattedAnswers = Object.keys(answers).map((questionId) => ({
+      questionId,
+      answer: answers[questionId],
+    }));
+
+    try {
+      const totalInterviewTimeInSeconds = 30 * 60 - timeRemaining; // Calculate total time taken in seconds
+      const formattedTimeTaken = formatTime(totalInterviewTimeInSeconds);
+      await axios.post('http://localhost:5001/api/submit-answers', {
+        userEmail:userEmail,
+        timeTaken:formattedTimeTaken,
+        answers: formattedAnswers,
+      });
+      alert('Answers submitted successfully');
+    } catch (error) {
+      console.error('Error submitting answers:', error);
+      alert('Error submitting answers');
+    }
+  };*/
   const submitAnswers= async () => {
     const today = new Date();
     const formattedDate = `${today.getMonth() + 1}/${today.getDate()}/${today.getFullYear()}`;
@@ -228,6 +253,7 @@ const TechnicalInterview = ({ permissions, showProfile }) => {
             saveAnswer={saveAnswer}
             currentAnswer={answers[questions[currentQuestionIndex]?._id] || ''} 
             onSubmitAnswers={submitAnswers}
+            currentQuestionIndex={currentQuestionIndex}
           />
         </div>
       </div>
