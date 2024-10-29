@@ -1,5 +1,6 @@
 const express = require('express');
 const Answer = require('../models/Answer');
+const technicalQuestionController= require('../controllers/technicalQuestionController');
 
 const router = express.Router();
 
@@ -35,5 +36,7 @@ router.get('/', async (req, res) => {
     res.status(500).json({ message: 'Error fetching answers', error });
   }
 });
+router.get('/Answer', technicalQuestionController.getAnswers);
+
 
 module.exports = router;

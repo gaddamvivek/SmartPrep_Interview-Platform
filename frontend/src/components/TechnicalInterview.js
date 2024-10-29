@@ -151,7 +151,7 @@ const TechnicalInterview = ({ permissions, showProfile }) => {
       {
         console.log("Session saved");
       }
-        navigate('/feedback');
+      navigate('/technicalFeedback', { state: { userEmail, preparationName: prName } });
   
       alert('Session data saved successfully!');
     } catch (error) {
