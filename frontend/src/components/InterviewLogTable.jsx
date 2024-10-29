@@ -16,7 +16,7 @@ const InterviewLogTable = ({ data }) => {
         return (
           <li
             onClick={() => {
-              navigate(`/feedback/${item._id}`);
+              navigate(`/feedback?interview=${item._id}`);
             }}
             key={index}
             className="grid cursor-pointer grid-cols-2 text-nowrap text-lg p-2"
