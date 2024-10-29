@@ -126,9 +126,11 @@ const formatTime = (totalSeconds) => {
 
 
 const handleEndTest = async () => {
+
   try {
     const totalInterviewTimeInSeconds = 30*60 - timeRemaining; // Calculate total time taken in seconds
     const formattedTimeTaken = formatTime(totalInterviewTimeInSeconds);
+
     localStorage.removeItem('codingSessionActive')
     localStorage.removeItem('sessionQuestions');
     const result= await axios.post('http://localhost:5001/auth/sessions', {
@@ -136,13 +138,14 @@ const handleEndTest = async () => {
       preparationName:prName,
       timeTaken:formattedTimeTaken,
       solutions:savedCodeMap  // Send all saved solutions
+
     });
-    if(result)
-    {
+
+    if (result) {
       console.log("Session saved");
     }
 
-    // Redirect to the feedback page with test case results after saving
+    // Redirect to feedback page with test case results after saving
     if (testResults) {
       navigate('/feedback', { state: { passedTestCases: testResults.passed, totalTestCases: testResults.total } });
     } else {
@@ -154,6 +157,7 @@ const handleEndTest = async () => {
     alert('Error saving session');
   }
 };
+
 
 
   return (  
