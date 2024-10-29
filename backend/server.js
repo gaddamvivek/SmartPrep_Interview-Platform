@@ -20,7 +20,7 @@ const serviceAccount = require(path.join(__dirname, 'firebase-adminsdk-key.json'
 const app = express();
 app.use(cors());
 app.use(express.json());
-app.use('/api/feedback', feedbackRoutes); // feedback
+
 
 // MongoDB connection
 mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
@@ -31,6 +31,7 @@ mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopol
 const JUDGE0_API_URL = 'https://judge0-ce.p.rapidapi.com';
 const RAPID_API_KEY = process.env.JUDGE0_API_KEY;
 
+app.use('/api/feedback', feedbackRoutes); // feedback
 app.use('/api/Questions', QuestionRoutes);
 app.use('/auth', authenticationRoutes);
 app.use('/api/tech', techQnRoutes); // Technical questions routes
