@@ -1,6 +1,6 @@
 // controllers/technicalFeedbackController.js
 
-const TechnicalSession = require('../models/Answers'); // Session model
+const TechnicalSession = require('../models/Answer'); // Session model
 const TechnicalQuestion = require('../models/technicalQuestion'); // Question model
 
 const getTechnicalSessionFeedback = async (req, res) => {
