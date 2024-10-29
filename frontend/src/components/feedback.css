@@ -1,138 +1,113 @@
-/* Main container for the feedback page with a light grey background */
+/* Expanded container for a larger feedback page */
 .feedback-container {
-    max-width: 600px;
-    margin: 50px auto;
-    padding: 30px;
-    background-color: #f0f0f5; /* Updated to a soft grey for better contrast */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    border-radius: 10px;
-    font-family: 'rubik', sans-serif; /* Modern font for a cleaner look */
-    color: #333; /* Darker font color for readability */
-  }
-  
-  /* Header styles */
-  .feedback-container h2,
-  .feedback-container h3 {
-    color: #333;
-    margin-bottom: 20px;
-    text-align: center;
-    font-size: 24px; /* Increased font size for better visibility */
-    font-weight: 600; /* Make headings bold for emphasis */
-  }
-  
-  /* Center the performance message */
-  .feedback-container p {
-    font-size: 18px;
-    text-align: center;
-    color: #444; /* Slightly darker text color */
-    margin-bottom: 25px;
-  }
-  
-  /* Styling for the emoji feedback review system */
-  .feedback-review ul {
-    display: flex;
-    justify-content: space-around;
-    list-style-type: none;
-    padding: 0;
-    margin: 0 auto;
-    max-width: 500px;
-  }
-  
-  /* Style each feedback option with a cleaner look */
-  .feedback-option {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    cursor: pointer;
-    padding: 15px;
-    border-radius: 8px;
-    transition: background-color 0.3s, transform 0.2s ease;
-  }
-  
-  /* Add hover effect for better interactivity */
-  .feedback-option:hover {
-    background-color: #e6e6ff; /* Soft hover color */
-    transform: translateY(-2px); /* Small elevation on hover */
-  }
-  
-  /* Selected feedback option */
-  .feedback-option.selected {
-    background-color: #d4e1fa; /* Lighter blue for selected state */
-    border: 1px solid #ccc;
-  }
-  
-  .feedback-option input[type="radio"] {
-    display: none;
-  }
-  
-  .feedback-option i {
-    font-size: 40px; /* Larger emoji size for visibility */
-    margin-bottom: 5px;
-  }
-  
-  .feedback-option label {
-    font-size: 14px;
-    color: #333;
-  }
-  
-  /* Colors for emojis */
-  .feedback-option.excellent i {
-    color: #28a745;
-  }
-  
-  .feedback-option.good i {
-    color: #ffc107;
-  }
-  
-  .feedback-option.medium i {
-    color: #ff9800;
-  }
-  
-  .feedback-option.poor i {
-    color: #f44336;
-  }
-  
-  .feedback-option.very-bad i {
-    color: #dc3545;
-  }
-  
-  /* Feedback text area */
-  .feedback-textarea {
-    width: 100%;
-    padding: 12px;
-    margin-top: 20px;
-    margin-bottom: 25px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    font-size: 16px;
-    font-family: 'rubik', sans-serif;
-    background-color: #fff;
-  }
-  
-  /* Submit feedback button with modern styling */
-  .submit-feedback-button {
-    display: block;
-    width: 100%;
-    padding: 12px;
-    background-color: #433878;
-    color: #ffffff;
-    border: none;
-    border-radius: 6px;
-    font-size: 18px;
-    font-family: 'rubik', sans-serif;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .submit-feedback-button:hover {
-    background-color: #7E60BF;
-  }
-  
-  /* Message after submitting feedback */
-  .feedback-message {
-    margin-top: 20px;
-    text-align: center;
-    font-size: 18px;
-    color: #28a745;
-    font-family: 'rubik', sans-serif;
-  }
+  max-width: 800px;
+  /* Increased width */
+  padding: 40px;
+  /* Extra padding for a more spacious layout */
+  margin: 60px auto;
+  background-color: #f9f9fc;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+}
+
+/* View Solutions button styling */
+.view-solutions-button {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  background-color: #433878;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.view-solutions-button:hover {
+  background-color: #7e60bf;
+}
+
+/* Question selection buttons in a centered, grid-like layout */
+.question-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+  margin-bottom: 25px;
+}
+
+/* Toggle buttons for user and correct solutions */
+.solution-toggle-button {
+  padding: 8px 12px;
+  background-color: #e0e0e0;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin: 5px;
+}
+
+.solution-toggle-button:hover {
+  background-color: #7e60bf;
+  color: #fff;
+}
+
+/* Active solution button */
+.solution-toggle-button.active {
+  background-color: #433878;
+  color: #fff;
+}
+
+/* Enhanced experience and feedback styling */
+.feedback-options label {
+  font-size: 16px;
+  margin: 0 8px;
+  color: #333;
+}
+
+.feedback-options input[type="radio"] {
+  margin-right: 4px;
+}
+
+/* Center the Feedback Page heading */
+.feedback-container h2 {
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
+  /* Center align */
+  font-size: 28px;
+  /* Slightly larger for emphasis */
+  font-weight: bold;
+}
+
+/* Updated question details styling */
+.session-item {
+  margin-top: 20px;
+}
+
+.session-item h3 {
+  color: #333;
+  font-size: 20px;
+  margin-bottom: 10px;
+  text-align: center;
+  /* Center align the question title */
+}
+
+.session-item p {
+  font-size: 16px;
+  color: #444;
+  margin-bottom: 10px;
+  text-align: center;
+  /* Center align descriptions and test cases */
+}
+
+/* Total test cases passed display */
+.test-cases-passed {
+  font-size: 16px;
+  color: #28a745;
+  /* Green color to indicate success */
+  font-weight: bold;
+  text-align: center;
+  margin: 10px 0;
+}

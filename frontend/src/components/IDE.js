@@ -25,11 +25,13 @@ const IDE = ({ QuestionId, savedCode, handleSaveCode,savedCodeMap }) => {
       const storedEmail = localStorage.getItem('userEmail');
       setUserEmail(storedEmail);
     }, []);
+
     useEffect(()=>{
       const storedPname=localStorage.getItem('pname');
       console.log(storedPname);
       setPrName(storedPname);
     },[]);
+
     useEffect(()=>{
       const storedStartDate=localStorage.getItem('codingSessionStartDate');
       console.log(storedStartDate);
@@ -160,6 +162,7 @@ const handleEndTest = async () => {
     const totalInterviewTimeInSeconds = 30*60 - timeRemaining; // Calculate total time taken in seconds
     const formattedTimeTaken = formatTime(totalInterviewTimeInSeconds);
 
+    localStorage.removeItem('codingSessionActive')
     localStorage.removeItem('sessionQuestions');
     const result= await axios.post('http://localhost:5001/auth/sessions', {
       userEmail:userEmail,
@@ -178,11 +181,17 @@ const handleEndTest = async () => {
     }
 
     // Redirect to feedback page with test case results after saving
-    if (testResults) {
-      navigate('/feedback', { state: { passedTestCases: testResults.passed, totalTestCases: testResults.total } });
-    } else {
-      navigate('/feedback', { state: { passedTestCases: 0, totalTestCases: 0 } });
-    }
+
+      navigate('/feedback', {
+        state: {
+          userId: userEmail, // Pass user email or userId
+          prName: prName,
+          passedTestCases: testResults?.passed || 0,
+          totalTestCases: testResults?.total || 0,
+          questionId: QuestionId, // Pass the questionId
+          solution: code,         // Pass the user's code solution
+        }
+      });
 
     alert('Session data saved successfully!');
   } catch (error) {
