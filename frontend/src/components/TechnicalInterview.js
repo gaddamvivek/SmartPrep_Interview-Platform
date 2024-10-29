@@ -20,6 +20,8 @@ const TechnicalInterview = ({ permissions, showProfile }) => {
   const navigate = useNavigate();
   const [testRun, setTestRun] = useState(true);
   const [prName,setPrName]=useState('');
+  const [tstartDate,setTstartDate]=useState('');
+  const [tstartTime,settStartTime]=useState('');
   useEffect(() => {
     fetchQuestions(difficulty); // Fetch questions when the component mounts or difficulty changes
   }, [difficulty]);
@@ -111,6 +113,16 @@ const TechnicalInterview = ({ permissions, showProfile }) => {
     console.log(storedPname);
     setPrName(storedPname);
   },[]);
+  useEffect(()=>{
+    const storedStartDate=localStorage.getItem('technicalSessionStartDate');
+    console.log(storedStartDate);
+    setTstartDate(storedStartDate);
+  },[]);
+  useEffect(()=>{
+    const storedStartTime=localStorage.getItem('technicalSessionStartTime');
+    console.log(storedStartTime);
+    settStartTime(storedStartTime);
+  },[]);
   const formatTime = (totalSeconds) => {
     const hours = Math.floor(totalSeconds / 3600);
     const minutes = Math.floor((totalSeconds % 3600) / 60);
@@ -140,6 +152,9 @@ const TechnicalInterview = ({ permissions, showProfile }) => {
     }
   };*/
   const submitAnswers= async () => {
+    const today = new Date();
+    const formattedDate = `${today.getMonth() + 1}/${today.getDate()}/${today.getFullYear()}`;
+    const formattedTime = today.toLocaleTimeString('en-GB');
     const formattedAnswers = Object.keys(answers).map((questionId) => ({
       questionId,
       answer: answers[questionId],
@@ -150,6 +165,10 @@ const TechnicalInterview = ({ permissions, showProfile }) => {
      const result= await axios.post('http://localhost:5001/auth/tsessions', {
         userEmail:userEmail,
         preparationName:prName,
+        sessionStartDate:tstartDate,
+        sessionEndDate:formattedDate,
+        sessionStartTime:tstartTime,
+        sessionEndTime:formattedTime,
         timeTaken:formattedTimeTaken,
         answers:formattedAnswers, // Send all saved solutions
       });
@@ -157,7 +176,7 @@ const TechnicalInterview = ({ permissions, showProfile }) => {
       {
         console.log("Session saved");
       }
-        navigate('/feedback');
+      navigate('/technicalFeedback', { state: { userEmail, preparationName: prName } });
   
       alert('Session data saved successfully!');
     } catch (error) {

@@ -13,6 +13,8 @@ const IDE = ({ QuestionId, savedCode, handleSaveCode,savedCodeMap }) => {
   const navigate = useNavigate(); // For navigation after interview ends
   const [userEmail, setUserEmail] = useState('');
   const [prName,setPrName]=useState('');
+  const [startDate,setStartDate]=useState('');
+  const [startTime,setStartTime]=useState('');
   // Load the saved code when the QuestionId changes
   useEffect(() => {
     setCode(savedCode || '');  // Set the editor with saved code or start with empty string
@@ -23,10 +25,22 @@ const IDE = ({ QuestionId, savedCode, handleSaveCode,savedCodeMap }) => {
       const storedEmail = localStorage.getItem('userEmail');
       setUserEmail(storedEmail);
     }, []);
+
     useEffect(()=>{
       const storedPname=localStorage.getItem('pname');
       console.log(storedPname);
       setPrName(storedPname);
+    },[]);
+
+    useEffect(()=>{
+      const storedStartDate=localStorage.getItem('codingSessionStartDate');
+      console.log(storedStartDate);
+      setStartDate(storedStartDate);
+    },[]);
+    useEffect(()=>{
+      const storedStartTime=localStorage.getItem('codingSessionStartTime');
+      console.log(storedStartTime);
+      setStartTime(storedStartTime);
     },[]);
   // Fetch test cases when QuestionId changes
   useEffect(() => {
@@ -66,6 +80,20 @@ const IDE = ({ QuestionId, savedCode, handleSaveCode,savedCodeMap }) => {
 
   // Handle code submission to backend
   const handleSubmit = async () => {
+    try{
+      const result=await axios.post('http://localhost:5001/auth/testsubmit',{
+      solutions:savedCodeMap
+      });
+      console.log("Server response:", result.data);
+      if(result)
+        {
+          console.log("question and  saved for testing");
+        }
+        alert('Session data saved successfully!');
+      } catch (error) {
+        console.error('Error saving question ans ans session:', error);
+        alert('Error saving question and ans session');
+      }
     try {
       const res = await axios.post('http://localhost:5001/api/submit', {
         code: code,
@@ -126,14 +154,23 @@ const formatTime = (totalSeconds) => {
 
 
 const handleEndTest = async () => {
+  const today = new Date();
+  const formattedDate = `${today.getMonth() + 1}/${today.getDate()}/${today.getFullYear()}`;
+  const formattedTime = today.toLocaleTimeString('en-GB');
 
   try {
     const totalInterviewTimeInSeconds = 30*60 - timeRemaining; // Calculate total time taken in seconds
     const formattedTimeTaken = formatTime(totalInterviewTimeInSeconds);
 
-   const result= await axios.post('http://localhost:5001/auth/sessions', {
+    localStorage.removeItem('codingSessionActive')
+    localStorage.removeItem('sessionQuestions');
+    const result= await axios.post('http://localhost:5001/auth/sessions', {
       userEmail:userEmail,
       preparationName:prName,
+      sessionStartDate:startDate,
+      sessionEndDate:formattedDate,
+      sessionStartTime:startTime,
+      sessionEndTime: formattedTime,
       timeTaken:formattedTimeTaken,
       solutions:savedCodeMap  // Send all saved solutions
 
@@ -144,11 +181,17 @@ const handleEndTest = async () => {
     }
 
     // Redirect to feedback page with test case results after saving
-    if (testResults) {
-      navigate('/feedback', { state: { passedTestCases: testResults.passed, totalTestCases: testResults.total } });
-    } else {
-      navigate('/feedback', { state: { passedTestCases: 0, totalTestCases: 0 } });
-    }
+
+      navigate('/feedback', {
+        state: {
+          userId: userEmail, // Pass user email or userId
+          prName: prName,
+          passedTestCases: testResults?.passed || 0,
+          totalTestCases: testResults?.total || 0,
+          questionId: QuestionId, // Pass the questionId
+          solution: code,         // Pass the user's code solution
+        }
+      });
 
     alert('Session data saved successfully!');
   } catch (error) {

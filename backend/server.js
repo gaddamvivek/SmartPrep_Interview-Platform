@@ -10,9 +10,11 @@ const admin = require('firebase-admin'); // Firebase Admin SDK for Google Auth
 const feedbackRoutes = require('./routes/feedback'); //feedback route
 const techQnRoutes = require('./routes/techQn'); // technical questions route
 const answerRoutes = require('./routes/answerRoutes');
+const technicalSessionRoutes = require('./routes/technicalSessionRoutes');
+
 require('dotenv').config();
 const User = require('./models/user'); // Import the User model
-//const Answer = require('./models/Answer');
+// const Answer = require('./models/Answer');
 
 // Initialize Firebase Admin SDK
 const serviceAccount = require(path.join(__dirname, 'firebase-adminsdk-key.json')); 
@@ -20,7 +22,11 @@ const serviceAccount = require(path.join(__dirname, 'firebase-adminsdk-key.json'
 const app = express();
 app.use(cors());
 app.use(express.json());
+
 app.use('/api/feedback', feedbackRoutes); // feedback
+app.use('/api/technicalSession', technicalSessionRoutes);
+app.use('/api/answer', answerRoutes);
+
 
 // MongoDB connection
 mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
@@ -31,6 +37,7 @@ mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopol
 const JUDGE0_API_URL = 'https://judge0-ce.p.rapidapi.com';
 const RAPID_API_KEY = process.env.JUDGE0_API_KEY;
 
+app.use('/api/feedback', feedbackRoutes); // feedback
 app.use('/api/Questions', QuestionRoutes);
 app.use('/auth', authenticationRoutes);
 app.use('/api/tech', techQnRoutes); // Technical questions routes
@@ -72,29 +79,6 @@ app.use('/auth', authenticationRoutes);
 
 app.use('/api/answers', answerRoutes);
 app.use('/api/user', userRoutes);
-
-//app.use('/api/answers', answerRoutes);
-
-
-// API route to submit answers for technical interview
-/*app.post('/api/submit-answers', async (req, res) => {
-  const { intervieweeId, answers } = req.body;
-
-  try {
-    // Create a new Answer document in MongoDB
-    const newAnswer = new Answer({
-      intervieweeId,
-      answers
-    });
-
-    await newAnswer.save();  // Save the document to MongoDB
-    res.status(200).json({ message: 'Answers submitted successfully' });
-  } catch (error) {
-    console.log(intervieweeId,answers);
-    console.log(error);
-    res.status(500).json({ message: 'Error saving answers', error });
-  }
-});*/
 
 
 // Code submission endpoint

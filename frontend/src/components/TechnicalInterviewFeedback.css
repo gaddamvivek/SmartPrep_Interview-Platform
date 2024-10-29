@@ -1,0 +1,292 @@
+/* Main container with a flex layout for side-by-side structure */
+.feedback-page {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Q&A container taking up half of the screen */
+.feedback-container {
+    flex: 1;
+    background-color: #f7f9fc;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+    max-width: 600px;
+}
+
+/* Video container positioned on the right */
+.video-container {
+    flex: 0.5;
+    max-width: 500px;
+    background-color: #f0f0f5;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    position: sticky;
+    top: 20px;
+    height: fit-content;
+}
+
+/* Header styling */
+.feedback-header {
+    font-size: 24px;
+    text-align: center;
+    color: #4A90E2;
+    margin-bottom: 20px;
+}
+
+/* Question title styling */
+.question-title {
+    color: #4A90E2;
+    font-size: 20px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+/* Answer and solution sections */
+.answer-section {
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.user-answer, .correct-solution {
+    background-color: #f7f9fc;
+    padding: 10px;
+    border-radius: 8px;
+    margin: 10px 0;
+    font-size: 14px;
+    color: #333;
+}
+
+/* Bold styling for labels */
+.user-answer strong, .correct-solution strong {
+    color: #333;
+}
+
+/* Show more link styling */
+.show-more-link {
+    color: #5A3FFF;
+    font-weight: bold;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+.show-more-link:hover {
+    color: #005bb5;
+    text-decoration: underline;
+}
+
+/* Video title styling */
+.video-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+/* Video container with flex and sticky positioning */
+.video-container {
+    flex: 0.5;
+    max-width: 500px;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #f0f0f5;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    position: sticky;
+    top: 20px;
+    height: fit-content;
+}
+
+/* Wrapper to position the blur overlay and button */
+.video-wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+/* Video with blur effect */
+.video-player {
+    width: 100%;
+    filter: blur(10px);
+    transition: filter 0.4s ease;
+}
+
+.video-visible {
+    filter: none; /* Remove blur when visible */
+}
+
+/* Overlay for frosted glass effect */
+.blur-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(15px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.4s ease;
+    border-radius: 8px;
+    /*z-index: 1; Overlay for frosted glass effect */
+}
+
+.blur-overlay-hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Show video button styling */
+.show-video-button {
+    padding: 10px 20px;
+    background-color: #5A3FFF; /* Purple color */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    z-index: 1;
+}
+
+.show-video-button:hover {
+    background-color: #4A32CC; /* Slightly darker purple */
+}
+
+/* Rating and Feedback section under video */
+.rating-feedback-section {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f7f9fc;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    color: #333;
+}
+
+/* Rating header */
+.rating-feedback-section h3 {
+    font-size: 18px;
+    color: #333;
+    text-align: center;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+/* Adjust rating alignment */
+.feedback-review ul {
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    max-width: 500px;
+}
+
+/* Style each feedback option */
+.feedback-option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 8px;
+    transition: background-color 0.3s, transform 0.2s ease;
+    color: #333;
+}
+
+.feedback-option i {
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+.feedback-option.selected {
+    background-color: #d4e1fa; /* Light blue background for selected rating */
+    border: 1px solid #ccc;
+}
+
+.feedback-option.excellent i {
+    color: #28a745; /* Green */
+}
+
+.feedback-option.good i {
+    color: #ffc107; /* Yellow */
+}
+
+.feedback-option.medium i {
+    color: #ff9800; /* Orange */
+}
+
+.feedback-option.poor i {
+    color: #f44336; /* Red */
+}
+
+.feedback-option.very-bad i {
+    color: #dc3545; /* Dark Red */
+}
+
+/* Feedback textarea */
+.feedback-textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    background-color: #fff;
+}
+
+/* Submit feedback button */
+.submit-feedback-button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #5A3FFF; /* Purple color */
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-feedback-button:hover {
+    background-color: #4A32CC; /* Slightly darker purple */
+}
+
+/* Feedback submission message */
+.feedback-message {
+    margin-top: 10px;
+    text-align: center;
+    font-size: 16px;
+    color: #28a745;
+}
+
+/* Navbar styling */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #433878;
+    padding: 10px 15px;
+    color: white;
+    font-family: 'rubik', sans-serif;
+  }
+  
+  .navbar-left {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  .navbar-right {
+    font-size: 16px;
+  }

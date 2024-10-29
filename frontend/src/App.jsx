@@ -13,6 +13,9 @@ import SessionManager from './components/SessionManager';
 import PropTypes from 'prop-types';
 import Feedback from './components/feedback';
 import { ForgetPassword } from './components/forgetpassword';
+import TechnicalInterviewFeedback from './components/TechnicalInterviewFeedback';
+
+
 
 function App() {
   return (
@@ -25,11 +28,12 @@ function App() {
           <Route path="/dashboard" element={<ProtectedRoutes><Dashboard /></ProtectedRoutes>} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/forgetpassword" element={<ForgetPassword />} />
-          <Route path="/codeeditor" element={<ProtectedRoutes><OpenEditor /></ProtectedRoutes>} />
+          <Route path="/codeeditor" element={<CodingRoutes><OpenEditor /></CodingRoutes>} />
           <Route path="/technicalinterview" element={<ProtectedRoutes><InterviewContainer /></ProtectedRoutes>} />
           <Route path="/interviewdetails" element={<ProtectedRoutes><InterviewDetails /></ProtectedRoutes>} />
           <Route path="/google-signin" element={<GoogleSignInButton />} />
           <Route path="/feedback" element={<Feedback />} />
+          <Route path="/technicalFeedback" element={<TechnicalInterviewFeedback />} />
         </Routes>
       </Router>
     </div>
@@ -64,5 +68,18 @@ export function PublicRoutes({ children }) {
 
 // Add PropTypes validation for PublicRoutes
 PublicRoutes.propTypes = {
+  children: PropTypes.node.isRequired, // Validate that children are provided
+};
+
+export function CodingRoutes({ children }) {
+  const dataAvail = localStorage.getItem("logindata");
+  const codeActivity = localStorage.getItem("codingSessionActive")
+  if (dataAvail && codeActivity === 'true') {
+    return children;
+  } else {
+    return <Navigate to="/dashboard" />;
+  }
+}
+CodingRoutes.propTypes = {
   children: PropTypes.node.isRequired, // Validate that children are provided
 };

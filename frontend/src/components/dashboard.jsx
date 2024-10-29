@@ -1,9 +1,7 @@
-
 import React from 'react';
 import { NavBar } from './NavBar';
 import SessionManager from '../components/SessionManager';
 import InterviewLogs from './InterviewLogs';
-import UserStatCard from './userStatCard';
 import { UserDashboardStats } from './UserDashboardStats';
 
 // export const Dashboard = () => {
@@ -13,26 +11,24 @@ import { UserDashboardStats } from './UserDashboardStats';
 
 //       <NavBar showProfile={true} showNewInterview={true} />
 
-//       <InterviewLogs email={'Arangdal@albany.edu'} />
+//       <InterviewLogs email={'sgolla@albany.edu'} />
 
 //       <hr />
 
-//       <UserDashboardStats email={'Arangdal@albany.edu'} />
+//       <UserDashboardStats email={'sgolla@albany.edu'} />
 //     </div>
 //   );
 // };
 
-
-
-
 export const Dashboard = () => {
+  const userEmail = window.localStorage.getItem('userEmail');
   return (
     <div className="h-full bg-[#e6dceb] flex flex-col justify-end font-rubik">
       <SessionManager inactivityDuration={15 * 60 * 1000} />
 
       <NavBar showProfile={true} showNewInterview={true} />
-  
-      <div className="w-full p-10">
+
+      {/* <div className="w-full p-10">
         <h2 className="text-3xl text-center font-semibold p-3">
           Recent Interviews
         </h2>
@@ -58,30 +54,27 @@ export const Dashboard = () => {
             <p className="">Hard</p>
           </li>
         </ul>
-      </div>
+      </div> */}
+      <InterviewLogs email={userEmail} />
 
       <hr />
 
-      <div
+      {/* <div
         className="grid bg-[#7360bf] text-gray-300 grid-flow-col p-10 justify-around"
         id="user-metrics"
       >
         <div className="w-full rounded-md  font-semibold text-center content-center">
           <div className="text-2xl font-semibold">787</div>
           <div className="flex gap-3 justify-center">Interviews Attended</div>
-          <div className="text-xs  font-normal">
-            Sept 2024 - Present
-          </div>
+          <div className="text-xs  font-normal">Sept 2024 - Present</div>
         </div>
         <div className="w-full rounded-md  font-semibold text-center content-center">
           <div className="text-2xl font-semibold">787</div>
           <div className="flex gap-3 justify-center">Interviews Attended</div>
-          <div className="text-xs  font-normal">
-            Sept 2024 - Present
-          </div>
+          <div className="text-xs  font-normal">Sept 2024 - Present</div>
         </div>
-      </div>
+      </div> */}
+      <UserDashboardStats email={userEmail} />
     </div>
   );
 };
-

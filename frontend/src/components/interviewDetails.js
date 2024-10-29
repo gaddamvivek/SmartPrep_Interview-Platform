@@ -22,14 +22,27 @@ export const InterviewDetails = () => {
         
             const result = await axios.post('http://localhost:5001/auth/interviewdetails', { prepname, diffLvl, slctround},{headers});
             console.log(result);
+            localStorage.setItem('codingSessionActive', 'true');
             localStorage.setItem("pname",prepname);
-            console.log(prepname)
+            localStorage.setItem("selectedDifficulty", diffLvl);
             if(slctround === 'Coding' && buttonClick){
+            const sessionStartTime = new Date();
+            const startDate = sessionStartTime.toLocaleDateString('en-US');
+            const startTime = sessionStartTime.toLocaleTimeString('en-US', { hour12: false });
+            localStorage.setItem("codingSessionStartDate", startDate);
+            localStorage.setItem("codingSessionStartTime", startTime);
                 localStorage.removeItem('remainingTime');
                 navigate('/codeeditor');
             }                
             // Updated for Technical questions
             else if (slctround === 'Technical questions' && buttonClick) {
+            const sessionStartTime = new Date();
+            const tstartDate = sessionStartTime.toLocaleDateString('en-US');
+            const tstartTime = sessionStartTime.toLocaleTimeString('en-US', { hour12: false });
+            localStorage.setItem("technicalSessionStartDate", tstartDate);
+            localStorage.setItem("technicalSessionStartTime", tstartTime);
+            console.log(tstartDate);
+            console.log(tstartTime);
                 localStorage.removeItem('remainingTime');
                 navigate('/technicalinterview'); // Redirect to the technical interview route
             }

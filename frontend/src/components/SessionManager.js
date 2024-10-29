@@ -18,13 +18,11 @@ const SessionManager = ({ inactivityDuration = 15 * 60 * 1000 }) => {
             const lastActivityTime = parseInt(localStorage.getItem('lastActivityTime'), 10) || Date.now();
             if (Date.now() - lastActivityTime > inactivityDuration) {
                 alert('You have been inactive for too long. Logging out...');
-                localStorage.removeItem('isLoggedIn'); // Clear session
+                localStorage.clear();                
                 navigate('/login'); // Redirect to login
             }
         };
-
         const activityInterval = setInterval(checkInactivity, 1000);
-
         return () => clearInterval(activityInterval); // Cleanup on unmount
     }, [inactivityDuration, navigate]);
 

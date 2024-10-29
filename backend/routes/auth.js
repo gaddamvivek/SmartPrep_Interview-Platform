@@ -7,12 +7,14 @@ const router = express.Router();
 const admin = require('../firebaseAdmin');
 const sessionTable = require('../models/sessionTable');
 const Answer = require('../models/Answer');
+const Question = require('../models/Question');
+const test = require('../models/testcases');
 
 router.use(express.json())
 require('dotenv').config();
 
-//checkEmail route
-router.post('/checkEmail', async(req,res) => {
+//forgetpassword route
+router.post('/forgetpassword', async(req,res) => {
     const {email,password} = req.body;
     try{
         const userMail = await User.findOne({email});
@@ -38,7 +40,6 @@ router.post('/register', async (req, res) => {
         if (userMail)
             return res.status(400).send("Email already exists");
         const hashedPassword = await bcrypt.hash(password, 10);
-        console.log(hashedPassword)
         const user = new User({ fname, lname, username, email, password: hashedPassword });
         await user.save();
         res.send('User registered successfully');
@@ -49,22 +50,24 @@ router.post('/register', async (req, res) => {
 });
 
 router.post('/sessions', async (req, res) => {
-        const { userEmail, preparationName, timeTaken, solutions} = req.body;
+        const { userEmail, preparationName, sessionStartDate, sessionEndDate, sessionStartTime, sessionEndTime, timeTaken, solutions} = req.body;
         const formattedSolutions = Object.entries(solutions).map(([questionId, userSolution]) => ({
             questionID: questionId, // Use questionId as questionTitle
             userSolution: userSolution // The solution code
         }));
-        console.log(formattedSolutions);
         try {
         const newSession = new sessionTable({
             userEmail,
             preparationName,
+            sessionStartDate,
+            sessionEndDate,
+            sessionStartTime,
+            sessionEndTime,
             timeTaken,
             questions: formattedSolutions,
         });
 
         await newSession.save();
-        console.log('Session saved successfully:', newSession); // Log success message
         res.status(201).json({ message: 'Coding session saved successfully!' });
     } catch (error) {
         console.error('Error saving session:', error);
@@ -73,12 +76,16 @@ router.post('/sessions', async (req, res) => {
 });
 
 router.post('/tsessions', async (req, res) => {
-    const { userEmail, preparationName, timeTaken, answers } = req.body;
+    const { userEmail, preparationName, sessionStartDate, sessionEndDate, sessionStartTime, sessionEndTime, timeTaken, answers } = req.body;
 
     try {
         const newAnswer = new Answer({
             userEmail,
             preparationName,
+            sessionStartDate,
+            sessionEndDate,
+            sessionStartTime,
+            sessionEndTime,
             timeTaken,
             answers,
         });
@@ -92,6 +99,57 @@ router.post('/tsessions', async (req, res) => {
     }
 });
 
+
+router.post('/testsubmit', async (req, res) => {
+    console.log("Received data:", req.body);
+    const { solutions } = req.body;
+    if (!solutions || typeof solutions !== 'object') {
+        console.error('Invalid solutions format:', solutions);
+        return res.status(400).json({ message: 'Invalid input data' });
+    }
+    // Format solutions to include only questionID and userSolution initially
+    const formattedSolutions = Object.entries(solutions).map(([questionId, userSolution]) => ({
+        questionID: questionId,
+        userSolution: userSolution
+    }));
+
+    try {
+        // Get unique question IDs
+        const questionIDs = formattedSolutions.map(solution => solution.questionID);
+
+        // Retrieve the questions with matching questionIDs
+        const questions = await Question.find({ _id: { $in: questionIDs } }).exec();
+
+        // Map solutions to include test cases from the questions
+        const solutionsWithTestCases = formattedSolutions.map(solution => {
+            const question = questions.find(q => q._id.toString() === solution.questionID);
+            return {
+                questionID: solution.questionID,
+                questiontitle:question.title,
+                questiondescription:question.description,
+                aisolution:question.solution,
+                userSolution: solution.userSolution,
+                testCases: question ? question.testCases.map(testCases => ({
+                    input: testCases.input,
+                    output: testCases.output ?? null
+                })) : []
+            };
+        });
+
+        // Save the solutions with test cases in the for-testcases model
+        const newTestCaseEntry = new test({
+            solutions: solutionsWithTestCases,
+        });
+
+        await newTestCaseEntry.save();
+
+        console.log('Solutions with test cases saved for testing:', newTestCaseEntry);
+        res.status(201).json({ message: 'Solutions saved successfully for testing!', newTestCaseEntry });
+    } catch (error) {
+        console.error('Error saving solutions for testing:', error);
+        res.status(500).json({ message: 'Error saving solutions for testing', error });
+    }
+});
 
 
 // Interview Details route
@@ -178,8 +236,6 @@ router.post('/login', async (req, res) => {
         res.status(500).send('Error logging in');
     }
 })
-
-
 
 router.post('/google', async (req, res) => {
     const { token } = req.body;
