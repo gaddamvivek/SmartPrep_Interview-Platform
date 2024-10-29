@@ -21,6 +21,7 @@ import { UserDashboardStats } from './UserDashboardStats';
 // };
 
 export const Dashboard = () => {
+  const userEmail = window.localStorage.getItem('userEmail');
   return (
     <div className="h-full bg-[#e6dceb] flex flex-col justify-end font-rubik">
       <SessionManager inactivityDuration={15 * 60 * 1000} />
@@ -54,7 +55,7 @@ export const Dashboard = () => {
           </li>
         </ul>
       </div> */}
-      <InterviewLogs email={'sgolla@albany.edu'} />
+      <InterviewLogs email={userEmail} />
 
       <hr />
 
@@ -73,7 +74,7 @@ export const Dashboard = () => {
           <div className="text-xs  font-normal">Sept 2024 - Present</div>
         </div>
       </div> */}
-      <UserDashboardStats email={'sgolla@albany.edu'} />
+      <UserDashboardStats email={userEmail} />
     </div>
   );
 };
