@@ -24,6 +24,7 @@ export const InterviewDetails = () => {
             console.log(result);
             localStorage.setItem('codingSessionActive', 'true');
             localStorage.setItem("pname",prepname);
+            localStorage.setItem("selectedDifficulty", diffLvl);
             if(slctround === 'Coding' && buttonClick){
             const sessionStartTime = new Date();
             const startDate = sessionStartTime.toLocaleDateString('en-US');

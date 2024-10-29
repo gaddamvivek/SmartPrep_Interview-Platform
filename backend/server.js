@@ -14,7 +14,7 @@ const technicalSessionRoutes = require('./routes/technicalSessionRoutes');
 
 require('dotenv').config();
 const User = require('./models/user'); // Import the User model
-//const Answer = require('./models/Answer');
+// const Answer = require('./models/Answer');
 
 // Initialize Firebase Admin SDK
 const serviceAccount = require(path.join(__dirname, 'firebase-adminsdk-key.json')); 
