@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import PropTypes from 'prop-types';
+import './ide.css'; 
 import { useNavigate } from 'react-router-dom';
 
 const Question = ({ setQuestionId }) => {
   const [questions, setQuestions] = useState([]);
-  const [difficulty, setDifficulty] = useState('easy');
+  const [difficulty, setDifficulty] = useState('');
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const navigate = useNavigate(); 
 
@@ -28,6 +29,7 @@ const Question = ({ setQuestionId }) => {
       setQuestions(fetchedQuestions);
       localStorage.setItem('sessionQuestions', JSON.stringify(fetchedQuestions));
       setQuestionId(fetchedQuestions[0]._id);
+      setDifficulty(selectedDifficulty); 
       startSession();
     } catch (error) {
       console.error('Error fetching questions:', error);
@@ -36,14 +38,16 @@ const Question = ({ setQuestionId }) => {
 
   useEffect(() => {
     const localQuestions = JSON.parse(localStorage.getItem('sessionQuestions'));
-    const savedDifficulty = localStorage.getItem('sessionDifficulty') || 'easy';
-    setDifficulty(savedDifficulty);
+    const savedDifficulty = localStorage.getItem('selectedDifficulty');
+    // setDifficulty(savedDifficulty);
 
     if (localQuestions && localQuestions.length > 0) {
       setQuestions(localQuestions);
       setQuestionId(localQuestions[0]._id);
-    } else {
+      setDifficulty(savedDifficulty);
+    } else if (savedDifficulty) {
       fetchQuestions(savedDifficulty);
+      setDifficulty(savedDifficulty);
     }
 
     const handleBeforeUnload = (event) => {
@@ -79,7 +83,7 @@ const Question = ({ setQuestionId }) => {
   const handleChange = (e) => {
     const difficultySelected = e.target.value;
     setDifficulty(difficultySelected);
-    localStorage.setItem('sessionDifficulty', difficultySelected);
+    localStorage.setItem('selectedDifficulty', difficultySelected);
     localStorage.removeItem('sessionQuestions'); 
     setCurrentQuestionIndex(0);
     fetchQuestions(difficultySelected); 
@@ -109,10 +113,16 @@ const Question = ({ setQuestionId }) => {
 
   return (
     <div>
-      <h2>Change Difficulty Level: </h2>
+       <h2 style={{ fontWeight: 'bold' }}>
+    Level: <span className={`difficulty-${difficulty}`}>
+      {difficulty.charAt(0).toUpperCase() + difficulty.slice(1)}
+    </span>
+  </h2>
       <div>
-        <select value={difficulty} onChange={handleChange} required>
-          <option value="Difficulty" disabled>Select Difficulty Level</option>
+      <h2 style={{ fontWeight: 'bold' }}>Change Difficulty Level: </h2>
+      <div>
+        <select value={difficulty || ''} onChange={handleChange} required>
+          <option value="Difficulty">Select Difficulty Level</option>
           <option value="easy">Easy</option>
           <option value="medium">Medium</option>
           <option value="hard">Hard</option>
@@ -140,6 +150,7 @@ const Question = ({ setQuestionId }) => {
           </li>
         ))}
       </ol>
+      </div>
     </div>
   );
 };
