@@ -22,8 +22,8 @@ export const InterviewDetails = () => {
         
             const result = await axios.post('http://localhost:5001/auth/interviewdetails', { prepname, diffLvl, slctround},{headers});
             console.log(result);
+            localStorage.setItem('codingSessionActive', 'true');
             localStorage.setItem("pname",prepname);
-            console.log(prepname)
             if(slctround === 'Coding' && buttonClick){
             const sessionStartTime = new Date();
             const startDate = sessionStartTime.toLocaleDateString('en-US');

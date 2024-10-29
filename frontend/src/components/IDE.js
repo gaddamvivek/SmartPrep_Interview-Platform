@@ -162,6 +162,7 @@ const handleEndTest = async () => {
     const totalInterviewTimeInSeconds = 30*60 - timeRemaining; // Calculate total time taken in seconds
     const formattedTimeTaken = formatTime(totalInterviewTimeInSeconds);
 
+    localStorage.removeItem('codingSessionActive')
     localStorage.removeItem('sessionQuestions');
     const result= await axios.post('http://localhost:5001/auth/sessions', {
       userEmail:userEmail,
@@ -180,6 +181,7 @@ const handleEndTest = async () => {
     }
 
     // Redirect to feedback page with test case results after saving
+
       navigate('/feedback', {
         state: {
           userId: userEmail, // Pass user email or userId
