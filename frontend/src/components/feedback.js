@@ -1,154 +1,320 @@
+// // frontend/src/components/FeedbackPage.js
+// import React, { useState, useEffect } from 'react';
+// import { useLocation, useNavigate } from 'react-router-dom';
+// import axios from 'axios';
+// import './feedback.css';
+
+// const FeedbackPage = () => {
+//     const location = useLocation();
+//     const navigate = useNavigate();
+//     const { userId, passedTestCases, totalTestCases } = location.state || {};
+
+//     const [sessionDetails, setSessionDetails] = useState([]);
+//     const [review, setReview] = useState('');
+//     const [feedback, setFeedback] = useState('');
+//     const [message, setMessage] = useState('');
+
+//     useEffect(() => {
+//         const fetchSessionDetails = async () => {
+//             if (!userId) {
+//                 setMessage('User ID is missing');
+//                 return;
+//             }
+
+//             try {
+//                 const response = await axios.get(`http://localhost:5001/api/feedback/sessions/details/${userId}`);
+//                 console.log("Session Details Fetched from API:", response.data);
+//                 setSessionDetails(response.data); // Load only the latest session
+//             } catch (error) {
+//                 console.error("Error fetching session details:", error);
+//                 setMessage("Error fetching session details");
+//             }
+//         };
+
+//         fetchSessionDetails();
+//     }, [userId]);
+
+//     const handleSubmitFeedback = async (e) => {
+//         e.preventDefault();
+//         try {
+//             const feedbackData = sessionDetails.map((session) => ({
+//                 passedTestCases,
+//                 totalTestCases,
+//                 review: mapReviewToNumber(review),
+//                 feedback,
+//                 userId,
+//                 questionId: session.questionID,
+//                 solution: session.userSolution,
+//             }));
+
+//             await Promise.all(feedbackData.map(async (data) => {
+//                 console.log("Sending feedback data:", data);
+//                 await axios.post('http://localhost:5001/api/feedback/submit', data);
+//             }));
+
+//             setMessage('Thank you for your feedback! Redirecting to dashboard...');
+//             setTimeout(() => {
+//                 navigate('/dashboard');
+//             }, 3000);
+//         } catch (error) {
+//             console.error('Error submitting feedback:', error);
+//             setMessage('Failed to submit feedback');
+//         }
+//     };
+
+//     const mapReviewToNumber = (rating) => ({
+//         'Excellent': 5,
+//         'Good': 4,
+//         'Medium': 3,
+//         'Poor': 2,
+//         'Very Bad': 1
+//     }[rating] || 0);
+
+//     return (
+//         <div className="feedback-page">
+//             <h2>Feedback for Your Latest Test</h2>
+//             <p>Test Cases Passed: {passedTestCases}/{totalTestCases}</p>
+
+//             {sessionDetails.length > 0 ? (
+//                 sessionDetails.map((session, index) => (
+//                     <div key={index} className="session-item">
+//                         <h3>Question Title: {session.title}</h3>
+//                         <p><strong>Description:</strong> {session.description}</p>
+//                         <p><strong>Correct Solution:</strong></p>
+//                         <pre>{session.correctSolution}</pre>
+//                         <p><strong>Your Solution:</strong></p>
+//                         <pre>{session.userSolution}</pre>
+//                         <h4>Test Cases:</h4>
+//                         <ul>
+//                             {session.testCases.map((testCase, i) => (
+//                                 <li key={i}>
+//                                     <strong>Input:</strong> {testCase.input} <br />
+//                                     <strong>Expected Output:</strong> {testCase.output}
+//                                 </li>
+//                             ))}
+//                         </ul>
+//                     </div>
+//                 ))
+//             ) : (
+//                 <p>{message}</p>
+//             )}
+
+//             <form onSubmit={handleSubmitFeedback}>
+//                 <h3>How was your experience?</h3>
+//                 <div className="feedback-options">
+//                     {['Excellent', 'Good', 'Medium', 'Poor', 'Very Bad'].map((rating) => (
+//                         <label key={rating}>
+//                             <input
+//                                 type="radio"
+//                                 name="rating"
+//                                 value={rating}
+//                                 checked={review === rating}
+//                                 onChange={() => setReview(rating)}
+//                             />
+//                             {rating}
+//                         </label>
+//                     ))}
+//                 </div>
+
+//                 <h3>Leave Feedback</h3>
+//                 <textarea
+//                     value={feedback}
+//                     onChange={(e) => setFeedback(e.target.value)}
+//                     placeholder="Share your thoughts here"
+//                     required
+//                     className="feedback-textarea"
+//                 />
+
+//                 <button type="submit" className="submit-feedback-button">Submit Feedback</button>
+//             </form>
+
+//             {message && <p className="feedback-message">{message}</p>}
+//         </div>
+//     );
+// };
+
+// export default FeedbackPage;
+
+
+// frontend/src/components/FeedbackPage.js
 import React, { useState, useEffect } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom'; // Import useNavigate
+import { useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import './feedback.css';  // Ensure you have the CSS file linked for styling
+import './feedback.css';
 
-const Feedback = () => {
+const FeedbackPage = () => {
   const location = useLocation();
-  const navigate = useNavigate(); // Initialize useNavigate
-  const { passedTestCases, totalTestCases } = location.state || { passedTestCases: 0, totalTestCases: 0 };
+  const navigate = useNavigate();
+  const { userId, prName } = location.state || {};
 
-  const [review, setReview] = useState('');  // Initially store the selected string rating
-  const [feedback, setFeedback] = useState('');  // User feedback
-  const [message, setMessage] = useState('');  // Success or error message
-  const [userId, setUserId] = useState(null);  // Store userId, default is null
-  const [savedVideoUrl, setSavedVideoUrl] = useState(null);
+  const [sessionDetails, setSessionDetails] = useState([]);
+  const [selectedQuestionIndex, setSelectedQuestionIndex] = useState(0);
+  const [review, setReview] = useState('');
+  const [feedback, setFeedback] = useState('');
+  const [showSolutions, setShowSolutions] = useState(false);
+  const [message, setMessage] = useState('');
+  const [viewUserSolution, setViewUserSolution] = useState(false);
+  const [viewCorrectSolution, setViewCorrectSolution] = useState(false);
+
   useEffect(() => {
-    // Retrieve the saved video URL from local storage
-    const videoUrl = localStorage.getItem('savedVideoUrl');
-    if (videoUrl) {
-      setSavedVideoUrl(videoUrl);
-    }
-  }, []);
+    const fetchSessionDetails = async () => {
+      if (!userId || !prName) {
+        setMessage('User ID or Preparation name is missing');
+        return;
+      }
 
-  // Function to map the selected review to a numeric value
-  const mapReviewToNumber = (rating) => {
-    switch (rating) {
-      case 'Excellent':
-        return 5;
-      case 'Good':
-        return 4;
-      case 'Medium':
-        return 3;
-      case 'Poor':
-        return 2;
-      case 'Very Bad':
-        return 1;
-      default:
-        return 0;
-    }
+      try {
+        const response = await axios.get(`http://localhost:5001/api/feedback/sessions/details/${userId}/${prName}`);
+        setSessionDetails(response.data || []);
+      } catch (error) {
+        console.error("Error fetching session details:", error);
+        setMessage("Error fetching session details");
+      }
+    };
+
+    fetchSessionDetails();
+  }, [userId, prName]);
+
+  const handleQuestionSelect = (index) => {
+    setSelectedQuestionIndex(index);
+    setViewUserSolution(false);
+    setViewCorrectSolution(false);
   };
 
-  // Fetch userId if necessary (e.g., from a token, API call, or localStorage)
-  useEffect(() => {
-    const storedUserId = localStorage.getItem('userId');
-    if (storedUserId) {
-      setUserId(storedUserId);
-    } else {
-      setUserId(null);
-    }
-  }, []);
-
-  const handleSubmitFeedback = async () => {
+  const handleSubmitFeedback = async (e) => {
+    e.preventDefault();
     try {
-      const feedbackData = {
-        passedTestCases,
-        totalTestCases,
-        review: mapReviewToNumber(review),  // Convert string rating to a numeric value
+      const feedbackData = sessionDetails.map((session) => ({
+        passedTestCases: session.passedTestCases,
+        totalTestCases: session.totalTestCases,
+        review: mapReviewToNumber(review),
         feedback,
-        userId: userId || null  // Set to null if userId is not available
-      };
+        userId,
+        questionId: session.questionID,
+        solution: session.userSolution,
+      }));
 
-      const response = await axios.post('http://localhost:5001/api/feedback/submit', feedbackData);
+      await Promise.all(feedbackData.map(async (data) => {
+        await axios.post('http://localhost:5001/api/feedback/submit', data);
+      }));
 
-      if (response.status === 201) {
-        setMessage('Thank you for your feedback! Redirecting to dashboard...');
-        
-        // Redirect to dashboard after 3 seconds
-        setTimeout(() => {
-          navigate('/dashboard');
-        }, 3000); // 3-second delay
-      }
+      setMessage('Thank you for your feedback! Redirecting to dashboard...');
+      setTimeout(() => {
+        navigate('/dashboard');
+      }, 3000);
+
     } catch (error) {
       console.error('Error submitting feedback:', error);
       setMessage('Failed to submit feedback');
     }
   };
 
-  return (
-    <div className="feedback-container font-inconsolata">
-      <h2>Your Performance</h2>
-      <p>You passed {passedTestCases} out of {totalTestCases} test cases.</p>
+  const mapReviewToNumber = (rating) => ({
+    'Excellent': 5,
+    'Good': 4,
+    'Medium': 3,
+    'Poor': 2,
+    'Very Bad': 1
+  }[rating] || 0);
 
-      {savedVideoUrl ? (
-        <div style={{
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          marginTop: '20px',
-        }}>
-          
-          <video src={savedVideoUrl} controls width="320" height="240" />
+  return (
+    <div className="feedback-container">
+      <h2>Feedback Page</h2>
+
+      <button
+        className="view-solutions-button"
+        onClick={() => setShowSolutions(!showSolutions)}
+      >
+        {showSolutions ? 'Hide Solutions' : 'View Solutions'}
+      </button>
+
+      {showSolutions && (
+        <div>
+          <div className="question-buttons">
+            {sessionDetails.map((_, index) => (
+              <button
+                key={index}
+                className={`question-button ${selectedQuestionIndex === index ? 'active' : ''}`}
+                onClick={() => handleQuestionSelect(index)}
+              >
+                Question {index + 1}
+              </button>
+            ))}
+          </div>
+
+          {sessionDetails.length > 0 && (
+            <div className="session-item">
+              <h3>{sessionDetails[selectedQuestionIndex].title}</h3>
+              <p><strong>Description:</strong> {sessionDetails[selectedQuestionIndex].description}</p>
+
+              <p className="test-cases-passed">
+                Test Cases Passed: {sessionDetails[selectedQuestionIndex].passedTestCases}/{sessionDetails[selectedQuestionIndex].totalTestCases}
+              </p>
+
+              <button
+                className={`solution-toggle-button ${viewUserSolution ? 'active' : ''}`}
+                onClick={() => setViewUserSolution(!viewUserSolution)}
+              >
+                {viewUserSolution ? 'Hide User Solution' : 'View User Solution'}
+              </button>
+
+              <button
+                className={`solution-toggle-button ${viewCorrectSolution ? 'active' : ''}`}
+                onClick={() => setViewCorrectSolution(!viewCorrectSolution)}
+              >
+                {viewCorrectSolution ? 'Hide Correct Solution' : 'View Correct Solution'}
+              </button>
+
+              {viewUserSolution && (
+                <div>
+                  <p><strong>Your Solution:</strong></p>
+                  <pre>{sessionDetails[selectedQuestionIndex].userSolution}</pre>
+                </div>
+              )}
+
+              {viewCorrectSolution && (
+                <div>
+                  <p><strong>Correct Solution:</strong></p>
+                  <pre>{sessionDetails[selectedQuestionIndex].correctSolution}</pre>
+                </div>
+              )}
+            </div>
+          )}
         </div>
-      ) : (
-        <p>No recording available for this session.</p>
       )}
 
-      <h3>How was your interview experience?</h3>
-      <div className="feedback-review font-inconsolata">
-        <ul>
-          <li
-            className={`feedback-option excellent ${review === 'Excellent' ? 'selected' : ''}`}
-            onClick={() => setReview('Excellent')}
-          >
-            <i className="fas fa-smile-beam"></i>
-            <span>Excellent</span>
-          </li>
-          <li
-            className={`feedback-option good ${review === 'Good' ? 'selected' : ''}`}
-            onClick={() => setReview('Good')}
-          >
-            <i className="fas fa-smile"></i>
-            <span>Good</span>
-          </li>
-          <li
-            className={`feedback-option medium ${review === 'Medium' ? 'selected' : ''}`}
-            onClick={() => setReview('Medium')}
-          >
-            <i className="fas fa-meh"></i>
-            <span>Medium</span>
-          </li>
-          <li
-            className={`feedback-option poor ${review === 'Poor' ? 'selected' : ''}`}
-            onClick={() => setReview('Poor')}
-          >
-            <i className="fas fa-frown"></i>
-            <span>Poor</span>
-          </li>
-          <li
-            className={`feedback-option very-bad ${review === 'Very Bad' ? 'selected' : ''}`}
-            onClick={() => setReview('Very Bad')}
-          >
-            <i className="fas fa-angry"></i>
-            <span>Very Bad</span>
-          </li>
-        </ul>
-      </div>
+      <form onSubmit={handleSubmitFeedback}>
+        <h3>How was your experience?</h3>
+        <div className="feedback-options">
+          {['Excellent', 'Good', 'Medium', 'Poor', 'Very Bad'].map((rating) => (
+            <label key={rating}>
+              <input
+                type="radio"
+                name="rating"
+                value={rating}
+                checked={review === rating}
+                onChange={() => setReview(rating)}
+              />
+              {rating}
+            </label>
+          ))}
+        </div>
 
-      <h3>Leave a Feedback</h3>
-      <textarea
-        value={feedback}
-        onChange={(e) => setFeedback(e.target.value)}
-        placeholder="Leave your feedback here"
-        className="feedback-textarea"
-      />
-      
+        <h3>Leave Feedback</h3>
+        <textarea
+          value={feedback}
+          onChange={(e) => setFeedback(e.target.value)}
+          placeholder="Share your thoughts here"
+          required
+          className="feedback-textarea"
+        />
 
-      <button onClick={handleSubmitFeedback} className="submit-feedback-button">Submit Feedback</button>
+        <button type="submit" className="submit-feedback-button">Submit Feedback</button>
+      </form>
 
       {message && <p className="feedback-message">{message}</p>}
     </div>
   );
 };
 
-export default Feedback;
+export default FeedbackPage;
