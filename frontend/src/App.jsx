@@ -13,6 +13,9 @@ import SessionManager from './components/SessionManager';
 import PropTypes from 'prop-types';
 import Feedback from './components/feedback';
 import { ForgetPassword } from './components/forgetpassword';
+import TechnicalInterviewFeedback from './components/TechnicalInterviewFeedback';
+
+
 
 function App() {
   return (
@@ -30,6 +33,7 @@ function App() {
           <Route path="/interviewdetails" element={<ProtectedRoutes><InterviewDetails /></ProtectedRoutes>} />
           <Route path="/google-signin" element={<GoogleSignInButton />} />
           <Route path="/feedback" element={<Feedback />} />
+          <Route path="/technicalFeedback" element={<TechnicalInterviewFeedback />} />
         </Routes>
       </Router>
     </div>

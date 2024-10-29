@@ -10,6 +10,8 @@ const admin = require('firebase-admin'); // Firebase Admin SDK for Google Auth
 const feedbackRoutes = require('./routes/feedback'); //feedback route
 const techQnRoutes = require('./routes/techQn'); // technical questions route
 const answerRoutes = require('./routes/answerRoutes');
+const technicalSessionRoutes = require('./routes/technicalSessionRoutes');
+
 require('dotenv').config();
 const User = require('./models/user'); // Import the User model
 //const Answer = require('./models/Answer');
@@ -21,6 +23,8 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use('/api/feedback', feedbackRoutes); // feedback
+app.use('/api/technicalSession', technicalSessionRoutes);
+app.use('/api/answer', answerRoutes);
 
 // MongoDB connection
 mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })

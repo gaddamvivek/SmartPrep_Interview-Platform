@@ -1,6 +1,31 @@
 const TechnicalQuestion = require('../models/technicalQuestion');
 
 // Function to fetch random technical questions by difficulty
+const getAnswers = async (req, res) => {
+  try {
+    const { questionId } = req.query;
+
+    let questionsWithAnswers;
+
+    if (questionId) {
+      // Fetch the specific question with its answers
+      questionsWithAnswers = await TechnicalQuestion.findById(questionId, 'title answers').exec();
+      
+      if (!questionsWithAnswers) {
+        return res.status(404).json({ message: 'Answer not found' });
+      }
+    } else {
+      // Fetch all questions with their answers
+      questionsWithAnswers = await TechnicalQuestion.find({}, 'title answers').exec();
+    }
+
+    return res.status(200).json(questionsWithAnswers);
+  } catch (error) {
+    console.error('Error retrieving answers:', error);
+    return res.status(500).json({ message: 'Error retrieving answers.', error });
+  }
+};
+
 const getRandomTechnicalQuestions = async (req, res) => {
   try {
     const { difficulty } = req.query;
@@ -64,5 +89,6 @@ const saveCapturedImage = async (req, res) => {
 module.exports = {
   getRandomTechnicalQuestions,
   saveAnswer,
+  getAnswers,
   saveCapturedImage,
 };
