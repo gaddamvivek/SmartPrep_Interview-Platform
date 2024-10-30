@@ -209,6 +209,9 @@ const handleEndTest = async () => {
         <Editor
           height="500px"
           defaultLanguage="python"
+          options={{
+            fontSize: 22, // Set the font size here
+          }}
           value={code}
           onChange={(value) => setCode(value)} 
         />
