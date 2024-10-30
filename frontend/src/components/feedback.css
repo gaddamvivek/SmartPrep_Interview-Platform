@@ -28,18 +28,30 @@
 }
 
 /* Question selection buttons in a centered, grid-like layout */
+/* Question selection buttons in a centered, grid-like layout */
 .question-buttons {
   display: flex;
   flex-wrap: wrap;
   gap: 15px;
   justify-content: center;
   margin-bottom: 25px;
+
+
+}
+
+
+/* Style for the active or selected question button */
+.question-button.active,
+.question-button.selected {
+  background-color: #433878;
+  /* Display selected button in #433878 */
+  color: #fff;
 }
 
 /* Toggle buttons for user and correct solutions */
 .solution-toggle-button {
   padding: 8px 12px;
-  background-color: #e0e0e0;
+  background-color: #b2acac;
   border: none;
   border-radius: 5px;
   font-weight: bold;
@@ -110,4 +122,22 @@
   font-weight: bold;
   text-align: center;
   margin: 10px 0;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: #7e60bf;
+  color: #fff;
+}
+
+.navbar-left {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.navbar-right {
+  font-size: 1rem;
 }
