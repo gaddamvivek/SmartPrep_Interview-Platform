@@ -59,6 +59,7 @@ const IDE = ({ QuestionId, savedCode, handleSaveCode,savedCodeMap }) => {
   // Save the current code to the parent component when "Save" button is clicked
   const handleSave = () => {
     handleSaveCode(QuestionId, code);  // Call the parent function to save the code
+    alert("Code saved successfully")
   };
 
   // Interview timer countdown logic

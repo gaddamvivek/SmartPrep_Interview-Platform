@@ -57,7 +57,7 @@ export const Home = () => {
           <iframe
             width="560"
             height="315"
-            src="https://www.youtube.com/embed/yTNXLe7v-Y8?si=qA8a9zSkeRhmgjh5"
+            src="https://youtube.com/embed/hNtprK5ex6E"
             title="YouTube video player"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
