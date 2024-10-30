@@ -25,6 +25,4 @@ const InterviewResponseSchema = new mongoose.Schema({
   },
 });
 
-const TechnicalSession = mongoose.model('TechnicalSession', InterviewResponseSchema);
-
-module.exports = TechnicalSession;
+module.exports = mongoose.model("TechnicalSession", InterviewResponseSchema);
