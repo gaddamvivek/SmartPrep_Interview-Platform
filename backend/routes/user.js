@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const mongoose = require("mongoose");
 const sessionTableSchema = require("../models/sessionTable");
-const technicalQuestionsTableSchema = require("../models/technicalQuestion");
+const technicaltableschema = require("../models/Answer");
 
 // Assuming you have a model named InterviewLog
 // const InterviewLog = mongoose.model('InterviewLog');
@@ -17,7 +17,7 @@ router.get("/interviewlogs", async (req, res) => {
     const codingSessionlogs = await sessionTableSchema.find({
       userEmail: email,
     });
-    const technicalSessionlogs = await technicalQuestionsTableSchema.find({
+    const technicalSessionlogs = await technicaltableschema.find({
       userEmail: email,
     });
     res.status(200).send(
@@ -48,7 +48,7 @@ router.get("/stats", async (req, res) => {
       userEmail: email,
     });
     const technicalLogsCount =
-      await technicalQuestionsTableSchema.countDocuments({
+      await technicaltableschema.countDocuments({
         userEmail: email,
       });
     res.status(200).send([
