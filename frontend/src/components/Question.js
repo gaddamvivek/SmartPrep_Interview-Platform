@@ -114,7 +114,7 @@ const Question = ({ setQuestionId }) => {
   return (
     <div>
        <h2 style={{ fontWeight: 'bold' }}>
-    Level: <span className={`difficulty-${difficulty}`}>
+    Level: <span className={`difficulty-${difficulty.toLowerCase()}`}>
       {difficulty.charAt(0).toUpperCase() + difficulty.slice(1)}
     </span>
   </h2>
