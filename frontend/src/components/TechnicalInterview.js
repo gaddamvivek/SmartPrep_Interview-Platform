@@ -22,6 +22,7 @@ const TechnicalInterview = ({ permissions, showProfile }) => {
   const [prName,setPrName]=useState('');
   const [tstartDate,setTstartDate]=useState('');
   const [tstartTime,settStartTime]=useState('');
+
   useEffect(() => {
     fetchQuestions(difficulty); // Fetch questions when the component mounts or difficulty changes
   }, [difficulty]);
@@ -220,10 +221,19 @@ const TechnicalInterview = ({ permissions, showProfile }) => {
         
         {/* Left Section: Questions */}
         <div className="question-section">
-          <h2>Technical Interview</h2>
+          <h2 style={{ fontWeight: 'bold' }}>Technical Interview</h2>
+
+          <h2 style={{ fontWeight: 'bold' }}>
+              Level: <span className={`difficulty-${difficulty.toLowerCase()}`}>
+                {difficulty.charAt(0).toUpperCase() + difficulty.slice(1)}
+              </span>
+            </h2>
+
+
           <div className="difficulty-selection">
-            <label>Change Difficulty Level: </label>
-            <select value={difficulty} onChange={(e) => setDifficulty(e.target.value)}>
+            <label style={{ fontWeight: 'bold' }}>Change Difficulty Level: </label>
+            <select value={difficulty || ''} onChange={(e) => setDifficulty(e.target.value)}>
+            <option value="">Select Difficulty Level</option>
               <option value="easy">Easy</option>
               <option value="medium">Medium</option>
               <option value="hard">Hard</option>
