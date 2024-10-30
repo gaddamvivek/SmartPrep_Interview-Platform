@@ -176,9 +176,9 @@ async function seedDatabase() {
 
 
  const prompts = [
-   "Generate 3 easy level coding questions in Python with title, description, test cases and solution in JSON format",
-   "Generate 3 medium level coding questions in Python with title, description, test cases and solution in JSON format",
-   "Generate 3 hard level coding questions in Python with title, description, test cases and solution in JSON format"
+   "Generate 2 easy level coding questions in Python with title, description, test cases and solution in JSON format",
+   "Generate 2 medium level coding questions in Python with title, description, test cases and solution in JSON format",
+   "Generate 2 hard level coding questions in Python with title, description, test cases and solution in JSON format"
  ];
 
 
