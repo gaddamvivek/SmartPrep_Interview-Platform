@@ -7,6 +7,7 @@ export const InterviewDetails = () => {
     const [prepname,setPrepName] = useState('');
     const [diffLvl,setDifficultyLvl] = useState('');
     const [slctround,setRound] = useState('');
+    const [voiceType, setVoiceType] = useState('');
     const [buttonClick,setButtonClick] = useState(false);
     const navigate = useNavigate();
     const onClickHandler = () => {
@@ -25,6 +26,7 @@ export const InterviewDetails = () => {
             localStorage.setItem('codingSessionActive', 'true');
             localStorage.setItem("pname",prepname);
             localStorage.setItem("selectedDifficulty", diffLvl);
+            localStorage.setItem("voiceType", voiceType);
             if(slctround === 'Coding' && buttonClick){
             const sessionStartTime = new Date();
             const startDate = sessionStartTime.toLocaleDateString('en-US');
@@ -86,6 +88,18 @@ export const InterviewDetails = () => {
                     <option value="Coding">Coding</option>
                 </select>
             </div>
+            {slctround === "Technical questions" && (
+                <div>
+                    <input type = "radio" 
+                    name = "voiceType" value = "Male" 
+                    checked = {voiceType === 'Male'} onChange = {(e) => setVoiceType(e.target.value)}/>
+                    Male US-English<br/>
+                    <input type = "radio" 
+                    name = "voiceType" value = "Female" 
+                    checked = {voiceType === 'Female'} onChange = {(e) => setVoiceType(e.target.value)}/>
+                    Female UK-English
+                </div>
+            )}
             <div className='btns'>
                 <button type = "button" onClick={onClickHandler}>Previous</button>
                 <button type="submit" onClick={() => setButtonClick(true)}>Next</button>

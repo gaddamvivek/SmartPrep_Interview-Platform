@@ -57,11 +57,43 @@ const TechnicalInterview = ({ permissions, showProfile }) => {
 
   const handleSpeech = () => {
     const syn = window.speechSynthesis;
-    const currentQuestion = questions[currentQuestionIndex].title;
-    console.log(currentQuestion)
-    const utterance = new SpeechSynthesisUtterance(currentQuestion);
-    syn.speak(utterance)
-  }
+
+    const speakQuestion = () => {
+        const voices = syn.getVoices();
+        const userVoiceChoice = localStorage.getItem('voiceType');
+        console.log("Available voices:", voices);  // Log available voices for debugging
+
+        // Check if voices are available
+        if (voices.length === 0) {
+            console.error("No voices are available");
+            return;
+        }
+
+        // Select voice based on user preference
+        let selectedVoice;
+        if (userVoiceChoice === 'Female') {
+            selectedVoice = voices.find(voice => voice.lang === "en-GB" && voice.name.includes("Female")) || voices[0];
+        } else {
+            selectedVoice = voices.find(voice => voice.lang === "en-GB" && voice.name.includes("Male")) || voices[0];
+        }
+
+        const currentQuestion = questions[currentQuestionIndex].title;
+        const utterance = new SpeechSynthesisUtterance(currentQuestion);
+        utterance.voice = selectedVoice;
+        syn.speak(utterance);
+    };
+
+    // Check if voices are already available
+    if (syn.getVoices().length > 0) {
+        speakQuestion();
+    } else {
+        // Wait for voices to load if not already available
+        syn.addEventListener("voiceschanged", speakQuestion);
+    }
+};
+
+  
+  
 
 
   const nextQuestion = () => {
