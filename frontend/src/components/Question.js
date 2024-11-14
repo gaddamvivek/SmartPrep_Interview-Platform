@@ -79,6 +79,44 @@ const Question = ({ setQuestionId }) => {
     };
   }, [difficulty, setQuestionId]);
 
+  const handleSpeech = () => {
+    const syn = window.speechSynthesis;
+
+    const speakQuestion = () => {
+        const voices = syn.getVoices();
+        const userVoiceChoice = localStorage.getItem('voiceType');
+        console.log("Available voices:", voices);  // Log available voices for debugging
+
+        // Check if voices are available
+        if (voices.length === 0) {
+            console.error("No voices are available");
+            return;
+        }
+
+        // Select voice based on user preference
+        let selectedVoice;
+        if (userVoiceChoice === 'Female') {
+            selectedVoice = voices.find(voice => voice.lang === "en-GB" && voice.name.includes("Female")) || voices[0];
+        } else {
+            selectedVoice = voices.find(voice => voice.lang === "en-GB" && voice.name.includes("Male")) || voices[0];
+        }
+
+        const currentQuestion = questions[currentQuestionIndex].title;
+        const utterance = new SpeechSynthesisUtterance(currentQuestion);
+        utterance.voice = selectedVoice;
+        syn.speak(utterance);
+    };
+
+    // Check if voices are already available
+    if (syn.getVoices().length > 0) {
+        speakQuestion();
+    } else {
+        // Wait for voices to load if not already available
+        syn.addEventListener("voiceschanged", speakQuestion);
+    }
+};
+
+
 // handleChange handles the dynamicness of selection of difficulty level
   const handleChange = (e) => {
     const difficultySelected = e.target.value;
@@ -113,11 +151,13 @@ const Question = ({ setQuestionId }) => {
 
   return (
     <div>
-       <h2 style={{ fontWeight: 'bold' }}>
+       <h2 style={{ fontWeight: 'bold', display: 'inline' }}>
     Level: <span className={`difficulty-${difficulty.toLowerCase()}`}>
+    
       {difficulty.charAt(0).toUpperCase() + difficulty.slice(1)}
     </span>
   </h2>
+  <button className="SpchBtn" onClick={handleSpeech}>speech</button>
       <div>
       <h2 style={{ fontWeight: 'bold' }}>Change Difficulty Level: </h2>
       <div>
@@ -136,6 +176,7 @@ const Question = ({ setQuestionId }) => {
           Next →
         </button>
       </div>
+      
       <h2>{currentQuestion.title}</h2>
       <p>{currentQuestion.description}</p>
       <h3>Test Cases:</h3>

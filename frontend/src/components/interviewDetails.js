@@ -100,6 +100,20 @@ export const InterviewDetails = () => {
                     Female UK-English
                 </div>
             )}
+
+            {slctround === "Coding" && (
+                <div>
+                    <input type = "radio" 
+                    name = "voiceType" value = "Male" 
+                    checked = {voiceType === 'Male'} onChange = {(e) => setVoiceType(e.target.value)}/>
+                    Male US-English<br/>
+                    <input type = "radio" 
+                    name = "voiceType" value = "Female" 
+                    checked = {voiceType === 'Female'} onChange = {(e) => setVoiceType(e.target.value)}/>
+                    Female UK-English
+                </div>
+            )}
+
             <div className='btns'>
                 <button type = "button" onClick={onClickHandler}>Previous</button>
                 <button type="submit" onClick={() => setButtonClick(true)}>Next</button>
