@@ -231,20 +231,21 @@ const handleGetAIFeedback = async () => {
             <div className="flex justify-between items-center">
               <h2 className="text-xl font-semibold">AI Feedback</h2>
               <button
-                className="text-gray-500 hover:text-gray-700"
-                onClick={() => setShowFeedbackModal(false)}
+                className="absolute top-4 right-4 flex items-center justify-center w-8 h-8 rounded-full bg-gray-200 hover:bg-red-500 text-gray-700 hover:text-white focus:outline-none"
+                onClick={closeModal}
+                aria-label="Close"
               >
                 &times;
               </button>
             </div>
             <div className="bg-white border border-gray-300 rounded-lg p-6 shadow-lg max-w-3xl mx-auto">
-      <ReactMarkdown
-        className="prose prose-sm sm:prose lg:prose-lg xl:prose-xl"
-        remarkPlugins={[remarkGfm]}
-      >
-        {feedbackContent}
-      </ReactMarkdown>
-    </div>
+              <ReactMarkdown
+                className="prose prose-sm sm:prose lg:prose-lg xl:prose-xl"
+                remarkPlugins={[remarkGfm]}
+                >
+                  {feedbackContent}
+                </ReactMarkdown>
+            </div>
             <div className="mt-6 text-right">
               <button
                 className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"

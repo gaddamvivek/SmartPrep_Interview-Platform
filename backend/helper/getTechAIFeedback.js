@@ -23,7 +23,7 @@ async function getAIFeedback(questionDescription, answer) {
     
     Provide a detailed but concise evaluation of the candidate's response. Include the following:
     1. **understandability**: How well-structured and understandable is the user answer
-    2. **Correctness**: Does the solution align with the requirements of the question description? Are there any logical errors considerations?
+    2. **Correctness**: Does the solution align with the requirements of the question description? Are there any logical errors considerations? is information correct
     4. **fluency**: how good the answer is , like not technical but how good the answer is in sense of english language
     
     Give a score out of 5 for:
@@ -33,7 +33,7 @@ async function getAIFeedback(questionDescription, answer) {
 
     give an ideal answer to the question with stressing main points to focus
     
-    Keep the feedback professional, constructive, and focused. Summarize in 2–3 sentences.
+    Keep the feedback professional, constructive, and focused. Summarize how user can improve in 2–3 sentences.
     `;
 
   try {

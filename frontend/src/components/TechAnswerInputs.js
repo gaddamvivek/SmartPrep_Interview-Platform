@@ -3,12 +3,16 @@ import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognitio
 import Webcam from 'react-webcam';
 import PropTypes from 'prop-types';
 import axios from 'axios';
+import ReactMarkdown from "react-markdown";  // for parsing ai message from gemini
+import remarkGfm from "remark-gfm";
 
-const TechAnswerInputs = ({ permissions, saveAnswer, currentAnswer, onSubmitAnswers ,currentQuestionIndex,questionId}) => {
+const TechAnswerInputs = ({ permissions, saveAnswer, currentAnswer, onSubmitAnswers, currentQuestionIndex, questionId }) => {
   const [recording, setRecording] = useState(false);
   const [transcriptText, setTranscriptText] = useState(currentAnswer || '');
   const [isVideoRecording, setIsVideoRecording] = useState(false);
   const [videoBlob, setVideoBlob] = useState(null);
+  const [aiFeedback, setAiFeedback] = useState('');
+  const [showFeedbackModal, setShowFeedbackModal] = useState(false);
 
   const webcamRef = useRef(null);
   const mediaRecorderRef = useRef(null);
@@ -16,7 +20,7 @@ const TechAnswerInputs = ({ permissions, saveAnswer, currentAnswer, onSubmitAnsw
 
   useEffect(() => {
     setTranscriptText(currentAnswer || '');
-  }, [currentAnswer,currentQuestionIndex]);
+  }, [currentAnswer, currentQuestionIndex]);
 
   useEffect(() => {
     // Reset recording state and transcript each time the question changes
@@ -74,7 +78,7 @@ const TechAnswerInputs = ({ permissions, saveAnswer, currentAnswer, onSubmitAnsw
   };
 
   const handleGenerateAIAnswerFeedback = async () => {
-    if (!currentAnswer) {
+    if (!questionId || !currentAnswer) {
       alert("Unable to generate feedback. Ensure the question ID and your answer are available.");
       return;
     }
@@ -86,7 +90,8 @@ const TechAnswerInputs = ({ permissions, saveAnswer, currentAnswer, onSubmitAnsw
       });
 
       const feedback = response.data.feedback;
-      alert(`AI Feedback: ${feedback}`);
+      setAiFeedback(feedback);
+      setShowFeedbackModal(true);
     } catch (error) {
       console.error("Error generating AI feedback:", error);
       alert("Failed to get AI feedback. Please try again.");
@@ -103,6 +108,10 @@ const TechAnswerInputs = ({ permissions, saveAnswer, currentAnswer, onSubmitAnsw
     if (permissions.cameraGranted) {
       startVideoRecording();
     }
+  };
+
+  const closeModal = () => {
+    setShowFeedbackModal(false);
   };
 
   return (
@@ -137,8 +146,8 @@ const TechAnswerInputs = ({ permissions, saveAnswer, currentAnswer, onSubmitAnsw
         cols="60"
       />
       <div>
-      <button onClick={handleGenerateAIAnswerFeedback}>Get AI Feedback</button>
         <button onClick={() => saveAnswer(transcriptText)}>Save Answer</button>
+        <button onClick={handleGenerateAIAnswerFeedback}>Get AI Feedback</button>
       </div>
 
       {permissions.cameraGranted ? (
@@ -164,6 +173,29 @@ const TechAnswerInputs = ({ permissions, saveAnswer, currentAnswer, onSubmitAnsw
       <div>
         <button onClick={handleEndSession}>End Test</button>
       </div>
+
+      {showFeedbackModal && (
+      <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+        <div className="bg-white rounded-lg shadow-lg w-1/2 p-6 relative">
+        <button
+          className="absolute top-4 right-4 flex items-center justify-center w-8 h-8 rounded-full bg-gray-200 hover:bg-red-500 text-gray-700 hover:text-white focus:outline-none"
+          onClick={closeModal}
+          aria-label="Close"
+        >
+          &times;
+        </button>
+        <h3 className="text-xl font-semibold mb-4">AI Feedback</h3>
+        <div className="bg-white border border-gray-300 rounded-lg p-6 shadow-lg max-w-3xl mx-auto">
+        <ReactMarkdown
+          className="prose prose-sm sm:prose lg:prose-lg xl:prose-xl"
+          remarkPlugins={[remarkGfm]}
+        >
+          {aiFeedback}
+        </ReactMarkdown>
+      </div>
+    </div>
+  </div>
+)}
     </div>
   );
 };
