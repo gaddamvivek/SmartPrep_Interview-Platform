@@ -22,6 +22,8 @@ async function getAIFeedback(questionDescription, userCode) {
     ${userCode}
     
     Please provide feedback on the code above. Mention if there are any issues, improvements, or edge cases that may not be covered.
+    please dont give whole solution , just give some directions to improve on. and give score out of 5 for readability , corectness and efficiency.
+    make it short and sweet and provide code snippets of logic if necessary.
   `;
 
   try {

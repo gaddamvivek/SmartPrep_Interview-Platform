@@ -3,6 +3,8 @@ import Editor from '@monaco-editor/react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom'; // For navigation after timeout
 import PropTypes from 'prop-types'; 
+import ReactMarkdown from "react-markdown";  // for parsing ai message from gemini
+import remarkGfm from "remark-gfm";
 
 const IDE = ({ QuestionId, savedCode, handleSaveCode,savedCodeMap }) => {
   const [code, setCode] = useState('');
@@ -16,6 +18,7 @@ const IDE = ({ QuestionId, savedCode, handleSaveCode,savedCodeMap }) => {
   const [startTime, setStartTime] = useState('');
   const [showFeedbackModal, setShowFeedbackModal] = useState(false);
   const [feedbackContent, setFeedbackContent] = useState('');
+  const [submitted, setSubmitted] = useState(false);
   const navigate = useNavigate();
   // Load the saved code when the QuestionId changes
   useEffect(() => {
@@ -61,6 +64,7 @@ const IDE = ({ QuestionId, savedCode, handleSaveCode,savedCodeMap }) => {
   // Save the current code to the parent component when "Save" button is clicked
   const handleSave = () => {
     handleSaveCode(QuestionId, code);  // Call the parent function to save the code
+    setSubmitted(true); // Mark as submitted
     alert("Code saved successfully")
   };
 
@@ -92,6 +96,7 @@ const IDE = ({ QuestionId, savedCode, handleSaveCode,savedCodeMap }) => {
         {
           console.log("question and  saved for testing");
         }
+        setSubmitted(true); // Mark as submitted
         alert('Session data saved successfully!');
       } catch (error) {
         console.error('Error saving question ans ans session:', error);
@@ -216,7 +221,7 @@ const handleGetAIFeedback = async () => {
         <p>Code Editor</p>
         <button onClick={handleSave}>Save Code</button>  
         <button onClick={handleSubmit}>Submit</button>
-        <button onClick={handleGetAIFeedback}>AI feedback</button>
+        {submitted && (<button onClick={handleGetAIFeedback}>AI feedback</button>)}
         <button onClick={handleEndTest}>End Test</button>  {/* End Test Button */}
       </div>
       {/* Modal for AI Feedback */}
@@ -232,7 +237,14 @@ const handleGetAIFeedback = async () => {
                 &times;
               </button>
             </div>
-            <p className="mt-4 text-gray-700 whitespace-pre-wrap">{feedbackContent}</p>
+            <div className="bg-white border border-gray-300 rounded-lg p-6 shadow-lg max-w-3xl mx-auto">
+      <ReactMarkdown
+        className="prose prose-sm sm:prose lg:prose-lg xl:prose-xl"
+        remarkPlugins={[remarkGfm]}
+      >
+        {feedbackContent}
+      </ReactMarkdown>
+    </div>
             <div className="mt-6 text-right">
               <button
                 className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
