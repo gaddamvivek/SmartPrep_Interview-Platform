@@ -3,6 +3,8 @@ import Editor from '@monaco-editor/react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom'; // For navigation after timeout
 import PropTypes from 'prop-types'; 
+import ReactMarkdown from "react-markdown";  // for parsing ai message from gemini
+import remarkGfm from "remark-gfm";
 
 const IDE = ({ QuestionId, savedCode, handleSaveCode,savedCodeMap }) => {
   const [code, setCode] = useState('');
@@ -16,6 +18,9 @@ const IDE = ({ QuestionId, savedCode, handleSaveCode,savedCodeMap }) => {
   const [startTime, setStartTime] = useState('');
   const [showFeedbackModal, setShowFeedbackModal] = useState(false);
   const [feedbackContent, setFeedbackContent] = useState('');
+  const [submitted, setSubmitted] = useState(false);
+  const [saveMessage, setSaveMessage] = useState('');
+  const [fontSize, setFontSize] = useState(16);
   const navigate = useNavigate();
   // Load the saved code when the QuestionId changes
   useEffect(() => {
@@ -33,6 +38,7 @@ const IDE = ({ QuestionId, savedCode, handleSaveCode,savedCodeMap }) => {
       console.log(storedPname);
       setPrName(storedPname);
     },[]);
+    
 
     useEffect(()=>{
       const storedStartDate=localStorage.getItem('codingSessionStartDate');
@@ -61,7 +67,11 @@ const IDE = ({ QuestionId, savedCode, handleSaveCode,savedCodeMap }) => {
   // Save the current code to the parent component when "Save" button is clicked
   const handleSave = () => {
     handleSaveCode(QuestionId, code);  // Call the parent function to save the code
-    alert("Code saved successfully")
+    setSubmitted(true); // Mark as submitted
+    setSaveMessage('Your code is saved successfully!');
+    setTimeout(() => {
+      setSaveMessage('');
+    }, 5000);
   };
 
   // Interview timer countdown logic
@@ -81,6 +91,10 @@ const IDE = ({ QuestionId, savedCode, handleSaveCode,savedCodeMap }) => {
     return () => clearInterval(timerInterval);
   }, [timeRemaining, navigate]);
 
+  const handleFontSizeChange = (e) => {
+    setFontSize(Number(e.target.value)); // Update font size state
+  };
+
   // Handle code submission to backend
   const handleSubmit = async () => {
     try{
@@ -92,7 +106,11 @@ const IDE = ({ QuestionId, savedCode, handleSaveCode,savedCodeMap }) => {
         {
           console.log("question and  saved for testing");
         }
-        alert('Session data saved successfully!');
+        setSubmitted(true); // Mark as submitted
+        setSaveMessage('Session data saved successfully!');
+        setTimeout(() => {
+          setSaveMessage('');
+        }, 5000);
       } catch (error) {
         console.error('Error saving question ans ans session:', error);
         alert('Error saving question and ans session');
@@ -199,13 +217,31 @@ const handleGetAIFeedback = async () => {
 
 
   return (  
-    <div transform scale-110>
-      <div>
+    <div className="relative">
+      <div className="relative">
+        <div className="relative top-0 right-0 flex items-center gap-2 p-2">
+        <label htmlFor="fontSize" className="font-semibold">
+          Font Size:
+        </label>
+        <select
+          id="fontSize"
+          value={fontSize}
+          onChange={handleFontSizeChange}
+          className
+        >
+          <option value={14}>14</option>
+          <option value={16}>16</option>
+          <option value={18}>18</option>
+          <option value={20}>20</option>
+          <option value={22}>22</option>
+          <option value={24}>24</option>
+        </select>
+      </div>
         <Editor
           height="500px"
           defaultLanguage="python"
           options={{
-            fontSize: 22, // Set the font size here
+            fontSize: fontSize, // Set the font size here
           }}
           value={code}
           onChange={(value) => setCode(value)} 
@@ -216,9 +252,12 @@ const handleGetAIFeedback = async () => {
         <p>Code Editor</p>
         <button onClick={handleSave}>Save Code</button>  
         <button onClick={handleSubmit}>Submit</button>
-        <button onClick={handleGetAIFeedback}>AI feedback</button>
+        {submitted && (<button onClick={handleGetAIFeedback}>AI feedback</button>)}
         <button onClick={handleEndTest}>End Test</button>  {/* End Test Button */}
       </div>
+      {saveMessage && (
+        <p className="text-green-700 text-lg font-semibold mt-2">{saveMessage}</p>
+      )}
       {/* Modal for AI Feedback */}
       {showFeedbackModal && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
@@ -226,13 +265,21 @@ const handleGetAIFeedback = async () => {
             <div className="flex justify-between items-center">
               <h2 className="text-xl font-semibold">AI Feedback</h2>
               <button
-                className="text-gray-500 hover:text-gray-700"
-                onClick={() => setShowFeedbackModal(false)}
+                className="absolute top-4 right-4 flex items-center justify-center w-8 h-8 rounded-full bg-gray-200 hover:bg-red-500 text-gray-700 hover:text-white focus:outline-none"
+                onClick={closeModal}
+                aria-label="Close"
               >
                 &times;
               </button>
             </div>
-            <p className="mt-4 text-gray-700 whitespace-pre-wrap">{feedbackContent}</p>
+            <div className="bg-white border border-gray-300 rounded-lg p-6 shadow-lg max-w-3xl mx-auto">
+              <ReactMarkdown
+                className="prose prose-sm sm:prose lg:prose-lg xl:prose-xl"
+                remarkPlugins={[remarkGfm]}
+                >
+                  {feedbackContent}
+                </ReactMarkdown>
+            </div>
             <div className="mt-6 text-right">
               <button
                 className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"

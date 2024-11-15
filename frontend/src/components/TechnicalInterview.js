@@ -315,6 +315,7 @@ const TechnicalInterview = ({ permissions, showProfile }) => {
             currentAnswer={answers[questions[currentQuestionIndex]?._id] || ''} 
             onSubmitAnswers={submitAnswers}
             currentQuestionIndex={currentQuestionIndex}
+            questionId={questions[currentQuestionIndex]?._id}
           />
         </div>
       </div>

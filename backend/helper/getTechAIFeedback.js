@@ -13,18 +13,28 @@ const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
  * @param {string} userCode - The code written by the user.
  * @returns {Promise<string>} - AI feedback on the code.
  */
-async function getAIFeedback(questionDescription, userCode) {
-  const prompt = `
+async function getAIFeedback(questionDescription, answer) {
+    const prompt = `
     Question Description:
     ${questionDescription}
     
-    User's Code:
-    ${userCode}
+    Candidate's Answer:
+    ${answer}
     
-    Please provide feedback on the code above. Mention if there are any issues, improvements, or edge cases that may not be covered.
-    please dont give whole solution , just give some directions to improve on. and give score out of 5 for readability , corectness and efficiency.
-    make it short and sweet and provide code snippets of logic if necessary.
-  `;
+    Provide a detailed but concise evaluation of the candidate's response. Include the following:
+    1. **understandability**: How well-structured and understandable is the user answer
+    2. **Correctness**: Does the solution align with the requirements of the question description? Are there any logical errors considerations? is information correct
+    4. **fluency**: how good the answer is , like not technical but how good the answer is in sense of english language
+    
+    Give a score out of 5 for:
+    - understandability
+    - Correctness
+    - fluency
+
+    give an ideal answer to the question with stressing main points to focus
+    
+    Keep the feedback professional, constructive, and focused. Summarize how user can improve in 2–3 sentences.
+    `;
 
   try {
     const result = await model.generateContent(prompt);
