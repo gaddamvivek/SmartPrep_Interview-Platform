@@ -2,8 +2,9 @@ import React, { useState, useEffect, useRef } from 'react';
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 import Webcam from 'react-webcam';
 import PropTypes from 'prop-types';
+import axios from 'axios';
 
-const TechAnswerInputs = ({ permissions, saveAnswer, currentAnswer, onSubmitAnswers ,currentQuestionIndex}) => {
+const TechAnswerInputs = ({ permissions, saveAnswer, currentAnswer, onSubmitAnswers ,currentQuestionIndex,questionId}) => {
   const [recording, setRecording] = useState(false);
   const [transcriptText, setTranscriptText] = useState(currentAnswer || '');
   const [isVideoRecording, setIsVideoRecording] = useState(false);
@@ -72,6 +73,26 @@ const TechAnswerInputs = ({ permissions, saveAnswer, currentAnswer, onSubmitAnsw
     }
   };
 
+  const handleGenerateAIAnswerFeedback = async () => {
+    if (!currentAnswer) {
+      alert("Unable to generate feedback. Ensure the question ID and your answer are available.");
+      return;
+    }
+
+    try {
+      const response = await axios.post(`http://localhost:5001/api/tech/aiFeedback`, {
+        questionId,
+        answer: currentAnswer,
+      });
+
+      const feedback = response.data.feedback;
+      alert(`AI Feedback: ${feedback}`);
+    } catch (error) {
+      console.error("Error generating AI feedback:", error);
+      alert("Failed to get AI feedback. Please try again.");
+    }
+  };
+
   const handleEndSession = () => {
     stopVideoRecording();
     onSubmitAnswers();
@@ -116,6 +137,7 @@ const TechAnswerInputs = ({ permissions, saveAnswer, currentAnswer, onSubmitAnsw
         cols="60"
       />
       <div>
+      <button onClick={handleGenerateAIAnswerFeedback}>Get AI Feedback</button>
         <button onClick={() => saveAnswer(transcriptText)}>Save Answer</button>
       </div>
 
