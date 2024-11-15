@@ -28,14 +28,20 @@ const getAnswers = async (req, res) => {
 
 const getRandomTechnicalQuestions = async (req, res) => {
   try {
-    const { difficulty } = req.query;
+    const { difficulty, position } = req.query;
+    let questions;
 
     if (!['easy', 'medium', 'hard'].includes(difficulty)) {
       return res.status(400).json({ message: 'Invalid difficulty level. Choose easy, medium, or hard.' });
     }
 
     // Fetch questions from the database filtered by difficulty
-    const questions = await TechnicalQuestion.find({ difficulty }).exec();
+    if(position != 'All'){
+        questions = await TechnicalQuestion.find({ difficulty, position }).exec();
+    }
+    else{
+      questions = await TechnicalQuestion.find({ difficulty }).exec();
+    }
 
     if (questions.length === 0) {
       return res.status(404).json({ message: 'No questions found for this difficulty.' });
