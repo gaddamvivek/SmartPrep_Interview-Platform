@@ -1,6 +1,7 @@
 
 const axios = require('axios');
 const Question = require('../models/Question');
+const getAIFeedbackHelper = require('../helper/getAIFeedback');
 // Function to display RandomQuestion from MongoDB database to Client, filtered by difficulty
 const getRandomQuestion = async (req, res) => {
   try {
@@ -152,6 +153,28 @@ const RunCode = async (req, res) => {
   }
 };
 
+// New function to provide AI feedback using Google Generative AI
+const getAIFeedback = async (req, res) => {
+  const { sourceCode, questionId } = req.body;
 
+  try {
+    // Retrieve the question description from the database
+    const question = await Question.findById(questionId);
+    if (!question) {
+      return res.status(404).json({ message: 'Question not found.' });
+    }
+    
+    const questionDescription = question.description;
+    console.log(questionDescription);
 
-module.exports = { getRandomQuestion, submitCode , RunCode};
+    // Call the AI feedback helper function with the question description and user code
+    const feedback = await getAIFeedbackHelper(questionDescription, sourceCode);
+
+    res.json({ feedback });
+  } catch (error) {
+    console.error('Error getting AI feedback:', error);
+    res.status(500).json({ message: 'Failed to get AI feedback' });
+  }
+};
+
+module.exports = { getRandomQuestion, submitCode, RunCode, getAIFeedback };

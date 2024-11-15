@@ -1,0 +1,83 @@
+[
+    {
+      "title": "What are React hooks?",
+      "description": "Explain the concept of hooks in React and their purpose.",
+      "solution": "Hooks are special functions in React that allow developers to use state and other React features without writing a class. Examples include 'useState' for managing state and 'useEffect' for side effects. Hooks enable functional components to manage state and lifecycle events, promoting code reuse and simplifying component logic.",
+      "difficulty": "easy",
+      "company": "Amazon",
+      "position": "Frontend Technical"
+    },
+    {
+      "title": "What is the purpose of the 'componentDidMount' lifecycle method in React?",
+      "description": "Explain when and why to use the 'componentDidMount' lifecycle method.",
+      "solution": "The 'componentDidMount' lifecycle method is invoked immediately after a component is mounted in the DOM. It's commonly used for initializing data, such as making API calls or setting up subscriptions. Using this method ensures that necessary setup occurs right after the component is added to the page.",
+      "difficulty": "medium",
+      "company": "Google",
+      "position": "Frontend Technical"
+    },
+    {
+      "title": "How do you optimize performance in a React application?",
+      "description": "Discuss techniques for optimizing performance in a React application.",
+      "solution": "Performance optimization techniques in React include code splitting with React.lazy and Suspense, memoizing components with React.memo or useMemo, implementing pagination or infinite scrolling for large lists, using the useCallback hook to avoid unnecessary re-renders, and optimizing images and assets.",
+      "difficulty": "hard",
+      "company": "Amazon",
+      "position": "Frontend Technical"
+    },
+    {
+      "title": "What is AWS Lambda, and how does it differ from EC2?",
+      "description": "Explain the concept of AWS Lambda. How is it different from using EC2 for running applications?",
+      "solution": "AWS Lambda is a serverless compute service that automatically executes code in response to events and scales as needed. Unlike EC2, where users need to provision and manage servers, Lambda abstracts the infrastructure management away, allowing developers to focus on writing code.",
+      "difficulty": "easy",
+      "company": "Amazon",
+      "position": "DevOps Technical"
+    },
+    {
+      "title": "What is AWS Elastic Beanstalk, and how does it simplify application deployment?",
+      "description": "Explain the function of AWS Elastic Beanstalk and its benefits for developers.",
+      "solution": "AWS Elastic Beanstalk is a Platform as a Service (PaaS) that simplifies the deployment, management, and scaling of applications. Developers can upload their code, and Elastic Beanstalk handles the deployment details, including infrastructure provisioning, load balancing, and scaling.",
+      "difficulty": "medium",
+      "company": "Google",
+      "position": "DevOps Technical"
+    },
+    {
+      "title": "How do you manage secrets in AWS?",
+      "description": "Explain best practices for managing secrets in AWS.",
+      "solution": "Secrets in AWS can be managed using AWS Secrets Manager or AWS Systems Manager Parameter Store. Best practices include using IAM policies to restrict access, enabling automatic rotation of secrets, and ensuring that secrets are encrypted both in transit and at rest.",
+      "difficulty": "hard",
+      "company": "Amazon",
+      "position": "DevOps Technical"
+    },
+    {
+      "title": "What is a Git stash?",
+      "description": "Explain what a Git stash is and when to use it.",
+      "solution": "A Git stash is a temporary storage area that allows developers to save changes that are not yet ready to be committed. This is useful when you need to switch branches or pull updates from a remote repository without committing unfinished work.",
+      "difficulty": "easy",
+      "company": "Google",
+      "position": "DevOps Technical"
+    },
+    {
+      "title": "What is snapshot testing in Jest?",
+      "description": "Describe snapshot testing in Jest and when it is useful.",
+      "solution": "Snapshot testing in Jest captures the output of a component and saves it in a file. During future test runs, the output is compared to the saved snapshot to detect changes. Snapshot testing is useful for ensuring that UI components render consistently over time.",
+      "difficulty": "easy",
+      "company": "Amazon",
+      "position": "Software Testing Technical"
+    },
+    {
+      "title": "How do you handle asynchronous code in Jest?",
+      "description": "Explain how to test asynchronous code using Jest.",
+      "solution": "To test asynchronous code in Jest, you can return a promise from the test or use async/await syntax. For promises, ensure you return the promise in the test function. For async/await, mark the test function as 'async' and use 'await' before the asynchronous function call.",
+      "difficulty": "medium",
+      "company": "Google",
+      "position": "Software Testing Technical"
+    },
+    {
+      "title": "How do you connect to a MongoDB database using Mongoose?",
+      "description": "Explain the process of connecting to a MongoDB database using Mongoose.",
+      "solution": "To connect to a MongoDB database using Mongoose, first install Mongoose via npm. Then, use 'mongoose.connect()' with the database URI, specifying options for connection. Once connected, you can define models and interact with the database using Mongoose's schema-based structure.",
+      "difficulty": "medium",
+      "company": "Amazon",
+      "position": "Backend Technical"
+    }
+  ]
+  

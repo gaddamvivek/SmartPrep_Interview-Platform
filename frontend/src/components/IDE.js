@@ -5,19 +5,21 @@ import { useNavigate } from 'react-router-dom'; // For navigation after timeout
 import PropTypes from 'prop-types'; 
 
 const IDE = ({ QuestionId, savedCode, handleSaveCode,savedCodeMap }) => {
-  const [code, setCode] = useState('');  // Editor code
+  const [code, setCode] = useState('');
   const [output, setOutput] = useState('');
   const [testResults, setTestResults] = useState(null);
   const [testCases, setTestCases] = useState([]);
-  const [timeRemaining, setTimeRemaining] = useState(30*60); // 30 minutes in seconds
-  const navigate = useNavigate(); // For navigation after interview ends
+  const [timeRemaining, setTimeRemaining] = useState(30 * 60);
   const [userEmail, setUserEmail] = useState('');
-  const [prName,setPrName]=useState('');
-  const [startDate,setStartDate]=useState('');
-  const [startTime,setStartTime]=useState('');
+  const [prName, setPrName] = useState('');
+  const [startDate, setStartDate] = useState('');
+  const [startTime, setStartTime] = useState('');
+  const [showFeedbackModal, setShowFeedbackModal] = useState(false);
+  const [feedbackContent, setFeedbackContent] = useState('');
+  const navigate = useNavigate();
   // Load the saved code when the QuestionId changes
   useEffect(() => {
-    setCode(savedCode || '');  // Set the editor with saved code or start with empty string
+    setCode(savedCode || '');  
   }, [QuestionId, savedCode]);
   
     useEffect(() => {
@@ -122,29 +124,6 @@ const IDE = ({ QuestionId, savedCode, handleSaveCode,savedCodeMap }) => {
     }
   };
 
-  const handleRun = async () => {
-    try {
-      const res = await axios.post('http://localhost:5001/api/submit', {
-        code: code,
-        testCases: testCases,
-      });
-
-      const { stdout, stderr, status } = res.data;
-      const outputResult = stdout || stderr || `Execution status: ${status.description}`;
-      setOutput(outputResult);
-
-      const passedTestCases = res.data.passedTestCases || testCases.length;
-      const totalTestCases = res.data.totalTestCases || testCases.length;
-      setTestResults({
-        passed: passedTestCases,
-        total: totalTestCases,
-        outputs: res.data.outputs || [],
-      });
-    } catch (error) {
-      console.error('Error during submission:', error);
-      setOutput('Error during submission');
-    }
-};
 const formatTime = (totalSeconds) => {
   const hours = Math.floor(totalSeconds / 3600);
   const minutes = Math.floor((totalSeconds % 3600) / 60);
@@ -200,11 +179,27 @@ const handleEndTest = async () => {
     alert('Error saving session');
   }
 };
+const handleGetAIFeedback = async () => {
+  try {
+    const response = await axios.post('http://localhost:5001/api/Questions/feedback', {
+      sourceCode: code,
+      questionId: QuestionId,
+    });
+
+    const feedback = response.data.feedback;
+    setFeedbackContent(feedback);
+    setShowFeedbackModal(true); // Open the modal with feedback
+
+  } catch (error) {
+    console.log('Error getting AI feedback:', error);
+    alert('Failed to get AI feedback');
+  }
+};
 
 
 
   return (  
-    <div>
+    <div transform scale-110>
       <div>
         <Editor
           height="500px"
@@ -220,27 +215,41 @@ const handleEndTest = async () => {
       <div className="buttons">
         <p>Code Editor</p>
         <button onClick={handleSave}>Save Code</button>  
-        <button onClick={handleRun}>Run</button>
         <button onClick={handleSubmit}>Submit</button>
+        <button onClick={handleGetAIFeedback}>AI feedback</button>
         <button onClick={handleEndTest}>End Test</button>  {/* End Test Button */}
       </div>
-  
-      <pre>{output}</pre>
-  
-      {testResults && (
-        <div className="result">
-          <h3>Test Cases Passed:</h3>
-          <p>
-            Passed: {testResults.passed}/{testResults.total}
-          </p>
-          <h3>Outputs:</h3>
-          <ul>
-            {testResults.outputs.map((out, index) => (
-              <li key={index}>{out}</li>
-            ))}
-          </ul>
+      {/* Modal for AI Feedback */}
+      {showFeedbackModal && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+          <div className="bg-white rounded-lg shadow-lg p-6 w-1/2 h-1/2 overflow-y-auto">
+            <div className="flex justify-between items-center">
+              <h2 className="text-xl font-semibold">AI Feedback</h2>
+              <button
+                className="text-gray-500 hover:text-gray-700"
+                onClick={() => setShowFeedbackModal(false)}
+              >
+                &times;
+              </button>
+            </div>
+            <p className="mt-4 text-gray-700 whitespace-pre-wrap">{feedbackContent}</p>
+            <div className="mt-6 text-right">
+              <button
+                className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+                onClick={() => setShowFeedbackModal(false)}
+              >
+                Close
+              </button>
+            </div>
+          </div>
         </div>
       )}
+  
+    <div className="flex-1 mt-4 overflow-auto">
+      <pre className="w-full p-4 rounded-md shadow-md">{output}</pre>
+    </div>
+  
+     
     </div>
   );
 };
