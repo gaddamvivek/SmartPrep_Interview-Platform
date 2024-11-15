@@ -28,6 +28,7 @@ export const InterviewDetails = () => {
             localStorage.setItem("pname",prepname);
             localStorage.setItem("selectedDifficulty", diffLvl);
             localStorage.setItem("selectedPosition", slctposition);
+
             localStorage.setItem("voiceType", voiceType);
             if(slctround === 'Coding' && buttonClick){
             const sessionStartTime = new Date();
@@ -91,6 +92,7 @@ export const InterviewDetails = () => {
                 </select>
             </div>
 
+
             {slctround === "Technical questions" && (
                 <div>
                     <div className = "dropDown">
@@ -115,6 +117,21 @@ export const InterviewDetails = () => {
                     </div>
                 </div>
             )}
+
+            {slctround === "Coding" && (
+                <div>
+                    <input type = "radio" 
+                    name = "voiceType" value = "Male" 
+                    checked = {voiceType === 'Male'} onChange = {(e) => setVoiceType(e.target.value)}/>
+                    Male US-English<br/>
+                    <input type = "radio" 
+                    name = "voiceType" value = "Female" 
+                    checked = {voiceType === 'Female'} onChange = {(e) => setVoiceType(e.target.value)}/>
+                    Female UK-English
+                </div>
+            )}
+
+
             <div className='btns'>
                 <button type = "button" onClick={onClickHandler}>Previous</button>
                 <button type="submit" onClick={() => setButtonClick(true)}>Next</button>

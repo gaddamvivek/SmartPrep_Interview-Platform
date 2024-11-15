@@ -3,10 +3,12 @@ import axios from 'axios';
 import PropTypes from 'prop-types';
 import './ide.css'; 
 import { useNavigate } from 'react-router-dom';
+import SpchLogo from '../assets/images/spch.png';
 
 const Question = ({ setQuestionId }) => {
   const [questions, setQuestions] = useState([]);
   const [difficulty, setDifficulty] = useState('');
+   const [queue, setQueue] = useState([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const navigate = useNavigate(); 
 
@@ -27,6 +29,7 @@ const Question = ({ setQuestionId }) => {
       const res = await axios.get(`http://localhost:5001/api/questions/Random?difficulty=${selectedDifficulty}`);
       const fetchedQuestions = res.data;
       setQuestions(fetchedQuestions);
+      setQueue(fetchedQuestions);
       localStorage.setItem('sessionQuestions', JSON.stringify(fetchedQuestions));
       setQuestionId(fetchedQuestions[0]._id);
       setDifficulty(selectedDifficulty); 
@@ -79,6 +82,48 @@ const Question = ({ setQuestionId }) => {
     };
   }, [difficulty, setQuestionId]);
 
+  const handleSpeech = () => {
+    const syn = window.speechSynthesis;
+
+    const speakQuestion = () => {
+        const voices = syn.getVoices();
+        const userVoiceChoice = localStorage.getItem('voiceType');
+        console.log("Available voices:", voices);  // Log available voices for debugging
+
+        // Check if voices are available
+        if (voices.length === 0) {
+            console.error("No voices are available");
+            return;
+        }
+
+        // Select voice based on user preference
+        let selectedVoice;
+        if (userVoiceChoice === 'Female') {
+            selectedVoice = voices.find(voice => voice.lang === "en-GB" && voice.name.includes("Female")) || voices[0];
+        } else {
+            selectedVoice = voices.find(voice => voice.lang === "en-GB" && voice.name.includes("Male")) || voices[0];
+        }
+
+        const currentQuestion = questions[currentQuestionIndex].title;
+        const currentQuestionDesc = questions[currentQuestionIndex].description;
+        const utterance = new SpeechSynthesisUtterance(currentQuestion);
+        const utterance2 = new SpeechSynthesisUtterance(currentQuestionDesc);
+        utterance.voice = selectedVoice;
+        utterance2.voice = selectedVoice;
+        syn.speak(utterance);
+        syn.speak(utterance2);
+    };
+
+    // Check if voices are already available
+    if (syn.getVoices().length > 0) {
+        speakQuestion();
+    } else {
+        // Wait for voices to load if not already available
+        syn.addEventListener("voiceschanged", speakQuestion);
+    }
+};
+
+
 // handleChange handles the dynamicness of selection of difficulty level
   const handleChange = (e) => {
     const difficultySelected = e.target.value;
@@ -113,8 +158,9 @@ const Question = ({ setQuestionId }) => {
 
   return (
     <div>
-       <h2 style={{ fontWeight: 'bold' }}>
+       <h2 style={{ fontWeight: 'bold'}}>
     Level: <span className={`difficulty-${difficulty.toLowerCase()}`}>
+    
       {difficulty.charAt(0).toUpperCase() + difficulty.slice(1)}
     </span>
   </h2>
@@ -128,7 +174,7 @@ const Question = ({ setQuestionId }) => {
           <option value="hard">Hard</option>
         </select>
       </div>
-      <div>
+      {/* <div>
         <button onClick={handlePrevious} disabled={currentQuestionIndex === 0}>
           ← Previous
         </button>
@@ -136,9 +182,34 @@ const Question = ({ setQuestionId }) => {
           Next →
         </button>
       </div>
-      <h2>{currentQuestion.title}</h2>
-      <p>{currentQuestion.description}</p>
-      <h3>Test Cases:</h3>
+      
+      */}
+
+      <div className='questions-queue' style = {{marginTop:'12px'}}>
+            <button className = 'arrow' onClick={handlePrevious} disabled={currentQuestionIndex === 0}> {"<"} </button>
+            <div className='queue-numbers'>
+              {queue.map((_,index) => (
+                <div key = {index}
+                className={`queue-number ${index === currentQuestionIndex ? 'current' : ''}`}
+                onClick={() => setCurrentQuestionIndex(index)}
+                >
+                  {index + 1}
+                </div>
+              ))}
+            </div>
+            <button className = 'arrow' onClick={handleNext} disabled={currentQuestionIndex === questions.length - 1}>{">"}</button>
+          </div>
+      
+      
+        <h3>Question: {questions[currentQuestionIndex].title}</h3>
+        
+        <div style={{ display: 'inline', alignItems: 'center' }}>
+            <p style={{ margin: 0 }}>{questions[currentQuestionIndex].description}</p>
+              <img src={SpchLogo} alt="Speech" className="SpchBtnImage" onClick={handleSpeech} style={{cursor: 'pointer' }} />
+          </div>
+
+
+      <h3 style={{fontWeight: 'bold'}}>Test Cases:</h3>
       <ol style={{ textAlign: 'left' }}>
         {currentQuestion.testCases.map((testCase, index) => (
           <li key={index} style={{ marginBottom: '15px' }}>
