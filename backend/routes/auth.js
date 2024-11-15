@@ -154,7 +154,7 @@ router.post('/testsubmit', async (req, res) => {
 
 // Interview Details route
 router.post('/interviewdetails', async (req, res) => {
-    const { prepname, diffLvl, slctround } = req.body;
+    const { prepname, diffLvl, slctround, slctposition } = req.body;
     let token;
     let username;
 
@@ -181,9 +181,9 @@ router.post('/interviewdetails', async (req, res) => {
                 // await ids.save();                
                 // return res.send('success');
 
-                const ids = new IDSchema({ username, prepname, diffLvl, slctround });
+                const ids = new IDSchema({ username, prepname, diffLvl, slctround, slctposition });
                 await ids.save();
-                const savedDetails = await IDSchema.findOne({ username, prepname, diffLvl, slctround });
+                const savedDetails = await IDSchema.findOne({ username, prepname, diffLvl, slctround, slctposition });
                 if (savedDetails) {
                     console.log('Data saved successfully:', savedDetails);
                     res.status(201).json({ message: 'Interview details saved successfully!' });

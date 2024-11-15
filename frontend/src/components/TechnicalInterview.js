@@ -9,6 +9,7 @@ import Timer from './timer';
 
 const TechnicalInterview = ({ permissions, showProfile }) => {
   const [questions, setQuestions] = useState([]);
+  const [queue, setQueue] = useState([]);
   const [difficulty, setDifficulty] = useState('easy');
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [answers, setAnswers] = useState({});
@@ -29,9 +30,11 @@ const TechnicalInterview = ({ permissions, showProfile }) => {
 
   const fetchQuestions = async (difficulty) => {
     try {
-      const response = await axios.get(`http://localhost:5001/api/tech/getRandomTechnicalQuestions?difficulty=${difficulty}`);
-      const fetchedQuestions = response.data.slice(0, 3);
+      let position = localStorage.getItem('selectedPosition');
+      const response = await axios.get(`http://localhost:5001/api/tech/getRandomTechnicalQuestions?difficulty=${difficulty}&position=${position}`);
+      const fetchedQuestions = response.data.slice(0, 10);
       setQuestions(fetchedQuestions); // Assuming you only want 3 questions at a time
+      setQueue(fetchedQuestions);
       setCurrentQuestionIndex(0); // Reset to the first question when questions are fetched
       initializeAnswers(fetchedQuestions);
     } catch (error) {
@@ -91,11 +94,6 @@ const TechnicalInterview = ({ permissions, showProfile }) => {
         syn.addEventListener("voiceschanged", speakQuestion);
     }
 };
-
-  
-  
-
-
   const nextQuestion = () => {
     if (currentQuestionIndex < questions.length - 1) {
       
@@ -221,7 +219,7 @@ const TechnicalInterview = ({ permissions, showProfile }) => {
   return (
     <div>
       {/* Header Section */}
-      <div className="header">
+      <div className='header'>
         <div className="heading shadow-lg shadow-black font-semibold text-2xl">
           <h1>PrepSmart</h1>
           <div className="rtime">
@@ -232,7 +230,7 @@ const TechnicalInterview = ({ permissions, showProfile }) => {
           <div className="flex font-semibold relative items-center justify-end gap-3">
             <div
               onClick={handleProfileButton}
-              className="relative cursor-pointer"
+              className="relative cursor-pointer text-white"
             >
               Profile
             </div>
@@ -273,11 +271,20 @@ const TechnicalInterview = ({ permissions, showProfile }) => {
           </div>
 
           {/* Navigation Buttons */}
-          <div className="question-navigation">
-            <button onClick={previousQuestion} disabled={currentQuestionIndex === 0}>Previous</button>
-            <button onClick={nextQuestion} disabled={currentQuestionIndex === questions.length - 1}>Next</button>
+          <div className='questions-queue' style = {{marginTop:'12px'}}>
+            <button className = 'arrow' onClick={previousQuestion} disabled={currentQuestionIndex === 0}> {"<"} </button>
+            <div className='queue-numbers'>
+              {queue.map((_,index) => (
+                <div key = {index}
+                className={`queue-number ${index === currentQuestionIndex ? 'current' : ''}`}
+                onClick={() => setCurrentQuestionIndex(index)}
+                >
+                  {index + 1}
+                </div>
+              ))}
+            </div>
+            <button className = 'arrow' onClick={nextQuestion} disabled={currentQuestionIndex === questions.length - 1}>{">"}</button>
           </div>
-
           {/* Display the current question */}
           {questions.length > 0 && (
             <div>
@@ -315,5 +322,3 @@ TechnicalInterview.propTypes = {
 // };
 
 export default TechnicalInterview;
-
-
