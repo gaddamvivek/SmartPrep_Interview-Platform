@@ -19,6 +19,8 @@ const IDE = ({ QuestionId, savedCode, handleSaveCode,savedCodeMap }) => {
   const [showFeedbackModal, setShowFeedbackModal] = useState(false);
   const [feedbackContent, setFeedbackContent] = useState('');
   const [submitted, setSubmitted] = useState(false);
+  const [saveMessage, setSaveMessage] = useState('');
+  const [fontSize, setFontSize] = useState(16);
   const navigate = useNavigate();
   // Load the saved code when the QuestionId changes
   useEffect(() => {
@@ -36,6 +38,7 @@ const IDE = ({ QuestionId, savedCode, handleSaveCode,savedCodeMap }) => {
       console.log(storedPname);
       setPrName(storedPname);
     },[]);
+    
 
     useEffect(()=>{
       const storedStartDate=localStorage.getItem('codingSessionStartDate');
@@ -65,7 +68,10 @@ const IDE = ({ QuestionId, savedCode, handleSaveCode,savedCodeMap }) => {
   const handleSave = () => {
     handleSaveCode(QuestionId, code);  // Call the parent function to save the code
     setSubmitted(true); // Mark as submitted
-    alert("Code saved successfully")
+    setSaveMessage('Your code is saved successfully!');
+    setTimeout(() => {
+      setSaveMessage('');
+    }, 5000);
   };
 
   // Interview timer countdown logic
@@ -85,6 +91,10 @@ const IDE = ({ QuestionId, savedCode, handleSaveCode,savedCodeMap }) => {
     return () => clearInterval(timerInterval);
   }, [timeRemaining, navigate]);
 
+  const handleFontSizeChange = (e) => {
+    setFontSize(Number(e.target.value)); // Update font size state
+  };
+
   // Handle code submission to backend
   const handleSubmit = async () => {
     try{
@@ -97,7 +107,10 @@ const IDE = ({ QuestionId, savedCode, handleSaveCode,savedCodeMap }) => {
           console.log("question and  saved for testing");
         }
         setSubmitted(true); // Mark as submitted
-        alert('Session data saved successfully!');
+        setSaveMessage('Session data saved successfully!');
+        setTimeout(() => {
+          setSaveMessage('');
+        }, 5000);
       } catch (error) {
         console.error('Error saving question ans ans session:', error);
         alert('Error saving question and ans session');
@@ -204,13 +217,31 @@ const handleGetAIFeedback = async () => {
 
 
   return (  
-    <div transform scale-110>
-      <div>
+    <div className="relative">
+      <div className="relative">
+        <div className="relative top-0 right-0 flex items-center gap-2 p-2">
+        <label htmlFor="fontSize" className="font-semibold">
+          Font Size:
+        </label>
+        <select
+          id="fontSize"
+          value={fontSize}
+          onChange={handleFontSizeChange}
+          className
+        >
+          <option value={14}>14</option>
+          <option value={16}>16</option>
+          <option value={18}>18</option>
+          <option value={20}>20</option>
+          <option value={22}>22</option>
+          <option value={24}>24</option>
+        </select>
+      </div>
         <Editor
           height="500px"
           defaultLanguage="python"
           options={{
-            fontSize: 22, // Set the font size here
+            fontSize: fontSize, // Set the font size here
           }}
           value={code}
           onChange={(value) => setCode(value)} 
@@ -224,6 +255,9 @@ const handleGetAIFeedback = async () => {
         {submitted && (<button onClick={handleGetAIFeedback}>AI feedback</button>)}
         <button onClick={handleEndTest}>End Test</button>  {/* End Test Button */}
       </div>
+      {saveMessage && (
+        <p className="text-green-700 text-lg font-semibold mt-2">{saveMessage}</p>
+      )}
       {/* Modal for AI Feedback */}
       {showFeedbackModal && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
