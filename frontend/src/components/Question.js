@@ -3,6 +3,7 @@ import axios from 'axios';
 import PropTypes from 'prop-types';
 import './ide.css'; 
 import { useNavigate } from 'react-router-dom';
+import SpchLogo from '../assets/images/spch.png';
 
 const Question = ({ setQuestionId }) => {
   const [questions, setQuestions] = useState([]);
@@ -102,9 +103,13 @@ const Question = ({ setQuestionId }) => {
         }
 
         const currentQuestion = questions[currentQuestionIndex].title;
+        const currentQuestionDesc = questions[currentQuestionIndex].description;
         const utterance = new SpeechSynthesisUtterance(currentQuestion);
+        const utterance2 = new SpeechSynthesisUtterance(currentQuestionDesc);
         utterance.voice = selectedVoice;
+        utterance2.voice = selectedVoice;
         syn.speak(utterance);
+        syn.speak(utterance2);
     };
 
     // Check if voices are already available
@@ -151,13 +156,12 @@ const Question = ({ setQuestionId }) => {
 
   return (
     <div>
-       <h2 style={{ fontWeight: 'bold', display: 'inline' }}>
+       <h2 style={{ fontWeight: 'bold'}}>
     Level: <span className={`difficulty-${difficulty.toLowerCase()}`}>
     
       {difficulty.charAt(0).toUpperCase() + difficulty.slice(1)}
     </span>
   </h2>
-  <button className="SpchBtn" onClick={handleSpeech}>speech</button>
       <div>
       <h2 style={{ fontWeight: 'bold' }}>Change Difficulty Level: </h2>
       <div>
@@ -177,9 +181,16 @@ const Question = ({ setQuestionId }) => {
         </button>
       </div>
       
-      <h2>{currentQuestion.title}</h2>
-      <p>{currentQuestion.description}</p>
-      <h3>Test Cases:</h3>
+      
+        <h3>Question: {questions[currentQuestionIndex].title}</h3>
+        
+        <div style={{ display: 'inline', alignItems: 'center' }}>
+            <p style={{ margin: 0 }}>{questions[currentQuestionIndex].description}</p>
+              <img src={SpchLogo} alt="Speech" className="SpchBtnImage" onClick={handleSpeech} style={{cursor: 'pointer' }} />
+          </div>
+
+
+      <h3 style={{fontWeight: 'bold'}}>Test Cases:</h3>
       <ol style={{ textAlign: 'left' }}>
         {currentQuestion.testCases.map((testCase, index) => (
           <li key={index} style={{ marginBottom: '15px' }}>

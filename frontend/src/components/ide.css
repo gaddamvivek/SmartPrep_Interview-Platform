@@ -164,8 +164,9 @@
   border-radius: 4px;
 }
 
-.SpchBtn {
-  margin-top: 10px; /* Adjust the value as needed for spacing above */
-  margin-left: 360px; /* Adjust the value as needed for spacing to the left */
-  padding-top: 5px;
+
+.SpchBtnImage {
+  width: 25px; /* Set the image width */
+  height: 25px; /* Set the image height */
+  object-fit: cover; /* Ensure the image maintains aspect ratio */
 }

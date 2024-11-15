@@ -6,6 +6,7 @@ import { Logout } from './logout';
 import TechAnswerInputs from './TechAnswerInputs';
 import './TechnicalInterview.css';
 import Timer from './timer';
+import SpchLogo from '../assets/images/spch.png';
 
 const TechnicalInterview = ({ permissions, showProfile }) => {
   const [questions, setQuestions] = useState([]);
@@ -255,11 +256,12 @@ const TechnicalInterview = ({ permissions, showProfile }) => {
         <div className="question-section">
           <h2 style={{ fontWeight: 'bold' }}>Technical Interview</h2>
 
-          <h2 style={{ fontWeight: 'bold' }}>
+          <h2 style={{ fontWeight: 'bold'}}>
               Level: <span className={`difficulty-${difficulty.toLowerCase()}`}>
                 {difficulty.charAt(0).toUpperCase() + difficulty.slice(1)}
               </span>
             </h2>
+          
 
 
           <div className="difficulty-selection">
@@ -280,12 +282,19 @@ const TechnicalInterview = ({ permissions, showProfile }) => {
 
           {/* Display the current question */}
           {questions.length > 0 && (
-            <div>
-              <h3>Question: {questions[currentQuestionIndex].title}</h3>
-              <button onClick = {handleSpeech}>speech</button>
-              <p>{questions[currentQuestionIndex].description}</p>
+          <div>
+            <h3 style={{display: 'inline-flex'}}>Question: {questions[currentQuestionIndex].title}</h3>
+            <button className="SpchBtn" onClick={handleSpeech} style={{ marginLeft: '8px' }}>
+                <img src={SpchLogo} alt="Speech" className="SpchBtnImage" />
+              </button>
+              
+            <div >
+              <p >{questions[currentQuestionIndex].description}</p>
+             
             </div>
-          )}
+          </div>
+        )}
+
         </div>
 
         {/* Right Section: Answer Input */}
