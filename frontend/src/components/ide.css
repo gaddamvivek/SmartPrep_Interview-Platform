@@ -170,3 +170,43 @@
   height: 25px; /* Set the image height */
   object-fit: cover; /* Ensure the image maintains aspect ratio */
 }
+
+.questions-queue {
+  margin-bottom: 20px;
+  text-align: center;
+  display: flex;
+}
+
+.queue-numbers {
+  display: flex;
+  justify-content: center; /* Centers the numbers horizontally */
+  gap: 10px; /* Adds space between each number */
+}
+
+.queue-number {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #000;
+  border-radius: 50%;
+  cursor: pointer;
+  background-color: #f0f0f0;
+}
+
+.queue-number.current {
+  background-color: #4caf50;
+  color: white;
+  font-weight: bold;
+}
+.arrow {
+  background-color: transparent;
+  color:#000;
+  padding: 0px ;
+  gap: 15px;
+}
+.arrow:hover {
+  background-color: transparent;
+  color:#000;    
+}

@@ -8,6 +8,7 @@ import SpchLogo from '../assets/images/spch.png';
 const Question = ({ setQuestionId }) => {
   const [questions, setQuestions] = useState([]);
   const [difficulty, setDifficulty] = useState('');
+   const [queue, setQueue] = useState([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const navigate = useNavigate(); 
 
@@ -28,6 +29,7 @@ const Question = ({ setQuestionId }) => {
       const res = await axios.get(`http://localhost:5001/api/questions/Random?difficulty=${selectedDifficulty}`);
       const fetchedQuestions = res.data;
       setQuestions(fetchedQuestions);
+      setQueue(fetchedQuestions);
       localStorage.setItem('sessionQuestions', JSON.stringify(fetchedQuestions));
       setQuestionId(fetchedQuestions[0]._id);
       setDifficulty(selectedDifficulty); 
@@ -172,7 +174,7 @@ const Question = ({ setQuestionId }) => {
           <option value="hard">Hard</option>
         </select>
       </div>
-      <div>
+      {/* <div>
         <button onClick={handlePrevious} disabled={currentQuestionIndex === 0}>
           ← Previous
         </button>
@@ -180,6 +182,23 @@ const Question = ({ setQuestionId }) => {
           Next →
         </button>
       </div>
+      
+      */}
+
+      <div className='questions-queue' style = {{marginTop:'12px'}}>
+            <button className = 'arrow' onClick={handlePrevious} disabled={currentQuestionIndex === 0}> {"<"} </button>
+            <div className='queue-numbers'>
+              {queue.map((_,index) => (
+                <div key = {index}
+                className={`queue-number ${index === currentQuestionIndex ? 'current' : ''}`}
+                onClick={() => setCurrentQuestionIndex(index)}
+                >
+                  {index + 1}
+                </div>
+              ))}
+            </div>
+            <button className = 'arrow' onClick={handleNext} disabled={currentQuestionIndex === questions.length - 1}>{">"}</button>
+          </div>
       
       
         <h3>Question: {questions[currentQuestionIndex].title}</h3>
