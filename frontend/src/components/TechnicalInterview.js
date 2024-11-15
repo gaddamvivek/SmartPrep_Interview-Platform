@@ -6,6 +6,7 @@ import { Logout } from './logout';
 import TechAnswerInputs from './TechAnswerInputs';
 import './TechnicalInterview.css';
 import Timer from './timer';
+import SpchLogo from '../assets/images/spch.png';
 
 const TechnicalInterview = ({ permissions, showProfile }) => {
   const [questions, setQuestions] = useState([]);
@@ -57,11 +58,43 @@ const TechnicalInterview = ({ permissions, showProfile }) => {
 
   const handleSpeech = () => {
     const syn = window.speechSynthesis;
-    const currentQuestion = questions[currentQuestionIndex].title;
-    console.log(currentQuestion)
-    const utterance = new SpeechSynthesisUtterance(currentQuestion);
-    syn.speak(utterance)
-  }
+
+    const speakQuestion = () => {
+        const voices = syn.getVoices();
+        const userVoiceChoice = localStorage.getItem('voiceType');
+        console.log("Available voices:", voices);  // Log available voices for debugging
+
+        // Check if voices are available
+        if (voices.length === 0) {
+            console.error("No voices are available");
+            return;
+        }
+
+        // Select voice based on user preference
+        let selectedVoice;
+        if (userVoiceChoice === 'Female') {
+            selectedVoice = voices.find(voice => voice.lang === "en-GB" && voice.name.includes("Female")) || voices[0];
+        } else {
+            selectedVoice = voices.find(voice => voice.lang === "en-GB" && voice.name.includes("Male")) || voices[0];
+        }
+
+        const currentQuestion = questions[currentQuestionIndex].title;
+        const utterance = new SpeechSynthesisUtterance(currentQuestion);
+        utterance.voice = selectedVoice;
+        syn.speak(utterance);
+    };
+
+    // Check if voices are already available
+    if (syn.getVoices().length > 0) {
+        speakQuestion();
+    } else {
+        // Wait for voices to load if not already available
+        syn.addEventListener("voiceschanged", speakQuestion);
+    }
+};
+
+  
+  
 
 
   const nextQuestion = () => {
@@ -223,11 +256,12 @@ const TechnicalInterview = ({ permissions, showProfile }) => {
         <div className="question-section">
           <h2 style={{ fontWeight: 'bold' }}>Technical Interview</h2>
 
-          <h2 style={{ fontWeight: 'bold' }}>
+          <h2 style={{ fontWeight: 'bold'}}>
               Level: <span className={`difficulty-${difficulty.toLowerCase()}`}>
                 {difficulty.charAt(0).toUpperCase() + difficulty.slice(1)}
               </span>
             </h2>
+          
 
 
           <div className="difficulty-selection">
@@ -248,12 +282,19 @@ const TechnicalInterview = ({ permissions, showProfile }) => {
 
           {/* Display the current question */}
           {questions.length > 0 && (
-            <div>
-              <h3>Question: {questions[currentQuestionIndex].title}</h3>
-              <button onClick = {handleSpeech}>speech</button>
-              <p>{questions[currentQuestionIndex].description}</p>
+          <div>
+            <h3 style={{display: 'inline-flex'}}>Question: {questions[currentQuestionIndex].title}</h3>
+            <button className="SpchBtn" onClick={handleSpeech} style={{ marginLeft: '8px' }}>
+                <img src={SpchLogo} alt="Speech" className="SpchBtnImage" />
+              </button>
+              
+            <div >
+              <p >{questions[currentQuestionIndex].description}</p>
+             
             </div>
-          )}
+          </div>
+        )}
+
         </div>
 
         {/* Right Section: Answer Input */}

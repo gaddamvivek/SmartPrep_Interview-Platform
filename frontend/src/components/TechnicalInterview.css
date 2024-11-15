@@ -123,3 +123,15 @@
     margin-bottom: 5px; /* Adds spacing between items in the profile dropdown */
   }
   
+  .SpchBtn {
+    background-color: transparent; /* Remove default button background */
+    border: none; /* Remove border */
+    padding: 0; /* Remove default padding */
+    cursor: pointer; /* Add pointer cursor on hover */
+  }
+  
+  .SpchBtnImage {
+    width: 25px; /* Set the image width */
+    height: 25px; /* Set the image height */
+    object-fit: cover; /* Ensure the image maintains aspect ratio */
+  }
