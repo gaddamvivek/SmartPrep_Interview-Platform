@@ -95,9 +95,6 @@ const TechnicalInterview = ({ permissions, showProfile }) => {
         syn.addEventListener("voiceschanged", speakQuestion);
     }
 };
-
-  
-
   const nextQuestion = () => {
     if (currentQuestionIndex < questions.length - 1) {
       
@@ -274,8 +271,6 @@ const TechnicalInterview = ({ permissions, showProfile }) => {
               <option value="hard">Hard</option>
             </select>
           </div>
-
-          {/* Navigation Buttons */}
           <div className='questions-queue' style = {{marginTop:'12px'}}>
             <button className = 'arrow' onClick={previousQuestion} disabled={currentQuestionIndex === 0}> {"<"} </button>
             <div className='queue-numbers'>
