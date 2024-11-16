@@ -78,7 +78,7 @@ export const Signup = () => {
     }
 
     try {
-      const result = await axios.post('http://localhost:5001/auth/register', {
+      const result = await axios.post('http://localhost:5001/api/auth/register', {
         fname,
         lname,
         username,
