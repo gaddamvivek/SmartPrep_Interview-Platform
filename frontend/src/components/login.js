@@ -43,7 +43,7 @@ export const LoginSignup = () => {
       return;
     }
     try {
-      const result = await axios.post('http://localhost:5001/auth/login', {
+      const result = await axios.post('http://localhost:5001/api/auth/login', {
         email,
         password,
       });

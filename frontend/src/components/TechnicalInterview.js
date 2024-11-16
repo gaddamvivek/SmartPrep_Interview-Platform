@@ -197,7 +197,7 @@ const TechnicalInterview = ({ permissions, showProfile }) => {
     try {
       const totalInterviewTimeInSeconds = 30*60 - timeRemaining; // Calculate total time taken in seconds
       const formattedTimeTaken = formatTime(totalInterviewTimeInSeconds);
-     const result= await axios.post('http://localhost:5001/auth/tsessions', {
+     const result= await axios.post('http://localhost:5001/api/auth/tsessions', {
         userEmail:userEmail,
         preparationName:prName,
         sessionStartDate:tstartDate,
