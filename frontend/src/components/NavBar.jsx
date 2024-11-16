@@ -6,7 +6,7 @@ import logo from '../assets/images/logo-nav.png';
 
 export const NavBar = (props) => {
   const [isProfileOpen, setIsProfileOpen] = useState(false);
-  const [email,setEmail] = useState('');
+  const [email, setEmail] = useState('');
   const [userName, setUserName] = useState('');
   const navigate = useNavigate();
   const handleProfileButton = () => {
@@ -24,9 +24,12 @@ export const NavBar = (props) => {
 
     setEmail(userEmail);
     setUserName(uName);
-  }, []);  
+  }, []);
   const handleSignIn = () => {
-    if (localStorage.getItem('logindata')) navigate('/dashboard');
+    if (localStorage.getItem('logindata')) {
+      navigate('/dashboard');
+
+    }
     else navigate('/login');
   };
   const handleNewInterview = () => {

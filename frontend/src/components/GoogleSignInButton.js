@@ -13,6 +13,10 @@ const GoogleSignInButton = () => {
       // Trigger Google Sign-In popup
       const result = await signInWithPopup(auth, googleProvider);
 
+      console.log(result.email);
+      console.log(result.user.email);
+
+
       // Get the Google ID token from the user
       const token = await result.user.getIdToken();
 
@@ -20,8 +24,13 @@ const GoogleSignInButton = () => {
       const response = await axios.post('http://localhost:5001/auth/google', { token });
 
       if (response.status === 200) {
+        console.log(response.data);
         console.log('Google Sign-In successful, redirecting...');
+
+        window.localStorage.setItem('logindata', response.data['uid']);
         window.localStorage.setItem('isLoggedIn', true);
+        window.localStorage.setItem('userName', result.user.displayName);
+        window.localStorage.setItem('userEmail', result.user.email);
         navigate('/dashboard'); // Redirect to dashboard
       } else {
         console.error('Login failed: ', response);
