@@ -21,6 +21,8 @@ const IDE = ({ QuestionId, savedCode, handleSaveCode,savedCodeMap }) => {
   const [submitted, setSubmitted] = useState(false);
   const [saveMessage, setSaveMessage] = useState('');
   const [fontSize, setFontSize] = useState(16);
+  const [position,setPosition]=useState('');
+  const [diff,setDiff]=useState('');
   const navigate = useNavigate();
   // Load the saved code when the QuestionId changes
   useEffect(() => {
@@ -38,7 +40,16 @@ const IDE = ({ QuestionId, savedCode, handleSaveCode,savedCodeMap }) => {
       console.log(storedPname);
       setPrName(storedPname);
     },[]);
-    
+    useEffect(()=>{
+      const storedPosition=localStorage.getItem("selectedPosition");
+      console.log(storedPosition);
+      setPosition(storedPosition);
+    },[]);
+    useEffect(()=>{
+      const storedPosition=localStorage.getItem("selectedDifficulty");
+      console.log(storedPosition);
+      setDiff(storedPosition);
+    },[]);
 
     useEffect(()=>{
       const storedStartDate=localStorage.getItem('codingSessionStartDate');
@@ -165,6 +176,8 @@ const handleEndTest = async () => {
     const result= await axios.post('http://localhost:5001/auth/sessions', {
       userEmail:userEmail,
       preparationName:prName,
+      positionName:position,
+      prepDiff:diff,
       sessionStartDate:startDate,
       sessionEndDate:formattedDate,
       sessionStartTime:startTime,

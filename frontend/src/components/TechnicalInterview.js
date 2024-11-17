@@ -24,6 +24,8 @@ const TechnicalInterview = ({ permissions, showProfile }) => {
   const [prName,setPrName]=useState('');
   const [tstartDate,setTstartDate]=useState('');
   const [tstartTime,settStartTime]=useState('');
+  const [position,setPosition]=useState('');
+  const [diff,setDiff]=useState('');
 
   useEffect(() => {
     fetchQuestions(difficulty); // Fetch questions when the component mounts or difficulty changes
@@ -58,6 +60,16 @@ const TechnicalInterview = ({ permissions, showProfile }) => {
     setEmail(userEmail);
     setUserName(uName);
   }, []);
+  useEffect(()=>{
+    const storedPosition=localStorage.getItem("selectedPosition");
+    console.log(storedPosition);
+    setPosition(storedPosition);
+  },[]);
+  useEffect(()=>{
+    const storedPosition=localStorage.getItem("selectedDifficulty");
+    console.log(storedPosition);
+    setDiff(storedPosition);
+  },[]);
 
   const handleSpeech = () => {
     const syn = window.speechSynthesis;
@@ -197,6 +209,8 @@ const TechnicalInterview = ({ permissions, showProfile }) => {
      const result= await axios.post('http://localhost:5001/auth/tsessions', {
         userEmail:userEmail,
         preparationName:prName,
+        positionName:position,
+        prepDiff:diff,
         sessionStartDate:tstartDate,
         sessionEndDate:formattedDate,
         sessionStartTime:tstartTime,
