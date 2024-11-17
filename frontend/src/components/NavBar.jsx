@@ -6,8 +6,10 @@ import logo from '../assets/images/logo-nav.png';
 
 export const NavBar = (props) => {
   const [isProfileOpen, setIsProfileOpen] = useState(false);
+
   const [isDropdownOpen, setIsDropdownOpen] = useState(false); // Main dropdown
   const [openSubmenu, setOpenSubmenu] = useState(null); // Submenu state
+
   const [email, setEmail] = useState('');
   const [userName, setUserName] = useState('');
   const navigate = useNavigate();
@@ -47,7 +49,10 @@ export const NavBar = (props) => {
   }, []);
 
   const handleSignIn = () => {
-    if (localStorage.getItem('logindata')) navigate('/dashboard');
+    if (localStorage.getItem('logindata')) {
+      navigate('/dashboard');
+
+    }
     else navigate('/login');
   };
 
