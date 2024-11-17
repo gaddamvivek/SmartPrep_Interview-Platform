@@ -102,7 +102,7 @@ export const InterviewDetails = () => {
                             <option value="Backend Technical">Backend Technical</option>
                             <option value="Devops Technical">DevOps Technical</option>
                             <option value="Software Testing Technical">Software Testing Technical</option>
-                            <option value="All">All</option>
+                            <option value="All">Full Stack Developer</option>
                         </select>
                     </div>                    
                     <div>
@@ -120,14 +120,23 @@ export const InterviewDetails = () => {
 
             {slctround === "Coding" && (
                 <div>
-                    <input type = "radio" 
-                    name = "voiceType" value = "Male" 
-                    checked = {voiceType === 'Male'} onChange = {(e) => setVoiceType(e.target.value)}/>
-                    Male US-English<br/>
-                    <input type = "radio" 
-                    name = "voiceType" value = "Female" 
-                    checked = {voiceType === 'Female'} onChange = {(e) => setVoiceType(e.target.value)}/>
-                    Female UK-English
+                    <div className = "dropDown">
+                        <select value={slctposition} onChange={(e) => setPosition(e.target.value)} required>
+                            <option value="" disabled>Select Position</option>
+                            <option value="Python Developer I">Python Developer I</option>
+                            <option value="Python Developer II">Python Developer II</option>
+                        </select>
+                    </div>       
+                    <div>
+                            <input type = "radio" 
+                            name = "voiceType" value = "Male" 
+                            checked = {voiceType === 'Male'} onChange = {(e) => setVoiceType(e.target.value)}/>
+                            Male US-English<br/>
+                            <input type = "radio" 
+                            name = "voiceType" value = "Female" 
+                            checked = {voiceType === 'Female'} onChange = {(e) => setVoiceType(e.target.value)}/>
+                            Female UK-English
+                    </div>
                 </div>
             )}
 

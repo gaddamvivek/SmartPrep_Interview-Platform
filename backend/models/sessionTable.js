@@ -7,6 +7,8 @@ const CodingSolutionsSchema = new mongoose.Schema({
 const sessionTableSchema= new mongoose.Schema({
     userEmail: { type: String, required: true },
     preparationName: { type: String, required: true },
+    positionName: { type: String, required: true },
+    prepDiff: { type: String, required: true },
     sessionStartDate:{ type: String, required: true },
     sessionEndDate:{ type: String, required: true },
     sessionStartTime:{ type: String, required: true },
