@@ -249,4 +249,16 @@ const google= async (req, res) => {
     }
 };
 
-module.exports ={google,login,interviewdetails,testsubmit,tsessions,sessions,register,forgetpassword};
+const verifyToken = async (token) => {
+    try {
+        // Try verifying Google token
+        const decodedGoogleToken = await admin.auth().verifyIdToken(token);
+        return { isGoogleToken: true, payload: decodedGoogleToken };
+    } catch {
+        // Fallback to JWT verification
+        const decodedJwtToken = jwt.verify(token, process.env.TOKEN_SECRET_KEY);
+        return { isGoogleToken: false, payload: decodedJwtToken };
+    }
+};
+
+module.exports ={google,login,interviewdetails,testsubmit,tsessions,sessions,register,forgetpassword,verifyToken};
