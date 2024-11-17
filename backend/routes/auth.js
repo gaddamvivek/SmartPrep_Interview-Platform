@@ -2,7 +2,7 @@ const express = require('express');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const User = require('../models/user'); // Import the User model
-const IDSchema  = require('../models/intrwdtlsschema')
+const IDSchema = require('../models/intrwdtlsschema')
 const router = express.Router();
 const admin = require('../firebaseAdmin');
 const sessionTable = require('../models/sessionTable');
@@ -14,11 +14,11 @@ router.use(express.json())
 require('dotenv').config();
 
 //forgetpassword route
-router.post('/forgetpassword', async(req,res) => {
-    const {email,password} = req.body;
-    try{
-        const userMail = await User.findOne({email});
-        if(userMail){
+router.post('/forgetpassword', async (req, res) => {
+    const { email, password } = req.body;
+    try {
+        const userMail = await User.findOne({ email });
+        if (userMail) {
             const hashedPassword = await bcrypt.hash(password, 10);
             userMail.password = hashedPassword;
             await userMail.save();
@@ -26,7 +26,7 @@ router.post('/forgetpassword', async(req,res) => {
         }
         else
             return res.status(404).send("User not found");
-    }catch (err) {
+    } catch (err) {
         console.error('Error details:', err);
         res.status(500).send('Error occured while updating password');
     }
@@ -50,12 +50,12 @@ router.post('/register', async (req, res) => {
 });
 
 router.post('/sessions', async (req, res) => {
-        const { userEmail, preparationName, sessionStartDate, sessionEndDate, sessionStartTime, sessionEndTime, timeTaken, solutions} = req.body;
-        const formattedSolutions = Object.entries(solutions).map(([questionId, userSolution]) => ({
-            questionID: questionId, // Use questionId as questionTitle
-            userSolution: userSolution // The solution code
-        }));
-        try {
+    const { userEmail, preparationName, sessionStartDate, sessionEndDate, sessionStartTime, sessionEndTime, timeTaken, solutions } = req.body;
+    const formattedSolutions = Object.entries(solutions).map(([questionId, userSolution]) => ({
+        questionID: questionId, // Use questionId as questionTitle
+        userSolution: userSolution // The solution code
+    }));
+    try {
         const newSession = new sessionTable({
             userEmail,
             preparationName,
@@ -125,9 +125,9 @@ router.post('/testsubmit', async (req, res) => {
             const question = questions.find(q => q._id.toString() === solution.questionID);
             return {
                 questionID: solution.questionID,
-                questiontitle:question.title,
-                questiondescription:question.description,
-                aisolution:question.solution,
+                questiontitle: question.title,
+                questiondescription: question.description,
+                aisolution: question.solution,
                 userSolution: solution.userSolution,
                 testCases: question ? question.testCases.map(testCases => ({
                     input: testCases.input,
@@ -176,7 +176,7 @@ router.post('/interviewdetails', async (req, res) => {
 
                 console.log(fetchedDetails)
                 username = fetchedDetails.uname;
-        // If the token was valid, save interview details
+                // If the token was valid, save interview details
                 // const ids = new IDS({ username, prepname, diffLvl, slctround });
                 // await ids.save();                
                 // return res.send('success');
@@ -191,23 +191,23 @@ router.post('/interviewdetails', async (req, res) => {
                     console.log('Data not saved.');
                     res.status(500).json({ error: 'Error saving interview details' });
                 }
-                
+
             } catch (error) {
                 console.log(error);
-                return res.status(401).json({ message: "Token verification failed" }); 
+                return res.status(401).json({ message: "Token verification failed" });
             }
         } else {
             console.error("Authorization header missing or incorrect");
-            return res.status(401).json({ message: "Authorization header missing" }); 
+            return res.status(401).json({ message: "Authorization header missing" });
         }
 
 
         // If the token was valid, save interview details
-        
+
 
 
     } catch (err) {
-        res.status(500).send('Error'); 
+        res.status(500).send('Error');
     }
 });
 
@@ -256,3 +256,41 @@ router.post('/google', async (req, res) => {
 });
 
 module.exports = router;
+
+
+const verifyToken = async (token) => {
+    try {
+        // Try verifying Google token
+        const decodedGoogleToken = await admin.auth().verifyIdToken(token);
+        return { isGoogleToken: true, payload: decodedGoogleToken };
+    } catch {
+        // Fallback to JWT verification
+        const decodedJwtToken = jwt.verify(token, process.env.TOKEN_SECRET_KEY);
+        return { isGoogleToken: false, payload: decodedJwtToken };
+    }
+};
+
+router.post('/interviewdetails', async (req, res) => {
+    const { prepname, diffLvl, slctround, slctposition } = req.body;
+
+    try {
+        const token = req.headers.authorization?.split(' ')[1];
+        if (!token) return res.status(401).json({ message: 'Authorization header missing' });
+
+        const { payload } = await verifyToken(token);
+
+        const ids = new IDSchema({
+            username: payload.email || payload.mailid, // Use email from Google or mailid from JWT
+            prepname,
+            diffLvl,
+            slctround,
+            slctposition,
+        });
+
+        await ids.save();
+        res.status(201).json({ message: 'Interview details saved successfully!' });
+    } catch (err) {
+        console.error('Error saving interview details:', err);
+        res.status(500).json({ message: 'Error saving interview details' });
+    }
+});
