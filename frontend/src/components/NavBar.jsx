@@ -35,6 +35,11 @@ export const NavBar = (props) => {
     setOpenSubmenu(null); // Close submenu
   };
 
+  const handleNewInterview = () => {
+    if (localStorage.getItem('logindata')) navigate('/interviewdetails');
+    else navigate('/login');
+  };
+
   const showNewInterview = props.showNewInterview || false;
   const showSignIn = props.showSignIn || false;
   const showProfile = props.showProfile || false;
@@ -106,7 +111,7 @@ export const NavBar = (props) => {
                 onClick={() => handleSubmenuToggle('ByRole')}
                 className="px-4 py-2 cursor-pointer hover:bg-gray-100 relative"
               >
-                By Role
+                By Position
                 {openSubmenu === 'ByRole' && (
                   <div className="absolute left-full top-0 bg-white border rounded-lg shadow-lg w-48 z-20">
                     {roles.map((role) => (
@@ -120,6 +125,14 @@ export const NavBar = (props) => {
                     ))}
                   </div>
                 )}
+              </div>
+
+              {/* Start Interview */}
+              <div
+                onClick={handleNewInterview}
+                className="px-4 py-2 bg-purple-600 text-white cursor-pointer hover:bg-purple-700 rounded-lg text-center mt-2"
+              >
+                Start Interview
               </div>
             </div>
           )}
