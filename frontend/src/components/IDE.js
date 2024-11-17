@@ -266,7 +266,7 @@ const handleGetAIFeedback = async () => {
               <h2 className="text-xl font-semibold">AI Feedback</h2>
               <button
                 className="absolute top-4 right-4 flex items-center justify-center w-8 h-8 rounded-full bg-gray-200 hover:bg-red-500 text-gray-700 hover:text-white focus:outline-none"
-                onClick={closeModal}
+                onClick={() => setShowFeedbackModal(false)}
                 aria-label="Close"
               >
                 &times;
