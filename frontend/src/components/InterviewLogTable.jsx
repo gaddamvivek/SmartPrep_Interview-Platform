@@ -10,8 +10,8 @@ const InterviewLogTable = ({ data }) => {
       <li className="grid grid-cols-5 text-xl font-bold p-2">
         <p className="">Name</p>
         <p className="">Date</p>
-        <p className="">Start Time</p>
-        <p className="">End Time</p>
+        <p className="">position</p>
+        <p className="">Diffuculty</p>
         <p className="">Time Taken</p>
       </li>
       {data.map((item, index) => {
@@ -27,8 +27,8 @@ const InterviewLogTable = ({ data }) => {
           >
             <p className="">{item.preparationName}</p>
             <p className="">{item.sessionStartDate}</p>
-            <p className="">{item.sessionStartTime}</p>
-            <p className="">{item.sessionEndTime}</p>
+            <p className="">{item.positionName}</p>
+            <p className="">{item.prepDiff}</p>
             <p className="">{item.timeTaken}</p>
           </li>
         );
