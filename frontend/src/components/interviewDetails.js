@@ -22,7 +22,7 @@ export const InterviewDetails = () => {
                 Authorization: `Bearer ${uname}`,  // Send the token in the Authorization header
             };
         
-            const result = await axios.post('http://localhost:5001/auth/interviewdetails', { prepname, diffLvl, slctround, slctposition},{headers});
+            const result = await axios.post('http://localhost:5001/api/auth/interviewdetails', { prepname, diffLvl, slctround, slctposition},{headers});
             console.log(result);
             localStorage.setItem('codingSessionActive', 'true');
             localStorage.setItem("pname",prepname);

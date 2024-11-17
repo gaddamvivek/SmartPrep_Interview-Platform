@@ -109,7 +109,7 @@ const IDE = ({ QuestionId, savedCode, handleSaveCode,savedCodeMap }) => {
   // Handle code submission to backend
   const handleSubmit = async () => {
     try{
-      const result=await axios.post('http://localhost:5001/auth/testsubmit',{
+      const result=await axios.post('http://localhost:5001/api/auth/testsubmit',{
       solutions:savedCodeMap
       });
       console.log("Server response:", result.data);
@@ -173,7 +173,7 @@ const handleEndTest = async () => {
 
     localStorage.removeItem('codingSessionActive')
     localStorage.removeItem('sessionQuestions');
-    const result= await axios.post('http://localhost:5001/auth/sessions', {
+    const result= await axios.post('http://localhost:5001/api/auth/sessions', {
       userEmail:userEmail,
       preparationName:prName,
       positionName:position,

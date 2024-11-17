@@ -26,7 +26,7 @@ export const ForgetPassword = () => {
     try {
       console.log(email);
         if(password == confirmPassword){
-          const result = await axios.post('http://localhost:5001/auth/forgetpassword', { email, password});
+          const result = await axios.post('http://localhost:5001/api/auth/forgetpassword', { email, password});
           if(result.status == 200)
             navigate('/login')
           else 
