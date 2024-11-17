@@ -1,10 +1,11 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-
+import { useNavigate } from 'react-router-dom';
 const CompanyPage = () => {
   const { companyName } = useParams();
-
+  
   // Static data for roles and company details (replace with API data if needed)
+  const navigate = useNavigate();
   const companyDetails = {
     Amazon: {
       location: 'Seattle, Washington, United States',
@@ -27,7 +28,12 @@ const CompanyPage = () => {
   };
 
   const company = companyDetails[companyName] || { location: 'Unknown', roles: [] };
-
+  const handleRoleSelect = (role) => {
+    // Store the selected role in local storage
+    localStorage.setItem('selectedRole', role.title);
+    localStorage.setItem('positionPath' , true);
+    // console.log(`Role "${role.title}" stored in local storage.`);
+  };
   return (
     <div className="p-8">
       {/* Company Header */}
@@ -45,14 +51,20 @@ const CompanyPage = () => {
         </div>
         <div className="sm:w-2/3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {company.roles.map((role) => (
-            <div key={role.id} className="bg-white shadow-md rounded-lg p-6">
+                        <div 
+                        key={role.id} 
+                        className="bg-white shadow-md rounded-lg p-6 cursor-pointer hover:bg-gray-100"
+                        onClick={() => handleRoleSelect(role)}
+                      >
               <div className="mb-4">
                 {/* Placeholder role image */}
                 <div className="w-16 h-16 rounded-full bg-gray-200 mx-auto"></div>
               </div>
               <h2 className="text-xl font-semibold mb-2">{role.title}</h2>
               <p className="text-gray-500 mb-4">{role.description}</p>
-              <button className="bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700">
+              <button
+                className="bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700"
+                onClick={() => navigate('/interviewdetails')}>
                 Start Practice
               </button>
             </div>

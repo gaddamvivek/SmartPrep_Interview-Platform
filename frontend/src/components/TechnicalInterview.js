@@ -214,6 +214,8 @@ const TechnicalInterview = ({ permissions, showProfile }) => {
       navigate('/technicalFeedback', { state: { userEmail, preparationName: prName } });
   
       alert('Session data saved successfully!');
+      localStorage.removeItem('positionPath');
+      localStorage.removeItem('selectedRole');
     } catch (error) {
       console.error('Error saving session:', error);
       alert('Error saving session');

@@ -1,6 +1,6 @@
 const Session = require('../models/sessionTable');
 const Question = require('../models/Question');
-const Feedback = require('../models/feedback'); // Import the Feedback model
+const Feedback = require('../models/Feedback'); // Import the Feedback model
 
 // Function to retrieve session details along with question information
 const getSessionDetailsWithQuestionInfo = async (req, res) => {

@@ -162,6 +162,8 @@ const handleEndTest = async () => {
 
     localStorage.removeItem('codingSessionActive')
     localStorage.removeItem('sessionQuestions');
+    localStorage.removeItem('positionPath');
+    localStorage.removeItem('selectedRole');
     const result= await axios.post('http://localhost:5001/api/auth/sessions', {
       userEmail:userEmail,
       preparationName:prName,
@@ -192,6 +194,7 @@ const handleEndTest = async () => {
       });
 
     alert('Session data saved successfully!');
+
   } catch (error) {
     console.error('Error saving session:', error);
     alert('Error saving session');

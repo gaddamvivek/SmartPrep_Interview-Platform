@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './interviewDetails.css';
 import axios from 'axios';
@@ -14,6 +14,18 @@ export const InterviewDetails = () => {
     const onClickHandler = () => {
         navigate('/dashboard');
     }
+    const positionPath = localStorage.getItem('positionPath');
+    const role = localStorage.getItem('selectedRole');
+
+    useEffect(() => {
+        // Set the round value automatically when positionPath is true
+        if (positionPath && role) {
+            
+          setRound("Technical Questions"); // Automatically set the round based on selectedRole
+          setPosition(role);
+        }
+      }, [positionPath, role]); 
+
     const handleSubmit = async (e) => {
         e.preventDefault(); // Prevent page reload
         try {
@@ -77,6 +89,7 @@ export const InterviewDetails = () => {
                         required
                     />
                 </div>
+
                 <div className="dropDown">
                     <select value={diffLvl} onChange={(e) => setDifficultyLvl(e.target.value)} required>
                         <option value="" disabled>Select Difficulty Level</option>
@@ -85,39 +98,84 @@ export const InterviewDetails = () => {
                         <option value="Hard">Hard</option>
                     </select>
                 </div>
-                <div className="dropDown">
-                    <select value={slctround} onChange={(e) => setRound(e.target.value)} required>
-                        <option value="" disabled>Select Round</option>
-                        <option value="Technical questions">Technical Questions</option>
-                        <option value="Coding">Coding</option>
-                    </select>
-                </div>
 
-
-                {slctround === "Technical questions" && (
                     <div>
+                    {positionPath ? (
+                        
+                        <div className="formcss">
+                         {/* Styled box for "Technical Round" */}
+                         <div className="bg-white border border-gray-300 p-2 rounded-md text-gray-700">
+                           {slctround}
+                         </div>
+                         {/* Box for the role */}
+                         <div className="bg-white border border-gray-300 p-2 mt-2 rounded-md text-gray-700">
+                           {role}
+                         </div>
+                         <div>
+                                <input
+                                type="radio"
+                                name="voiceType"
+                                value="Male"
+                                checked={voiceType === 'Male'}
+                                onChange={(e) => setVoiceType(e.target.value)}
+                                />
+                                Male US-English<br />
+                                <input
+                                type="radio"
+                                name="voiceType"
+                                value="Female"
+                                checked={voiceType === 'Female'}
+                                onChange={(e) => setVoiceType(e.target.value)}
+                                />
+                                Female UK-English
+                            </div>
+                       </div>
+                     ) : (
                         <div className="dropDown">
-                            <select value={slctposition} onChange={(e) => setPosition(e.target.value)} required>
+                        {/* First dropdown */}
+                        <select value={slctround} onChange={(e) => setRound(e.target.value)} required>
+                            <option value="" disabled>Select Round</option>
+                            <option value="Technical questions">Technical Questions</option>
+                            <option value="Coding">Coding</option>
+                        </select>
+
+                        {slctround === "Technical questions" && (
+                            <div>
+                            {/* Second dropdown */}
+                            <div className="dropDown">
+                                <select value={slctposition} onChange={(e) => setPosition(e.target.value)} required>
                                 <option value="" disabled>Select Position</option>
                                 <option value="Frontend Technical">Frontend Technical</option>
                                 <option value="Backend Technical">Backend Technical</option>
-                                <option value="Devops Technical">DevOps Technical</option>
+                                <option value="DevOps Technical">DevOps Technical</option>
                                 <option value="Software Testing Technical">Software Testing Technical</option>
                                 <option value="All">All</option>
-                            </select>
+                                </select>
+                            </div>
+                            <div>
+                                <input
+                                type="radio"
+                                name="voiceType"
+                                value="Male"
+                                checked={voiceType === 'Male'}
+                                onChange={(e) => setVoiceType(e.target.value)}
+                                />
+                                Male US-English<br />
+                                <input
+                                type="radio"
+                                name="voiceType"
+                                value="Female"
+                                checked={voiceType === 'Female'}
+                                onChange={(e) => setVoiceType(e.target.value)}
+                                />
+                                Female UK-English
+                            </div>
+                            </div>
+                        )}
                         </div>
-                        <div>
-                            <input type="radio"
-                                name="voiceType" value="Male"
-                                checked={voiceType === 'Male'} onChange={(e) => setVoiceType(e.target.value)} />
-                            Male US-English<br />
-                            <input type="radio"
-                                name="voiceType" value="Female"
-                                checked={voiceType === 'Female'} onChange={(e) => setVoiceType(e.target.value)} />
-                            Female UK-English
-                        </div>
+                    )}
                     </div>
-                )}
+
 
                 {slctround === "Coding" && (
                     <div>
