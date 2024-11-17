@@ -14,6 +14,7 @@ import PropTypes from 'prop-types';
 import Feedback from './components/feedback';
 import { ForgetPassword } from './components/forgetpassword';
 import TechnicalInterviewFeedback from './components/TechnicalInterviewFeedback';
+import CompanyPage from './components/CompanyPage';
 
 
 
@@ -34,6 +35,7 @@ function App() {
           <Route path="/google-signin" element={<GoogleSignInButton />} />
           <Route path="/feedback" element={<Feedback />} />
           <Route path="/technicalFeedback" element={<TechnicalInterviewFeedback />} />
+          <Route path="/new-interview/company/:companyName" element={<CompanyPage />} />
         </Routes>
       </Router>
     </div>

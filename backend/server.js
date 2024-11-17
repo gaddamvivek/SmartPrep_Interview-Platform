@@ -1,20 +1,21 @@
 const express = require('express');
 const cors = require('cors');
-const authenticationRoutes = require('./routes/auth')
-const userRoutes = require('./routes/user.js')
 const mongoose = require('mongoose');
-const QuestionRoutes = require('./routes/questions');
 const axios = require('axios');
 const path = require('path');
-const admin = require('firebase-admin'); // Firebase Admin SDK for Google Auth
-const feedbackRoutes = require('./routes/feedback'); //feedback route
-const techQnRoutes = require('./routes/techQn'); // technical questions route
-const answerRoutes = require('./routes/answerRoutes');
-const technicalSessionRoutes = require('./routes/technicalSessionRoutes');
-
+//const admin = require('firebase-admin'); // Firebase Admin SDK for Google Auth
 require('dotenv').config();
-const User = require('./models/user'); // Import the User model
-// const Answer = require('./models/Answer');
+
+
+//Routes
+const feedbackRoutes = require('./routes/feedback'); 
+const techQnRoutes = require('./routes/techQn');
+const technicalSessionRoutes = require('./routes/technicalSessionRoutes');
+const authenticationRoutes = require('./routes/auth');
+const userRoutes = require('./routes/user.js')
+const QuestionRoutes = require('./routes/questions');
+//const User = require('./models/user'); // Import the User model
+
 
 // Initialize Firebase Admin SDK
 const serviceAccount = require(path.join(__dirname, 'firebase-adminsdk-key.json')); 
@@ -22,63 +23,52 @@ const serviceAccount = require(path.join(__dirname, 'firebase-adminsdk-key.json'
 const app = express();
 app.use(cors());
 app.use(express.json());
-
-app.use('/api/feedback', feedbackRoutes); // feedback
-app.use('/api/technicalSession', technicalSessionRoutes);
-app.use('/api/answer', answerRoutes);
-
-
 // MongoDB connection
-mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log('-- Connection to MongoDB Successful --'))
   .catch(err => console.log(err));
 
 // Judge0 API details
 const JUDGE0_API_URL = 'https://judge0-ce.p.rapidapi.com';
 const RAPID_API_KEY = process.env.JUDGE0_API_KEY;
-
-app.use('/api/feedback', feedbackRoutes); // feedback
+//routes use
+app.use('/api/feedback', feedbackRoutes);
 app.use('/api/Questions', QuestionRoutes);
-app.use('/auth', authenticationRoutes);
-app.use('/api/tech', techQnRoutes); // Technical questions routes
-// Google Sign-In Route
-app.post('/auth/google', async (req, res) => {
-  const { token } = req.body;
-
-  try {
-    // Verify the token using Firebase Admin SDK
-    const decodedToken = await admin.auth().verifyIdToken(token);
-    const { email, name, uid } = decodedToken;
-
-    // Check if the user already exists in MongoDB
-    let user = await User.findOne({ googleId: uid });
-
-    if (!user) {
-      // Create a new user if not found
-      user = new User({
-        googleId: uid,
-        email,
-        name,
-        provider: 'google',
-      });
-      await user.save();
-    }
-
-    // Send response with user data
-    res.status(200).json({ message: 'Login successful', user });
-  } catch (error) {
-    console.error('Error during Google authentication:', error);
-    res.status(500).json({ error: 'Google authentication failed' });
-  }
-});
-// const RAPID_API_KEY = process.env.JUDGE0_API_KEY; // Your RapidAPI key here
-
-// API Routes
-app.use('/api/Questions', QuestionRoutes);
-app.use('/auth', authenticationRoutes);
-
-app.use('/api/answers', answerRoutes);
+app.use('/api/technicalSession', technicalSessionRoutes);
+app.use('/api/auth', authenticationRoutes);
+app.use('/api/tech', techQnRoutes);
 app.use('/api/user', userRoutes);
+
+// Google Sign-In Route
+// app.post('/auth/google', async (req, res) => {
+//   const { token } = req.body;
+
+//   try {
+//     // Verify the token using Firebase Admin SDK
+//     const decodedToken = await admin.auth().verifyIdToken(token);
+//     const { email, name, uid } = decodedToken;
+
+//     // Check if the user already exists in MongoDB
+//     let user = await User.findOne({ googleId: uid });
+
+//     if (!user) {
+//       // Create a new user if not found
+//       user = new User({
+//         googleId: uid,
+//         email,
+//         name,
+//         provider: 'google',
+//       });
+//       await user.save();
+//     }
+
+//     // Send response with user data
+//     res.status(200).json({ message: 'Login successful', user });
+//   } catch (error) {
+//     console.error('Error during Google authentication:', error);
+//     res.status(500).json({ error: 'Google authentication failed' });
+//   }
+// });
 
 
 // Code submission endpoint

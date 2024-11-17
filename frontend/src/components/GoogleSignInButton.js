@@ -21,7 +21,7 @@ const GoogleSignInButton = () => {
       const token = await result.user.getIdToken();
 
       // Send the token to the backend
-      const response = await axios.post('http://localhost:5001/auth/google', { token });
+      const response = await axios.post('http://localhost:5001/api/auth/google', { token });
 
       if (response.status === 200) {
         console.log(response.data);
