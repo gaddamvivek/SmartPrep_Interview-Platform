@@ -21,19 +21,15 @@ async function getAIFeedback(questionDescription, answer) {
     Candidate's Answer:
     ${answer}
     
-    Provide a detailed but concise evaluation of the candidate's response. Include the following:
-    1. **understandability**: How well-structured and understandable is the user answer
-    2. **Correctness**: Does the solution align with the requirements of the question description? Are there any logical errors considerations? is information correct
-    4. **fluency**: how good the answer is , like not technical but how good the answer is in sense of english language
+    Please provide rating and feedback for the candidate's response including the correctness, communication clarity 
+    mentioning the issues and suggest any improvements, if possible, in the candidate solution.
+    Please don't provide the exact question solution. 
     
-    Give a score out of 5 for:
-    - understandability
-    - Correctness
-    - fluency
-
-    give an ideal answer to the question with stressing main points to focus
-    
-    Keep the feedback professional, constructive, and focused. Summarize how user can improve in 2–3 sentences.
+    Conceptual Accuracy: Correctness and alignment with theoretical principles.
+    Clarity of Communication: Ability to articulate ideas clearly and logically.
+    Depth and Insight: Demonstration of a thorough understanding and ability to provide meaningful insights or examples.
+    Brief Feedback:
+    Provide professional, constructive feedback in 2-3 sentences summarizing strengths and suggest areas of improvement in the candidate response.`;
     `;
 
   try {
