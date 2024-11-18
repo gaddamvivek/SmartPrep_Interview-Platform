@@ -175,6 +175,8 @@ const handleEndTest = async () => {
     localStorage.removeItem('sessionQuestions');
     localStorage.removeItem('positionPath');
     localStorage.removeItem('selectedRole');
+    localStorage.removeItem('selectedRound');
+    localStorage.removeItem('companySelected');
     const result= await axios.post('http://localhost:5001/api/auth/sessions', {
       userEmail:userEmail,
       preparationName:prName,

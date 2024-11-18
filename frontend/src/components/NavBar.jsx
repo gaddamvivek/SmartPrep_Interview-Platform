@@ -28,28 +28,40 @@ export const NavBar = (props) => {
   };
 
   const handleSubmenuOption = (menu, option) => {
-    // Check if user is logged in
     const isLoggedIn = localStorage.getItem('logindata');
-    
     if (menu === 'ByCompany') {
       if (isLoggedIn) {
         navigate(`/new-interview/company/${option}`);
+        localStorage.setItem('companySelected', option);
       } else {
         navigate('/login');
       }
     } else if (menu === 'ByRole') {
-      if (isLoggedIn) {
-        navigate(`/interviewdetails`);
-        localStorage.setItem('selectedRole', option);
-        localStorage.setItem('positionPath', true);
+      // Find the role from the roles array
+      const selectedRole = roles.find((role) => role.title === option);
+  
+      // Ensure selectedRole exists before accessing its properties
+      if (selectedRole) {
+        if (isLoggedIn) {
+          // Store the selected role and its round type
+          localStorage.setItem('selectedRole', selectedRole.title); // Correct property access
+          localStorage.setItem('selectedRound', selectedRole.roundType);
+          localStorage.setItem('positionPath', true);
+  
+          // Navigate to details page
+          navigate('/interviewdetails');
+        } else {
+          navigate('/login');
+        }
       } else {
-        navigate('/login');
+        console.error('Role not found:', option);
       }
     }
   
     setIsDropdownOpen(false); // Close dropdown after navigation
     setOpenSubmenu(null); // Close submenu
   };
+
   const handleNewInterview = () => {
     if (localStorage.getItem('logindata')) navigate('/interviewdetails');
     else navigate('/login');
@@ -80,7 +92,15 @@ export const NavBar = (props) => {
 
   // Static data for dropdown
   const companies = ['Amazon', 'Google'];
-  const roles = ['Frontend Engineer', 'Backend Engineer', 'DevOps Engineer', 'Software Engineer'];
+  const roles = [
+    { title: 'Python Developer I', roundType: 'Coding' },
+    { title: 'Python Developer II', roundType: 'Coding' },
+    { title: 'Frontend Engineer', roundType: 'Technical' },
+    { title: 'Backend Engineer', roundType: 'Technical' },
+    { title: 'DevOps Engineer', roundType: 'Technical' },
+    { title: 'Software Engineer', roundType: 'Technical' },
+  ];
+
 
   return (
     <nav className="relative grid grid-cols-3 justify-between font-rubik items-center p-4 shadow-lg">
@@ -136,9 +156,9 @@ export const NavBar = (props) => {
                       <div
                         key={role}
                         className="px-4 py-2 cursor-pointer hover:bg-gray-100"
-                        onClick={() => handleSubmenuOption('ByRole', role)}
+                        onClick={() => handleSubmenuOption('ByRole', role.title)}
                       >
-                        {role}
+                        {role.title}
                       </div>
                     ))}
                   </div>

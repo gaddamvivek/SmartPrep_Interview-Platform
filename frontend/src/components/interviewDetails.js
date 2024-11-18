@@ -10,10 +10,12 @@ export const InterviewDetails = () => {
     const [slctposition, setPosition] = useState('');
     const [voiceType, setVoiceType] = useState('');
     const [buttonClick, setButtonClick] = useState(false);
+    const [companyName, setCompany] = useState('');
     const navigate = useNavigate();
     const positionPath = localStorage.getItem('positionPath');
     const role = localStorage.getItem('selectedRole');
     const round = localStorage.getItem('selectedRound');
+    const company = localStorage.getItem('companySelected');
     const onClickHandler = () => {
         navigate('/dashboard');
     }
@@ -24,12 +26,17 @@ export const InterviewDetails = () => {
         if (positionPath && role && round) {
             if (round === "Technical"){
             setRound("Technical questions");
+ 
             }
             else{
                 setRound(round);
             } // Automatically set the round based on selectedRole
             setPosition(role);
           }
+          if(company){
+            setCompany(company);
+            console.log(company);
+        }
       }, [positionPath, role]); 
 
       const handleSubmit = async (e) => {
@@ -114,6 +121,11 @@ export const InterviewDetails = () => {
                         
                         <div className="formcss">
                          {/* Styled box for "Technical Round" */}
+                         {company && (
+                        <div className="bg-white border border-gray-300 p-2 rounded-md text-gray-700">
+                            {companyName}
+                        </div>
+                    )}
                          <div className="bg-white border border-gray-300 p-2 rounded-md text-gray-700">
                            {slctround}
                          </div>
@@ -182,33 +194,35 @@ export const InterviewDetails = () => {
                             </div>
                             </div>
                         )}
-                        </div>
-                    )}
-                    </div>
+
+                            {slctround === "Coding" && (
+                                <div>
+                                    <div className = "dropDown">
+                                        <select value={slctposition} onChange={(e) => setPosition(e.target.value)} required>
+                                            <option value="" disabled>Select Position</option>
+                                            <option value="Python Developer I">Python Developer I</option>
+                                            <option value="Python Developer II">Python Developer II</option>
+                                        </select>
+                                    </div>       
+                                        <div>
+                                                <input type="radio"
+                                                    name="voiceType" value="Male"
+                                                    checked={voiceType === 'Male'} onChange={(e) => setVoiceType(e.target.value)} />
+                                                Male US-English<br />
+                                                <input type="radio"
+                                                    name="voiceType" value="Female"
+                                                    checked={voiceType === 'Female'} onChange={(e) => setVoiceType(e.target.value)} />
+                                                Female UK-English
+                                    </div>
+                                    </div>
+                                )}
+
+                                        </div>
+                                    )}
+                                    </div>
 
 
-                {/* {slctround === "Coding" && (
-                <div>
-                    <div className = "dropDown">
-                        <select value={slctposition} onChange={(e) => setPosition(e.target.value)} required>
-                            <option value="" disabled>Select Position</option>
-                            <option value="Python Developer I">Python Developer I</option>
-                            <option value="Python Developer II">Python Developer II</option>
-                        </select>
-                    </div>       
-                        <div>
-                                <input type="radio"
-                                    name="voiceType" value="Male"
-                                    checked={voiceType === 'Male'} onChange={(e) => setVoiceType(e.target.value)} />
-                                Male US-English<br />
-                                <input type="radio"
-                                    name="voiceType" value="Female"
-                                    checked={voiceType === 'Female'} onChange={(e) => setVoiceType(e.target.value)} />
-                                Female UK-English
-                    </div>
-                    </div>
-                )} */}
-
+                
 
                 <div className='btns'>
                     <button type="button" onClick={onClickHandler}>Previous</button>

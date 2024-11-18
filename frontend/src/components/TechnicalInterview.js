@@ -227,6 +227,8 @@ const TechnicalInterview = ({ permissions, showProfile }) => {
       alert('Session data saved successfully!');
       localStorage.removeItem('positionPath');
       localStorage.removeItem('selectedRole');
+      localStorage.removeItem('selectedRound');
+      localStorage.removeItem('companySelected');
     } catch (error) {
       console.error('Error saving session:', error);
       alert('Error saving session');
