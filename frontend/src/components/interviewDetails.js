@@ -17,6 +17,9 @@ export const InterviewDetails = () => {
     const round = localStorage.getItem('selectedRound');
     const company = localStorage.getItem('companySelected');
     const onClickHandler = () => {
+        if(positionPath)
+            localStorage.removeItem('positionPath');
+        localStorage.removeItem('companySelected');
         navigate('/dashboard');
     }
 

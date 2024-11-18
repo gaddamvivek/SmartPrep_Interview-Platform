@@ -19,6 +19,10 @@ export const NavBar = (props) => {
   };
 
   const handleDropdownToggle = () => {
+    if(localStorage.getItem('positionPath')){
+      localStorage.removeItem('positionPath');
+      localStorage.removeItem('companySelected');
+    }
     setIsDropdownOpen((prev) => !prev); // Toggle main dropdown
     setOpenSubmenu(null); // Close any open submenus
   };
@@ -63,7 +67,11 @@ export const NavBar = (props) => {
   };
 
   const handleNewInterview = () => {
-    if (localStorage.getItem('logindata')) navigate('/interviewdetails');
+    if (localStorage.getItem('logindata')) {
+      if(localStorage.getItem('positionPath'))
+          localStorage.removeItem('positionPath');
+      navigate('/interviewdetails');
+    }
     else navigate('/login');
   };
 
@@ -95,10 +103,10 @@ export const NavBar = (props) => {
   const roles = [
     { title: 'Python Developer I', roundType: 'Coding' },
     { title: 'Python Developer II', roundType: 'Coding' },
-    { title: 'Frontend Engineer', roundType: 'Technical' },
-    { title: 'Backend Engineer', roundType: 'Technical' },
-    { title: 'DevOps Engineer', roundType: 'Technical' },
-    { title: 'Software Engineer', roundType: 'Technical' },
+    { title: 'Frontend Technical', roundType: 'Technical' },
+    { title: 'Backend Technical', roundType: 'Technical' },
+    { title: 'DevOps Technical', roundType: 'Technical' },
+    { title: 'Software Technical', roundType: 'Technical' },
   ];
 
 

@@ -15,10 +15,10 @@ const CompanyPage = () => {
       roles: [
         { title: 'Python Developer I', description: 'Python Development (Level I)', id: 1, roundType: 'Coding' },
         { title: 'Python Developer II', description: 'Python Development (Level II)', id: 2, roundType: 'Coding' },
-        { title: 'Frontend Developer', description: 'UI Development', id: 3, roundType: 'Technical' },
-        { title: 'Backend Developer', description: 'API Development', id: 4, roundType: 'Technical' },
-        { title: 'DevOps Engineer', description: 'Infrastructure Automation', id: 5, roundType: 'Technical' },
-        { title: 'Software Tester', description: 'Software Quality Assurance', id: 6, roundType: 'Technical' },
+        { title: 'Frontend Technical', description: 'UI Development', id: 3, roundType: 'Technical' },
+        { title: 'Backend Technical', description: 'API Development', id: 4, roundType: 'Technical' },
+        { title: 'DevOps Technical', description: 'Infrastructure Automation', id: 5, roundType: 'Technical' },
+        { title: 'Software Testing Technical', description: 'Software Quality Assurance', id: 6, roundType: 'Technical' },
       ],
     },
     Google: {
@@ -28,10 +28,10 @@ const CompanyPage = () => {
       roles: [
         { title: 'Python Developer I', description: 'Python Development (Level I)', id: 1, roundType: 'Coding' },
         { title: 'Python Developer II', description: 'Python Development (Level II)', id: 2, roundType: 'Coding' },
-        { title: 'Frontend Developer', description: 'UI Development', id: 3, roundType: 'Technical' },
-        { title: 'Backend Developer', description: 'API Development', id: 4, roundType: 'Technical' },
-        { title: 'DevOps Engineer', description: 'Infrastructure Automation', id: 5, roundType: 'Technical' },
-        { title: 'Software Tester', description: 'Software Quality Assurance', id: 6, roundType: 'Technical' },
+        { title: 'Frontend Technical', description: 'UI Development', id: 3, roundType: 'Technical' },
+        { title: 'Backend Technical', description: 'API Development', id: 4, roundType: 'Technical' },
+        { title: 'DevOps Technical', description: 'Infrastructure Automation', id: 5, roundType: 'Technical' },
+        { title: 'Software Testing Technical', description: 'Software Quality Assurance', id: 6, roundType: 'Technical' },
       ],
     },
   };
