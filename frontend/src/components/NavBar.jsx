@@ -28,19 +28,28 @@ export const NavBar = (props) => {
   };
 
   const handleSubmenuOption = (menu, option) => {
+    // Check if user is logged in
+    const isLoggedIn = localStorage.getItem('logindata');
+    
     if (menu === 'ByCompany') {
-      if (localStorage.getItem('logindata'))  navigate(`/new-interview/company/${option}`);
-      else navigate('/login');
-     
+      if (isLoggedIn) {
+        navigate(`/new-interview/company/${option}`);
+      } else {
+        navigate('/login');
+      }
     } else if (menu === 'ByRole') {
-      if (localStorage.getItem('logindata'))  navigate(`/new-interview/role/${option}`);
-      else navigate('/login');
-     
+      if (isLoggedIn) {
+        navigate(`/interviewdetails`);
+        localStorage.setItem('selectedRole', option);
+        localStorage.setItem('positionPath', true);
+      } else {
+        navigate('/login');
+      }
     }
+  
     setIsDropdownOpen(false); // Close dropdown after navigation
     setOpenSubmenu(null); // Close submenu
   };
-
   const handleNewInterview = () => {
     if (localStorage.getItem('logindata')) navigate('/interviewdetails');
     else navigate('/login');
