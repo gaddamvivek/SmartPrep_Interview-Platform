@@ -1,4 +1,3 @@
-// helpers/getAIFeedback.js
 const dotenv = require('dotenv');
 const { GoogleGenerativeAI } = require('@google/generative-ai');
 
@@ -14,7 +13,7 @@ const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
  * @returns {Promise<string>} - AI feedback on the code.
  */
 async function getAIFeedback(questionDescription, answer) {
-    const prompt = `
+  const prompt = `
     Question Description:
     ${questionDescription}
     
@@ -29,8 +28,8 @@ async function getAIFeedback(questionDescription, answer) {
     Clarity of Communication: Ability to articulate ideas clearly and logically.
     Depth and Insight: Demonstration of a thorough understanding and ability to provide meaningful insights or examples.
     Brief Feedback:
-    Provide professional, constructive feedback in 2-3 sentences summarizing strengths and suggest areas of improvement in the candidate response.`;
-    `;
+    Provide professional, constructive feedback in 2-3 sentences summarizing strengths and suggest areas of improvement in the candidate response.
+  `;
 
   try {
     const result = await model.generateContent(prompt);
