@@ -29,12 +29,21 @@ export const NavBar = (props) => {
 
   const handleSubmenuOption = (menu, option) => {
     if (menu === 'ByCompany') {
-      navigate(`/new-interview/company/${option}`);
+      if (localStorage.getItem('logindata'))  navigate(`/new-interview/company/${option}`);
+      else navigate('/login');
+     
     } else if (menu === 'ByRole') {
-      navigate(`/new-interview/role/${option}`);
+      if (localStorage.getItem('logindata'))  navigate(`/new-interview/role/${option}`);
+      else navigate('/login');
+     
     }
     setIsDropdownOpen(false); // Close dropdown after navigation
     setOpenSubmenu(null); // Close submenu
+  };
+
+  const handleNewInterview = () => {
+    if (localStorage.getItem('logindata')) navigate('/interviewdetails');
+    else navigate('/login');
   };
 
   const showNewInterview = props.showNewInterview || false;
@@ -111,7 +120,7 @@ export const NavBar = (props) => {
                 onClick={() => handleSubmenuToggle('ByRole')}
                 className="px-4 py-2 cursor-pointer hover:bg-gray-100 relative"
               >
-                By Role
+                By Position
                 {openSubmenu === 'ByRole' && (
                   <div className="absolute left-full top-0 bg-white border rounded-lg shadow-lg w-48 z-20">
                     {roles.map((role) => (
@@ -125,6 +134,14 @@ export const NavBar = (props) => {
                     ))}
                   </div>
                 )}
+              </div>
+
+              {/* Start Interview */}
+              <div
+                onClick={handleNewInterview}
+                className="px-4 py-2 bg-purple-600 text-white cursor-pointer hover:bg-purple-700 rounded-lg text-center mt-2"
+              >
+                Start Interview
               </div>
             </div>
           )}

@@ -79,6 +79,12 @@ const streak = async (req, res) => {
     // merging the dates of both coding and technical sessions into a set and sorting them in ascending order
     const allDates = new Set([...codingDates, ...technicalDates]);
     const sortedDates = Array.from(allDates).sort();
+    if (sortedDates.length === 0) {
+      return res.status(200).send([
+        { title: "Longest Streak", value: 0 },
+        { title: "Current Streak", value: 0 },
+      ]);
+    }
     // calculating the streak
     let streak = 1;
     // getting the longest streak

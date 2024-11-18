@@ -5,7 +5,7 @@ const getAIFeedbackHelper = require('../helper/getAIFeedback');
 // Function to display RandomQuestion from MongoDB database to Client, filtered by difficulty
 const getRandomQuestion = async (req, res) => {
   try {
-    const { difficulty } = req.query;  // Extract difficulty from query params
+    const { difficulty, position } = req.query;  // Extract difficulty from query params
 
     // Check if difficulty level is provided and is valid
     if (!difficulty || !['easy', 'medium', 'hard'].includes(difficulty.toLowerCase())) {
@@ -13,7 +13,7 @@ const getRandomQuestion = async (req, res) => {
     }
 
     // Fetch all questions with the specified difficulty (case-insensitive)
-    const questions = await Question.find({ difficulty: difficulty.toLowerCase() });
+    const questions = await Question.find({ difficulty: difficulty.toLowerCase(), position });
 
     // Check if any questions are found
     if (questions.length === 0) {

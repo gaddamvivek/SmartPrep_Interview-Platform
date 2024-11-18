@@ -8,7 +8,7 @@ import SpchLogo from '../assets/images/spch.png';
 const Question = ({ setQuestionId }) => {
   const [questions, setQuestions] = useState([]);
   const [difficulty, setDifficulty] = useState('');
-   const [queue, setQueue] = useState([]);
+  const [queue, setQueue] = useState([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const navigate = useNavigate(); 
 
@@ -26,7 +26,8 @@ const Question = ({ setQuestionId }) => {
 
   const fetchQuestions = async (selectedDifficulty) => {
     try {
-      const res = await axios.get(`http://localhost:5001/api/questions/Random?difficulty=${selectedDifficulty}`);
+      let position = localStorage.getItem('selectedPosition');
+      const res = await axios.get(`http://localhost:5001/api/questions/Random?difficulty=${selectedDifficulty}&position=${position}`);
       const fetchedQuestions = res.data;
       setQuestions(fetchedQuestions);
       setQueue(fetchedQuestions);
@@ -48,6 +49,7 @@ const Question = ({ setQuestionId }) => {
       setQuestions(localQuestions);
       setQuestionId(localQuestions[0]._id);
       setDifficulty(savedDifficulty);
+      setQueue(localQuestions);
     } else if (savedDifficulty) {
       fetchQuestions(savedDifficulty);
       setDifficulty(savedDifficulty);

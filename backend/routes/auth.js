@@ -10,4 +10,3 @@ router.post('/tsessions',tsessions);
 router.post('/interviewdetails',interviewdetails);
 router.post('/testsubmit',testsubmit);
 module.exports=router;
-

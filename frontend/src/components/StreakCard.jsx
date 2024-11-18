@@ -24,6 +24,9 @@ const StreakCard = ({ data }) => {
   console.log('current streak', currentStreak);
   console.log('longest streak', longestStreak);
   //   console.log('streak data', data);
+  if (!currentStreak || !longestStreak) {
+    return <div>Loading...</div>;
+  }
   return (
     <div className="w-full rounded-md font-semibold text-center content-center">
       <div className="">

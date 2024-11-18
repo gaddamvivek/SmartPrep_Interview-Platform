@@ -21,6 +21,8 @@ const IDE = ({ QuestionId, savedCode, handleSaveCode,savedCodeMap }) => {
   const [submitted, setSubmitted] = useState(false);
   const [saveMessage, setSaveMessage] = useState('');
   const [fontSize, setFontSize] = useState(16);
+  const [position,setPosition]=useState('');
+  const [diff,setDiff]=useState('');
   const navigate = useNavigate();
   // Load the saved code when the QuestionId changes
   useEffect(() => {
@@ -38,7 +40,16 @@ const IDE = ({ QuestionId, savedCode, handleSaveCode,savedCodeMap }) => {
       console.log(storedPname);
       setPrName(storedPname);
     },[]);
-    
+    useEffect(()=>{
+      const storedPosition=localStorage.getItem("selectedPosition");
+      console.log(storedPosition);
+      setPosition(storedPosition);
+    },[]);
+    useEffect(()=>{
+      const storedPosition=localStorage.getItem("selectedDifficulty");
+      console.log(storedPosition);
+      setDiff(storedPosition);
+    },[]);
 
     useEffect(()=>{
       const storedStartDate=localStorage.getItem('codingSessionStartDate');
@@ -167,6 +178,8 @@ const handleEndTest = async () => {
     const result= await axios.post('http://localhost:5001/api/auth/sessions', {
       userEmail:userEmail,
       preparationName:prName,
+      positionName:position,
+      prepDiff:diff,
       sessionStartDate:startDate,
       sessionEndDate:formattedDate,
       sessionStartTime:startTime,
@@ -269,7 +282,7 @@ const handleGetAIFeedback = async () => {
               <h2 className="text-xl font-semibold">AI Feedback</h2>
               <button
                 className="absolute top-4 right-4 flex items-center justify-center w-8 h-8 rounded-full bg-gray-200 hover:bg-red-500 text-gray-700 hover:text-white focus:outline-none"
-                onClick={closeModal}
+                onClick={() => setShowFeedbackModal(false)}
                 aria-label="Close"
               >
                 &times;

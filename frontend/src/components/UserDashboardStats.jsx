@@ -39,7 +39,7 @@ export const UserDashboardStats = ({ email }) => {
     getStreak();
   }, [email]);
 
-  if (!stats) {
+  if (!stats || !streak) {
     return <div>Loading...</div>;
   }
 
