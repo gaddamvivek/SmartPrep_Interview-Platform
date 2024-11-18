@@ -30,7 +30,7 @@ async function getAIFeedback(questionDescription, answer) {
     Depth and Insight: Demonstration of a thorough understanding and ability to provide meaningful insights or examples.
     Brief Feedback:
     Provide professional, constructive feedback in 2-3 sentences summarizing strengths and suggest areas of improvement in the candidate response.`;
-    `;
+
 
   try {
     const result = await model.generateContent(prompt);
