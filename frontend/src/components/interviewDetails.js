@@ -13,6 +13,7 @@ export const InterviewDetails = () => {
     const navigate = useNavigate();
     const positionPath = localStorage.getItem('positionPath');
     const role = localStorage.getItem('selectedRole');
+    const round = localStorage.getItem('selectedRound');
     const onClickHandler = () => {
         navigate('/dashboard');
     }
@@ -20,9 +21,13 @@ export const InterviewDetails = () => {
 
     useEffect(() => {
         // Set the round value automatically when positionPath is true
-        if (positionPath && role) {
-            
-            setRound("Technical questions"); // Automatically set the round based on selectedRole
+        if (positionPath && role && round) {
+            if (round === "Technical"){
+            setRound("Technical questions");
+            }
+            else{
+                setRound(round);
+            } // Automatically set the round based on selectedRole
             setPosition(role);
           }
       }, [positionPath, role]); 
@@ -182,7 +187,7 @@ export const InterviewDetails = () => {
                     </div>
 
 
-                {slctround === "Coding" && (
+                {/* {slctround === "Coding" && (
                 <div>
                     <div className = "dropDown">
                         <select value={slctposition} onChange={(e) => setPosition(e.target.value)} required>
@@ -202,7 +207,7 @@ export const InterviewDetails = () => {
                                 Female UK-English
                     </div>
                     </div>
-                )}
+                )} */}
 
 
                 <div className='btns'>
