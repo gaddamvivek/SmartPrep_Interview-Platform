@@ -103,6 +103,7 @@ const TechAnswerInputs = ({ permissions, saveAnswer, currentAnswer, onSubmitAnsw
 
   const handleEndSession = () => {
     stopVideoRecording();
+    localStorage.removeItem('positionPath');
     onSubmitAnswers();
   };
 

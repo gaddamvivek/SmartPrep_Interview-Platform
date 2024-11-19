@@ -6,8 +6,10 @@ import logo from '../assets/images/logo-nav.png';
 
 export const NavBar = (props) => {
   const [isProfileOpen, setIsProfileOpen] = useState(false);
+
   const [isDropdownOpen, setIsDropdownOpen] = useState(false); // Main dropdown
   const [openSubmenu, setOpenSubmenu] = useState(null); // Submenu state
+
   const [email, setEmail] = useState('');
   const [userName, setUserName] = useState('');
   const navigate = useNavigate();
@@ -17,6 +19,10 @@ export const NavBar = (props) => {
   };
 
   const handleDropdownToggle = () => {
+    if(localStorage.getItem('positionPath')){
+      localStorage.removeItem('positionPath');
+      localStorage.removeItem('companySelected');
+    }
     setIsDropdownOpen((prev) => !prev); // Toggle main dropdown
     setOpenSubmenu(null); // Close any open submenus
   };
@@ -26,18 +32,47 @@ export const NavBar = (props) => {
   };
 
   const handleSubmenuOption = (menu, option) => {
+    const isLoggedIn = localStorage.getItem('logindata');
     if (menu === 'ByCompany') {
-      navigate(`/new-interview/company/${option}`);
+      if (isLoggedIn) {
+        navigate(`/new-interview/company/${option}`);
+        localStorage.setItem('companySelected', option);
+      } else {
+        navigate('/login');
+      }
     } else if (menu === 'ByRole') {
-      navigate(`/new-interview/role/${option}`);
+      // Find the role from the roles array
+      const selectedRole = roles.find((role) => role.title === option);
+  
+      // Ensure selectedRole exists before accessing its properties
+      if (selectedRole) {
+        if (isLoggedIn) {
+          // Store the selected role and its round type
+          localStorage.setItem('selectedRole', selectedRole.title); // Correct property access
+          localStorage.setItem('selectedRound', selectedRole.roundType);
+          localStorage.setItem('positionPath', true);
+  
+          // Navigate to details page
+          navigate('/interviewdetails');
+        } else {
+          navigate('/login');
+        }
+      } else {
+        console.error('Role not found:', option);
+      }
     }
+  
     setIsDropdownOpen(false); // Close dropdown after navigation
     setOpenSubmenu(null); // Close submenu
   };
 
 
   const handleNewInterview = () => {
-    if (localStorage.getItem('logindata')) navigate('/interviewdetails');
+    if (localStorage.getItem('logindata')) {
+      if(localStorage.getItem('positionPath'))
+          localStorage.removeItem('positionPath');
+      navigate('/interviewdetails');
+    }
     else navigate('/login');
   };
 
@@ -66,7 +101,15 @@ export const NavBar = (props) => {
 
   // Static data for dropdown
   const companies = ['Amazon', 'Google'];
-  const roles = ['Frontend Engineer', 'Backend Engineer', 'DevOps Engineer', 'Software Engineer'];
+  const roles = [
+    { title: 'Python Developer I', roundType: 'Coding' },
+    { title: 'Python Developer II', roundType: 'Coding' },
+    { title: 'Frontend Technical', roundType: 'Technical' },
+    { title: 'Backend Technical', roundType: 'Technical' },
+    { title: 'DevOps Technical', roundType: 'Technical' },
+    { title: 'Software Technical', roundType: 'Technical' },
+  ];
+
 
   return (
     <nav className="relative grid grid-cols-3 justify-between font-rubik items-center p-4 shadow-lg">
@@ -122,9 +165,9 @@ export const NavBar = (props) => {
                       <div
                         key={role}
                         className="px-4 py-2 cursor-pointer hover:bg-gray-100"
-                        onClick={() => handleSubmenuOption('ByRole', role)}
+                        onClick={() => handleSubmenuOption('ByRole', role.title)}
                       >
-                        {role}
+                        {role.title}
                       </div>
                     ))}
                   </div>

@@ -153,8 +153,9 @@ const testsubmit = async (req, res) => {
 
 
 // Interview Details route
-const interviewdetails = async (req, res) => {
-    const { prepname, diffLvl, slctround, slctposition } = req.body;
+const interviewdetails= async (req, res) => {
+    const { prepname, diffLvl, slctround, slctposition, companyName } = req.body;
+
     let token;
     let username;
 
@@ -175,15 +176,16 @@ const interviewdetails = async (req, res) => {
                 // Send a response and return to avoid further code execution
 
                 console.log(fetchedDetails)
+                console.log(companyName);
                 username = fetchedDetails.uname;
                 // If the token was valid, save interview details
                 // const ids = new IDS({ username, prepname, diffLvl, slctround });
                 // await ids.save();                
                 // return res.send('success');
-
-                const ids = new IDSchema({ username, prepname, diffLvl, slctround, slctposition });
+                let company = companyName;
+                const ids = new IDSchema({ username, prepname, diffLvl, slctround, slctposition, company });
                 await ids.save();
-                const savedDetails = await IDSchema.findOne({ username, prepname, diffLvl, slctround, slctposition });
+                const savedDetails = await IDSchema.findOne({ username, prepname, diffLvl, slctround, slctposition, company });
                 if (savedDetails) {
                     console.log('Data saved successfully:', savedDetails);
                     res.status(201).json({ message: 'Interview details saved successfully!' });
@@ -270,4 +272,18 @@ const google = async (req, res) => {
     }
 };
 
+// const verifyToken = async (token) => {
+//     try {
+//         // Try verifying Google token
+//         const decodedGoogleToken = await admin.auth().verifyIdToken(token);
+//         return { isGoogleToken: true, payload: decodedGoogleToken };
+//     } catch {
+//         // Fallback to JWT verification
+//         const decodedJwtToken = jwt.verify(token, process.env.TOKEN_SECRET_KEY);
+//         return { isGoogleToken: false, payload: decodedJwtToken };
+//     }
+// };
+
+// module.exports ={google,login,interviewdetails,testsubmit,tsessions,sessions,register,forgetpassword,verifyToken};
 module.exports = { google, login, interviewdetails, testsubmit, tsessions, sessions, register, forgetpassword };
+

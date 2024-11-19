@@ -30,6 +30,7 @@ const GoogleSignInButton = () => {
         console.log('Google Sign-In successful, redirecting...');
 
         window.localStorage.setItem('logindata', JSON.stringify(response.data['accessToken']));
+
         window.localStorage.setItem('isLoggedIn', true);
         window.localStorage.setItem('userName', result.user.displayName);
         window.localStorage.setItem('userEmail', result.user.email);
