@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import UserStatCard from './userStatCard';
 import StreakCard from './StreakCard';
 import { useState, useEffect } from 'react';
@@ -7,6 +8,7 @@ import axios from 'axios';
 export const UserDashboardStats = ({ email }) => {
   const [stats, setStats] = useState([]);
   const [streak, setStreak] = useState([]);
+  
   const getStats = async () => {
     console.log('Fetching user stats...');
     try {
@@ -20,6 +22,7 @@ export const UserDashboardStats = ({ email }) => {
       console.error('Error fetching user stats:', error);
     }
   };
+
   const getStreak = async () => {
     console.log('Fetching user streak...');
     try {
@@ -27,13 +30,13 @@ export const UserDashboardStats = ({ email }) => {
         `http://localhost:5001/api/user/streak?email=${email}`
       );
       console.log(response.data);
-
       setStreak(response.data);
       console.log('User streak:', response.data);
     } catch (error) {
       console.error('Error fetching user streak:', error);
     }
   };
+
   useEffect(() => {
     getStats();
     getStreak();
@@ -49,8 +52,8 @@ export const UserDashboardStats = ({ email }) => {
         className="grid bg-[#7360bf] text-gray-300 grid-flow-col p-10 justify-around"
         id="user-metrics"
       >
-        {stats.map((stat) => (
-          <UserStatCard data={stat} />
+        {stats.map((stat, index) => (
+          <UserStatCard key={`stat-${index}`} data={stat} />
         ))}
       </div>
       <div className="p-10">
@@ -59,3 +62,9 @@ export const UserDashboardStats = ({ email }) => {
     </>
   );
 };
+
+UserDashboardStats.propTypes = {
+  email: PropTypes.string.isRequired
+};
+
+export default UserDashboardStats;

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const UserStatCard = ({ data }) => {
   return (
@@ -10,6 +11,14 @@ const UserStatCard = ({ data }) => {
   );
 };
 
-
+UserStatCard.propTypes = {
+  data: PropTypes.shape({
+    value: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number
+    ]).isRequired,
+    title: PropTypes.string.isRequired
+  }).isRequired
+};
 
 export default UserStatCard;

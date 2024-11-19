@@ -1,32 +1,24 @@
-import React, { useState } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import FireIcon from '../assets/icons/fire.png';
+
 const StreakCard = ({ data }) => {
-  /**
-     * data = [
-    {
-        "title": "Longest Streak",
-        "value": 13
-    },
-    {
-        "title": "Current Streak",
-        "value": 2
-    }
-]
-     * 
-     */
   console.log(data.map((item) => item.title));
+
   const currentStreak = data.filter(
     (item) => item.title === 'Current Streak'
   )[0];
   const longestStreak = data.filter(
     (item) => item.title === 'Longest Streak'
   )[0];
+
   console.log('current streak', currentStreak);
   console.log('longest streak', longestStreak);
-  //   console.log('streak data', data);
+
   if (!currentStreak || !longestStreak) {
     return <div>Loading...</div>;
   }
+
   return (
     <div className="w-full rounded-md font-semibold text-center content-center">
       <div className="">
@@ -41,4 +33,18 @@ const StreakCard = ({ data }) => {
   );
 };
 
+StreakCard.propTypes = {
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      value: PropTypes.number.isRequired,
+    })
+  ).isRequired,
+};
+
+StreakCard.defaultProps = {
+  data: [],
+};
+
 export default StreakCard;
+

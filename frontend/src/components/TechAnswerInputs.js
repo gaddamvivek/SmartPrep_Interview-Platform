@@ -214,6 +214,7 @@ TechAnswerInputs.propTypes = {
   currentAnswer: PropTypes.string.isRequired,
   onSubmitAnswers: PropTypes.func.isRequired,
   currentQuestionIndex: PropTypes.func.isRequired,
+  questionId: PropTypes.string.isRequired,
 };
 
 export default TechAnswerInputs;
