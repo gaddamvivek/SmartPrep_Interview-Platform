@@ -31,6 +31,9 @@ const TechnicalInterview = ({ permissions, showProfile }) => {
     fetchQuestions(difficulty); // Fetch questions when the component mounts or difficulty changes
   }, [difficulty]);
 
+  const initializeAnswers = () => {};
+  
+
   const fetchQuestions = async (difficulty) => {
     try {
       let position = localStorage.getItem('selectedPosition');

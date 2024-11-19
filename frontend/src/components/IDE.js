@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react';
 import Editor from '@monaco-editor/react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom'; // For navigation after timeout
-import PropTypes from 'prop-types'; 
-import ReactMarkdown from "react-markdown";  // for parsing ai message from gemini
+import PropTypes from 'prop-types';
+import ReactMarkdown from "react-markdown"; // For parsing AI messages from Gemini
 import remarkGfm from "remark-gfm";
 
-const IDE = ({ QuestionId, savedCode, handleSaveCode,savedCodeMap }) => {
+const IDE = ({ QuestionId, savedCode, handleSaveCode, savedCodeMap }) => {
   const [code, setCode] = useState('');
   const [output, setOutput] = useState('');
   const [testResults, setTestResults] = useState(null);
@@ -21,47 +21,49 @@ const IDE = ({ QuestionId, savedCode, handleSaveCode,savedCodeMap }) => {
   const [submitted, setSubmitted] = useState(false);
   const [saveMessage, setSaveMessage] = useState('');
   const [fontSize, setFontSize] = useState(16);
-  const [position,setPosition]=useState('');
-  const [diff,setDiff]=useState('');
+  const [position, setPosition] = useState('');
+  const [diff, setDiff] = useState('');
   const navigate = useNavigate();
-  // Load the saved code when the QuestionId changes
+
   useEffect(() => {
-    setCode(savedCode || '');  
+    setCode(savedCode || '');
   }, [QuestionId, savedCode]);
-  
-    useEffect(() => {
-      // Fetch the user email from localStorage
-      const storedEmail = localStorage.getItem('userEmail');
-      setUserEmail(storedEmail);
-    }, []);
 
-    useEffect(()=>{
-      const storedPname=localStorage.getItem('pname');
-      console.log(storedPname);
-      setPrName(storedPname);
-    },[]);
-    useEffect(()=>{
-      const storedPosition=localStorage.getItem("selectedPosition");
-      console.log(storedPosition);
-      setPosition(storedPosition);
-    },[]);
-    useEffect(()=>{
-      const storedPosition=localStorage.getItem("selectedDifficulty");
-      console.log(storedPosition);
-      setDiff(storedPosition);
-    },[]);
+  useEffect(() => {
+    const storedEmail = localStorage.getItem('userEmail');
+    setUserEmail(storedEmail);
+  }, []);
 
-    useEffect(()=>{
-      const storedStartDate=localStorage.getItem('codingSessionStartDate');
-      console.log(storedStartDate);
-      setStartDate(storedStartDate);
-    },[]);
-    useEffect(()=>{
-      const storedStartTime=localStorage.getItem('codingSessionStartTime');
-      console.log(storedStartTime);
-      setStartTime(storedStartTime);
-    },[]);
-  // Fetch test cases when QuestionId changes
+  useEffect(() => {
+    const storedPname = localStorage.getItem('pname');
+    console.log(storedPname);
+    setPrName(storedPname);
+  }, []);
+
+  useEffect(() => {
+    const storedPosition = localStorage.getItem('selectedPosition');
+    console.log(storedPosition);
+    setPosition(storedPosition);
+  }, []);
+
+  useEffect(() => {
+    const storedDifficulty = localStorage.getItem('selectedDifficulty');
+    console.log(storedDifficulty);
+    setDiff(storedDifficulty);
+  }, []);
+
+  useEffect(() => {
+    const storedStartDate = localStorage.getItem('codingSessionStartDate');
+    console.log(storedStartDate);
+    setStartDate(storedStartDate);
+  }, []);
+
+  useEffect(() => {
+    const storedStartTime = localStorage.getItem('codingSessionStartTime');
+    console.log(storedStartTime);
+    setStartTime(storedStartTime);
+  }, []);
+
   useEffect(() => {
     const fetchQuestion = async () => {
       try {
@@ -75,20 +77,17 @@ const IDE = ({ QuestionId, savedCode, handleSaveCode,savedCodeMap }) => {
     if (QuestionId) fetchQuestion();
   }, [QuestionId]);
 
-  // Save the current code to the parent component when "Save" button is clicked
   const handleSave = () => {
-    handleSaveCode(QuestionId, code);  // Call the parent function to save the code
-    setSubmitted(true); // Mark as submitted
+    handleSaveCode(QuestionId, code);
+    setSubmitted(true);
     setSaveMessage('Your code is saved successfully!');
     setTimeout(() => {
       setSaveMessage('');
     }, 5000);
   };
 
-  // Interview timer countdown logic
   useEffect(() => {
     if (timeRemaining <= 0) {
-      // Time is up, navigate to the feedback page
       alert("Time's up! Redirecting to the feedback page.");
       handleEndTest();
       return;
@@ -98,34 +97,34 @@ const IDE = ({ QuestionId, savedCode, handleSaveCode,savedCodeMap }) => {
       setTimeRemaining((prevTime) => prevTime - 1);
     }, 1000);
 
-    // Clean up the interval when the component unmounts
     return () => clearInterval(timerInterval);
   }, [timeRemaining, navigate]);
 
   const handleFontSizeChange = (e) => {
-    setFontSize(Number(e.target.value)); // Update font size state
+    setFontSize(Number(e.target.value));
   };
 
-  // Handle code submission to backend
   const handleSubmit = async () => {
-    try{
-      const result=await axios.post('http://localhost:5001/api/auth/testsubmit',{
-      solutions:savedCodeMap
+    try {
+      const result = await axios.post('http://localhost:5001/api/auth/testsubmit', {
+        solutions: savedCodeMap
       });
       console.log("Server response:", result.data);
-      if(result)
-        {
-          console.log("question and  saved for testing");
-        }
-        setSubmitted(true); // Mark as submitted
-        setSaveMessage('Session data saved successfully!');
-        setTimeout(() => {
-          setSaveMessage('');
-        }, 5000);
-      } catch (error) {
-        console.error('Error saving question ans ans session:', error);
-        alert('Error saving question and ans session');
+
+      if (result) {
+        console.log("Question and saved for testing");
       }
+
+      setSubmitted(true);
+      setSaveMessage('Session data saved successfully!');
+      setTimeout(() => {
+        setSaveMessage('');
+      }, 5000);
+    } catch (error) {
+      console.error('Error saving question and session:', error);
+      alert('Error saving question and session');
+    }
+
     try {
       const res = await axios.post('http://localhost:5001/api/submit', {
         code: code,
@@ -133,13 +132,9 @@ const IDE = ({ QuestionId, savedCode, handleSaveCode,savedCodeMap }) => {
       });
 
       const { stdout, stderr, status } = res.data;
-
-      // Display output result message
       const outputResult = stdout || stderr || `Execution status: ${status.description}`;
       setOutput(outputResult);
 
-
-      // Test results for passed test cases
       const passedTestCases = res.data.passedTestCases || testCases.length;
       const totalTestCases = res.data.totalTestCases || testCases.length;
       setTestResults({
@@ -153,132 +148,124 @@ const IDE = ({ QuestionId, savedCode, handleSaveCode,savedCodeMap }) => {
     }
   };
 
-const formatTime = (totalSeconds) => {
-  const hours = Math.floor(totalSeconds / 3600);
-  const minutes = Math.floor((totalSeconds % 3600) / 60);
-  const seconds = totalSeconds % 60;
+  const formatTime = (totalSeconds) => {
+    const hours = Math.floor(totalSeconds / 3600);
+    const minutes = Math.floor((totalSeconds % 3600) / 60);
+    const seconds = totalSeconds % 60;
 
-  return `${hours}h ${minutes}m ${seconds}s`;
-};
+    return `${hours}h ${minutes}m ${seconds}s`;
+  };
 
+  const handleEndTest = async () => {
+    const today = new Date();
+    const formattedDate = `${today.getMonth() + 1}/${today.getDate()}/${today.getFullYear()}`;
+    const formattedTime = today.toLocaleTimeString('en-GB');
 
-const handleEndTest = async () => {
-  const today = new Date();
-  const formattedDate = `${today.getMonth() + 1}/${today.getDate()}/${today.getFullYear()}`;
-  const formattedTime = today.toLocaleTimeString('en-GB');
+    try {
+      const totalInterviewTimeInSeconds = 30 * 60 - timeRemaining;
+      const formattedTimeTaken = formatTime(totalInterviewTimeInSeconds);
 
-  try {
-    const totalInterviewTimeInSeconds = 30*60 - timeRemaining; // Calculate total time taken in seconds
-    const formattedTimeTaken = formatTime(totalInterviewTimeInSeconds);
+      localStorage.removeItem('codingSessionActive');
+      localStorage.removeItem('sessionQuestions');
+      localStorage.removeItem('positionPath');
+      localStorage.removeItem('selectedRole');
+      localStorage.removeItem('selectedRound');
+      localStorage.removeItem('companySelected');
 
-    localStorage.removeItem('codingSessionActive')
-    localStorage.removeItem('sessionQuestions');
-    localStorage.removeItem('positionPath');
-    localStorage.removeItem('selectedRole');
-    localStorage.removeItem('selectedRound');
-    localStorage.removeItem('companySelected');
-    const result= await axios.post('http://localhost:5001/api/auth/sessions', {
-      userEmail:userEmail,
-      preparationName:prName,
-      positionName:position,
-      prepDiff:diff,
-      sessionStartDate:startDate,
-      sessionEndDate:formattedDate,
-      sessionStartTime:startTime,
-      sessionEndTime: formattedTime,
-      timeTaken:formattedTimeTaken,
-      solutions:savedCodeMap  // Send all saved solutions
+      const result = await axios.post('http://localhost:5001/api/auth/sessions', {
+        userEmail: userEmail,
+        preparationName: prName,
+        positionName: position,
+        prepDiff: diff,
+        sessionStartDate: startDate,
+        sessionEndDate: formattedDate,
+        sessionStartTime: startTime,
+        sessionEndTime: formattedTime,
+        timeTaken: formattedTimeTaken,
+        solutions: savedCodeMap
+      });
 
-    });
-
-    if (result) {
-      console.log("Session saved");
-    }
-
-    // Redirect to feedback page with test case results after saving
+      if (result) {
+        console.log("Session saved");
+      }
 
       navigate('/feedback', {
         state: {
-          userId: userEmail, // Pass user email or userId
+          userId: userEmail,
           prName: prName,
           passedTestCases: testResults?.passed || 0,
           totalTestCases: testResults?.total || 0,
-          questionId: QuestionId, // Pass the questionId
-          solution: code,         // Pass the user's code solution
+          questionId: QuestionId,
+          solution: code,
         }
       });
 
-    alert('Session data saved successfully!');
+      alert('Session data saved successfully!');
+    } catch (error) {
+      console.error('Error saving session:', error);
+      alert('Error saving session');
+    }
+  };
 
-  } catch (error) {
-    console.error('Error saving session:', error);
-    alert('Error saving session');
-  }
-};
-const handleGetAIFeedback = async () => {
-  try {
-    setFeedbackContent("Generating Ai feedback.... might take a minute... please wait");
-    setShowFeedbackModal(true); 
-    const response = await axios.post('http://localhost:5001/api/Questions/feedback', {
-      sourceCode: code,
-      questionId: QuestionId,
-    });
+  const handleGetAIFeedback = async () => {
+    try {
+      setFeedbackContent("Generating AI feedback.... might take a minute... please wait");
+      setShowFeedbackModal(true);
+      const response = await axios.post('http://localhost:5001/api/Questions/feedback', {
+        sourceCode: code,
+        questionId: QuestionId,
+      });
 
-    const feedback = response.data.feedback;
-    setFeedbackContent(feedback);
-    setShowFeedbackModal(true); // Open the modal with feedback
+      const feedback = response.data.feedback;
+      setFeedbackContent(feedback);
+      setShowFeedbackModal(true);
+    } catch (error) {
+      console.log('Error getting AI feedback:', error);
+      alert('Failed to get AI feedback');
+    }
+  };
 
-  } catch (error) {
-    console.log('Error getting AI feedback:', error);
-    alert('Failed to get AI feedback');
-  }
-};
-
-
-
-  return (  
+  return (
     <div className="relative">
       <div className="relative">
         <div className="relative top-0 right-0 flex items-center gap-2 p-2">
-        <label htmlFor="fontSize" className="font-semibold">
-          Font Size:
-        </label>
-        <select
-          id="fontSize"
-          value={fontSize}
-          onChange={handleFontSizeChange}
-          className
-        >
-          <option value={14}>14</option>
-          <option value={16}>16</option>
-          <option value={18}>18</option>
-          <option value={20}>20</option>
-          <option value={22}>22</option>
-          <option value={24}>24</option>
-        </select>
-      </div>
+          <label htmlFor="fontSize" className="font-semibold">
+            Font Size:
+          </label>
+          <select
+            id="fontSize"
+            value={fontSize}
+            onChange={handleFontSizeChange}
+          >
+            <option value={14}>14</option>
+            <option value={16}>16</option>
+            <option value={18}>18</option>
+            <option value={20}>20</option>
+            <option value={22}>22</option>
+            <option value={24}>24</option>
+          </select>
+        </div>
         <Editor
           height="500px"
           defaultLanguage="python"
           options={{
-            fontSize: fontSize, // Set the font size here
-          }}
+            fontSize: fontSize
+          }}
           value={code}
-          onChange={(value) => setCode(value)} 
+          onChange={(value) => setCode(value)}
         />
       </div>
-  
+
       <div className="buttons">
         <p>Code Editor</p>
-        <button onClick={handleSave}>Save Code</button>  
+        <button onClick={handleSave}>Save Code</button>
         <button onClick={handleSubmit}>Submit</button>
         {submitted && (<button onClick={handleGetAIFeedback}>AI feedback</button>)}
-        <button onClick={handleEndTest}>End Test</button>  {/* End Test Button */}
+        <button onClick={handleEndTest}>End Test</button>
       </div>
       {saveMessage && (
         <p className="text-green-700 text-lg font-semibold mt-2">{saveMessage}</p>
       )}
-      {/* Modal for AI Feedback */}
       {showFeedbackModal && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
           <div className="bg-white rounded-lg shadow-lg p-6 w-1/2 h-1/2 overflow-y-auto">
@@ -296,9 +283,9 @@ const handleGetAIFeedback = async () => {
               <ReactMarkdown
                 className="prose prose-sm sm:prose lg:prose-lg xl:prose-xl"
                 remarkPlugins={[remarkGfm]}
-                >
-                  {feedbackContent}
-                </ReactMarkdown>
+              >
+                {feedbackContent}
+              </ReactMarkdown>
             </div>
             <div className="mt-6 text-right">
               <button
@@ -311,18 +298,16 @@ const handleGetAIFeedback = async () => {
           </div>
         </div>
       )}
-  
-    <div className="flex-1 mt-4 overflow-auto">
-      <pre className="w-full p-4 rounded-md shadow-md">{output}</pre>
-    </div>
-  
-     
+
+      <div className="flex-1 mt-4 overflow-auto">
+        <pre className="w-full p-4 rounded-md shadow-md">{output}</pre>
+      </div>
     </div>
   );
 };
 
 IDE.propTypes = {
-  QuestionId: PropTypes.string.isRequired, // or .number if it's numeric
+  QuestionId: PropTypes.string.isRequired,
   savedCode: PropTypes.string.isRequired,
   handleSaveCode: PropTypes.func.isRequired,
   savedCodeMap: PropTypes.object.isRequired,

@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import InterviewLogTable from './InterviewLogTable';
 import axios from 'axios';
+
 const InterviewLogs = ({ email }) => {
-  // const logTypes = ['Technical Questions', 'Coding'];
   const [logs, setLogs] = useState([]);
+
   useEffect(() => {
-    console.log('helllo');
     const fetchLogs = async () => {
       try {
         const response = await axios.get(
@@ -20,14 +21,14 @@ const InterviewLogs = ({ email }) => {
 
     fetchLogs();
   }, [email]);
+
   if (!logs) {
     return <div>Loading...</div>;
   }
+
   return (
     <div className="w-full p-10">
-      <h2 className="text-3xl text-center font-semibold p-3">
-        Recent Interviews
-      </h2>
+      <h2 className="text-3xl text-center font-semibold p-3">Recent Interviews</h2>
       <div className="grid grid-cols-2">
         {logs.map((item) => (
           <div key={item.title} className="p-3">
@@ -38,6 +39,11 @@ const InterviewLogs = ({ email }) => {
       </div>
     </div>
   );
+};
+
+// Prop validation
+InterviewLogs.propTypes = {
+  email: PropTypes.string.isRequired, // Validate the email prop
 };
 
 export default InterviewLogs;
