@@ -1,4 +1,3 @@
-// helpers/getAIFeedback.js
 const dotenv = require('dotenv');
 const { GoogleGenerativeAI } = require('@google/generative-ai');
 
@@ -14,7 +13,7 @@ const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
  * @returns {Promise<string>} - AI feedback on the code.
  */
 async function getAIFeedback(questionDescription, answer) {
-    const prompt = `
+  const prompt = `
     Question Description:
     ${questionDescription}
     

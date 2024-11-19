@@ -1,7 +1,7 @@
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const User = require('../models/user');
-const IDSchema  = require('../models/intrwdtlsschema');
+const IDSchema = require('../models/intrwdtlsschema');
 const admin = require('../firebaseAdmin');
 const sessionTable = require('../models/sessionTable');
 const Answer = require('../models/Answer');
@@ -9,11 +9,11 @@ const Question = require('../models/Question');
 const test = require('../models/testcases');
 
 
-const forgetpassword=async(req,res) => {
-    const {email,password} = req.body;
-    try{
-        const userMail = await User.findOne({email});
-        if(userMail){
+const forgetpassword = async (req, res) => {
+    const { email, password } = req.body;
+    try {
+        const userMail = await User.findOne({ email });
+        if (userMail) {
             const hashedPassword = await bcrypt.hash(password, 10);
             userMail.password = hashedPassword;
             await userMail.save();
@@ -21,12 +21,12 @@ const forgetpassword=async(req,res) => {
         }
         else
             return res.status(404).send("User not found");
-    }catch (err) {
+    } catch (err) {
         console.error('Error details:', err);
         res.status(500).send('Error occured while updating password');
     }
 };
-const register= async (req, res) => {
+const register = async (req, res) => {
     const { fname, lname, username, email, password } = req.body;
 
     try {
@@ -43,14 +43,14 @@ const register= async (req, res) => {
     }
 };
 
-const sessions=async (req, res) => {
-        const { userEmail, preparationName,positionName,
-            prepDiff, sessionStartDate, sessionEndDate, sessionStartTime, sessionEndTime, timeTaken, solutions} = req.body;
-        const formattedSolutions = Object.entries(solutions).map(([questionId, userSolution]) => ({
-            questionID: questionId, // Use questionId as questionTitle
-            userSolution: userSolution // The solution code
-        }));
-        try {
+const sessions = async (req, res) => {
+    const { userEmail, preparationName, positionName,
+        prepDiff, sessionStartDate, sessionEndDate, sessionStartTime, sessionEndTime, timeTaken, solutions } = req.body;
+    const formattedSolutions = Object.entries(solutions).map(([questionId, userSolution]) => ({
+        questionID: questionId, // Use questionId as questionTitle
+        userSolution: userSolution // The solution code
+    }));
+    try {
         const newSession = new sessionTable({
             userEmail,
             preparationName,
@@ -72,8 +72,8 @@ const sessions=async (req, res) => {
     }
 };
 
-const tsessions=async (req, res) => {
-    const { userEmail, preparationName, sessionStartDate,positionName,
+const tsessions = async (req, res) => {
+    const { userEmail, preparationName, sessionStartDate, positionName,
         prepDiff, sessionEndDate, sessionStartTime, sessionEndTime, timeTaken, answers } = req.body;
 
     try {
@@ -100,7 +100,7 @@ const tsessions=async (req, res) => {
 };
 
 
-const testsubmit= async (req, res) => {
+const testsubmit = async (req, res) => {
     console.log("Received data:", req.body);
     const { solutions } = req.body;
     if (!solutions || typeof solutions !== 'object') {
@@ -125,9 +125,9 @@ const testsubmit= async (req, res) => {
             const question = questions.find(q => q._id.toString() === solution.questionID);
             return {
                 questionID: solution.questionID,
-                questiontitle:question.title,
-                questiondescription:question.description,
-                aisolution:question.solution,
+                questiontitle: question.title,
+                questiondescription: question.description,
+                aisolution: question.solution,
                 userSolution: solution.userSolution,
                 testCases: question ? question.testCases.map(testCases => ({
                     input: testCases.input,
@@ -153,7 +153,7 @@ const testsubmit= async (req, res) => {
 
 
 // Interview Details route
-const interviewdetails= async (req, res) => {
+const interviewdetails = async (req, res) => {
     const { prepname, diffLvl, slctround, slctposition } = req.body;
     let token;
     let username;
@@ -176,7 +176,7 @@ const interviewdetails= async (req, res) => {
 
                 console.log(fetchedDetails)
                 username = fetchedDetails.uname;
-        // If the token was valid, save interview details
+                // If the token was valid, save interview details
                 // const ids = new IDS({ username, prepname, diffLvl, slctround });
                 // await ids.save();                
                 // return res.send('success');
@@ -191,29 +191,29 @@ const interviewdetails= async (req, res) => {
                     console.log('Data not saved.');
                     res.status(500).json({ error: 'Error saving interview details' });
                 }
-                
+
             } catch (error) {
                 console.log(error);
-                return res.status(401).json({ message: "Token verification failed" }); 
+                return res.status(401).json({ message: "Token verification failed" });
             }
         } else {
             console.error("Authorization header missing or incorrect");
-            return res.status(401).json({ message: "Authorization header missing" }); 
+            return res.status(401).json({ message: "Authorization header missing" });
         }
 
 
         // If the token was valid, save interview details
-        
+
 
 
     } catch (err) {
-        res.status(500).send('Error'); 
+        res.status(500).send('Error');
     }
 };
 
 
 // Login route
-const login=async (req, res) => {
+const login = async (req, res) => {
     const { email, password } = req.body;
     try {
         const userMail = await User.findOne({ email });
@@ -237,22 +237,37 @@ const login=async (req, res) => {
     }
 };
 
-const google= async (req, res) => {
+const google = async (req, res) => {
     const { token } = req.body;
+    console.log(token);
 
     try {
         // Verify the token with Firebase Admin SDK
         const decodedToken = await admin.auth().verifyIdToken(token);
-        const uid = decodedToken.uid;
-        console.log('Google sign-in successful, user ID:', uid);
-
+        const name = decodedToken.name;
+        const email = decodedToken.email;
+        console.log(decodedToken.email, decodedToken.name)
+        const userMail = await User.findOne({ email });
+        if (!userMail) {
+            const user = new User({ fname: name, username: name, email: email, password: "1234", googleId: decodedToken.uid });
+            await user.save();
+        }
+        console.log(userMail)
         // Proceed with login or sign-up logic
+        const payload = { mailid: email, uname: name }
+        accessToken = jwt.sign(payload, process.env.TOKEN_SECRET_KEY);
+        return res.status(200).json({
+            success: true,
+            message: "Login successful",
+            accessToken: accessToken,
+            userName: name
+        });
 
-        res.status(200).json({ message: 'Login successful', uid });
+
     } catch (error) {
         console.error('Error verifying token:', error);
         res.status(500).json({ error: 'Token verification failed' });
     }
 };
 
-module.exports ={google,login,interviewdetails,testsubmit,tsessions,sessions,register,forgetpassword};
+module.exports = { google, login, interviewdetails, testsubmit, tsessions, sessions, register, forgetpassword };

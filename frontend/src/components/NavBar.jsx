@@ -35,6 +35,7 @@ export const NavBar = (props) => {
     setOpenSubmenu(null); // Close submenu
   };
 
+
   const handleNewInterview = () => {
     if (localStorage.getItem('logindata')) navigate('/interviewdetails');
     else navigate('/login');
@@ -52,7 +53,10 @@ export const NavBar = (props) => {
   }, []);
 
   const handleSignIn = () => {
-    if (localStorage.getItem('logindata')) navigate('/dashboard');
+    if (localStorage.getItem('logindata')) {
+      navigate('/dashboard');
+
+    }
     else navigate('/login');
   };
 
