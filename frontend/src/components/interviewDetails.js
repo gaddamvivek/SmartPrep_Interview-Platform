@@ -10,7 +10,7 @@ export const InterviewDetails = () => {
     const [slctposition, setPosition] = useState('');
     const [voiceType, setVoiceType] = useState('');
     const [buttonClick, setButtonClick] = useState(false);
-    const [companyName, setCompany] = useState('');
+    const [companyName, setCompany] = useState(null);
     const navigate = useNavigate();
     const positionPath = localStorage.getItem('positionPath');
     const role = localStorage.getItem('selectedRole');
@@ -51,8 +51,8 @@ export const InterviewDetails = () => {
                 Authorization: `Bearer ${uname}`,  // Send the token in the Authorization header
             };
 
-        
-            const result = await axios.post('http://localhost:5001/api/auth/interviewdetails', { prepname, diffLvl, slctround, slctposition},{headers});
+            console.log(companyName);
+            const result = await axios.post('http://localhost:5001/api/auth/interviewdetails', { prepname, diffLvl, slctround, slctposition, companyName},{headers});
             console.log(result);
             localStorage.setItem('codingSessionActive', 'true');
             localStorage.setItem("pname",prepname);

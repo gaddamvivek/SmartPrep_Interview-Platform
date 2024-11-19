@@ -7,6 +7,7 @@ const InterviewDetailsSchema = new mongoose.Schema(
     diffLvl: { type: String, required: true },
     slctround: { type: String, required: true },
     slctposition: { type: String },
+    company: {type: String},
     date: { type: Date, default: Date.now, required: false },
   },
   { versionKey: "version" }

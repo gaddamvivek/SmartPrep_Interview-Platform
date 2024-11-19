@@ -34,7 +34,8 @@ const TechnicalInterview = ({ permissions, showProfile }) => {
   const fetchQuestions = async (difficulty) => {
     try {
       let position = localStorage.getItem('selectedPosition');
-      const response = await axios.get(`http://localhost:5001/api/tech/getRandomTechnicalQuestions?difficulty=${difficulty}&position=${position}`);
+      let companyName = localStorage.getItem('companySelected');
+      const response = await axios.get(`http://localhost:5001/api/tech/getRandomTechnicalQuestions?difficulty=${difficulty}&position=${position}&company=${companyName}`);
       const fetchedQuestions = response.data.slice(0, 10);
       setQuestions(fetchedQuestions); // Assuming you only want 3 questions at a time
       setQueue(fetchedQuestions);
