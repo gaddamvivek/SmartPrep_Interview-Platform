@@ -79,11 +79,13 @@ const TechAnswerInputs = ({ permissions, saveAnswer, currentAnswer, onSubmitAnsw
 
   const handleGenerateAIAnswerFeedback = async () => {
     if (!questionId || !currentAnswer) {
-      alert("Unable to generate feedback. Ensure the question ID and your answer are available.");
+      alert("Unable to generate feedback. Ensure your answer is available.");
       return;
     }
 
     try {
+      setAiFeedback("Generating Ai feedback.... might take a minute... please wait");
+      setShowFeedbackModal(true); 
       const response = await axios.post(`http://localhost:5001/api/tech/aiFeedback`, {
         questionId,
         answer: currentAnswer,
@@ -93,6 +95,7 @@ const TechAnswerInputs = ({ permissions, saveAnswer, currentAnswer, onSubmitAnsw
       setAiFeedback(feedback);
       setShowFeedbackModal(true);
     } catch (error) {
+      setShowFeedbackModal(false);
       console.error("Error generating AI feedback:", error);
       alert("Failed to get AI feedback. Please try again.");
     }

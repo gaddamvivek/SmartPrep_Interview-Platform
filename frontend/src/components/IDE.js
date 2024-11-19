@@ -217,6 +217,8 @@ const handleEndTest = async () => {
 };
 const handleGetAIFeedback = async () => {
   try {
+    setFeedbackContent("Generating Ai feedback.... might take a minute... please wait");
+    setShowFeedbackModal(true); 
     const response = await axios.post('http://localhost:5001/api/Questions/feedback', {
       sourceCode: code,
       questionId: QuestionId,

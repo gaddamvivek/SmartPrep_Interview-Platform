@@ -66,6 +66,7 @@ export const NavBar = (props) => {
     setOpenSubmenu(null); // Close submenu
   };
 
+
   const handleNewInterview = () => {
     if (localStorage.getItem('logindata')) {
       if(localStorage.getItem('positionPath'))

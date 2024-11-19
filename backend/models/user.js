@@ -2,8 +2,8 @@ const mongoose = require('mongoose');
 
 const UserDetailsSchema = new mongoose.Schema({
     googleId: { type: String, required: false, unique: true, },
-    fname: { type: String, required: true },
-    lname: { type: String, required: true },
+    fname: { type: String, required: false },
+    lname: { type: String, required: false },
     username: { type: String, required: true },
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },

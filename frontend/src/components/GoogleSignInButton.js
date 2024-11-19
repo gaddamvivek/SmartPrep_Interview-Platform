@@ -20,14 +20,17 @@ const GoogleSignInButton = () => {
       // Get the Google ID token from the user
       const token = await result.user.getIdToken();
 
+
       // Send the token to the backend
       const response = await axios.post('http://localhost:5001/api/auth/google', { token });
 
       if (response.status === 200) {
         console.log(response.data);
+
         console.log('Google Sign-In successful, redirecting...');
 
-        window.localStorage.setItem('logindata', response.data['uid']);
+        window.localStorage.setItem('logindata', JSON.stringify(response.data['accessToken']));
+
         window.localStorage.setItem('isLoggedIn', true);
         window.localStorage.setItem('userName', result.user.displayName);
         window.localStorage.setItem('userEmail', result.user.email);
