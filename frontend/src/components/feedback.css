@@ -141,3 +141,19 @@
 .navbar-right {
   font-size: 1rem;
 }
+.feedback-options {
+  display: flex;
+  gap: 1rem; /* Adjust spacing between options as needed */
+  justify-content: center; /* Center the options horizontally */
+  align-items: center;
+}
+
+.feedback-label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.feedback-label input {
+  margin-right: 0.5rem; /* Space between radio button and text */
+}

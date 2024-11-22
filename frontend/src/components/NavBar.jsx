@@ -109,7 +109,9 @@ export const NavBar = (props) => {
     { title: 'DevOps Technical', roundType: 'Technical' },
     { title: 'Software Technical', roundType: 'Technical' },
   ];
-
+  const goToProfile = () => {
+    navigate("/profile");
+  };
 
   return (
     <nav className="relative grid grid-cols-3 justify-between font-rubik items-center p-4 shadow-lg">
@@ -206,7 +208,9 @@ export const NavBar = (props) => {
           </div>
           {isProfileOpen && (
             <div className="p-3 min-w-44 bg-purple-600 text-white text-center absolute top-16 rounded-lg py-3">
-              <div>{userName}</div>
+              <div className="" onClick={goToProfile}>
+                {userName}
+              </div>
               <div id="profile-email">{email}</div>
               <hr />
               <Logout />
