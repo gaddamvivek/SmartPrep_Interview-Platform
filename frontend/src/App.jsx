@@ -15,7 +15,7 @@ import Feedback from './components/feedback';
 import { ForgetPassword } from './components/forgetpassword';
 import TechnicalInterviewFeedback from './components/TechnicalInterviewFeedback';
 import CompanyPage from './components/CompanyPage';
-
+import Profile from './components/profile';
 
 
 function App() {
@@ -36,6 +36,7 @@ function App() {
           <Route path="/feedback" element={<Feedback />} />
           <Route path="/technicalFeedback" element={<TechnicalInterviewFeedback />} />
           <Route path="/new-interview/company/:companyName" element={<CompanyPage />} />
+          <Route path="/profile" element={<Profile/>} />
         </Routes>
       </Router>
     </div>

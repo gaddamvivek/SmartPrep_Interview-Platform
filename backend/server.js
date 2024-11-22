@@ -14,6 +14,7 @@ const technicalSessionRoutes = require('./routes/technicalSessionRoutes');
 const authenticationRoutes = require('./routes/auth');
 const userRoutes = require('./routes/user.js')
 const QuestionRoutes = require('./routes/questions');
+const profile = require('./routes/profile');
 //const User = require('./models/user'); // Import the User model
 
 
@@ -38,7 +39,8 @@ app.use('/api/technicalSession', technicalSessionRoutes);
 app.use('/api/auth', authenticationRoutes);
 app.use('/api/tech', techQnRoutes);
 app.use('/api/user', userRoutes);
-
+app.use(express.json());
+app.use('/api/profile', profile);
 // Google Sign-In Route
 // app.post('/auth/google', async (req, res) => {
 //   const { token } = req.body;
