@@ -1,44 +1,78 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import './TechnicalInterviewFeedback.css';
 
 const TechnicalInterviewFeedback = () => {
   const [feedbackData, setFeedbackData] = useState(null);
-  const userEmail = localStorage.getItem('userEmail');
-  const preparationName = localStorage.getItem('pname');
+  const [error, setError] = useState(null);
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  // Get user details from either localStorage or route state
+  const userEmail = localStorage.getItem('userEmail') || location.state?.userId;
+  const preparationName = localStorage.getItem('pname') || location.state?.prName;
   const savedVideoUrl = localStorage.getItem('savedVideoUrl');
+
   const [showVideo, setShowVideo] = useState(false);
   const [review, setReview] = useState('');
   const [feedback, setFeedback] = useState('');
   const [message, setMessage] = useState('');
   const [userId, setUserId] = useState(null);
-  const navigate = useNavigate();
 
   useEffect(() => {
+    // Validate user email and preparation name
+    if (!userEmail || !preparationName) {
+      setError('Missing user information. Please log in again.');
+      return;
+    }
+
     const fetchFeedbackData = async () => {
       try {
-        const response = await axios.get(`http://localhost:5001/api/technicalSession/technicalFeedback?userEmail=${userEmail}&preparationName=${preparationName}`);
+        const response = await axios.get(`http://localhost:5001/api/technicalSession/technicalFeedback`, {
+          params: {
+            userEmail: userEmail,
+            preparationName: preparationName
+          }
+        });
+        
+        // Additional validation of response
+        if (!response.data) {
+          setError('No feedback data found for this session.');
+          return;
+        }
+
         setFeedbackData(response.data);
       } catch (error) {
         console.error('Error fetching feedback data:', error);
+        setError('Failed to fetch feedback. Please try again later.');
       }
     };
+
     fetchFeedbackData();
     setUserId(localStorage.getItem('userId'));
   }, [userEmail, preparationName]);
 
   const handleSubmitFeedback = async () => {
+    // Validate before submission
+    if (!review || !feedback) {
+      setMessage('Please provide a rating and feedback');
+      return;
+    }
+
     try {
-      const feedbackData = {
-        passedTestCases: 0,
-        totalTestCases: 0,
+      const submissionData = {
         review: mapReviewToNumber(review),
+        passedTestCases: feedbackData?.session?.passedTestCases || 0,
+        totalTestCases: feedbackData?.session?.totalTestCases || 0,
         feedback,
-        userId: userId || null
+        userId: userId || null,
+        userEmail: userEmail,
+        preparationName: preparationName
       };
-      const response = await axios.post('http://localhost:5001/api/feedback/submit', feedbackData);
+
+      const response = await axios.post('http://localhost:5001/api/feedback/submit', submissionData);
 
       if (response.status === 201) {
         setMessage('Thank you for your feedback! Redirecting to dashboard...');
@@ -53,16 +87,27 @@ const TechnicalInterviewFeedback = () => {
   };
 
   const mapReviewToNumber = (rating) => {
-    switch (rating) {
-      case 'Excellent': return 5;
-      case 'Good': return 4;
-      case 'Medium': return 3;
-      case 'Poor': return 2;
-      case 'Very Bad': return 1;
-      default: return 0;
-    }
+    const ratingMap = {
+      'Excellent': 5,
+      'Good': 4,
+      'Medium': 3,
+      'Poor': 2,
+      'Very Bad': 1
+    };
+    return ratingMap[rating] || 0;
   };
 
+  // Error handling
+  if (error) {
+    return (
+      <div className="error-container">
+        <p className="error-message">{error}</p>
+        <button onClick={() => navigate('/dashboard')}>Return to Dashboard</button>
+      </div>
+    );
+  }
+
+  // Loading state
   if (!feedbackData) return <div>Loading...</div>;
 
   return (

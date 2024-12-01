@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import InterviewLogTable from './InterviewLogTable';
@@ -12,7 +13,7 @@ const InterviewLogs = ({ email }) => {
         const response = await axios.get(
           `http://localhost:5001/api/user/interviewlogs?email=${email}`
         );
-        console.log(response.data);
+        console.log('Logs fetched:', response.data); // Debug logs
         setLogs(response.data);
       } catch (error) {
         console.error('Error fetching interview logs:', error);
@@ -22,7 +23,7 @@ const InterviewLogs = ({ email }) => {
     fetchLogs();
   }, [email]);
 
-  if (!logs) {
+  if (!logs || logs.length === 0) {
     return <div>Loading...</div>;
   }
 
@@ -30,10 +31,11 @@ const InterviewLogs = ({ email }) => {
     <div className="w-full p-10">
       <h2 className="text-3xl text-center font-semibold p-3">Recent Interviews</h2>
       <div className="grid grid-cols-2">
-        {logs.map((item) => (
-          <div key={item.title} className="p-3">
+        {logs.map((item, index) => (
+          <div key={index} className="p-3">
             <h3 className="text-2xl text-center font-semibold">{item.title}</h3>
-            <InterviewLogTable data={item.data} />
+            {/* Pass the title to InterviewLogTable */}
+            <InterviewLogTable data={item.data} title={item.title} />
           </div>
         ))}
       </div>
@@ -41,9 +43,8 @@ const InterviewLogs = ({ email }) => {
   );
 };
 
-// Prop validation
 InterviewLogs.propTypes = {
-  email: PropTypes.string.isRequired, // Validate the email prop
+  email: PropTypes.string.isRequired,
 };
 
 export default InterviewLogs;
