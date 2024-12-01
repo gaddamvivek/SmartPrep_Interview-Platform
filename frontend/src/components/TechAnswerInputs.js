@@ -120,7 +120,7 @@ const TechAnswerInputs = ({ permissions, saveAnswer, currentAnswer, onSubmitAnsw
 
   return (
     <div>
-      <h3>Your Answer</h3>
+      <h3 className='text-xl font-semibold'>Your Answer</h3>
       
       {permissions.microphoneGranted ? (
         <div>

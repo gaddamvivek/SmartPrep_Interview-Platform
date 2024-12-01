@@ -7,6 +7,8 @@ import TechAnswerInputs from './TechAnswerInputs';
 import './TechnicalInterview.css';
 import Timer from './timer';
 import SpchLogo from '../assets/images/spch.png';
+import rightIcon from '../assets/icons/right-icon.png';
+import leftIcon from '../assets/icons/left-icon.png';
 
 const TechnicalInterview = ({ permissions, showProfile }) => {
   const [questions, setQuestions] = useState([]);
@@ -18,27 +20,28 @@ const TechnicalInterview = ({ permissions, showProfile }) => {
   const [email, setEmail] = useState('');
   const [userName, setUserName] = useState('');
   const [userEmail, setUserEmail] = useState('');
-  const [timeRemaining, setTimeRemaining] = useState(30*60);
+  const [timeRemaining, setTimeRemaining] = useState(30 * 60);
   const navigate = useNavigate();
   const [testRun, setTestRun] = useState(true);
-  const [prName,setPrName]=useState('');
-  const [tstartDate,setTstartDate]=useState('');
-  const [tstartTime,settStartTime]=useState('');
-  const [position,setPosition]=useState('');
-  const [diff,setDiff]=useState('');
+  const [prName, setPrName] = useState('');
+  const [tstartDate, setTstartDate] = useState('');
+  const [tstartTime, settStartTime] = useState('');
+  const [position, setPosition] = useState('');
+  const [diff, setDiff] = useState('');
 
   useEffect(() => {
     fetchQuestions(difficulty); // Fetch questions when the component mounts or difficulty changes
   }, [difficulty]);
 
   const initializeAnswers = () => {};
-  
 
   const fetchQuestions = async (difficulty) => {
     try {
       let position = localStorage.getItem('selectedPosition');
       let companyName = localStorage.getItem('companySelected');
-      const response = await axios.get(`http://localhost:5001/api/tech/getRandomTechnicalQuestions?difficulty=${difficulty}&position=${position}&company=${companyName}`);
+      const response = await axios.get(
+        `http://localhost:5001/api/tech/getRandomTechnicalQuestions?difficulty=${difficulty}&position=${position}&company=${companyName}`
+      );
       const fetchedQuestions = response.data.slice(0, 10);
       setQuestions(fetchedQuestions); // Assuming you only want 3 questions at a time
       setQueue(fetchedQuestions);
@@ -50,12 +53,12 @@ const TechnicalInterview = ({ permissions, showProfile }) => {
   };
 
   const handleProfileButton = () => {
-    console.log("Profile button clicked");  // Debugging log for button click
+    console.log('Profile button clicked'); // Debugging log for button click
     setIsProfileOpen((prevState) => !prevState);
   };
 
   useEffect(() => {
-    console.log("showProfile prop:", showProfile);  // Debugging log for showProfile prop
+    console.log('showProfile prop:', showProfile); // Debugging log for showProfile prop
 
     // Retrieve user info from localStorage
     const userEmail = localStorage.getItem('userEmail');
@@ -64,56 +67,61 @@ const TechnicalInterview = ({ permissions, showProfile }) => {
     setEmail(userEmail);
     setUserName(uName);
   }, []);
-  useEffect(()=>{
-    const storedPosition=localStorage.getItem("selectedPosition");
+  useEffect(() => {
+    const storedPosition = localStorage.getItem('selectedPosition');
     console.log(storedPosition);
     setPosition(storedPosition);
-  },[]);
-  useEffect(()=>{
-    const storedPosition=localStorage.getItem("selectedDifficulty");
+  }, []);
+  useEffect(() => {
+    const storedPosition = localStorage.getItem('selectedDifficulty');
     console.log(storedPosition);
     setDiff(storedPosition);
-  },[]);
+  }, []);
 
   const handleSpeech = () => {
     const syn = window.speechSynthesis;
 
     const speakQuestion = () => {
-        const voices = syn.getVoices();
-        const userVoiceChoice = localStorage.getItem('voiceType');
-        console.log("Available voices:", voices);  // Log available voices for debugging
+      const voices = syn.getVoices();
+      const userVoiceChoice = localStorage.getItem('voiceType');
+      console.log('Available voices:', voices); // Log available voices for debugging
 
-        // Check if voices are available
-        if (voices.length === 0) {
-            console.error("No voices are available");
-            return;
-        }
+      // Check if voices are available
+      if (voices.length === 0) {
+        console.error('No voices are available');
+        return;
+      }
 
-        // Select voice based on user preference
-        let selectedVoice;
-        if (userVoiceChoice === 'Female') {
-            selectedVoice = voices.find(voice => voice.lang === "en-GB" && voice.name.includes("Female")) || voices[0];
-        } else {
-            selectedVoice = voices.find(voice => voice.lang === "en-GB" && voice.name.includes("Male")) || voices[0];
-        }
+      // Select voice based on user preference
+      let selectedVoice;
+      if (userVoiceChoice === 'Female') {
+        selectedVoice =
+          voices.find(
+            (voice) => voice.lang === 'en-GB' && voice.name.includes('Female')
+          ) || voices[0];
+      } else {
+        selectedVoice =
+          voices.find(
+            (voice) => voice.lang === 'en-GB' && voice.name.includes('Male')
+          ) || voices[0];
+      }
 
-        const currentQuestion = questions[currentQuestionIndex].title;
-        const utterance = new SpeechSynthesisUtterance(currentQuestion);
-        utterance.voice = selectedVoice;
-        syn.speak(utterance);
+      const currentQuestion = questions[currentQuestionIndex].title;
+      const utterance = new SpeechSynthesisUtterance(currentQuestion);
+      utterance.voice = selectedVoice;
+      syn.speak(utterance);
     };
 
     // Check if voices are already available
     if (syn.getVoices().length > 0) {
-        speakQuestion();
+      speakQuestion();
     } else {
-        // Wait for voices to load if not already available
-        syn.addEventListener("voiceschanged", speakQuestion);
+      // Wait for voices to load if not already available
+      syn.addEventListener('voiceschanged', speakQuestion);
     }
-};
+  };
   const nextQuestion = () => {
     if (currentQuestionIndex < questions.length - 1) {
-      
       setCurrentQuestionIndex(currentQuestionIndex + 1);
     }
   };
@@ -156,21 +164,21 @@ const TechnicalInterview = ({ permissions, showProfile }) => {
     setUserEmail(storedEmail);
   }, []);
   // Fetch the user preparation name from localStorage
-  useEffect(()=>{
-    const storedPname=localStorage.getItem('pname');
+  useEffect(() => {
+    const storedPname = localStorage.getItem('pname');
     console.log(storedPname);
     setPrName(storedPname);
-  },[]);
-  useEffect(()=>{
-    const storedStartDate=localStorage.getItem('technicalSessionStartDate');
+  }, []);
+  useEffect(() => {
+    const storedStartDate = localStorage.getItem('technicalSessionStartDate');
     console.log(storedStartDate);
     setTstartDate(storedStartDate);
-  },[]);
-  useEffect(()=>{
-    const storedStartTime=localStorage.getItem('technicalSessionStartTime');
+  }, []);
+  useEffect(() => {
+    const storedStartTime = localStorage.getItem('technicalSessionStartTime');
     console.log(storedStartTime);
     settStartTime(storedStartTime);
-  },[]);
+  }, []);
   const formatTime = (totalSeconds) => {
     const hours = Math.floor(totalSeconds / 3600);
     const minutes = Math.floor((totalSeconds % 3600) / 60);
@@ -199,7 +207,7 @@ const TechnicalInterview = ({ permissions, showProfile }) => {
       alert('Error submitting answers');
     }
   };*/
-  const submitAnswers= async () => {
+  const submitAnswers = async () => {
     const today = new Date();
     const formattedDate = `${today.getMonth() + 1}/${today.getDate()}/${today.getFullYear()}`;
     const formattedTime = today.toLocaleTimeString('en-GB');
@@ -208,26 +216,30 @@ const TechnicalInterview = ({ permissions, showProfile }) => {
       answer: answers[questionId],
     }));
     try {
-      const totalInterviewTimeInSeconds = 30*60 - timeRemaining; // Calculate total time taken in seconds
+      const totalInterviewTimeInSeconds = 30 * 60 - timeRemaining; // Calculate total time taken in seconds
       const formattedTimeTaken = formatTime(totalInterviewTimeInSeconds);
-     const result= await axios.post('http://localhost:5001/api/auth/tsessions', {
-        userEmail:userEmail,
-        preparationName:prName,
-        positionName:position,
-        prepDiff:diff,
-        sessionStartDate:tstartDate,
-        sessionEndDate:formattedDate,
-        sessionStartTime:tstartTime,
-        sessionEndTime:formattedTime,
-        timeTaken:formattedTimeTaken,
-        answers:formattedAnswers, // Send all saved solutions
-      });
-      if(result)
-      {
-        console.log("Session saved");
+      const result = await axios.post(
+        'http://localhost:5001/api/auth/tsessions',
+        {
+          userEmail: userEmail,
+          preparationName: prName,
+          positionName: position,
+          prepDiff: diff,
+          sessionStartDate: tstartDate,
+          sessionEndDate: formattedDate,
+          sessionStartTime: tstartTime,
+          sessionEndTime: formattedTime,
+          timeTaken: formattedTimeTaken,
+          answers: formattedAnswers, // Send all saved solutions
+        }
+      );
+      if (result) {
+        console.log('Session saved');
       }
-      navigate('/technicalFeedback', { state: { userEmail, preparationName: prName } });
-  
+      navigate('/technicalFeedback', {
+        state: { userEmail, preparationName: prName },
+      });
+
       alert('Session data saved successfully!');
       localStorage.removeItem('positionPath');
       localStorage.removeItem('selectedRole');
@@ -242,13 +254,17 @@ const TechnicalInterview = ({ permissions, showProfile }) => {
   return (
     <div>
       {/* Header Section */}
-      <div className='header'>
+      <div className="header">
         <div className="heading shadow-lg shadow-black font-semibold text-2xl">
           <h1>PrepSmart</h1>
           <div className="rtime">
-            <Timer interviewTime={1800} setTestRun={setTestRun} testRun={testRun} />
+            <Timer
+              interviewTime={1800}
+              setTestRun={setTestRun}
+              testRun={testRun}
+            />
           </div>
-          
+
           {/* Profile Dropdown */}
           <div className="flex font-semibold relative items-center justify-end gap-3">
             <div
@@ -271,65 +287,89 @@ const TechnicalInterview = ({ permissions, showProfile }) => {
 
       {/* Main Container */}
       <div className="technical-interview-container">
-        
         {/* Left Section: Questions */}
         <div className="question-section">
-          <h2 style={{ fontWeight: 'bold' }}>Technical Interview</h2>
+          <h2 className="text-2xl font-semibold">Technical Interview</h2>
 
-          <h2 style={{ fontWeight: 'bold'}}>
-              Level: <span className={`difficulty-${difficulty.toLowerCase()}`}>
-                {difficulty.charAt(0).toUpperCase() + difficulty.slice(1)}
-              </span>
-            </h2>
-          
+          <h2 style={{ fontWeight: 'bold' }}>
+            Level:{' '}
+            <span className={`difficulty-${difficulty.toLowerCase()}`}>
+              {difficulty.charAt(0).toUpperCase() + difficulty.slice(1)}
+            </span>
+          </h2>
 
-
-          <div className="difficulty-selection">
-            <label style={{ fontWeight: 'bold' }}>Change Difficulty Level: </label>
-            <select value={difficulty || ''} onChange={(e) => setDifficulty(e.target.value)}>
-            <option value="">Select Difficulty Level</option>
+          <div className="difficulty-selection flex gap-2 items-center">
+            <div className="font-semibold">Change Difficulty Level: </div>
+            <select
+              className="outline-none p-2 border rounded-md"
+              value={difficulty || ''}
+              onChange={(e) => setDifficulty(e.target.value)}
+            >
+              <option value="">Select Difficulty Level</option>
               <option value="easy">Easy</option>
               <option value="medium">Medium</option>
               <option value="hard">Hard</option>
             </select>
           </div>
-          <div className='questions-queue' style = {{marginTop:'12px'}}>
-            <button className = 'arrow' onClick={previousQuestion} disabled={currentQuestionIndex === 0}> {"<"} </button>
-            <div className='queue-numbers'>
-              {queue.map((_,index) => (
-                <div key = {index}
-                className={`queue-number ${index === currentQuestionIndex ? 'current' : ''}`}
-                onClick={() => setCurrentQuestionIndex(index)}
+          <div
+            className="questions-queue flex justify-center gap-2"
+            style={{ marginTop: '12px' }}
+          >
+            <button
+              className="arrow"
+              onClick={previousQuestion}
+              disabled={currentQuestionIndex === 0}
+            >
+              <img src={leftIcon} alt="left-icon" className="w-6" />
+            </button>
+            <div className="queue-numbers">
+              {queue.map((_, index) => (
+                <div
+                  key={index}
+                  className={`queue-number ${index === currentQuestionIndex ? 'current' : ''}`}
+                  onClick={() => setCurrentQuestionIndex(index)}
                 >
                   {index + 1}
                 </div>
               ))}
             </div>
-            <button className = 'arrow' onClick={nextQuestion} disabled={currentQuestionIndex === questions.length - 1}>{">"}</button>
+            <button
+              className="arrow"
+              onClick={nextQuestion}
+              disabled={currentQuestionIndex === questions.length - 1}
+            >
+              <img src={rightIcon} alt="right-icon" className="w-6" />
+            </button>
           </div>
           {/* Display the current question */}
           {questions.length > 0 && (
-          <div>
-            <h3 style={{display: 'inline-flex'}}>Question: {questions[currentQuestionIndex].title}</h3>
-            <button className="SpchBtn" onClick={handleSpeech} style={{ marginLeft: '8px' }}>
-                <img src={SpchLogo} alt="Speech" className="SpchBtnImage" />
-              </button>
-              
-            <div >
-              <p >{questions[currentQuestionIndex].description}</p>
-             
-            </div>
-          </div>
-        )}
+            <div className="">
+              <div class="flex  items-center">
+                <h3 style={{ display: 'inline-flex' }}>
+                  Question: {questions[currentQuestionIndex].title}
+                </h3>
+                <button
+                  className="SpchBtn"
+                  onClick={handleSpeech}
+                  style={{ marginLeft: '8px' }}
+                >
+                  <img src={SpchLogo} alt="Speech" className="SpchBtnImage" />
+                </button>
+              </div>
 
+              <div>
+                <p>{questions[currentQuestionIndex].description}</p>
+              </div>
+            </div>
+          )}
         </div>
 
         {/* Right Section: Answer Input */}
         <div className="answer-section">
-          <TechAnswerInputs 
+          <TechAnswerInputs
             permissions={permissions}
             saveAnswer={saveAnswer}
-            currentAnswer={answers[questions[currentQuestionIndex]?._id] || ''} 
+            currentAnswer={answers[questions[currentQuestionIndex]?._id] || ''}
             onSubmitAnswers={submitAnswers}
             currentQuestionIndex={currentQuestionIndex}
             questionId={questions[currentQuestionIndex]?._id}
