@@ -14,34 +14,24 @@ Mohan Nakka
 Sai Charan Golla  
 Sujith Chinnam
 
-Project Sprint 1 Team Assignment (initial will be updated according to the tasks done) -
-
-1. User Registration and Login  
-   -Sujith Chinnam, Goutham Malasani
-2. User Frontend Dashboard  
-   -Sujith Chinnam,Vivek Gaddam,Sai Charan Golla
-3. Mongo DB to store User Data, AI generated Questions,
-   Interview Session Storage  
-   -Aakansha Rangdal, Sree Ashrit Dande, Sujith Chinnam
-4. AI Gemini API Coding Q and A generate  
-   -Sree Ashrit Dande, Aakansha Rangdal
-5. Coding IDE platform (Integrate Monaco APi)  
-    -Sree Ashrit Dande, Manudeep Allam, Mohan Nakka
-6. Integrate Piston API / Judge0 API  
-    -Vivek Gaddam, Sree Ashrit Dande, Mohan Nakka, Manudeep Allam
-7. User code test cases verification  
-    -Goutham Malasani, Sai Charan Golla
-8. Display user feedback for test cases passed  
-    -Sai Charan Golla, Mohan Nakka
 
 How to Run Web App with Code Editor Locally -
 
 * Open Terminal and clone Git repository
 * git clone "https://github.com/dandeashrit/ICSI518_Team1_PrepSmart"
-* cd ICSI518_Team1_PrepSmart.
+* cd ICSI518_Team1_PrepSmart
+  
 * First run the backend
 * cd backend
+* npm install
 * node server.js
+
+Backend is deployed at - https://icsi518-team1-prepsmart.onrender.com
+  
 * Open New Terminal to Run Frontend
 * cd frontend
+* npm install
 * npm start
+
+Frontend is deployed initially at - https://cheery-cuchufli-53f4c2.netlify.app/
+
