@@ -3,6 +3,8 @@ import React, { useState, useEffect } from 'react';
 import { Logout } from './logout';
 import { useNavigate } from 'react-router-dom';
 import logo from '../assets/images/logo-nav.png';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEdit } from '@fortawesome/free-solid-svg-icons';
 
 export const NavBar = (props) => {
   const [isProfileOpen, setIsProfileOpen] = useState(false);
@@ -208,8 +210,12 @@ export const NavBar = (props) => {
           </div>
           {isProfileOpen && (
             <div className="p-3 min-w-44 bg-purple-600 text-white text-center absolute top-16 rounded-lg py-3">
-              <div className="" onClick={goToProfile}>
+              <div className="cursor-pointer hover:text-white-400 hover:underline" onClick={goToProfile}>
                 {userName}
+                <FontAwesomeIcon 
+                  icon={faEdit} 
+                  className="text-white-400 hover:text-gray-300"
+                />
               </div>
               <div id="profile-email">{email}</div>
               <hr />

@@ -166,6 +166,7 @@ const ProfilePage = () => {
             </div>
           ))}
           <button
+            className = 'profileButton'
             type="button"
             onClick={() => addEntry("experiences", { role: "", company: "", duration: "", description: "" })}
           >
@@ -205,6 +206,7 @@ const ProfilePage = () => {
             </div>
           ))}
           <button
+            className = 'profileButton'
             type="button"
             onClick={() => addEntry("education", { school: "", degree: "", year: "" })}
           >
@@ -228,6 +230,7 @@ const ProfilePage = () => {
             </div>
           ))}
           <button
+            className = 'profileButton'
             type="button"
             onClick={() => addEntry("skills", { name: "" })}
           >
@@ -266,6 +269,7 @@ const ProfilePage = () => {
             </div>
           ))}
           <button
+            className = 'profileButton'
             type="button"
             onClick={() => addEntry("projects", { name: "", description: "", technologies: "" })}
           >
@@ -273,7 +277,7 @@ const ProfilePage = () => {
           </button>
         </div>
 
-        <button type="button" onClick={saveProfile}>
+        <button type="button" className = 'profileButton' onClick={saveProfile}>
           Save Profile
         </button>
       </form>
