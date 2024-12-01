@@ -41,37 +41,6 @@ app.use('/api/tech', techQnRoutes);
 app.use('/api/user', userRoutes);
 app.use(express.json());
 app.use('/api/profile', profile);
-// Google Sign-In Route
-// app.post('/auth/google', async (req, res) => {
-//   const { token } = req.body;
-
-//   try {
-//     // Verify the token using Firebase Admin SDK
-//     const decodedToken = await admin.auth().verifyIdToken(token);
-//     const { email, name, uid } = decodedToken;
-
-//     // Check if the user already exists in MongoDB
-//     let user = await User.findOne({ googleId: uid });
-
-//     if (!user) {
-//       // Create a new user if not found
-//       user = new User({
-//         googleId: uid,
-//         email,
-//         name,
-//         provider: 'google',
-//       });
-//       await user.save();
-//     }
-
-//     // Send response with user data
-//     res.status(200).json({ message: 'Login successful', user });
-//   } catch (error) {
-//     console.error('Error during Google authentication:', error);
-//     res.status(500).json({ error: 'Google authentication failed' });
-//   }
-// });
-
 
 // Code submission endpoint
 app.post('/api/submit', async (req, res) => {
