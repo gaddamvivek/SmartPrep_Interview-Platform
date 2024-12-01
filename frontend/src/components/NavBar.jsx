@@ -21,7 +21,7 @@ export const NavBar = (props) => {
   };
 
   const handleDropdownToggle = () => {
-    if(localStorage.getItem('positionPath')){
+    if (localStorage.getItem('positionPath')) {
       localStorage.removeItem('positionPath');
       localStorage.removeItem('companySelected');
     }
@@ -45,7 +45,7 @@ export const NavBar = (props) => {
     } else if (menu === 'ByRole') {
       // Find the role from the roles array
       const selectedRole = roles.find((role) => role.title === option);
-  
+
       // Ensure selectedRole exists before accessing its properties
       if (selectedRole) {
         if (isLoggedIn) {
@@ -53,7 +53,7 @@ export const NavBar = (props) => {
           localStorage.setItem('selectedRole', selectedRole.title); // Correct property access
           localStorage.setItem('selectedRound', selectedRole.roundType);
           localStorage.setItem('positionPath', true);
-  
+
           // Navigate to details page
           navigate('/interviewdetails');
         } else {
@@ -63,19 +63,17 @@ export const NavBar = (props) => {
         console.error('Role not found:', option);
       }
     }
-  
+
     setIsDropdownOpen(false); // Close dropdown after navigation
     setOpenSubmenu(null); // Close submenu
   };
 
-
   const handleNewInterview = () => {
     if (localStorage.getItem('logindata')) {
-      if(localStorage.getItem('positionPath'))
-          localStorage.removeItem('positionPath');
+      if (localStorage.getItem('positionPath'))
+        localStorage.removeItem('positionPath');
       navigate('/interviewdetails');
-    }
-    else navigate('/login');
+    } else navigate('/login');
   };
 
   const showNewInterview = props.showNewInterview || false;
@@ -92,9 +90,7 @@ export const NavBar = (props) => {
   const handleSignIn = () => {
     if (localStorage.getItem('logindata')) {
       navigate('/dashboard');
-
-    }
-    else navigate('/login');
+    } else navigate('/login');
   };
 
   const handleHome = () => {
@@ -112,11 +108,11 @@ export const NavBar = (props) => {
     { title: 'Software Technical', roundType: 'Technical' },
   ];
   const goToProfile = () => {
-    navigate("/profile");
+    navigate('/profile');
   };
 
   return (
-    <nav className="relative grid grid-cols-3 justify-between font-rubik items-center p-4 shadow-lg">
+    <nav className="relative flex justify-between font-rubik items-center p-4 shadow-lg">
       {/* Logo Section */}
       <div
         onClick={handleHome}
@@ -148,7 +144,9 @@ export const NavBar = (props) => {
                       <div
                         key={company}
                         className="px-4 py-2 cursor-pointer hover:bg-gray-100"
-                        onClick={() => handleSubmenuOption('ByCompany', company)}
+                        onClick={() =>
+                          handleSubmenuOption('ByCompany', company)
+                        }
                       >
                         {company}
                       </div>
@@ -169,7 +167,9 @@ export const NavBar = (props) => {
                       <div
                         key={role}
                         className="px-4 py-2 cursor-pointer hover:bg-gray-100"
-                        onClick={() => handleSubmenuOption('ByRole', role.title)}
+                        onClick={() =>
+                          handleSubmenuOption('ByRole', role.title)
+                        }
                       >
                         {role.title}
                       </div>
@@ -205,15 +205,21 @@ export const NavBar = (props) => {
       {/* Profile Section */}
       {showProfile && (
         <div className="flex font-semibold relative items-center justify-end gap-3">
-          <div onClick={handleProfileButton} className="relative cursor-pointer">
+          <div
+            onClick={handleProfileButton}
+            className="relative cursor-pointer"
+          >
             Profile
           </div>
           {isProfileOpen && (
             <div className="p-3 min-w-44 bg-purple-600 text-white text-center absolute top-16 rounded-lg py-3">
-              <div className="cursor-pointer hover:text-white-400 hover:underline" onClick={goToProfile}>
-                {userName}
-                <FontAwesomeIcon 
-                  icon={faEdit} 
+              <div
+                className="cursor-pointer hover:text-white-400 hover:underline"
+                onClick={goToProfile}
+              >
+                <span className="m-2">{userName}</span>
+                <FontAwesomeIcon
+                  icon={faEdit}
                   className="text-white-400 hover:text-gray-300"
                 />
               </div>

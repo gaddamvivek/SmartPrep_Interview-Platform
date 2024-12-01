@@ -3,8 +3,8 @@ import Editor from '@monaco-editor/react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom'; // For navigation after timeout
 import PropTypes from 'prop-types';
-import ReactMarkdown from "react-markdown"; // For parsing AI messages from Gemini
-import remarkGfm from "remark-gfm";
+import ReactMarkdown from 'react-markdown'; // For parsing AI messages from Gemini
+import remarkGfm from 'remark-gfm';
 
 const IDE = ({ QuestionId, savedCode, handleSaveCode, savedCodeMap }) => {
   const [code, setCode] = useState('');
@@ -67,7 +67,9 @@ const IDE = ({ QuestionId, savedCode, handleSaveCode, savedCodeMap }) => {
   useEffect(() => {
     const fetchQuestion = async () => {
       try {
-        const res = await axios.get(`http://localhost:5001/api/Questions/${QuestionId}`);
+        const res = await axios.get(
+          `http://localhost:5001/api/Questions/${QuestionId}`
+        );
         setTestCases(res.data.testCases);
       } catch (error) {
         console.error('Error fetching Question:', error);
@@ -106,13 +108,16 @@ const IDE = ({ QuestionId, savedCode, handleSaveCode, savedCodeMap }) => {
 
   const handleSubmit = async () => {
     try {
-      const result = await axios.post('http://localhost:5001/api/auth/testsubmit', {
-        solutions: savedCodeMap
-      });
-      console.log("Server response:", result.data);
+      const result = await axios.post(
+        'http://localhost:5001/api/auth/testsubmit',
+        {
+          solutions: savedCodeMap,
+        }
+      );
+      console.log('Server response:', result.data);
 
       if (result) {
-        console.log("Question and saved for testing");
+        console.log('Question and saved for testing');
       }
 
       setSubmitted(true);
@@ -132,7 +137,8 @@ const IDE = ({ QuestionId, savedCode, handleSaveCode, savedCodeMap }) => {
       });
 
       const { stdout, stderr, status } = res.data;
-      const outputResult = stdout || stderr || `Execution status: ${status.description}`;
+      const outputResult =
+        stdout || stderr || `Execution status: ${status.description}`;
       setOutput(outputResult);
 
       const passedTestCases = res.data.passedTestCases || testCases.length;
@@ -172,21 +178,24 @@ const IDE = ({ QuestionId, savedCode, handleSaveCode, savedCodeMap }) => {
       localStorage.removeItem('selectedRound');
       localStorage.removeItem('companySelected');
 
-      const result = await axios.post('http://localhost:5001/api/auth/sessions', {
-        userEmail: userEmail,
-        preparationName: prName,
-        positionName: position,
-        prepDiff: diff,
-        sessionStartDate: startDate,
-        sessionEndDate: formattedDate,
-        sessionStartTime: startTime,
-        sessionEndTime: formattedTime,
-        timeTaken: formattedTimeTaken,
-        solutions: savedCodeMap
-      });
+      const result = await axios.post(
+        'http://localhost:5001/api/auth/sessions',
+        {
+          userEmail: userEmail,
+          preparationName: prName,
+          positionName: position,
+          prepDiff: diff,
+          sessionStartDate: startDate,
+          sessionEndDate: formattedDate,
+          sessionStartTime: startTime,
+          sessionEndTime: formattedTime,
+          timeTaken: formattedTimeTaken,
+          solutions: savedCodeMap,
+        }
+      );
 
       if (result) {
-        console.log("Session saved");
+        console.log('Session saved');
       }
 
       navigate('/feedback', {
@@ -197,7 +206,7 @@ const IDE = ({ QuestionId, savedCode, handleSaveCode, savedCodeMap }) => {
           totalTestCases: testResults?.total || 0,
           questionId: QuestionId,
           solution: code,
-        }
+        },
       });
 
       alert('Session data saved successfully!');
@@ -209,12 +218,17 @@ const IDE = ({ QuestionId, savedCode, handleSaveCode, savedCodeMap }) => {
 
   const handleGetAIFeedback = async () => {
     try {
-      setFeedbackContent("Generating AI feedback.... might take a minute... please wait");
+      setFeedbackContent(
+        'Generating AI feedback.... might take a minute... please wait'
+      );
       setShowFeedbackModal(true);
-      const response = await axios.post('http://localhost:5001/api/Questions/feedback', {
-        sourceCode: code,
-        questionId: QuestionId,
-      });
+      const response = await axios.post(
+        'http://localhost:5001/api/Questions/feedback',
+        {
+          sourceCode: code,
+          questionId: QuestionId,
+        }
+      );
 
       const feedback = response.data.feedback;
       setFeedbackContent(feedback);
@@ -228,28 +242,34 @@ const IDE = ({ QuestionId, savedCode, handleSaveCode, savedCodeMap }) => {
   return (
     <div className="relative">
       <div className="relative">
-        <div className="relative top-0 right-0 flex items-center gap-2 p-2">
-          <label htmlFor="fontSize" className="font-semibold">
-            Font Size:
-          </label>
-          <select
-            id="fontSize"
-            value={fontSize}
-            onChange={handleFontSizeChange}
-          >
-            <option value={14}>14</option>
-            <option value={16}>16</option>
-            <option value={18}>18</option>
-            <option value={20}>20</option>
-            <option value={22}>22</option>
-            <option value={24}>24</option>
-          </select>
+        <div class="flex justify-between items-center">
+          <h2 class="text-2xl font-semibold">
+            <span className="text-green-500">{`</>`}</span>Code
+          </h2>
+          <div className="flex items-center gap-2 p-2">
+            <div htmlFor="fontSize" className="font-semibold flex items-center">
+              Font Size:
+            </div>
+            <select
+              id="fontSize"
+              value={fontSize}
+              onChange={handleFontSizeChange}
+              className="outlino-none border border-gray-300 rounded-md p-1"
+            >
+              <option value={14}>14</option>
+              <option value={16}>16</option>
+              <option value={18}>18</option>
+              <option value={20}>20</option>
+              <option value={22}>22</option>
+              <option value={24}>24</option>
+            </select>
+          </div>
         </div>
         <Editor
           height="500px"
           defaultLanguage="python"
           options={{
-            fontSize: fontSize
+            fontSize: fontSize,
           }}
           value={code}
           onChange={(value) => setCode(value)}
@@ -260,11 +280,15 @@ const IDE = ({ QuestionId, savedCode, handleSaveCode, savedCodeMap }) => {
         <p>Code Editor</p>
         <button onClick={handleSave}>Save Code</button>
         <button onClick={handleSubmit}>Submit</button>
-        {submitted && (<button onClick={handleGetAIFeedback}>AI feedback</button>)}
+        {submitted && (
+          <button onClick={handleGetAIFeedback}>AI feedback</button>
+        )}
         <button onClick={handleEndTest}>End Test</button>
       </div>
       {saveMessage && (
-        <p className="text-green-700 text-lg font-semibold mt-2">{saveMessage}</p>
+        <p className="text-green-700 text-lg font-semibold mt-2">
+          {saveMessage}
+        </p>
       )}
       {showFeedbackModal && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
