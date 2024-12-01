@@ -101,7 +101,7 @@ export const InterviewDetails = () => {
   };
 
   return (
-    <div class="">
+    <div className="">
       <NavBar showProfile={true} />
       <div className="interviewDetails">
         <form className="formcss" onSubmit={handleSubmit}>
@@ -145,14 +145,18 @@ export const InterviewDetails = () => {
                   {role}
                 </div>
                 <div>
-                  <input
-                    type="radio"
-                    name="voiceType"
-                    value="Male"
-                    checked={voiceType === 'Male'}
-                    onChange={(e) => setVoiceType(e.target.value)}
-                  />
-                  Male US-English
+                  <div className=" font-semibold">Choose Voice Type:</div>
+                  <div class="flex">
+                    <input
+                      type="radio"
+                      name="voiceType"
+                      id='Male'
+                      value="Male"
+                      checked={voiceType === 'Male'}
+                      onChange={(e) => setVoiceType(e.target.value)}
+                    />
+                    <label htmlFor="Male">Male US-English</label>
+                  </div>
                   <br />
                   <input
                     type="radio"
@@ -209,6 +213,7 @@ export const InterviewDetails = () => {
                       </select>
                     </div>
                     <div>
+                      Choose Voice Type:
                       <input
                         type="radio"
                         name="voiceType"
