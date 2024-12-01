@@ -191,10 +191,14 @@ const Question = ({ setQuestionId }) => {
       <div className='questions-queue' style = {{marginTop:'12px'}}>
             <button className = 'arrow' onClick={handlePrevious} disabled={currentQuestionIndex === 0}> {"<"} </button>
             <div className='queue-numbers'>
-              {queue.map((_,index) => (
-                <div key = {index}
-                className={`queue-number ${index === currentQuestionIndex ? 'current' : ''}`}
-                onClick={() => setCurrentQuestionIndex(index)}
+              {queue.map((_, index) => (
+                <div
+                  key={index}
+                  className={`queue-number ${index === currentQuestionIndex ? 'current' : ''}`}
+                  onClick={() => {
+                    setCurrentQuestionIndex(index);
+                    setQuestionId(questions[index]._id); // Update the question ID whenever the index changes
+                  }}
                 >
                   {index + 1}
                 </div>
