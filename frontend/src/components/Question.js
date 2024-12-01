@@ -27,7 +27,8 @@ const Question = ({ setQuestionId }) => {
   const fetchQuestions = async (selectedDifficulty) => {
     try {
       let position = localStorage.getItem('selectedPosition');
-      const res = await axios.get(`http://localhost:5001/api/questions/Random?difficulty=${selectedDifficulty}&position=${position}`);
+      let companyName = localStorage.getItem('companySelected');
+      const res = await axios.get(`http://localhost:5001/api/questions/Random?difficulty=${selectedDifficulty}&position=${position}&company=${companyName}`);
       const fetchedQuestions = res.data;
       setQuestions(fetchedQuestions);
       setQueue(fetchedQuestions);

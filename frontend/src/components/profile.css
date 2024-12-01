@@ -59,7 +59,7 @@ input[disabled] {
 }
 
 /* Add section buttons */
-button[type="button"] {
+.profileButton {
   margin-top: 10px;
   padding: 8px 12px;
   background-color: #007bff;
@@ -70,17 +70,17 @@ button[type="button"] {
   transition: background-color 0.3s ease;
 }
 
-button[type="button"]:hover {
-  background-color: #0056b3;
+.profileButton:hover {
+  background-color: #433878;
 }
 
 /* Save profile button */
-button[type="button"]:last-child {
-  background-color: #28a745;
+.profileButton:last-child {
+  background-color: #7e60bf;
 }
 
-button[type="button"]:last-child:hover {
-  background-color: #1e7e34;
+.profileButton:last-child:hover {
+  background-color: #433878;
 }
 
 /* Section containers */
