@@ -242,23 +242,28 @@ const IDE = ({ QuestionId, savedCode, handleSaveCode, savedCodeMap }) => {
   return (
     <div className="relative">
       <div className="relative">
-        <div className="flex items-center gap-2 p-2">
-          <div htmlFor="fontSize" className="font-semibold flex items-center">
-            Font Size:
+        <div class="flex justify-between items-center">
+          <h2 class="text-2xl font-semibold">
+            <span className="text-green-500">{`</>`}</span>Code
+          </h2>
+          <div className="flex items-center gap-2 p-2">
+            <div htmlFor="fontSize" className="font-semibold flex items-center">
+              Font Size:
+            </div>
+            <select
+              id="fontSize"
+              value={fontSize}
+              onChange={handleFontSizeChange}
+              className="outlino-none border border-gray-300 rounded-md p-1"
+            >
+              <option value={14}>14</option>
+              <option value={16}>16</option>
+              <option value={18}>18</option>
+              <option value={20}>20</option>
+              <option value={22}>22</option>
+              <option value={24}>24</option>
+            </select>
           </div>
-          <select
-            id="fontSize"
-            value={fontSize}
-            onChange={handleFontSizeChange}
-            className="outlino-none border border-gray-300 rounded-md p-1"
-          >
-            <option value={14}>14</option>
-            <option value={16}>16</option>
-            <option value={18}>18</option>
-            <option value={20}>20</option>
-            <option value={22}>22</option>
-            <option value={24}>24</option>
-          </select>
         </div>
         <Editor
           height="500px"
