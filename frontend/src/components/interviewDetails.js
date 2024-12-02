@@ -146,26 +146,32 @@ export const InterviewDetails = () => {
                 </div>
                 <div>
                   <div className=" font-semibold">Choose Voice Type:</div>
-                  <div className="flex">
+                  <div className="flex items-center gap-2">
                     <input
                       type="radio"
                       name="voiceType"
-                      id='Male'
+                      id="Male"
                       value="Male"
                       checked={voiceType === 'Male'}
                       onChange={(e) => setVoiceType(e.target.value)}
                     />
-                    <label htmlFor="Male">Male US-English</label>
+                    <label className="flex items-center my-auto" htmlFor="Male">
+                      Male US-English
+                    </label>
                   </div>
-                  <br />
-                  <input
-                    type="radio"
-                    name="voiceType"
-                    value="Female"
-                    checked={voiceType === 'Female'}
-                    onChange={(e) => setVoiceType(e.target.value)}
-                  />
-                  Female UK-English
+                  <div className="flex items-center gap-2">
+                    <input
+                      type="radio"
+                      name="voiceType"
+                      value="Female"
+                      id="Female"
+                      checked={voiceType === 'Female'}
+                      onChange={(e) => setVoiceType(e.target.value)}
+                    />
+                    <label className="my-auto" htmlFor="Female">
+                      Female UK-English
+                    </label>
+                  </div>
                 </div>
               </div>
             ) : (
@@ -213,24 +219,36 @@ export const InterviewDetails = () => {
                       </select>
                     </div>
                     <div>
-                      Choose Voice Type:
-                      <input
-                        type="radio"
-                        name="voiceType"
-                        value="Male"
-                        checked={voiceType === 'Male'}
-                        onChange={(e) => setVoiceType(e.target.value)}
-                      />
-                      Male US-English
-                      <br />
-                      <input
-                        type="radio"
-                        name="voiceType"
-                        value="Female"
-                        checked={voiceType === 'Female'}
-                        onChange={(e) => setVoiceType(e.target.value)}
-                      />
-                      Female UK-English
+                      <div className=" font-semibold">Choose Voice Type:</div>
+                      <div className="flex items-center gap-2">
+                        <input
+                          type="radio"
+                          name="voiceType"
+                          id="Male"
+                          value="Male"
+                          checked={voiceType === 'Male'}
+                          onChange={(e) => setVoiceType(e.target.value)}
+                        />
+                        <label
+                          className="flex items-center my-auto"
+                          htmlFor="Male"
+                        >
+                          Male US-English
+                        </label>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <input
+                          type="radio"
+                          name="voiceType"
+                          value="Female"
+                          id="Female"
+                          checked={voiceType === 'Female'}
+                          onChange={(e) => setVoiceType(e.target.value)}
+                        />
+                        <label className="my-auto" htmlFor="Female">
+                          Female UK-English
+                        </label>
+                      </div>
                     </div>
                   </div>
                 )}
@@ -254,23 +272,36 @@ export const InterviewDetails = () => {
                       </select>
                     </div>
                     <div>
-                      <input
-                        type="radio"
-                        name="voiceType"
-                        value="Male"
-                        checked={voiceType === 'Male'}
-                        onChange={(e) => setVoiceType(e.target.value)}
-                      />
-                      Male US-English
-                      <br />
-                      <input
-                        type="radio"
-                        name="voiceType"
-                        value="Female"
-                        checked={voiceType === 'Female'}
-                        onChange={(e) => setVoiceType(e.target.value)}
-                      />
-                      Female UK-English
+                      <div className=" font-semibold">Choose Voice Type:</div>
+                      <div className="flex items-center gap-2">
+                        <input
+                          type="radio"
+                          name="voiceType"
+                          id="Male"
+                          value="Male"
+                          checked={voiceType === 'Male'}
+                          onChange={(e) => setVoiceType(e.target.value)}
+                        />
+                        <label
+                          className="flex items-center my-auto"
+                          htmlFor="Male"
+                        >
+                          Male US-English
+                        </label>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <input
+                          type="radio"
+                          name="voiceType"
+                          value="Female"
+                          id="Female"
+                          checked={voiceType === 'Female'}
+                          onChange={(e) => setVoiceType(e.target.value)}
+                        />
+                        <label className="my-auto" htmlFor="Female">
+                          Female UK-English
+                        </label>
+                      </div>
                     </div>
                   </div>
                 )}
