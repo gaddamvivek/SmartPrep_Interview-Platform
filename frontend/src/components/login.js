@@ -43,10 +43,11 @@ export const LoginSignup = () => {
       return;
     }
     try {
-      const result = await axios.post('http://localhost:5001/api/auth/login', {
+      const result = await axios.post('https://icsi518-team1-prepsmart.onrender.com/api/auth/login', {
         email,
         password,
       });
+      // 'http://localhost:5001/api/auth/login'
       if (result) {
         window.localStorage.setItem('isLoggedIn', true);
         localStorage.setItem(

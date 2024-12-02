@@ -78,13 +78,15 @@ export const Signup = () => {
     }
 
     try {
-      const result = await axios.post('http://localhost:5001/api/auth/register', {
+      const result = await axios.post('https://icsi518-team1-prepsmart.onrender.com/api/auth/register', {
         fname,
         lname,
         username,
         email,
         password,
       });
+      // 'http://localhost:5001/api/auth/register'
+      
       if (result) alert('Registration Successful');
       navigate('/');
       // Reset form fields

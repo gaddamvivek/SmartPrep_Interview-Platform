@@ -11,7 +11,8 @@ const InterviewLogs = ({ email }) => {
     const fetchLogs = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:5001/api/user/interviewlogs?email=${email}`
+          `https://icsi518-team1-prepsmart.onrender.com/api/user/interviewlogs?email=${email}`
+          //`http://localhost:5001/api/user/interviewlogs?email=${email}`
         );
         console.log('Logs fetched:', response.data); // Debug logs
         setLogs(response.data);

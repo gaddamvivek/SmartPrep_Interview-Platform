@@ -32,11 +32,11 @@ const InterviewLogTable = ({ data, title }) => {
   return (
     <ul className="divide-y rounded-xl bg-[#d2bceb] p-2 m-auto divide-gray-300 shadow-gray-500 shadow-lg">
       <li className="grid grid-cols-5 text-xl font-bold p-2">
-        <p>Name</p>
-        <p>Position</p>
-        <p>Difficulty</p>
-        <p>Date</p>
-        <p>Time Taken</p>
+        <p className="truncate" title='Name'>Name</p>
+        <p className="truncate" title='Position'>Position</p>
+        <p className="truncate" title='Difficulty'>Difficulty</p>
+        <p className="truncate" title='Date'>Date</p>
+        <p className="truncate" title='Time Taken'>Time Taken</p>
       </li>
       {data.map((item, index) => (
         <li
@@ -44,11 +44,11 @@ const InterviewLogTable = ({ data, title }) => {
           key={index}
           className="grid cursor-pointer grid-cols-5 text-nowrap text-lg p-2 hover:bg-[#e0c3d4]"
         >
-          <p>{item.preparationName}</p>
-          <p>{item.positionName}</p>
-          <p>{item.prepDiff}</p>
-          <p>{item.sessionStartDate}</p>
-          <p>{item.timeTaken}</p>
+          <p className="truncate" title={item.preparationName}>{item.preparationName}</p>
+          <p className="truncate" title={item.positionName}>{item.positionName}</p>
+          <p className="truncate" title={item.preoDiff}>{item.prepDiff}</p>
+          <p className="truncate" title={item.sessionStartDate}>{item.sessionStartDate}</p>
+          <p className="truncate" title={item.timeTaken}>{item.timeTaken}</p>
         </li>
       ))}
     </ul>
