@@ -344,7 +344,7 @@ const TechnicalInterview = ({ permissions, showProfile }) => {
           {/* Display the current question */}
           {questions.length > 0 && (
             <div className="">
-              <div class="flex  items-center">
+              <div className="flex  items-center">
                 <h3 style={{ display: 'inline-flex' }}>
                   Question: {questions[currentQuestionIndex].title}
                 </h3>

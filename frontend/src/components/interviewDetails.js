@@ -146,7 +146,7 @@ export const InterviewDetails = () => {
                 </div>
                 <div>
                   <div className=" font-semibold">Choose Voice Type:</div>
-                  <div class="flex">
+                  <div className="flex">
                     <input
                       type="radio"
                       name="voiceType"

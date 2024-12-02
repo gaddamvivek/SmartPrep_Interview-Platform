@@ -181,7 +181,7 @@ const Question = ({ setQuestionId }) => {
         </span>
       </h2>
       <div>
-        <div class="flex items-center gap-2">
+        <div className="flex items-center gap-2">
           <h2 style={{ fontWeight: 'bold' }}>Change Difficulty Level: </h2>
           <div className="p-1 bg-white rounded-md border">
             <select
@@ -243,7 +243,7 @@ const Question = ({ setQuestionId }) => {
         </div>
 
         <h3 className="font-semibold text-lg">
-          <span class="text-gray-700">Question:</span>{' '}
+          <span className="text-gray-700">Question:</span>{' '}
           {questions[currentQuestionIndex].title}
         </h3>
 
@@ -251,7 +251,7 @@ const Question = ({ setQuestionId }) => {
           <p style={{ margin: 0 }}>
             {questions[currentQuestionIndex].description}
           </p>
-          <div class="p-2 hover:bg-purple-400 rounded-md w-fit">
+          <div className="p-2 hover:bg-purple-400 rounded-md w-fit">
             <img
               src={SpchLogo}
               alt="Speech"

@@ -6,14 +6,13 @@ import './feedback.css';
 const FeedbackPage = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const { userId, prName, passedTestCases, totalTestCases, userName } =
-    location.state || {
-      userId: '',
-      prName: '',
-      passedTestCases: 0,
-      totalTestCases: 0,
-      userName: '',
-    };
+  const { userId, prName, userName } = location.state || {
+    userId: '',
+    prName: '',
+    passedTestCases: 0,
+    totalTestCases: 0,
+    userName: '',
+  };
 
   const [sessionDetails, setSessionDetails] = useState([]);
   const [selectedQuestionIndex, setSelectedQuestionIndex] = useState(0);

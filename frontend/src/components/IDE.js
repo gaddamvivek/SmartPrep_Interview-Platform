@@ -242,8 +242,8 @@ const IDE = ({ QuestionId, savedCode, handleSaveCode, savedCodeMap }) => {
   return (
     <div className="relative">
       <div className="relative">
-        <div class="flex justify-between items-center">
-          <h2 class="text-2xl font-semibold">
+        <div className="flex justify-between items-center">
+          <h2 className="text-2xl font-semibold">
             <span className="text-green-500">{`</>`}</span>Code
           </h2>
           <div className="flex items-center gap-2 p-2">
