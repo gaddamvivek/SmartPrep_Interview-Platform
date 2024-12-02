@@ -116,8 +116,8 @@ const CompanyPage = () => {
       <div className="p-8">
         <div className="flex flex-col w-full h-full sm:flex-row items-center sm:items-start justify-start gap-8 mb-12">
           <div className="bg-white h-dvh w-full flex shadow-lg rounded-lg p-6 text-center sm:w-1/3">
-            <div class="w-full h-1/2 flex flex-col justify-between">
-              <div class="">
+            <div className="w-full h-1/2 flex flex-col justify-between">
+              <div className="">
                 <div className="mb-6">
                   <img
                     src={company.logo}
@@ -155,7 +155,7 @@ const CompanyPage = () => {
                     className="w-16 h-16 rounded-full object-cover grayscale group-hover:grayscale-0"
                   />
                 </div>
-                <div class="my-2">
+                <div className="my-2">
                   <h2 className="text-lg font-medium text-gray-800 text-center">
                     {role.title}
                   </h2>
