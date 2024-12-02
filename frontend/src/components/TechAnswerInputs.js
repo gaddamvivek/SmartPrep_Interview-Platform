@@ -86,10 +86,11 @@ const TechAnswerInputs = ({ permissions, saveAnswer, currentAnswer, onSubmitAnsw
     try {
       setAiFeedback("Generating Ai feedback.... might take a minute... please wait");
       setShowFeedbackModal(true); 
-      const response = await axios.post(`http://localhost:5001/api/tech/aiFeedback`, {
+      const response = await axios.post(`https://icsi518-team1-prepsmart.onrender.com/api/tech/aiFeedback`, {
         questionId,
         answer: currentAnswer,
       });
+      // `http://localhost:5001/api/tech/aiFeedback`
 
       const feedback = response.data.feedback;
       setAiFeedback(feedback);

@@ -68,8 +68,9 @@ const IDE = ({ QuestionId, savedCode, handleSaveCode, savedCodeMap }) => {
     const fetchQuestion = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:5001/api/Questions/${QuestionId}`
+          `https://icsi518-team1-prepsmart.onrender.com/api/Questions/${QuestionId}`
         );
+        // `http://localhost:5001/api/Questions/${QuestionId}`
         setTestCases(res.data.testCases);
       } catch (error) {
         console.error('Error fetching Question:', error);
@@ -109,7 +110,8 @@ const IDE = ({ QuestionId, savedCode, handleSaveCode, savedCodeMap }) => {
   const handleSubmit = async () => {
     try {
       const result = await axios.post(
-        'http://localhost:5001/api/auth/testsubmit',
+        'https://icsi518-team1-prepsmart.onrender.com/api/auth/testsubmit',
+        // 'http://localhost:5001/api/auth/testsubmit'
         {
           solutions: savedCodeMap,
         }
@@ -131,10 +133,11 @@ const IDE = ({ QuestionId, savedCode, handleSaveCode, savedCodeMap }) => {
     }
 
     try {
-      const res = await axios.post('http://localhost:5001/api/submit', {
+      const res = await axios.post('https://icsi518-team1-prepsmart.onrender.com/api/submit', {
         code: code,
         testCases: testCases,
       });
+      // 'http://localhost:5001/api/submit'
 
       const { stdout, stderr, status } = res.data;
       const outputResult =
@@ -179,7 +182,8 @@ const IDE = ({ QuestionId, savedCode, handleSaveCode, savedCodeMap }) => {
       localStorage.removeItem('companySelected');
 
       const result = await axios.post(
-        'http://localhost:5001/api/auth/sessions',
+        'https://icsi518-team1-prepsmart.onrender.com/api/auth/sessions',
+        //'http://localhost:5001/api/auth/sessions'
         {
           userEmail: userEmail,
           preparationName: prName,
@@ -223,7 +227,8 @@ const IDE = ({ QuestionId, savedCode, handleSaveCode, savedCodeMap }) => {
       );
       setShowFeedbackModal(true);
       const response = await axios.post(
-        'http://localhost:5001/api/Questions/feedback',
+        'https://icsi518-team1-prepsmart.onrender.com/api/Questions/feedback',
+        //'http://localhost:5001/api/Questions/feedback'
         {
           sourceCode: code,
           questionId: QuestionId,

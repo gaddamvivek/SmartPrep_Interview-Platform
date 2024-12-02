@@ -40,8 +40,9 @@ const TechnicalInterview = ({ permissions, showProfile }) => {
       let position = localStorage.getItem('selectedPosition');
       let companyName = localStorage.getItem('companySelected');
       const response = await axios.get(
-        `http://localhost:5001/api/tech/getRandomTechnicalQuestions?difficulty=${difficulty}&position=${position}&company=${companyName}`
+        `https://icsi518-team1-prepsmart.onrender.com/api/tech/getRandomTechnicalQuestions?difficulty=${difficulty}&position=${position}&company=${companyName}`
       );
+     // `http://localhost:5001/api/tech/getRandomTechnicalQuestions?difficulty=${difficulty}&position=${position}&company=${companyName}`
       const fetchedQuestions = response.data.slice(0, 10);
       setQuestions(fetchedQuestions); // Assuming you only want 3 questions at a time
       setQueue(fetchedQuestions);
@@ -186,27 +187,7 @@ const TechnicalInterview = ({ permissions, showProfile }) => {
     return `${hours}h ${minutes}m ${seconds}s`;
   };
 
-  /*const submitAnswers = async () => {
-   // const intervieweeId = '12345'; // Replace with actual interviewee ID
-    const formattedAnswers = Object.keys(answers).map((questionId) => ({
-      questionId,
-      answer: answers[questionId],
-    }));
-
-    try {
-      const totalInterviewTimeInSeconds = 30 * 60 - timeRemaining; // Calculate total time taken in seconds
-      const formattedTimeTaken = formatTime(totalInterviewTimeInSeconds);
-      await axios.post('http://localhost:5001/api/submit-answers', {
-        userEmail:userEmail,
-        timeTaken:formattedTimeTaken,
-        answers: formattedAnswers,
-      });
-      alert('Answers submitted successfully');
-    } catch (error) {
-      console.error('Error submitting answers:', error);
-      alert('Error submitting answers');
-    }
-  };*/
+ 
   const submitAnswers = async () => {
     const today = new Date();
     const formattedDate = `${today.getMonth() + 1}/${today.getDate()}/${today.getFullYear()}`;
@@ -219,7 +200,8 @@ const TechnicalInterview = ({ permissions, showProfile }) => {
       const totalInterviewTimeInSeconds = 30 * 60 - timeRemaining; // Calculate total time taken in seconds
       const formattedTimeTaken = formatTime(totalInterviewTimeInSeconds);
       const result = await axios.post(
-        'http://localhost:5001/api/auth/tsessions',
+        'https://icsi518-team1-prepsmart.onrender.com/api/auth/tsessions',
+        // 'http://localhost:5001/api/auth/tsessions'
         {
           userEmail: userEmail,
           preparationName: prName,

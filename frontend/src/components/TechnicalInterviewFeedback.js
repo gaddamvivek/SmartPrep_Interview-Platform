@@ -30,13 +30,14 @@ const TechnicalInterviewFeedback = () => {
 
     const fetchFeedbackData = async () => {
       try {
-        const response = await axios.get(`http://localhost:5001/api/technicalSession/technicalFeedback`, {
+        const response = await axios.get(`https://icsi518-team1-prepsmart.onrender.com/api/technicalSession/technicalFeedback`, {
           params: {
             userEmail: userEmail,
             preparationName: preparationName
           }
         });
-        
+         // `http://localhost:5001/api/technicalSession/technicalFeedback`
+
         // Additional validation of response
         if (!response.data) {
           setError('No feedback data found for this session.');
@@ -72,8 +73,8 @@ const TechnicalInterviewFeedback = () => {
         preparationName: preparationName
       };
 
-      const response = await axios.post('http://localhost:5001/api/feedback/submit', submissionData);
-
+      const response = await axios.post('https://icsi518-team1-prepsmart.onrender.com/api/feedback/submit', submissionData);
+      // 'http://localhost:5001/api/feedback/submit'
       if (response.status === 201) {
         setMessage('Thank you for your feedback! Redirecting to dashboard...');
         setTimeout(() => {
