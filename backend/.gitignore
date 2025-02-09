@@ -5,3 +5,6 @@
 # environment variables
 .env
 .DS_Store
+
+.firebase-adminsdk-key.json
+.firebase-adminsdk-key.json
