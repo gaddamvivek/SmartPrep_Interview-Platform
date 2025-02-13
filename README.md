@@ -1,20 +1,3 @@
-# ICSI518_Team1
-
-ICSI 518 Fall 2024 Team 1 Group Project
-
-Project - PrepSmart AI, An AI based a Mock Interview Platform
-
-Team Members -  
-Dande Sree Ashrit  
-Allam Manudeep  
-Aakanksha Rangdal  
-Gaddam Vivek  
-Goutham Malasani  
-Mohan Nakka  
-Sai Charan Golla  
-Sujith Chinnam
-
-
 How to Run Web App with Code Editor Locally -
 
 * Open Terminal and clone Git repository
