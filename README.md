@@ -1,3 +1,5 @@
+Application: https://smart-prep-vivek.vercel.app/
+
 How to Run Web App with Code Editor Locally -
 
 * Open Terminal and clone Git repository
@@ -9,12 +11,9 @@ How to Run Web App with Code Editor Locally -
 * npm install
 * node server.js
 
-Backend is deployed at - 
   
 * Open New Terminal to Run Frontend
 * cd frontend
 * npm install
 * npm start
-
-Frontend is deployed initially at - 
 
