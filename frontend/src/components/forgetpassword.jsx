@@ -26,7 +26,7 @@ export const ForgetPassword = () => {
     try {
       console.log(email);
         if(password == confirmPassword){
-          const result = await axios.post('https://icsi518-team1-prepsmart.onrender.com/api/auth/forgetpassword', { email, password});
+          const result = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/auth/forgetpassword`, { email, password});
           // 'http://localhost:5001/api/auth/forgetpassword'
           if(result.status == 200)
             navigate('/login')

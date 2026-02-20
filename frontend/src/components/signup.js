@@ -78,7 +78,7 @@ export const Signup = () => {
     }
 
     try {
-      const result = await axios.post('https://icsi518-team1-prepsmart.onrender.com/api/auth/register', {
+      const result = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/auth/register`, {
         fname,
         lname,
         username,

@@ -6,20 +6,6 @@ export const Home = () => {
     <div className="bg-[#e6dceb]">
       <NavBar showNewInterview={true} showSignIn={true} />
       <main className="p-3">
-        <section className="w-full flex justify-center p-6" id="carousel">
-          <iframe
-            width="560"
-            height="315"
-            src="https://youtube.com/embed/hNtprK5ex6E"
-            title="YouTube video player"
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerPolicy="strict-origin-when-cross-origin"
-            allowFullScreen
-          ></iframe>
-        </section>
-        <hr className="text-slate-600" />
-
         <div className="">
           <div className="max-w-4xl mx-auto p-6 mt-6 bg-[#e6d3eb] rounded-3xl shadow-lg shadow-black font-rubik">
             <h2 className="text-2xl font-bold text-slate-700 justify-between">

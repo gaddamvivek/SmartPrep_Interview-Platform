@@ -68,7 +68,7 @@ const IDE = ({ QuestionId, savedCode, handleSaveCode, savedCodeMap }) => {
     const fetchQuestion = async () => {
       try {
         const res = await axios.get(
-          `https://icsi518-team1-prepsmart.onrender.com/api/Questions/${QuestionId}`
+          `${process.env.REACT_APP_BACKEND_URL}/api/Questions/${QuestionId}`
         );
         // `http://localhost:5001/api/Questions/${QuestionId}`
         setTestCases(res.data.testCases);
@@ -110,7 +110,7 @@ const IDE = ({ QuestionId, savedCode, handleSaveCode, savedCodeMap }) => {
   const handleSubmit = async () => {
     try {
       const result = await axios.post(
-        'https://icsi518-team1-prepsmart.onrender.com/api/auth/testsubmit',
+        `${process.env.REACT_APP_BACKEND_URL}/api/auth/testsubmit`,
         // 'http://localhost:5001/api/auth/testsubmit'
         {
           solutions: savedCodeMap,
@@ -133,7 +133,7 @@ const IDE = ({ QuestionId, savedCode, handleSaveCode, savedCodeMap }) => {
     }
 
     try {
-      const res = await axios.post('https://icsi518-team1-prepsmart.onrender.com/api/submit', {
+      const res = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/submit`, {
         code: code,
         testCases: testCases,
       });
@@ -182,7 +182,7 @@ const IDE = ({ QuestionId, savedCode, handleSaveCode, savedCodeMap }) => {
       localStorage.removeItem('companySelected');
 
       const result = await axios.post(
-        'https://icsi518-team1-prepsmart.onrender.com/api/auth/sessions',
+        `${process.env.REACT_APP_BACKEND_URL}/api/auth/sessions`,
         //'http://localhost:5001/api/auth/sessions'
         {
           userEmail: userEmail,
@@ -227,7 +227,7 @@ const IDE = ({ QuestionId, savedCode, handleSaveCode, savedCodeMap }) => {
       );
       setShowFeedbackModal(true);
       const response = await axios.post(
-        'https://icsi518-team1-prepsmart.onrender.com/api/Questions/feedback',
+        `${process.env.REACT_APP_BACKEND_URL}/api/Questions/feedback`,
         //'http://localhost:5001/api/Questions/feedback'
         {
           sourceCode: code,

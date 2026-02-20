@@ -22,7 +22,7 @@ const GoogleSignInButton = () => {
 
 
       // Send the token to the backend
-      const response = await axios.post('https://icsi518-team1-prepsmart.onrender.com/api/auth/google', { token });
+      const response = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/auth/google`, { token });
       // 'http://localhost:5001/api/auth/google'
 
       if (response.status === 200) {

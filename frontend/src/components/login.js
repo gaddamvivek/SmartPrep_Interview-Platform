@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
+import GoogleSignInButton from './GoogleSignInButton';
 import './loginSignup.css';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
-import GoogleSignInButton from './GoogleSignInButton'; // Import Google Sign-In Button component
 
 export const LoginSignup = () => {
   const [email, setEmail] = useState('');
@@ -43,7 +43,7 @@ export const LoginSignup = () => {
       return;
     }
     try {
-      const result = await axios.post('https://icsi518-team1-prepsmart.onrender.com/api/auth/login', {
+      const result = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/auth/login`, {
         email,
         password,
       });

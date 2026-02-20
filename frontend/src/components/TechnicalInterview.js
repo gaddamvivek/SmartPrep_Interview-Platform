@@ -40,7 +40,7 @@ const TechnicalInterview = ({ permissions, showProfile }) => {
       let position = localStorage.getItem('selectedPosition');
       let companyName = localStorage.getItem('companySelected');
       const response = await axios.get(
-        `https://icsi518-team1-prepsmart.onrender.com/api/tech/getRandomTechnicalQuestions?difficulty=${difficulty}&position=${position}&company=${companyName}`
+        `${process.env.REACT_APP_BACKEND_URL}/api/tech/getRandomTechnicalQuestions?difficulty=${difficulty}&position=${position}&company=${companyName}`
       );
      // `http://localhost:5001/api/tech/getRandomTechnicalQuestions?difficulty=${difficulty}&position=${position}&company=${companyName}`
       const fetchedQuestions = response.data.slice(0, 10);
@@ -200,7 +200,7 @@ const TechnicalInterview = ({ permissions, showProfile }) => {
       const totalInterviewTimeInSeconds = 30 * 60 - timeRemaining; // Calculate total time taken in seconds
       const formattedTimeTaken = formatTime(totalInterviewTimeInSeconds);
       const result = await axios.post(
-        'https://icsi518-team1-prepsmart.onrender.com/api/auth/tsessions',
+        `${process.env.REACT_APP_BACKEND_URL}/api/auth/tsessions`,
         // 'http://localhost:5001/api/auth/tsessions'
         {
           userEmail: userEmail,

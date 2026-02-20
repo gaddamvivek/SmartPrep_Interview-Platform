@@ -13,7 +13,7 @@ export const UserDashboardStats = ({ email }) => {
     console.log('Fetching user stats...');
     try {
       const response = await axios.get(
-        `https://icsi518-team1-prepsmart.onrender.com/api/user/stats?email=${email}`
+        `${process.env.REACT_APP_BACKEND_URL}/api/user/stats?email=${email}`
        // `http://localhost:5001/api/user/stats?email=${email}`
       );
       console.log(response.data);
@@ -28,7 +28,7 @@ export const UserDashboardStats = ({ email }) => {
     console.log('Fetching user streak...');
     try {
       const response = await axios.get(
-        `https://icsi518-team1-prepsmart.onrender.com/api/user/streak?email=${email}`
+        `${process.env.REACT_APP_BACKEND_URL}/api/user/streak?email=${email}`
        // `http://localhost:5001/api/user/streak?email=${email}`
       );
       console.log(response.data);

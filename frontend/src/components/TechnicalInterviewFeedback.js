@@ -30,7 +30,7 @@ const TechnicalInterviewFeedback = () => {
 
     const fetchFeedbackData = async () => {
       try {
-        const response = await axios.get(`https://icsi518-team1-prepsmart.onrender.com/api/technicalSession/technicalFeedback`, {
+        const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/technicalSession/technicalFeedback`, {
           params: {
             userEmail: userEmail,
             preparationName: preparationName
@@ -73,7 +73,7 @@ const TechnicalInterviewFeedback = () => {
         preparationName: preparationName
       };
 
-      const response = await axios.post('https://icsi518-team1-prepsmart.onrender.com/api/feedback/submit', submissionData);
+      const response = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/feedback/submit`, submissionData);
       // 'http://localhost:5001/api/feedback/submit'
       if (response.status === 201) {
         setMessage('Thank you for your feedback! Redirecting to dashboard...');

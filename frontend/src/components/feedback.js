@@ -32,7 +32,7 @@ const FeedbackPage = () => {
 
       try {
         const response = await axios.get(
-          `https://icsi518-team1-prepsmart.onrender.com/api/feedback/sessions/details/${userId}/${prName}`
+          `${process.env.REACT_APP_BACKEND_URL}/api/feedback/sessions/details/${userId}/${prName}`
         );
         // `http://localhost:5001/api/feedback/sessions/details/${userId}/${prName}`
         setSessionDetails(response.data || []);
@@ -67,7 +67,7 @@ const FeedbackPage = () => {
 
       await Promise.all(
         feedbackData.map(async (data) => {
-          await axios.post('https://icsi518-team1-prepsmart.onrender.com/api/feedback/submit', data);
+          await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/feedback/submit`, data);
         })
         // 'http://localhost:5001/api/feedback/submit'
       );

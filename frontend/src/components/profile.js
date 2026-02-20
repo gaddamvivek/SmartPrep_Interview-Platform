@@ -30,7 +30,7 @@ const ProfilePage = () => {
     const fetchProfileData = async () => {
       try {
         if (email) {
-          const result = await axios.get(`https://icsi518-team1-prepsmart.onrender.com/api/profile/getuserdata?email=${email}`);
+          const result = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/profile/getuserdata?email=${email}`);
           // `http://localhost:5001/api/profile/getuserdata?email=${email}`
           setProfileData(result.data); // Set the profile data from the server
         }
@@ -75,7 +75,7 @@ const ProfilePage = () => {
           email: email,    // Add email explicitly
         };
         console.log(updatedProfileData); 
-      const response = await axios.post("https://icsi518-team1-prepsmart.onrender.com/api/profile/postuserdata", updatedProfileData);
+      const response = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/profile/postuserdata`, updatedProfileData);
       //"http://localhost:5001/api/profile/postuserdata"
       alert("Profile saved successfully");
       console.log(response.data); // Log the response data if needed

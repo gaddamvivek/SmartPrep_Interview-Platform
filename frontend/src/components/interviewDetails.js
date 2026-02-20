@@ -49,7 +49,7 @@ export const InterviewDetails = () => {
 
       console.log(companyName);
       const result = await axios.post(
-        'https://icsi518-team1-prepsmart.onrender.com/api/auth/interviewdetails',
+        `${process.env.REACT_APP_BACKEND_URL}/api/auth/interviewdetails`,
         //'http://localhost:5001/api/auth/interviewdetails'
         { prepname, diffLvl, slctround, slctposition, companyName },
         { headers }

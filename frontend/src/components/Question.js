@@ -31,7 +31,7 @@ const Question = ({ setQuestionId }) => {
       let position = localStorage.getItem('selectedPosition');
       let companyName = localStorage.getItem('companySelected');
       const res = await axios.get(
-        `https://icsi518-team1-prepsmart.onrender.com/api/questions/Random?difficulty=${selectedDifficulty}&position=${position}&company=${companyName}`
+        `${process.env.REACT_APP_BACKEND_URL}/api/questions/Random?difficulty=${selectedDifficulty}&position=${position}&company=${companyName}`
       );
       // `http://localhost:5001/api/questions/Random?difficulty=${selectedDifficulty}&position=${position}&company=${companyName}`
       const fetchedQuestions = res.data;

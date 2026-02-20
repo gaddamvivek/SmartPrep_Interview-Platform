@@ -19,7 +19,7 @@ const profile = require('./routes/profile');
 
 
 // Initialize Firebase Admin SDK
-const serviceAccount = require(path.join(__dirname, 'firebase-adminsdk-key.json')); 
+// const serviceAccount = require(path.join(__dirname, 'firebase-adminsdk-key.json'));
 
 const app = express();
 app.use(cors());

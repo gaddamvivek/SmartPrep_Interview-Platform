@@ -11,7 +11,7 @@ const InterviewLogs = ({ email }) => {
     const fetchLogs = async () => {
       try {
         const response = await axios.get(
-          `https://icsi518-team1-prepsmart.onrender.com/api/user/interviewlogs?email=${email}`
+          `${process.env.REACT_APP_BACKEND_URL}/api/user/interviewlogs?email=${email}`
           //`http://localhost:5001/api/user/interviewlogs?email=${email}`
         );
         console.log('Logs fetched:', response.data); // Debug logs
