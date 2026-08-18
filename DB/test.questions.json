@@ -1,0 +1,692 @@
+[{
+  "_id": {
+    "$oid": "673c8a427d4345fd873f8b4f"
+  },
+  "title": "Product of Array Except Self",
+  "description": "Write a function `product_except_self(nums)` that returns an array where each element is the product of all elements in the array except itself.",
+  "testCases": [
+    {
+      "input": "[1, 2, 3, 4]",
+      "output": "[24, 12, 8, 6]",
+      "_id": {
+        "$oid": "673c8a427d4345fd873f8b50"
+      }
+    },
+    {
+      "input": "[0, 1, 2, 3]",
+      "output": "[6, 0, 0, 0]",
+      "_id": {
+        "$oid": "673c8a427d4345fd873f8b51"
+      }
+    }
+  ],
+  "solution": "def product_except_self(nums):\n    n = len(nums)\n    res, prefix, suffix = [1] * n, 1, 1\n    for i in range(n):\n        res[i] = prefix\n        prefix *= nums[i]\n    for i in range(n - 1, -1, -1):\n        res[i] *= suffix\n        suffix *= nums[i]\n    return res",
+  "difficulty": "medium",
+  "company": "Amazon",
+  "position": "Python Developer II",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673c8a427d4345fd873f8b52"
+  },
+  "title": "Valid Palindrome",
+  "description": "Write a function `is_palindrome(s)` to check if a string is a valid palindrome, ignoring cases and non-alphanumeric characters.",
+  "testCases": [
+    {
+      "input": "'A man, a plan, a canal: Panama'",
+      "output": "true",
+      "_id": {
+        "$oid": "673c8a427d4345fd873f8b53"
+      }
+    },
+    {
+      "input": "'race a car'",
+      "output": "false",
+      "_id": {
+        "$oid": "673c8a427d4345fd873f8b54"
+      }
+    }
+  ],
+  "solution": "def is_palindrome(s):\n    s = ''.join(c.lower() for c in s if c.isalnum())\n    return s == s[::-1]",
+  "difficulty": "easy",
+  "company": "Google",
+  "position": "Python Developer I",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673c8a427d4345fd873f8b43"
+  },
+  "title": "Merge Overlapping Intervals",
+  "description": "Write a function `merge_intervals(intervals)` that merges all overlapping intervals in a list of intervals.",
+  "testCases": [
+    {
+      "input": "[[1, 3], [2, 6], [8, 10], [15, 18]]",
+      "output": "[[1, 6], [8, 10], [15, 18]]",
+      "_id": {
+        "$oid": "673c8a427d4345fd873f8b44"
+      }
+    },
+    {
+      "input": "[[1, 4], [4, 5]]",
+      "output": "[[1, 5]]",
+      "_id": {
+        "$oid": "673c8a427d4345fd873f8b45"
+      }
+    }
+  ],
+  "solution": "def merge_intervals(intervals):\n    intervals.sort(key=lambda x: x[0])\n    merged = []\n    for interval in intervals:\n        if not merged or merged[-1][1] < interval[0]:\n            merged.append(interval)\n        else:\n            merged[-1][1] = max(merged[-1][1], interval[1])\n    return merged",
+  "difficulty": "medium",
+  "company": "Google",
+  "position": "Python Developer II",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673c8a427d4345fd873f8b3d"
+  },
+  "title": "Validate Parentheses",
+  "description": "Write a function `is_valid_parentheses(s)` that checks if a string of parentheses is valid, meaning each open parenthesis has a corresponding closing one in the correct order.",
+  "testCases": [
+    {
+      "input": "'()[]{}'",
+      "output": "true",
+      "_id": {
+        "$oid": "673c8a427d4345fd873f8b3e"
+      }
+    },
+    {
+      "input": "'(]'",
+      "output": "false",
+      "_id": {
+        "$oid": "673c8a427d4345fd873f8b3f"
+      }
+    }
+  ],
+  "solution": "def is_valid_parentheses(s):\n    stack = []\n    mapping = {')': '(', ']': '[', '}': '{'}\n    for char in s:\n        if char in mapping:\n            top = stack.pop() if stack else '#'\n            if mapping[char] != top:\n                return False\n        else:\n            stack.append(char)\n    return not stack",
+  "difficulty": "easy",
+  "company": "Google",
+  "position": "Python Developer I",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673c8a427d4345fd873f8b55"
+  },
+  "title": "Search a 2D Matrix",
+  "description": "Write a function `search_matrix(matrix, target)` to search a target in a 2D matrix where rows and columns are sorted.",
+  "testCases": [
+    {
+      "input": "[[1, 3, 5, 7], [10, 11, 16, 20], [23, 30, 34, 60]], 3",
+      "output": "true",
+      "_id": {
+        "$oid": "673c8a427d4345fd873f8b56"
+      }
+    },
+    {
+      "input": "[[1, 3, 5, 7], [10, 11, 16, 20], [23, 30, 34, 60]], 13",
+      "output": "false",
+      "_id": {
+        "$oid": "673c8a427d4345fd873f8b57"
+      }
+    }
+  ],
+  "solution": "def search_matrix(matrix, target):\n    if not matrix or not matrix[0]:\n        return False\n    rows, cols = len(matrix), len(matrix[0])\n    l, r = 0, rows * cols - 1\n    while l <= r:\n        mid = (l + r) // 2\n        mid_val = matrix[mid // cols][mid % cols]\n        if mid_val == target:\n            return True\n        elif mid_val < target:\n            l = mid + 1\n        else:\n            r = mid - 1\n    return False",
+  "difficulty": "medium",
+  "company": "Amazon",
+  "position": "Python Developer I",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673c8a427d4345fd873f8b58"
+  },
+  "title": "Merge Intervals",
+  "description": "Write a function `merge_intervals(intervals)` that merges all overlapping intervals.",
+  "testCases": [
+    {
+      "input": "[[1,3],[2,6],[8,10],[15,18]]",
+      "output": "[[1,6],[8,10],[15,18]]",
+      "_id": {
+        "$oid": "673c8a427d4345fd873f8b59"
+      }
+    },
+    {
+      "input": "[[1,4],[4,5]]",
+      "output": "[[1,5]]",
+      "_id": {
+        "$oid": "673c8a427d4345fd873f8b5a"
+      }
+    }
+  ],
+  "solution": "def merge_intervals(intervals):\n    intervals.sort(key=lambda x: x[0])\n    merged = []\n    for interval in intervals:\n        if not merged or merged[-1][1] < interval[0]:\n            merged.append(interval)\n        else:\n            merged[-1][1] = max(merged[-1][1], interval[1])\n    return merged",
+  "difficulty": "medium",
+  "company": "Google",
+  "position": "Python Developer II",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673c8a427d4345fd873f8b40"
+  },
+  "title": "Find the Maximum Profit in Stock Prices",
+  "description": "Write a function `max_stock_profit(prices)` that takes a list of stock prices and returns the maximum profit achievable by buying and selling once.",
+  "testCases": [
+    {
+      "input": "[7, 1, 5, 3, 6, 4]",
+      "output": "5",
+      "_id": {
+        "$oid": "673c8a427d4345fd873f8b41"
+      }
+    },
+    {
+      "input": "[7, 6, 4, 3, 1]",
+      "output": "0",
+      "_id": {
+        "$oid": "673c8a427d4345fd873f8b42"
+      }
+    }
+  ],
+  "solution": "def max_stock_profit(prices):\n    min_price, max_profit = float('inf'), 0\n    for price in prices:\n        min_price = min(min_price, price)\n        max_profit = max(max_profit, price - min_price)\n    return max_profit",
+  "difficulty": "easy",
+  "company": "Amazon",
+  "position": "Python Developer II",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673c8a427d4345fd873f8b46"
+  },
+  "title": "Find Minimum in Rotated Sorted Array",
+  "description": "Write a function `find_min_rotated(arr)` to find the minimum element in a rotated sorted array without duplicates.",
+  "testCases": [
+    {
+      "input": "[4, 5, 6, 7, 0, 1, 2]",
+      "output": "0",
+      "_id": {
+        "$oid": "673c8a427d4345fd873f8b47"
+      }
+    },
+    {
+      "input": "[11, 13, 15, 17]",
+      "output": "11",
+      "_id": {
+        "$oid": "673c8a427d4345fd873f8b48"
+      }
+    }
+  ],
+  "solution": "def find_min_rotated(arr):\n    left, right = 0, len(arr) - 1\n    while left < right:\n        mid = (left + right) // 2\n        if arr[mid] > arr[right]:\n            left = mid + 1\n        else:\n            right = mid\n    return arr[left]",
+  "difficulty": "hard",
+  "company": "Amazon",
+  "position": "Python Developer I",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673c8a427d4345fd873f8b4c"
+  },
+  "title": "Longest Substring Without Repeating Characters",
+  "description": "Write a function `length_of_longest_substring(s)` to find the length of the longest substring without repeating characters.",
+  "testCases": [
+    {
+      "input": "'abcabcbb'",
+      "output": "3",
+      "_id": {
+        "$oid": "673c8a427d4345fd873f8b4d"
+      }
+    },
+    {
+      "input": "'bbbbb'",
+      "output": "1",
+      "_id": {
+        "$oid": "673c8a427d4345fd873f8b4e"
+      }
+    }
+  ],
+  "solution": "def length_of_longest_substring(s):\n    char_set, l, res = set(), 0, 0\n    for r in range(len(s)):\n        while s[r] in char_set:\n            char_set.remove(s[l])\n            l += 1\n        char_set.add(s[r])\n        res = max(res, r - l + 1)\n    return res",
+  "difficulty": "medium",
+  "company": "Google",
+  "position": "Python Developer II",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673c8a427d4345fd873f8b3a"
+  },
+  "title": "Find Unique Pairs with Given Sum",
+  "description": "Write a function `find_pairs(nums, target)` that returns unique pairs of integers from a list `nums` that add up to a given `target`. Ensure pairs are unique and the output is sorted.",
+  "testCases": [
+    {
+      "input": "[[1, 2, 3, 4, 3], 6]",
+      "output": "[[2, 4], [3, 3]]",
+      "_id": {
+        "$oid": "673c8a427d4345fd873f8b3b"
+      }
+    },
+    {
+      "input": "[[0, -1, 2, -3, 1], -2]",
+      "output": "[[-3, 1]]",
+      "_id": {
+        "$oid": "673c8a427d4345fd873f8b3c"
+      }
+    }
+  ],
+  "solution": "def find_pairs(nums, target):\n    seen, pairs = set(), set()\n    for num in nums:\n        if target - num in seen:\n            pairs.add(tuple(sorted((num, target - num))))\n        seen.add(num)\n    return sorted(list(pairs))",
+  "difficulty": "medium",
+  "company": "Amazon",
+  "position": "Python Developer I",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673c8a427d4345fd873f8b49"
+  },
+  "title": "Reverse Linked List",
+  "description": "Write a function `reverse_list(head)` to reverse a singly linked list.",
+  "testCases": [
+    {
+      "input": "[1, 2, 3, 4, 5]",
+      "output": "[5, 4, 3, 2, 1]",
+      "_id": {
+        "$oid": "673c8a427d4345fd873f8b4a"
+      }
+    },
+    {
+      "input": "[]",
+      "output": "[]",
+      "_id": {
+        "$oid": "673c8a427d4345fd873f8b4b"
+      }
+    }
+  ],
+  "solution": "def reverse_list(head):\n    prev, curr = None, head\n    while curr:\n        next_temp = curr.next\n        curr.next = prev\n        prev, curr = curr, next_temp\n    return prev",
+  "difficulty": "easy",
+  "company": "Amazon",
+  "position": "Python Developer I",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673c8a567d4345fd873f8b5c"
+  },
+  "title": "Add Two Numbers",
+  "description": "Write a function that takes two numbers as input and returns their sum.",
+  "testCases": [
+    {
+      "input": "[2,3]",
+      "_id": {
+        "$oid": "673c8a567d4345fd873f8b5d"
+      }
+    },
+    {
+      "input": "[-1,1]",
+      "_id": {
+        "$oid": "673c8a567d4345fd873f8b5e"
+      }
+    },
+    {
+      "input": "[0,0]",
+      "_id": {
+        "$oid": "673c8a567d4345fd873f8b5f"
+      }
+    }
+  ],
+  "solution": "python\ndef add_two_numbers(a, b):\n  return a + b\n",
+  "difficulty": "easy",
+  "company": "Amazon",
+  "position": "Python Developer I",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673c8a577d4345fd873f8b61"
+  },
+  "title": "Check if a Number is Even",
+  "description": "Write a function that takes an integer as input and returns `true` if it's even, `false` otherwise.",
+  "testCases": [
+    {
+      "input": "4",
+      "_id": {
+        "$oid": "673c8a577d4345fd873f8b62"
+      }
+    },
+    {
+      "input": "7",
+      "_id": {
+        "$oid": "673c8a577d4345fd873f8b63"
+      }
+    },
+    {
+      "input": "0",
+      "_id": {
+        "$oid": "673c8a577d4345fd873f8b64"
+      }
+    }
+  ],
+  "solution": "python\ndef is_even(number):\n  return number % 2 == 0\n",
+  "difficulty": "easy",
+  "company": "Amazon",
+  "position": "Python Developer I",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673c8a577d4345fd873f8b66"
+  },
+  "title": "Reverse a String",
+  "description": "Write a function that takes a string as input and returns its reverse.",
+  "testCases": [
+    {
+      "input": "\"hello\"",
+      "_id": {
+        "$oid": "673c8a577d4345fd873f8b67"
+      }
+    },
+    {
+      "input": "\"world\"",
+      "_id": {
+        "$oid": "673c8a577d4345fd873f8b68"
+      }
+    },
+    {
+      "input": "\"\"",
+      "_id": {
+        "$oid": "673c8a577d4345fd873f8b69"
+      }
+    }
+  ],
+  "solution": "python\ndef reverse_string(s):\n  return s[::-1]\n",
+  "difficulty": "easy",
+  "company": "Amazon",
+  "position": "Python Developer I",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673c8a577d4345fd873f8b6b"
+  },
+  "title": "Calculate the Area of a Rectangle",
+  "description": "Write a function that takes the length and width of a rectangle as input and returns its area.",
+  "testCases": [
+    {
+      "input": "[5,10]",
+      "_id": {
+        "$oid": "673c8a577d4345fd873f8b6c"
+      }
+    },
+    {
+      "input": "[2,2]",
+      "_id": {
+        "$oid": "673c8a577d4345fd873f8b6d"
+      }
+    },
+    {
+      "input": "[0,5]",
+      "_id": {
+        "$oid": "673c8a577d4345fd873f8b6e"
+      }
+    }
+  ],
+  "solution": "python\ndef rectangle_area(length, width):\n  return length * width\n",
+  "difficulty": "easy",
+  "company": "Amazon",
+  "position": "Python Developer I",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673c8a687d4345fd873f8b70"
+  },
+  "title": "Reverse Linked List",
+  "description": "Reverse a singly linked list.  You can use a Node class with `val` and `next` attributes.  The function should return the head of the reversed list.",
+  "testCases": [
+    {
+      "input": "\"[1,2,3,4,5]\"",
+      "_id": {
+        "$oid": "673c8a687d4345fd873f8b71"
+      }
+    },
+    {
+      "input": "\"[1,2]\"",
+      "_id": {
+        "$oid": "673c8a687d4345fd873f8b72"
+      }
+    },
+    {
+      "input": "\"[]\"",
+      "_id": {
+        "$oid": "673c8a687d4345fd873f8b73"
+      }
+    }
+  ],
+  "solution": "python\nclass Node:\n    def __init__(self, val=0, next=None):\n        self.val = val\n        self.next = next\n\ndef reverseList(head):\n    prev = None\n    curr = head\n    while curr:\n        nextTemp = curr.next\n        curr.next = prev\n        prev = curr\n        curr = nextTemp\n    return prev\n\n#Helper function to convert list to linked list and vice versa for testing\ndef list_to_linked_list(lst):\n  if not lst:\n    return None\n  head = Node(lst[0])\n  current = head\n  for i in range(1, len(lst)):\n    current.next = Node(lst[i])\n    current = current.next\n  return head\n\ndef linked_list_to_list(head):\n  result = []\n  current = head\n  while current:\n    result.append(current.val)\n    current = current.next\n  return result\n",
+  "difficulty": "medium",
+  "company": "Amazon",
+  "position": "Python Developer II",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673c8a687d4345fd873f8b75"
+  },
+  "title": "Find the Kth Largest Element",
+  "description": "Find the kth largest element in an unsorted array. Note that it is the kth largest element in the sorted order, not the kth distinct element.",
+  "testCases": [
+    {
+      "input": "\"[3,2,1,5,6,4], k=2\"",
+      "_id": {
+        "$oid": "673c8a687d4345fd873f8b76"
+      }
+    },
+    {
+      "input": "\"[3,2,3,1,2,4,5,5,6], k=4\"",
+      "_id": {
+        "$oid": "673c8a687d4345fd873f8b77"
+      }
+    }
+  ],
+  "solution": "python\nimport heapq\ndef findKthLargest(nums, k):\n    return heapq.nlargest(k, nums)[-1]\n",
+  "difficulty": "medium",
+  "company": "Amazon",
+  "position": "Python Developer II",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673c8a687d4345fd873f8b79"
+  },
+  "title": "Two Sum",
+  "description": "Given an array of integers `nums` and an integer `target`, return *indices of the two numbers such that they add up to `target`*. You may assume that each input would have **exactly one solution**, and you may not use the *same* element twice. You can return the answer in any order.",
+  "testCases": [
+    {
+      "input": "\"nums = [2,7,11,15], target = 9\"",
+      "_id": {
+        "$oid": "673c8a687d4345fd873f8b7a"
+      }
+    },
+    {
+      "input": "\"nums = [3,2,4], target = 6\"",
+      "_id": {
+        "$oid": "673c8a687d4345fd873f8b7b"
+      }
+    },
+    {
+      "input": "\"nums = [3,3], target = 6\"",
+      "_id": {
+        "$oid": "673c8a687d4345fd873f8b7c"
+      }
+    }
+  ],
+  "solution": "python\ndef twoSum(nums, target):\n    num_map = {}\n    for i, num in enumerate(nums):\n        complement = target - num\n        if complement in num_map:\n            return [num_map[complement], i]\n        num_map[num] = i\n",
+  "difficulty": "medium",
+  "company": "Amazon",
+  "position": "Python Developer II",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673c8a687d4345fd873f8b7e"
+  },
+  "title": "Validate Binary Search Tree",
+  "description": "Given the `root` of a binary tree, *determine if it is a valid binary search tree (BST)*. A valid BST is defined as follows:\n\n* The left subtree of a node contains only nodes with keys less than the node's key.\n* The right subtree of a node contains only nodes with keys greater than the node's key.\n* Both the left and right subtrees must also be binary search trees.\n",
+  "testCases": [
+    {
+      "input": "\"{2,1,3}\"",
+      "_id": {
+        "$oid": "673c8a687d4345fd873f8b7f"
+      }
+    },
+    {
+      "input": "\"{5,1,4,null,null,3,6}\"",
+      "_id": {
+        "$oid": "673c8a687d4345fd873f8b80"
+      }
+    }
+  ],
+  "solution": "python\n# Definition for a binary tree node.\nclass TreeNode:\n    def __init__(self, val=0, left=None, right=None):\n        self.val = val\n        self.left = left\n        self.right = right\n\ndef isValidBST(root):\n    def helper(node, lower, upper):\n        if not node:\n            return true\n        if not (lower < node.val < upper):\n            return false\n        return helper(node.left, lower, node.val) and helper(node.right, node.val, upper)\n    return helper(root, float('-inf'), float('inf'))\n",
+  "difficulty": "medium",
+  "company": "Amazon",
+  "position": "Python Developer II",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673c8a777d4345fd873f8b82"
+  },
+  "title": "Longest Increasing Subsequence (LIS) with Optimal Substructure",
+  "description": "Find the length of the longest increasing subsequence in an array.  Optimize your solution for O(n log n) time complexity, using dynamic programming and binary search.",
+  "testCases": [
+    {
+      "input": "[10,9,2,5,3,7,101,18]",
+      "_id": {
+        "$oid": "673c8a777d4345fd873f8b83"
+      }
+    },
+    {
+      "input": "[0,1,0,3,2,3]",
+      "_id": {
+        "$oid": "673c8a777d4345fd873f8b84"
+      }
+    },
+    {
+      "input": "[7,7,7,7,7,7,7]",
+      "_id": {
+        "$oid": "673c8a777d4345fd873f8b85"
+      }
+    },
+    {
+      "input": "[]",
+      "_id": {
+        "$oid": "673c8a777d4345fd873f8b86"
+      }
+    }
+  ],
+  "solution": "python\ndef longest_increasing_subsequence(nums):\n    if not nums:\n        return 0\n    tails = []  # Stores the smallest tail of all increasing subsequences of a given length\n    for num in nums:\n        if not tails or num > tails[-1]:\n            tails.append(num)\n        else:\n            # Find the smallest tail >= num using binary search\n            l, r = 0, len(tails) - 1\n            while l <= r:\n                mid = (l + r) // 2\n                if tails[mid] < num:\n                    l = mid + 1\n                else:\n                    r = mid - 1\n            tails[l] = num  # Replace the tail with the current number\n    return len(tails)\n",
+  "difficulty": "hard",
+  "company": "Amazon",
+  "position": "Python Developer II",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673c8a777d4345fd873f8b88"
+  },
+  "title": "Regular Expression Matching",
+  "description": "Implement regular expression matching with the following special characters: '.' (matches any single character) and '*' (matches zero or more occurrences of the preceding character).",
+  "testCases": [
+    {
+      "input": "{\"text\":\"aa\",\"pattern\":\"a\"}",
+      "_id": {
+        "$oid": "673c8a777d4345fd873f8b89"
+      }
+    },
+    {
+      "input": "{\"text\":\"aa\",\"pattern\":\"a*\"}",
+      "_id": {
+        "$oid": "673c8a777d4345fd873f8b8a"
+      }
+    },
+    {
+      "input": "{\"text\":\"ab\",\"pattern\":\".*\"}",
+      "_id": {
+        "$oid": "673c8a777d4345fd873f8b8b"
+      }
+    },
+    {
+      "input": "{\"text\":\"aab\",\"pattern\":\"c*a*b\"}",
+      "_id": {
+        "$oid": "673c8a777d4345fd873f8b8c"
+      }
+    },
+    {
+      "input": "{\"text\":\"mississippi\",\"pattern\":\"mis*is*p*.\"}",
+      "_id": {
+        "$oid": "673c8a777d4345fd873f8b8d"
+      }
+    }
+  ],
+  "solution": "python\ndef isMatch(text, pattern):\n    m, n = len(text), len(pattern)\n    dp = [[false] * (n + 1) for _ in range(m + 1)]\n    dp[0][0] = true\n    for j in range(1, n + 1):\n        if pattern[j - 1] == '*':\n            dp[0][j] = dp[0][j - 2]\n    for i in range(1, m + 1):\n        for j in range(1, n + 1):\n            if pattern[j - 1] == '.' or pattern[j - 1] == text[i - 1]:\n                dp[i][j] = dp[i - 1][j - 1]\n            elif pattern[j - 1] == '*':\n                dp[i][j] = dp[i][j - 2]  # Match zero occurrences\n                if pattern[j - 2] == '.' or pattern[j - 2] == text[i - 1]:\n                    dp[i][j] = dp[i][j] or dp[i - 1][j]\n    return dp[m][n]\n",
+  "difficulty": "hard",
+  "company": "Amazon",
+  "position": "Python Developer II",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673c8a787d4345fd873f8b8f"
+  },
+  "title": "Minimum Window Substring",
+  "description": "Given two strings, `s` and `t`, find the minimum window in `s` which will contain all the characters in `t`.",
+  "testCases": [
+    {
+      "input": "{\"s\":\"ADOBECODEBANC\",\"t\":\"ABC\"}",
+      "_id": {
+        "$oid": "673c8a787d4345fd873f8b90"
+      }
+    },
+    {
+      "input": "{\"s\":\"a\",\"t\":\"a\"}",
+      "_id": {
+        "$oid": "673c8a787d4345fd873f8b91"
+      }
+    },
+    {
+      "input": "{\"s\":\"a\",\"t\":\"aa\"}",
+      "_id": {
+        "$oid": "673c8a787d4345fd873f8b92"
+      }
+    }
+  ],
+  "solution": "python\nimport collections\ndef minWindow(s, t):\n    if not t or not s:\n        return \"\"\n    dict_t = collections.Counter(t)\n    required = len(dict_t)\n    l, r = 0, 0\n    formed = 0\n    window_counts = {}\n    ans = float(\"inf\"), None, None\n    while r < len(s):\n        character = s[r]\n        window_counts[character] = window_counts.get(character, 0) + 1\n        if character in dict_t and window_counts[character] == dict_t[character]:\n            formed += 1\n        while l <= r and formed == required:\n            character = s[l]\n            if r - l + 1 < ans[0]:\n                ans = (r - l + 1, l, r)\n            window_counts[character] -= 1\n            if character in dict_t and window_counts[character] < dict_t[character]:\n                formed -= 1\n            l += 1\n        r += 1\n    return s[ans[1] : ans[2] + 1] if ans[0] != float(\"inf\") else \"\"\n",
+  "difficulty": "hard",
+  "company": "Amazon",
+  "position": "Python Developer II",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673c8a787d4345fd873f8b94"
+  },
+  "title": "Trapping Rain Water",
+  "description": "Given n non-negative integers representing an elevation map where the width of each bar is 1, compute how much water it can trap after raining.",
+  "testCases": [
+    {
+      "input": "[0,1,0,2,1,0,1,3,2,1,2,1]",
+      "_id": {
+        "$oid": "673c8a787d4345fd873f8b95"
+      }
+    },
+    {
+      "input": "[4,2,0,3,2,5]",
+      "_id": {
+        "$oid": "673c8a787d4345fd873f8b96"
+      }
+    }
+  ],
+  "solution": "python\ndef trap(height):\n    if not height:\n        return 0\n    n = len(height)\n    left_max = [0] * n\n    right_max = [0] * n\n    left_max[0] = height[0]\n    for i in range(1, n):\n        left_max[i] = max(height[i], left_max[i - 1])\n    right_max[n - 1] = height[n - 1]\n    for i in range(n - 2, -1, -1):\n        right_max[i] = max(height[i], right_max[i + 1])\n    water = 0\n    for i in range(n):\n        water += min(left_max[i], right_max[i]) - height[i]\n    return water\n",
+  "difficulty": "hard",
+  "company": "Amazon",
+  "position": "Python Developer II",
+  "__v": 0
+}]

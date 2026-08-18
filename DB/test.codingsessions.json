@@ -1,0 +1,1447 @@
+[{
+  "_id": {
+    "$oid": "673934b7f772e6b41c694019"
+  },
+  "userEmail": "sgolla@albany.edu",
+  "preparationName": "kin",
+  "positionName": "Python Developer I",
+  "prepDiff": "Easy",
+  "sessionStartDate": "11/16/2024",
+  "sessionEndDate": "11/16/2024",
+  "sessionStartTime": "19:10:47",
+  "sessionEndTime": "19:11:35",
+  "timeTaken": "0h 0m 13s",
+  "questions": [
+    {
+      "questionID": "67359505046c75cea1df0915",
+      "userSolution": "print java",
+      "_id": {
+        "$oid": "673934b7f772e6b41c69401a"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67395760d1a0c71cebf15688"
+  },
+  "userEmail": "sgolla@albany.edu",
+  "preparationName": "sasas",
+  "positionName": "Python Developer I",
+  "prepDiff": "Easy",
+  "sessionStartDate": "11/16/2024",
+  "sessionEndDate": "11/16/2024",
+  "sessionStartTime": "21:39:08",
+  "sessionEndTime": "21:39:28",
+  "timeTaken": "0h 0m 19s",
+  "questions": [
+    {
+      "questionID": "67359503046c75cea1df0908",
+      "userSolution": "print helo;",
+      "_id": {
+        "$oid": "67395760d1a0c71cebf15689"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67396680ce822785e901e685"
+  },
+  "userEmail": "sgolla@albany.edu",
+  "preparationName": "kakka",
+  "positionName": "Python Developer I",
+  "prepDiff": "Easy",
+  "sessionStartDate": "11/16/2024",
+  "sessionEndDate": "11/16/2024",
+  "sessionStartTime": "22:39:18",
+  "sessionEndTime": "22:44:00",
+  "timeTaken": "0h 0m 14s",
+  "questions": [
+    {
+      "questionID": "67359505046c75cea1df0915",
+      "userSolution": "sai",
+      "_id": {
+        "$oid": "67396680ce822785e901e686"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67397341e63478aded078a37"
+  },
+  "userEmail": "ashritdon007@gmail.com",
+  "preparationName": "fs",
+  "sessionStartDate": "11/16/2024",
+  "sessionEndDate": "11/16/2024",
+  "sessionStartTime": "23:38:09",
+  "sessionEndTime": "23:38:25",
+  "timeTaken": "0h 0m 16s",
+  "questions": [
+    {
+      "questionID": "67359503046c75cea1df0905",
+      "userSolution": "ftp\nvkf\ntgo\nybgb",
+      "_id": {
+        "$oid": "67397341e63478aded078a38"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67397cd9f194bc310d498037"
+  },
+  "userEmail": "sgolla@albany.edu",
+  "preparationName": "lark",
+  "positionName": "Python Developer I",
+  "prepDiff": "Hard",
+  "sessionStartDate": "11/17/2024",
+  "sessionEndDate": "11/17/2024",
+  "sessionStartTime": "00:18:56",
+  "sessionEndTime": "00:19:21",
+  "timeTaken": "0h 0m 24s",
+  "questions": [
+    {
+      "questionID": "67359505046c75cea1df091a",
+      "userSolution": "print print",
+      "_id": {
+        "$oid": "67397cd9f194bc310d498038"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6739824a8fb8427952edd7df"
+  },
+  "userEmail": "ashritdon007@gmail.com",
+  "preparationName": "code1",
+  "positionName": "Python Developer I",
+  "prepDiff": "hard",
+  "sessionStartDate": "11/17/2024",
+  "sessionEndDate": "11/17/2024",
+  "sessionStartTime": "00:40:51",
+  "sessionEndTime": "00:42:34",
+  "timeTaken": "0h 0m 52s",
+  "questions": [
+    {
+      "questionID": "67359503046c75cea1df0911",
+      "userSolution": "print(\"Hello World!\")\n",
+      "_id": {
+        "$oid": "6739824a8fb8427952edd7e0"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6739855be07dfe64aaedcc4e"
+  },
+  "userEmail": "sreecharan01@gmail.com",
+  "preparationName": "code2",
+  "sessionStartDate": "11/17/2024",
+  "sessionEndDate": "11/17/2024",
+  "sessionStartTime": "00:55:10",
+  "sessionEndTime": "00:55:39",
+  "timeTaken": "0h 0m 28s",
+  "questions": [
+    {
+      "questionID": "67359503046c75cea1df090e",
+      "userSolution": "brgdf czx\nghfdvscx\ni,kghnfbdvs\nkjghfd\n atr",
+      "_id": {
+        "$oid": "6739855be07dfe64aaedcc4f"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673b511063d46fd58c8278a0"
+  },
+  "userEmail": "deploy01@gmail.com",
+  "preparationName": "code1",
+  "positionName": "Python Developer II",
+  "prepDiff": "Easy",
+  "sessionStartDate": "11/18/2024",
+  "sessionEndDate": "11/18/2024",
+  "sessionStartTime": "09:36:32",
+  "sessionEndTime": "09:37:04",
+  "timeTaken": "0h 0m 31s",
+  "questions": [
+    {
+      "questionID": "6735950c046c75cea1df0924",
+      "userSolution": "print(\"Hi Ther!\")",
+      "_id": {
+        "$oid": "673b511063d46fd58c8278a1"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673b8e5c6e4d520b38df8c24"
+  },
+  "userEmail": "manvan@gmail.com",
+  "preparationName": "kankan",
+  "positionName": "Python Developer I",
+  "prepDiff": "Easy",
+  "sessionStartDate": "11/18/2024",
+  "sessionEndDate": "11/18/2024",
+  "sessionStartTime": "13:56:42",
+  "sessionEndTime": "13:58:36",
+  "timeTaken": "0h 0m 19s",
+  "questions": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673b8eee6e4d520b38df8c80"
+  },
+  "userEmail": "manvan@gmail.com",
+  "preparationName": "k",
+  "positionName": "Python Developer I",
+  "prepDiff": "Easy",
+  "sessionStartDate": "11/18/2024",
+  "sessionEndDate": "11/18/2024",
+  "sessionStartTime": "14:01:00",
+  "sessionEndTime": "14:01:02",
+  "timeTaken": "0h 0m 2s",
+  "questions": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673b8f106e4d520b38df8cb0"
+  },
+  "userEmail": "manvan@gmail.com",
+  "preparationName": "h",
+  "positionName": "Python Developer I",
+  "prepDiff": "Easy",
+  "sessionStartDate": "11/18/2024",
+  "sessionEndDate": "11/18/2024",
+  "sessionStartTime": "14:01:27",
+  "sessionEndTime": "14:01:36",
+  "timeTaken": "0h 0m 8s",
+  "questions": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673bc538b9755b12fa8405dd"
+  },
+  "userEmail": "goutham34.m03@gmail.com",
+  "preparationName": "ddsc",
+  "positionName": "Python Developer I",
+  "prepDiff": "Easy",
+  "sessionStartDate": "11/18/2024",
+  "sessionEndDate": "11/18/2024",
+  "sessionStartTime": "17:52:38",
+  "sessionEndTime": "17:52:40",
+  "timeTaken": "0h 0m 1s",
+  "questions": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673bd03dff8da491147f3aea"
+  },
+  "userEmail": "goutham34.m03@gmail.com",
+  "preparationName": "deaa",
+  "positionName": "Python Developer I",
+  "prepDiff": "Medium",
+  "sessionStartDate": "11/18/2024",
+  "sessionEndDate": "11/18/2024",
+  "sessionStartTime": "18:39:28",
+  "sessionEndTime": "18:39:41",
+  "timeTaken": "0h 0m 13s",
+  "questions": [
+    {
+      "questionID": "67359503046c75cea1df0905",
+      "userSolution": "cfsdc",
+      "_id": {
+        "$oid": "673bd03dff8da491147f3aeb"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673be3a2b6b36c300d59bafd"
+  },
+  "userEmail": "sreeashrit01@gmail.com",
+  "preparationName": "prep2",
+  "positionName": "Python Developer II",
+  "prepDiff": "Medium",
+  "sessionStartDate": "11/18/2024",
+  "sessionEndDate": "11/18/2024",
+  "sessionStartTime": "20:00:24",
+  "sessionEndTime": "20:02:26",
+  "timeTaken": "0h 2m 1s",
+  "questions": [
+    {
+      "questionID": "6735950b046c75cea1df091f",
+      "userSolution": "print(\"Hello\"!)",
+      "_id": {
+        "$oid": "673be3a2b6b36c300d59bafe"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673be3f6b6b36c300d59bb4b"
+  },
+  "userEmail": "sreeashrit01@gmail.com",
+  "preparationName": "fdf",
+  "positionName": "Python Developer I",
+  "prepDiff": "Easy",
+  "sessionStartDate": "11/18/2024",
+  "sessionEndDate": "11/18/2024",
+  "sessionStartTime": "20:03:29",
+  "sessionEndTime": "20:03:50",
+  "timeTaken": "0h 0m 21s",
+  "questions": [
+    {
+      "questionID": "67359503046c75cea1df0905",
+      "userSolution": "print(\"Hi!\")",
+      "_id": {
+        "$oid": "673be3f6b6b36c300d59bb4c"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673be7f0423ae758a9007a97"
+  },
+  "userEmail": "sreeashrit01@gmail.com",
+  "preparationName": "check2",
+  "positionName": "Python Developer II",
+  "prepDiff": "Easy",
+  "sessionStartDate": "11/18/2024",
+  "sessionEndDate": "11/18/2024",
+  "sessionStartTime": "20:20:25",
+  "sessionEndTime": "20:20:48",
+  "timeTaken": "0h 0m 23s",
+  "questions": [
+    {
+      "questionID": "67359503046c75cea1df090b",
+      "userSolution": "print(\"Hi11!\")",
+      "_id": {
+        "$oid": "673be7f0423ae758a9007a98"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673befcd423ae758a9007cc7"
+  },
+  "userEmail": "dandeashrit01@gmail.com",
+  "preparationName": "cc",
+  "positionName": "Python Developer I",
+  "prepDiff": "Easy",
+  "sessionStartDate": "11/18/2024",
+  "sessionEndDate": "11/18/2024",
+  "sessionStartTime": "20:54:14",
+  "sessionEndTime": "20:54:21",
+  "timeTaken": "0h 0m 7s",
+  "questions": [
+    {
+      "questionID": "67359505046c75cea1df091a",
+      "userSolution": "rfdvc\ngrdvc \ntgrfvcg fvc\n ",
+      "_id": {
+        "$oid": "673befcd423ae758a9007cc8"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673bf26af565f2c6233e8c86"
+  },
+  "userEmail": "manvan@gmail.com",
+  "preparationName": "ka",
+  "positionName": "Python Developer I",
+  "prepDiff": "Medium",
+  "sessionStartDate": "11/18/2024",
+  "sessionEndDate": "11/18/2024",
+  "sessionStartTime": "21:05:19",
+  "sessionEndTime": "21:05:30",
+  "timeTaken": "0h 0m 10s",
+  "questions": [
+    {
+      "questionID": "67359503046c75cea1df0905",
+      "userSolution": "aaaaaaa",
+      "_id": {
+        "$oid": "673bf26af565f2c6233e8c87"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673bf42fcbfc3ed1bb53cba3"
+  },
+  "userEmail": "schinnam2@albany.edu",
+  "preparationName": "sdf",
+  "positionName": "Python Developer II",
+  "prepDiff": "Easy",
+  "sessionStartDate": "11/18/2024",
+  "sessionEndDate": "11/18/2024",
+  "sessionStartTime": "21:12:58",
+  "sessionEndTime": "21:13:03",
+  "timeTaken": "0h 0m 4s",
+  "questions": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673bfe9e5201b0138172d87b"
+  },
+  "userEmail": "sreeashrit03@gmail.com",
+  "preparationName": "pd1",
+  "positionName": "Python Developer I",
+  "prepDiff": "Easy",
+  "sessionStartDate": "11/18/2024",
+  "sessionEndDate": "11/18/2024",
+  "sessionStartTime": "21:56:09",
+  "sessionEndTime": "21:57:34",
+  "timeTaken": "0h 1m 23s",
+  "questions": [
+    {
+      "questionID": "673bfa61609d4a894fb75f4c",
+      "userSolution": "print(\"Hello!\")",
+      "_id": {
+        "$oid": "673bfe9e5201b0138172d87c"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673c11d8be8b57f4a11b8165"
+  },
+  "userEmail": "deploytest1@gmail.com",
+  "preparationName": "code1",
+  "positionName": "Python Developer I",
+  "prepDiff": "Medium",
+  "sessionStartDate": "11/18/2024",
+  "sessionEndDate": "11/18/2024",
+  "sessionStartTime": "23:18:20",
+  "sessionEndTime": "23:19:35",
+  "timeTaken": "0h 1m 14s",
+  "questions": [
+    {
+      "questionID": "673c027dc4cbf4f5e149092c",
+      "userSolution": "print(\"Hello!\")",
+      "_id": {
+        "$oid": "673c11d8be8b57f4a11b8166"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673c1340be8b57f4a11b81ec"
+  },
+  "userEmail": "deploytest1@gmail.com",
+  "preparationName": "code2",
+  "positionName": "Python Developer II",
+  "prepDiff": "Medium",
+  "sessionStartDate": "11/18/2024",
+  "sessionEndDate": "11/18/2024",
+  "sessionStartTime": "23:25:11",
+  "sessionEndTime": "23:25:36",
+  "timeTaken": "0h 0m 25s",
+  "questions": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673cbdf076bd288657bd3f5c"
+  },
+  "userEmail": "schinnam2@albany.edu",
+  "preparationName": "hi",
+  "positionName": "Python Developer I",
+  "prepDiff": "Easy",
+  "sessionStartDate": "11/19/2024",
+  "sessionEndDate": "11/19/2024",
+  "sessionStartTime": "11:33:33",
+  "sessionEndTime": "11:33:51",
+  "timeTaken": "0h 0m 18s",
+  "questions": [
+    {
+      "questionID": "673c8a577d4345fd873f8b66",
+      "userSolution": "Hey",
+      "_id": {
+        "$oid": "673cbdf076bd288657bd3f5d"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673cdc50ebb75e5e36c07c33"
+  },
+  "userEmail": "deploytest1@gmail.com",
+  "preparationName": "prep1",
+  "positionName": "Python Developer I",
+  "prepDiff": "Medium",
+  "sessionStartDate": "11/19/2024",
+  "sessionEndDate": "11/19/2024",
+  "sessionStartTime": "13:37:16",
+  "sessionEndTime": "13:43:28",
+  "timeTaken": "0h 5m 59s",
+  "questions": [
+    {
+      "questionID": "673c8a427d4345fd873f8b55",
+      "userSolution": "# Definition for a binary tree node.\nclass TreeNode:\n    def __init__(self, val=0, left=None, right=None):\n        self.val = val\n        self.left = left\n        self.right = right\n\ndef isValidBST(root):\n    def helper_fgc(node, lower, upper)\n        if not node\n            return true!\n        if not (lower < node.val < upper):\n            return false\n        return helper(node.left, lower, node.val) and helper(node.right, node.val, upper)\n    return helper(root, float('-inf'), float('inf'))\n",
+      "_id": {
+        "$oid": "673cdc51ebb75e5e36c07c34"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673e36b735d7a6df17d0d6b4"
+  },
+  "userEmail": "mp01@gmail.com",
+  "preparationName": "preo",
+  "positionName": "Python Developer II",
+  "prepDiff": "Easy",
+  "sessionStartDate": "11/20/2024",
+  "sessionEndDate": "11/20/2024",
+  "sessionStartTime": "14:20:28",
+  "sessionEndTime": "14:21:27",
+  "timeTaken": "0h 0m 51s",
+  "questions": [
+    {
+      "questionID": "673c8a427d4345fd873f8b40",
+      "userSolution": "print)(\"Hi1!\"))\n",
+      "_id": {
+        "$oid": "673e36b735d7a6df17d0d6b5"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673f8869c96b5768ac47bc68"
+  },
+  "userEmail": "mp01@gmail.com",
+  "preparationName": "prep2",
+  "positionName": "Python Developer II",
+  "prepDiff": "Hard",
+  "sessionStartDate": "11/21/2024",
+  "sessionEndDate": "11/21/2024",
+  "sessionStartTime": "14:19:11",
+  "sessionEndTime": "14:22:16",
+  "timeTaken": "0h 2m 24s",
+  "questions": [
+    {
+      "questionID": "673c8a777d4345fd873f8b82",
+      "userSolution": "print(\"Jo!\")",
+      "_id": {
+        "$oid": "673f8869c96b5768ac47bc69"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673fba66c39bfc8dc9e3d753"
+  },
+  "userEmail": "saicharan@gmail.com",
+  "preparationName": "c1",
+  "positionName": "Python Developer II",
+  "prepDiff": "Medium",
+  "sessionStartDate": "11/21/2024",
+  "sessionEndDate": "11/21/2024",
+  "sessionStartTime": "17:55:24",
+  "sessionEndTime": "17:55:34",
+  "timeTaken": "0h 0m 9s",
+  "questions": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673fc070c39bfc8dc9e3d851"
+  },
+  "userEmail": "saicharan@edu.com",
+  "preparationName": "kk",
+  "positionName": "Python Developer I",
+  "prepDiff": "Easy",
+  "sessionStartDate": "11/21/2024",
+  "sessionEndDate": "11/21/2024",
+  "sessionStartTime": "18:21:05",
+  "sessionEndTime": "18:21:20",
+  "timeTaken": "0h 0m 14s",
+  "questions": [
+    {
+      "questionID": "673c8a427d4345fd873f8b3d",
+      "userSolution": "",
+      "_id": {
+        "$oid": "673fc070c39bfc8dc9e3d852"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673fc8aa6b0dbb4f990c9806"
+  },
+  "userEmail": "demovan@gmail.com",
+  "preparationName": "aaaa",
+  "positionName": "Python Developer I",
+  "prepDiff": "Easy",
+  "sessionStartDate": "11/21/2024",
+  "sessionEndDate": "11/21/2024",
+  "sessionStartTime": "18:54:11",
+  "sessionEndTime": "18:56:25",
+  "timeTaken": "0h 2m 13s",
+  "questions": [
+    {
+      "questionID": "673c8a427d4345fd873f8b3d",
+      "userSolution": "aaaaaaaaaaaaaajjaja",
+      "_id": {
+        "$oid": "673fc8aa6b0dbb4f990c9807"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673fc8d3c39bfc8dc9e3d963"
+  },
+  "userEmail": "demovan@gmail.com",
+  "preparationName": "aaa",
+  "positionName": "Python Developer I",
+  "prepDiff": "Medium",
+  "sessionStartDate": "11/21/2024",
+  "sessionEndDate": "11/21/2024",
+  "sessionStartTime": "18:51:58",
+  "sessionEndTime": "18:57:07",
+  "timeTaken": "0h 2m 53s",
+  "questions": [
+    {
+      "questionID": "673c8a427d4345fd873f8b3a",
+      "userSolution": "aaaaaaaaaaaaaaaaaahhhh",
+      "_id": {
+        "$oid": "673fc8d3c39bfc8dc9e3d964"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673ffcee390a9fcf907045db"
+  },
+  "userEmail": "manvan@gmail.com",
+  "preparationName": "ww",
+  "positionName": "Python Developer I",
+  "prepDiff": "Easy",
+  "sessionStartDate": "11/21/2024",
+  "sessionEndDate": "11/21/2024",
+  "sessionStartTime": "22:39:16",
+  "sessionEndTime": "22:39:26",
+  "timeTaken": "0h 0m 9s",
+  "questions": [
+    {
+      "questionID": "673c8a427d4345fd873f8b3d",
+      "userSolution": "222",
+      "_id": {
+        "$oid": "673ffcee390a9fcf907045dc"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6740d0df36bb966865bb80f5"
+  },
+  "userEmail": "saicharang982@gmail.com",
+  "preparationName": "nn",
+  "positionName": "Python Developer II",
+  "prepDiff": "Easy",
+  "sessionStartDate": "11/22/2024",
+  "sessionEndDate": "11/22/2024",
+  "sessionStartTime": "13:43:13",
+  "sessionEndTime": "13:43:43",
+  "timeTaken": "0h 0m 29s",
+  "questions": [
+    {
+      "questionID": "673c8a427d4345fd873f8b40",
+      "userSolution": "jjjjjjjjjjjjjj",
+      "_id": {
+        "$oid": "6740d0df36bb966865bb80f6"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67415227262b2543ac489e7d"
+  },
+  "userEmail": "arrangdal@gmail.com",
+  "preparationName": "test",
+  "positionName": "Python Developer I",
+  "prepDiff": "Medium",
+  "sessionStartDate": "11/22/2024",
+  "sessionEndDate": "11/22/2024",
+  "sessionStartTime": "22:54:42",
+  "sessionEndTime": "22:55:18",
+  "timeTaken": "0h 0m 35s",
+  "questions": [
+    {
+      "questionID": "673c8a427d4345fd873f8b55",
+      "userSolution": "print(\"hi\")",
+      "_id": {
+        "$oid": "67415227262b2543ac489e7e"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674ba25a1f6370464e59cc2e"
+  },
+  "userEmail": "mp01@gmail.com",
+  "preparationName": "fd",
+  "positionName": "Python Developer I",
+  "prepDiff": "Easy",
+  "sessionStartDate": "11/30/2024",
+  "sessionEndDate": "11/30/2024",
+  "sessionStartTime": "18:39:14",
+  "sessionEndTime": "18:40:10",
+  "timeTaken": "0h 0m 55s",
+  "questions": [
+    {
+      "questionID": "673c8a427d4345fd873f8b3d",
+      "userSolution": "tofdc\ntrefdcx",
+      "_id": {
+        "$oid": "674ba25a1f6370464e59cc2f"
+      }
+    },
+    {
+      "questionID": "673c8a427d4345fd873f8b3a",
+      "userSolution": "grfdcx",
+      "_id": {
+        "$oid": "674ba25a1f6370464e59cc30"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674ba2a11f6370464e59cc64"
+  },
+  "userEmail": "mp01@gmail.com",
+  "preparationName": "vcod",
+  "positionName": "Python Developer I",
+  "prepDiff": "Medium",
+  "sessionStartDate": "11/30/2024",
+  "sessionEndDate": "11/30/2024",
+  "sessionStartTime": "18:40:49",
+  "sessionEndTime": "18:41:21",
+  "timeTaken": "0h 0m 31s",
+  "questions": [
+    {
+      "questionID": "673c8a427d4345fd873f8b3a",
+      "userSolution": "dd\neds\n",
+      "_id": {
+        "$oid": "674ba2a11f6370464e59cc65"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674ba2e91f6370464e59cca4"
+  },
+  "userEmail": "mp01@gmail.com",
+  "preparationName": "dsx",
+  "positionName": "Python Developer II",
+  "prepDiff": "Medium",
+  "sessionStartDate": "11/30/2024",
+  "sessionEndDate": "11/30/2024",
+  "sessionStartTime": "18:42:06",
+  "sessionEndTime": "18:42:32",
+  "timeTaken": "0h 0m 26s",
+  "questions": [
+    {
+      "questionID": "673c8a427d4345fd873f8b4f",
+      "userSolution": "reverse",
+      "_id": {
+        "$oid": "674ba2e91f6370464e59cca5"
+      }
+    },
+    {
+      "questionID": "673c8a687d4345fd873f8b75",
+      "userSolution": "ds\nfdcsx\n",
+      "_id": {
+        "$oid": "674ba2e91f6370464e59cca6"
+      }
+    },
+    {
+      "questionID": "673c8a427d4345fd873f8b43",
+      "userSolution": "fdcx\ndfvc\n",
+      "_id": {
+        "$oid": "674ba2e91f6370464e59cca7"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674bae82d5bfebea27c56ee8"
+  },
+  "userEmail": "dsa0102@gmail.com",
+  "preparationName": "efdsx",
+  "positionName": "Python Developer I",
+  "prepDiff": "Easy",
+  "sessionStartDate": "11/30/2024",
+  "sessionEndDate": "11/30/2024",
+  "sessionStartTime": "19:31:32",
+  "sessionEndTime": "19:32:02",
+  "timeTaken": "0h 0m 29s",
+  "questions": [
+    {
+      "questionID": "673c8a577d4345fd873f8b6b",
+      "userSolution": "fdxc\ndfvc\ngrfdv",
+      "_id": {
+        "$oid": "674bae82d5bfebea27c56ee9"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674baefad5bfebea27c56fb4"
+  },
+  "userEmail": "dsa011100@gmail.com",
+  "preparationName": "dcv",
+  "positionName": "Python Developer II",
+  "prepDiff": "Medium",
+  "sessionStartDate": "11/30/2024",
+  "sessionEndDate": "11/30/2024",
+  "sessionStartTime": "19:33:53",
+  "sessionEndTime": "19:34:02",
+  "timeTaken": "0h 0m 9s",
+  "questions": [
+    {
+      "questionID": "673c8a427d4345fd873f8b43",
+      "userSolution": "cdx",
+      "_id": {
+        "$oid": "674baefad5bfebea27c56fb5"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674bb0aa6e8c74728a68f5c3"
+  },
+  "userEmail": "dsa0102@gmail.com",
+  "preparationName": "fdc",
+  "positionName": "Python Developer I",
+  "prepDiff": "Medium",
+  "sessionStartDate": "11/30/2024",
+  "sessionEndDate": "11/30/2024",
+  "sessionStartTime": "19:41:01",
+  "sessionEndTime": "19:41:14",
+  "timeTaken": "0h 0m 13s",
+  "questions": [
+    {
+      "questionID": "673c8a427d4345fd873f8b3a",
+      "userSolution": "print(\"hI\")!",
+      "_id": {
+        "$oid": "674bb0aa6e8c74728a68f5c4"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674bbbad6e8c74728a68f7cf"
+  },
+  "userEmail": "dsa0102@gmail.com",
+  "preparationName": "DFXZX",
+  "positionName": "Python Developer II",
+  "prepDiff": "Easy",
+  "sessionStartDate": "11/30/2024",
+  "sessionEndDate": "11/30/2024",
+  "sessionStartTime": "20:27:33",
+  "sessionEndTime": "20:28:13",
+  "timeTaken": "0h 0m 40s",
+  "questions": [
+    {
+      "questionID": "673c8a427d4345fd873f8b40",
+      "userSolution": "TDFXC\nRHTFGCV \nBEDFVX ",
+      "_id": {
+        "$oid": "674bbbad6e8c74728a68f7d0"
+      }
+    },
+    {
+      "questionID": "673c8a787d4345fd873f8b94",
+      "userSolution": "DSXZ\nFDCXTEFD\nVX FDCSZ\nGFDV",
+      "_id": {
+        "$oid": "674bbbad6e8c74728a68f7d1"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674bc04e6e8c74728a68f972"
+  },
+  "userEmail": "dsfd01@gmail.com",
+  "preparationName": "rsdzx",
+  "positionName": "Python Developer I",
+  "prepDiff": "Easy",
+  "sessionStartDate": "11/30/2024",
+  "sessionEndDate": "11/30/2024",
+  "sessionStartTime": "20:47:49",
+  "sessionEndTime": "20:47:58",
+  "timeTaken": "0h 0m 9s",
+  "questions": [
+    {
+      "questionID": "673c8a577d4345fd873f8b61",
+      "userSolution": "fds\nfdcx",
+      "_id": {
+        "$oid": "674bc04e6e8c74728a68f973"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674bc4bd9481b287892ee49f"
+  },
+  "userEmail": "md@gmail.com",
+  "preparationName": "prep1",
+  "positionName": "Python Developer I",
+  "prepDiff": "Medium",
+  "sessionStartDate": "11/30/2024",
+  "sessionEndDate": "11/30/2024",
+  "sessionStartTime": "21:06:23",
+  "sessionEndTime": "21:06:53",
+  "timeTaken": "0h 0m 29s",
+  "questions": [
+    {
+      "questionID": "673c8a427d4345fd873f8b3a",
+      "userSolution": "print(\"1\")",
+      "_id": {
+        "$oid": "674bc4bd9481b287892ee4a0"
+      }
+    },
+    {
+      "questionID": "673c8a427d4345fd873f8b55",
+      "userSolution": "print(\"2\")",
+      "_id": {
+        "$oid": "674bc4bd9481b287892ee4a1"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674bc77a9481b287892ee501"
+  },
+  "userEmail": "md@gmail.com",
+  "preparationName": "prep2",
+  "positionName": "Python Developer I",
+  "prepDiff": "Easy",
+  "sessionStartDate": "11/30/2024",
+  "sessionEndDate": "11/30/2024",
+  "sessionStartTime": "21:17:50",
+  "sessionEndTime": "21:18:34",
+  "timeTaken": "0h 0m 43s",
+  "questions": [
+    {
+      "questionID": "673c8a427d4345fd873f8b52",
+      "userSolution": "1",
+      "_id": {
+        "$oid": "674bc77a9481b287892ee502"
+      }
+    },
+    {
+      "questionID": "673c8a567d4345fd873f8b5c",
+      "userSolution": "2",
+      "_id": {
+        "$oid": "674bc77a9481b287892ee503"
+      }
+    },
+    {
+      "questionID": "673c8a577d4345fd873f8b66",
+      "userSolution": "3",
+      "_id": {
+        "$oid": "674bc77a9481b287892ee504"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674bc7d59481b287892ee5a6"
+  },
+  "userEmail": "md@gmail.com",
+  "preparationName": "1",
+  "positionName": "Python Developer I",
+  "prepDiff": "Hard",
+  "sessionStartDate": "11/30/2024",
+  "sessionEndDate": "11/30/2024",
+  "sessionStartTime": "21:19:15",
+  "sessionEndTime": "21:20:05",
+  "timeTaken": "0h 0m 49s",
+  "questions": [
+    {
+      "questionID": "673c8a577d4345fd873f8b61",
+      "userSolution": "easy 1",
+      "_id": {
+        "$oid": "674bc7d59481b287892ee5a7"
+      }
+    },
+    {
+      "questionID": "673c8a577d4345fd873f8b6b",
+      "userSolution": "easy 2",
+      "_id": {
+        "$oid": "674bc7d59481b287892ee5a8"
+      }
+    },
+    {
+      "questionID": "673c8a427d4345fd873f8b3a",
+      "userSolution": "midium 1",
+      "_id": {
+        "$oid": "674bc7d59481b287892ee5a9"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674bdbdd9481b287892ee682"
+  },
+  "userEmail": "md@gmail.com",
+  "preparationName": "test",
+  "positionName": "Python Developer I",
+  "prepDiff": "Easy",
+  "sessionStartDate": "11/30/2024",
+  "sessionEndDate": "11/30/2024",
+  "sessionStartTime": "22:44:41",
+  "sessionEndTime": "22:45:33",
+  "timeTaken": "0h 0m 51s",
+  "questions": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674bdc01d73cd1f5ea188c4a"
+  },
+  "userEmail": "chfina01@gmail.com",
+  "preparationName": "sd",
+  "positionName": "Python Developer I",
+  "prepDiff": "Easy",
+  "sessionStartDate": "11/30/2024",
+  "sessionEndDate": "11/30/2024",
+  "sessionStartTime": "22:45:59",
+  "sessionEndTime": "22:46:09",
+  "timeTaken": "0h 0m 9s",
+  "questions": [
+    {
+      "questionID": "673c8a577d4345fd873f8b61",
+      "userSolution": "dcfgvhb\nxer\nxdfgh\nxdcfgh",
+      "_id": {
+        "$oid": "674bdc01d73cd1f5ea188c4b"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674c9dd0fa2382f73251e0b2"
+  },
+  "userEmail": "dandeashrit22@gmail.com",
+  "preparationName": "fdcx",
+  "positionName": "Python Developer I",
+  "prepDiff": "Easy",
+  "sessionStartDate": "12/1/2024",
+  "sessionEndDate": "12/1/2024",
+  "sessionStartTime": "12:32:39",
+  "sessionEndTime": "12:33:04",
+  "timeTaken": "0h 0m 24s",
+  "questions": [
+    {
+      "questionID": "673c8a567d4345fd873f8b5c",
+      "userSolution": "print(\"Hi!\")",
+      "_id": {
+        "$oid": "674c9dd0fa2382f73251e0b3"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674cea78909745d483669499"
+  },
+  "userEmail": "vgaddam@gmail.com",
+  "preparationName": "sdfa",
+  "positionName": "Python Developer II",
+  "prepDiff": "Medium",
+  "sessionStartDate": "12/1/2024",
+  "sessionEndDate": "12/1/2024",
+  "sessionStartTime": "17:58:06",
+  "sessionEndTime": "18:00:08",
+  "timeTaken": "0h 1m 56s",
+  "questions": [
+    {
+      "questionID": "673c8a687d4345fd873f8b75",
+      "userSolution": "print(\"hello\")",
+      "_id": {
+        "$oid": "674cea78909745d48366949a"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674cf96557697bb32b814f59"
+  },
+  "userEmail": "ashritdande01@gmail.com",
+  "preparationName": "code1",
+  "positionName": "Python Developer II",
+  "prepDiff": "Medium",
+  "sessionStartDate": "12/1/2024",
+  "sessionEndDate": "12/1/2024",
+  "sessionStartTime": "19:03:07",
+  "sessionEndTime": "19:03:49",
+  "timeTaken": "0h 0m 41s",
+  "questions": [
+    {
+      "questionID": "673c8a687d4345fd873f8b7e",
+      "userSolution": "print(\"Hllo1!\")",
+      "_id": {
+        "$oid": "674cf96557697bb32b814f5a"
+      }
+    },
+    {
+      "questionID": "673c8a427d4345fd873f8b4c",
+      "userSolution": "print(\"JHi1@\")",
+      "_id": {
+        "$oid": "674cf96557697bb32b814f5b"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674d0632862fcff0660e3d67"
+  },
+  "userEmail": "dandeashrit01@gmail.com",
+  "preparationName": "code2",
+  "positionName": "Python Developer II",
+  "prepDiff": "Easy",
+  "sessionStartDate": "12/1/2024",
+  "sessionEndDate": "12/1/2024",
+  "sessionStartTime": "19:57:47",
+  "sessionEndTime": "19:58:26",
+  "timeTaken": "0h 0m 37s",
+  "questions": [
+    {
+      "questionID": "673c8a427d4345fd873f8b58",
+      "userSolution": "print(:J1)",
+      "_id": {
+        "$oid": "674d0632862fcff0660e3d68"
+      }
+    },
+    {
+      "questionID": "673c8a787d4345fd873f8b8f",
+      "userSolution": "rpgj\nf",
+      "_id": {
+        "$oid": "674d0632862fcff0660e3d69"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674d0cdcfd6323e812e598f4"
+  },
+  "userEmail": "sreeashrit11@gmail.com",
+  "preparationName": "code1",
+  "positionName": "Python Developer I",
+  "prepDiff": "Easy",
+  "sessionStartDate": "12/1/2024",
+  "sessionEndDate": "12/1/2024",
+  "sessionStartTime": "20:25:00",
+  "sessionEndTime": "20:26:52",
+  "timeTaken": "0h 1m 51s",
+  "questions": [
+    {
+      "questionID": "673c8a577d4345fd873f8b66",
+      "userSolution": "print(\"Hi!\")",
+      "_id": {
+        "$oid": "674d0cdcfd6323e812e598f5"
+      }
+    },
+    {
+      "questionID": "673c8a567d4345fd873f8b5c",
+      "userSolution": "def add_two(num1, num2):\n    print(num1 + num2)\n\ninput1 = 2\ninput2 = 3\nadd_two(input1, input2)",
+      "_id": {
+        "$oid": "674d0cdcfd6323e812e598f6"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674d0cfcfd6323e812e59916"
+  },
+  "userEmail": "schinnam2@albany.edu",
+  "preparationName": "yf",
+  "positionName": "Python Developer I",
+  "prepDiff": "Medium",
+  "sessionStartDate": "12/1/2024",
+  "sessionEndDate": "12/1/2024",
+  "sessionStartTime": "20:26:17",
+  "sessionEndTime": "20:27:24",
+  "timeTaken": "0h 1m 4s",
+  "questions": [
+    {
+      "questionID": "673c8a427d4345fd873f8b55",
+      "userSolution": "print(true)",
+      "_id": {
+        "$oid": "674d0cfcfd6323e812e59917"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674d1a3bfd6323e812e59ab4"
+  },
+  "userEmail": "sreeashr01@gmail.com",
+  "preparationName": "code1",
+  "positionName": "Python Developer I",
+  "prepDiff": "Medium",
+  "sessionStartDate": "12/1/2024",
+  "sessionEndDate": "12/1/2024",
+  "sessionStartTime": "21:23:40",
+  "sessionEndTime": "21:23:54",
+  "timeTaken": "0h 0m 14s",
+  "questions": [
+    {
+      "questionID": "673c8a427d4345fd873f8b3a",
+      "userSolution": "print(\"HE\")",
+      "_id": {
+        "$oid": "674d1a3bfd6323e812e59ab5"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674d1c1efd6323e812e59c61"
+  },
+  "userEmail": "team1demo@gmail.com",
+  "preparationName": "code1",
+  "positionName": "Python Developer II",
+  "prepDiff": "Medium",
+  "sessionStartDate": "12/1/2024",
+  "sessionEndDate": "12/1/2024",
+  "sessionStartTime": "21:30:09",
+  "sessionEndTime": "21:31:58",
+  "timeTaken": "0h 1m 22s",
+  "questions": [
+    {
+      "questionID": "673c8a687d4345fd873f8b79",
+      "userSolution": "print(\"Cehcke\")",
+      "_id": {
+        "$oid": "674d1c1efd6323e812e59c62"
+      }
+    },
+    {
+      "questionID": "673c8a687d4345fd873f8b75",
+      "userSolution": "import heapq\ndef findKthLargest(nums, k):\n    return heapq.nlargest(k, nums)[-1]",
+      "_id": {
+        "$oid": "674d1c1efd6323e812e59c63"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674d1f25fd6323e812e59d0b"
+  },
+  "userEmail": "kaka@gmail.com",
+  "preparationName": "aa",
+  "positionName": "Python Developer II",
+  "prepDiff": "Easy",
+  "sessionStartDate": "12/1/2024",
+  "sessionEndDate": "12/1/2024",
+  "sessionStartTime": "21:44:37",
+  "sessionEndTime": "21:44:53",
+  "timeTaken": "0h 0m 15s",
+  "questions": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674d28a4c0bea15f04d24632"
+  },
+  "userEmail": "schinnam2@albany.edu",
+  "preparationName": "Test",
+  "positionName": "Python Developer II",
+  "prepDiff": "Hard",
+  "sessionStartDate": "12/1/2024",
+  "sessionEndDate": "12/1/2024",
+  "sessionStartTime": "22:23:38",
+  "sessionEndTime": "22:25:23",
+  "timeTaken": "0h 1m 19s",
+  "questions": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67512358c907ac1a802717be"
+  },
+  "userEmail": "himakarparadi@gmail.com",
+  "preparationName": "prep",
+  "positionName": "Python Developer I",
+  "prepDiff": "Easy",
+  "sessionStartDate": "12/4/2024",
+  "sessionEndDate": "12/4/2024",
+  "sessionStartTime": "22:51:01",
+  "sessionEndTime": "22:51:51",
+  "timeTaken": "0h 0m 49s",
+  "questions": [
+    {
+      "questionID": "673c8a577d4345fd873f8b6b",
+      "userSolution": "print(\"dbvk\")",
+      "_id": {
+        "$oid": "67512358c907ac1a802717bf"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "675734f3c907ac1a80271938"
+  },
+  "userEmail": "mchen@albany.edu",
+  "preparationName": "python",
+  "positionName": "Python Developer I",
+  "prepDiff": "Easy",
+  "sessionStartDate": "12/9/2024",
+  "sessionEndDate": "12/9/2024",
+  "sessionStartTime": "13:14:40",
+  "sessionEndTime": "13:20:35",
+  "timeTaken": "0h 4m 20s",
+  "questions": [
+    {
+      "questionID": "673c8a577d4345fd873f8b66",
+      "userSolution": "print(\"Hello\")",
+      "_id": {
+        "$oid": "675734f3c907ac1a80271939"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68c9bd903a9ad3759c1da5be"
+  },
+  "userEmail": "dandeashrit@gmail.com",
+  "preparationName": "che1",
+  "positionName": "Python Developer I",
+  "prepDiff": "Medium",
+  "sessionStartDate": "9/16/2025",
+  "sessionEndDate": "9/16/2025",
+  "sessionStartTime": "15:40:58",
+  "sessionEndTime": "15:42:07",
+  "timeTaken": "0h 1m 3s",
+  "questions": [
+    {
+      "questionID": "673c8a427d4345fd873f8b3a",
+      "userSolution": "def find_pairs(nums, target):\r\n    seen = set()\r\n    pairs = set()\r\n\r\n    for num in nums:\r\n        complement = target - num\r\n        if complement in seen:\r\n            pairs.add(tuple(sorted((num, complement))))\r\n        seen.add(num)\r\n\r\n    # Convert set of tuples to sorted list of lists\r\n    return sorted([list(pair) for pair in pairs])\r\n",
+      "_id": {
+        "$oid": "68c9bd903a9ad3759c1da5bf"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6981084533892da0f35ddce4"
+  },
+  "userEmail": "dandeashrit@gmail.com",
+  "preparationName": "python1",
+  "positionName": "Python Developer I",
+  "prepDiff": "Medium",
+  "sessionStartDate": "2/2/2026",
+  "sessionEndDate": "2/2/2026",
+  "sessionStartTime": "15:24:45",
+  "sessionEndTime": "15:25:41",
+  "timeTaken": "0h 0m 55s",
+  "questions": [
+    {
+      "questionID": "673c8a427d4345fd873f8b3a",
+      "userSolution": "def unique_pairs():\r\n    print(\"Unique pairs are [[2, 4], [3, 3]] \")",
+      "_id": {
+        "$oid": "6981084533892da0f35ddce5"
+      }
+    }
+  ],
+  "__v": 0
+}]

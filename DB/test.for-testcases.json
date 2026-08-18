@@ -1,0 +1,3026 @@
+[{
+  "_id": {
+    "$oid": "6737fd214b56b1448cdd5b15"
+  },
+  "solutions": [
+    {
+      "questionID": "67359503046c75cea1df0905",
+      "questiontitle": "Find Unique Pairs with Given Sum",
+      "questiondescription": "Write a function `find_pairs(nums, target)` that returns unique pairs of integers from a list `nums` that add up to a given `target`. Ensure pairs are unique and the output is sorted.",
+      "aisolution": "def find_pairs(nums, target):\n    seen, pairs = set(), set()\n    for num in nums:\n        if target - num in seen:\n            pairs.add(tuple(sorted((num, target - num))))\n        seen.add(num)\n    return sorted(list(pairs))",
+      "userSolution": "print",
+      "testCases": [
+        {
+          "input": "[[1, 2, 3, 4, 3], 6]",
+          "output": "[[2, 4], [3, 3]]",
+          "_id": {
+            "$oid": "6737fd214b56b1448cdd5b17"
+          }
+        },
+        {
+          "input": "[[0, -1, 2, -3, 1], -2]",
+          "output": "[[-3, 1]]",
+          "_id": {
+            "$oid": "6737fd214b56b1448cdd5b18"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "6737fd214b56b1448cdd5b16"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6737fd5d4b56b1448cdd5b20"
+  },
+  "solutions": [
+    {
+      "questionID": "67359503046c75cea1df0905",
+      "questiontitle": "Find Unique Pairs with Given Sum",
+      "questiondescription": "Write a function `find_pairs(nums, target)` that returns unique pairs of integers from a list `nums` that add up to a given `target`. Ensure pairs are unique and the output is sorted.",
+      "aisolution": "def find_pairs(nums, target):\n    seen, pairs = set(), set()\n    for num in nums:\n        if target - num in seen:\n            pairs.add(tuple(sorted((num, target - num))))\n        seen.add(num)\n    return sorted(list(pairs))",
+      "userSolution": "print",
+      "testCases": [
+        {
+          "input": "[[1, 2, 3, 4, 3], 6]",
+          "output": "[[2, 4], [3, 3]]",
+          "_id": {
+            "$oid": "6737fd5d4b56b1448cdd5b22"
+          }
+        },
+        {
+          "input": "[[0, -1, 2, -3, 1], -2]",
+          "output": "[[-3, 1]]",
+          "_id": {
+            "$oid": "6737fd5d4b56b1448cdd5b23"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "6737fd5d4b56b1448cdd5b21"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6738011b33c14b9305a3890f"
+  },
+  "solutions": [
+    {
+      "questionID": "67359503046c75cea1df0905",
+      "questiontitle": "Find Unique Pairs with Given Sum",
+      "questiondescription": "Write a function `find_pairs(nums, target)` that returns unique pairs of integers from a list `nums` that add up to a given `target`. Ensure pairs are unique and the output is sorted.",
+      "aisolution": "def find_pairs(nums, target):\n    seen, pairs = set(), set()\n    for num in nums:\n        if target - num in seen:\n            pairs.add(tuple(sorted((num, target - num))))\n        seen.add(num)\n    return sorted(list(pairs))",
+      "userSolution": "print(\"121212\");",
+      "testCases": [
+        {
+          "input": "[[1, 2, 3, 4, 3], 6]",
+          "output": "[[2, 4], [3, 3]]",
+          "_id": {
+            "$oid": "6738011b33c14b9305a38911"
+          }
+        },
+        {
+          "input": "[[0, -1, 2, -3, 1], -2]",
+          "output": "[[-3, 1]]",
+          "_id": {
+            "$oid": "6738011b33c14b9305a38912"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "6738011b33c14b9305a38910"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67383196eb08dcc0a590dbbc"
+  },
+  "solutions": [
+    {
+      "questionID": "67359505046c75cea1df0915",
+      "questiontitle": "Sum of Two Numbers",
+      "questiondescription": "Write a Python function that takes two numbers as input and returns their sum.",
+      "aisolution": "def sum_of_two_numbers(num1, num2):\n  return num1 + num2",
+      "userSolution": "print(\"dkjbvkej\")",
+      "testCases": [
+        {
+          "input": "[1,2]",
+          "output": null,
+          "_id": {
+            "$oid": "67383196eb08dcc0a590dbbe"
+          }
+        },
+        {
+          "input": "[5,10]",
+          "output": null,
+          "_id": {
+            "$oid": "67383196eb08dcc0a590dbbf"
+          }
+        },
+        {
+          "input": "[-2,3]",
+          "output": null,
+          "_id": {
+            "$oid": "67383196eb08dcc0a590dbc0"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "67383196eb08dcc0a590dbbd"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67393492f772e6b41c694001"
+  },
+  "solutions": [
+    {
+      "questionID": "67359505046c75cea1df0915",
+      "questiontitle": "Sum of Two Numbers",
+      "questiondescription": "Write a Python function that takes two numbers as input and returns their sum.",
+      "aisolution": "def sum_of_two_numbers(num1, num2):\n  return num1 + num2",
+      "userSolution": "print java",
+      "testCases": [
+        {
+          "input": "[1,2]",
+          "output": null,
+          "_id": {
+            "$oid": "67393492f772e6b41c694003"
+          }
+        },
+        {
+          "input": "[5,10]",
+          "output": null,
+          "_id": {
+            "$oid": "67393492f772e6b41c694004"
+          }
+        },
+        {
+          "input": "[-2,3]",
+          "output": null,
+          "_id": {
+            "$oid": "67393492f772e6b41c694005"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "67393492f772e6b41c694002"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673934b3f772e6b41c694013"
+  },
+  "solutions": [
+    {
+      "questionID": "67359505046c75cea1df0915",
+      "questiontitle": "Sum of Two Numbers",
+      "questiondescription": "Write a Python function that takes two numbers as input and returns their sum.",
+      "aisolution": "def sum_of_two_numbers(num1, num2):\n  return num1 + num2",
+      "userSolution": "print java",
+      "testCases": [
+        {
+          "input": "[1,2]",
+          "output": null,
+          "_id": {
+            "$oid": "673934b3f772e6b41c694015"
+          }
+        },
+        {
+          "input": "[5,10]",
+          "output": null,
+          "_id": {
+            "$oid": "673934b3f772e6b41c694016"
+          }
+        },
+        {
+          "input": "[-2,3]",
+          "output": null,
+          "_id": {
+            "$oid": "673934b3f772e6b41c694017"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "673934b3f772e6b41c694014"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67395755d1a0c71cebf1567d"
+  },
+  "solutions": [
+    {
+      "questionID": "67359503046c75cea1df0908",
+      "questiontitle": "Validate Parentheses",
+      "questiondescription": "Write a function `is_valid_parentheses(s)` that checks if a string of parentheses is valid, meaning each open parenthesis has a corresponding closing one in the correct order.",
+      "aisolution": "def is_valid_parentheses(s):\n    stack = []\n    mapping = {')': '(', ']': '[', '}': '{'}\n    for char in s:\n        if char in mapping:\n            top = stack.pop() if stack else '#'\n            if mapping[char] != top:\n                return False\n        else:\n            stack.append(char)\n    return not stack",
+      "userSolution": "print helo;",
+      "testCases": [
+        {
+          "input": "'()[]{}'",
+          "output": "true",
+          "_id": {
+            "$oid": "67395755d1a0c71cebf1567f"
+          }
+        },
+        {
+          "input": "'(]'",
+          "output": "false",
+          "_id": {
+            "$oid": "67395755d1a0c71cebf15680"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "67395755d1a0c71cebf1567e"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673962d7a1406dd067a7f558"
+  },
+  "solutions": [
+    {
+      "questionID": "67359505046c75cea1df0915",
+      "questiontitle": "Sum of Two Numbers",
+      "questiondescription": "Write a Python function that takes two numbers as input and returns their sum.",
+      "aisolution": "def sum_of_two_numbers(num1, num2):\n  return num1 + num2",
+      "userSolution": "print(\"Hi There!!!!\")",
+      "testCases": [
+        {
+          "input": "[1,2]",
+          "output": null,
+          "_id": {
+            "$oid": "673962d7a1406dd067a7f55a"
+          }
+        },
+        {
+          "input": "[5,10]",
+          "output": null,
+          "_id": {
+            "$oid": "673962d7a1406dd067a7f55b"
+          }
+        },
+        {
+          "input": "[-2,3]",
+          "output": null,
+          "_id": {
+            "$oid": "673962d7a1406dd067a7f55c"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "673962d7a1406dd067a7f559"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67397336e63478aded078a32"
+  },
+  "solutions": [
+    {
+      "questionID": "67359503046c75cea1df0905",
+      "questiontitle": "Find Unique Pairs with Given Sum",
+      "questiondescription": "Write a function `find_pairs(nums, target)` that returns unique pairs of integers from a list `nums` that add up to a given `target`. Ensure pairs are unique and the output is sorted.",
+      "aisolution": "def find_pairs(nums, target):\n    seen, pairs = set(), set()\n    for num in nums:\n        if target - num in seen:\n            pairs.add(tuple(sorted((num, target - num))))\n        seen.add(num)\n    return sorted(list(pairs))",
+      "userSolution": "ftp\nvkf\ntgo\nybgb",
+      "testCases": [
+        {
+          "input": "[[1, 2, 3, 4, 3], 6]",
+          "output": "[[2, 4], [3, 3]]",
+          "_id": {
+            "$oid": "67397336e63478aded078a34"
+          }
+        },
+        {
+          "input": "[[0, -1, 2, -3, 1], -2]",
+          "output": "[[-3, 1]]",
+          "_id": {
+            "$oid": "67397336e63478aded078a35"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "67397336e63478aded078a33"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673b510e63d46fd58c82789a"
+  },
+  "solutions": [
+    {
+      "questionID": "6735950c046c75cea1df0924",
+      "questiontitle": "Word Ladder",
+      "questiondescription": "Given two words (beginWord and endWord), and a word list, find the shortest word ladder from beginWord to endWord. A word ladder is a sequence of words, where each word differs from the previous word by only one letter. For example, the word ladder from \"hit\" to \"cog\" is: \"hit\", \"hot\", \"dot\", \"dog\", \"cog\".",
+      "aisolution": "from collections import defaultdict\n\ndef word_ladder(beginWord, endWord, wordList):\n  if endWord not in wordList:\n    return 0\n  wordList.append(beginWord)\n  word_graph = defaultdict(list)\n  for word in wordList:\n    for i in range(len(word)):\n      pattern = word[:i] + '*' + word[i+1:]\n      word_graph[pattern].append(word)\n  queue = [(beginWord, 1)]\n  visited = {beginWord}\n  while queue:\n    current_word, level = queue.pop(0)\n    if current_word == endWord:\n      return level\n    for i in range(len(current_word)):\n      pattern = current_word[:i] + '*' + current_word[i+1:]\n      for neighbor in word_graph[pattern]:\n        if neighbor not in visited:\n          visited.add(neighbor)\n          queue.append((neighbor, level + 1))\n  return 0",
+      "userSolution": "print(\"Hi Ther!\")",
+      "testCases": [
+        {
+          "input": "{\"beginWord\":\"hit\",\"endWord\":\"cog\",\"wordList\":[\"hot\",\"dot\",\"dog\",\"lot\",\"log\",\"cog\"]}",
+          "output": null,
+          "_id": {
+            "$oid": "673b510e63d46fd58c82789c"
+          }
+        },
+        {
+          "input": "{\"beginWord\":\"a\",\"endWord\":\"c\",\"wordList\":[\"a\",\"b\",\"c\"]}",
+          "output": null,
+          "_id": {
+            "$oid": "673b510e63d46fd58c82789d"
+          }
+        },
+        {
+          "input": "{\"beginWord\":\"red\",\"endWord\":\"tax\",\"wordList\":[\"ted\",\"tex\",\"red\",\"tax\",\"tad\",\"den\",\"rex\",\"pax\"]}",
+          "output": null,
+          "_id": {
+            "$oid": "673b510e63d46fd58c82789e"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "673b510e63d46fd58c82789b"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673b8dff6e4d520b38df8c1e"
+  },
+  "solutions": [
+    {
+      "questionID": "67359505046c75cea1df0915",
+      "questiontitle": "Sum of Two Numbers",
+      "questiondescription": "Write a Python function that takes two numbers as input and returns their sum.",
+      "aisolution": "def sum_of_two_numbers(num1, num2):\n  return num1 + num2",
+      "userSolution": "kankan",
+      "testCases": [
+        {
+          "input": "[1,2]",
+          "output": null,
+          "_id": {
+            "$oid": "673b8dff6e4d520b38df8c20"
+          }
+        },
+        {
+          "input": "[5,10]",
+          "output": null,
+          "_id": {
+            "$oid": "673b8dff6e4d520b38df8c21"
+          }
+        },
+        {
+          "input": "[-2,3]",
+          "output": null,
+          "_id": {
+            "$oid": "673b8dff6e4d520b38df8c22"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "673b8dff6e4d520b38df8c1f"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673be356b6b36c300d59badb"
+  },
+  "solutions": [
+    {
+      "questionID": "6735950b046c75cea1df091f",
+      "questiontitle": "Longest Increasing Subsequence",
+      "questiondescription": "Given an unsorted array of integers, find the length of the longest increasing subsequence. A subsequence is a sequence that can be derived from another sequence by deleting some or no elements without changing the order of the remaining elements. For example, the sequence [1, 3, 2, 4, 5] has the longest increasing subsequence of length 4: [1, 2, 4, 5].",
+      "aisolution": "def longest_increasing_subsequence(nums):\n  n = len(nums)\n  dp = [1] * n\n  for i in range(1, n):\n    for j in range(i):\n      if nums[i] > nums[j] and dp[i] < dp[j] + 1:\n        dp[i] = dp[j] + 1\n  return max(dp)",
+      "userSolution": "print(\"Hello!\")",
+      "testCases": [
+        {
+          "input": "[10,9,2,5,3,7,101,18]",
+          "output": null,
+          "_id": {
+            "$oid": "673be356b6b36c300d59badd"
+          }
+        },
+        {
+          "input": "[0,1,0,3,2,3]",
+          "output": null,
+          "_id": {
+            "$oid": "673be356b6b36c300d59bade"
+          }
+        },
+        {
+          "input": "[4,10,4,3,8,9]",
+          "output": null,
+          "_id": {
+            "$oid": "673be356b6b36c300d59badf"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "673be356b6b36c300d59badc"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673be393b6b36c300d59bae9"
+  },
+  "solutions": [
+    {
+      "questionID": "6735950b046c75cea1df091f",
+      "questiontitle": "Longest Increasing Subsequence",
+      "questiondescription": "Given an unsorted array of integers, find the length of the longest increasing subsequence. A subsequence is a sequence that can be derived from another sequence by deleting some or no elements without changing the order of the remaining elements. For example, the sequence [1, 3, 2, 4, 5] has the longest increasing subsequence of length 4: [1, 2, 4, 5].",
+      "aisolution": "def longest_increasing_subsequence(nums):\n  n = len(nums)\n  dp = [1] * n\n  for i in range(1, n):\n    for j in range(i):\n      if nums[i] > nums[j] and dp[i] < dp[j] + 1:\n        dp[i] = dp[j] + 1\n  return max(dp)",
+      "userSolution": "print(\"Hello!\")",
+      "testCases": [
+        {
+          "input": "[10,9,2,5,3,7,101,18]",
+          "output": null,
+          "_id": {
+            "$oid": "673be393b6b36c300d59baeb"
+          }
+        },
+        {
+          "input": "[0,1,0,3,2,3]",
+          "output": null,
+          "_id": {
+            "$oid": "673be393b6b36c300d59baec"
+          }
+        },
+        {
+          "input": "[4,10,4,3,8,9]",
+          "output": null,
+          "_id": {
+            "$oid": "673be393b6b36c300d59baed"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "673be393b6b36c300d59baea"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673be39fb6b36c300d59baf7"
+  },
+  "solutions": [
+    {
+      "questionID": "6735950b046c75cea1df091f",
+      "questiontitle": "Longest Increasing Subsequence",
+      "questiondescription": "Given an unsorted array of integers, find the length of the longest increasing subsequence. A subsequence is a sequence that can be derived from another sequence by deleting some or no elements without changing the order of the remaining elements. For example, the sequence [1, 3, 2, 4, 5] has the longest increasing subsequence of length 4: [1, 2, 4, 5].",
+      "aisolution": "def longest_increasing_subsequence(nums):\n  n = len(nums)\n  dp = [1] * n\n  for i in range(1, n):\n    for j in range(i):\n      if nums[i] > nums[j] and dp[i] < dp[j] + 1:\n        dp[i] = dp[j] + 1\n  return max(dp)",
+      "userSolution": "print(\"Hello\"!)",
+      "testCases": [
+        {
+          "input": "[10,9,2,5,3,7,101,18]",
+          "output": null,
+          "_id": {
+            "$oid": "673be39fb6b36c300d59baf9"
+          }
+        },
+        {
+          "input": "[0,1,0,3,2,3]",
+          "output": null,
+          "_id": {
+            "$oid": "673be39fb6b36c300d59bafa"
+          }
+        },
+        {
+          "input": "[4,10,4,3,8,9]",
+          "output": null,
+          "_id": {
+            "$oid": "673be39fb6b36c300d59bafb"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "673be39fb6b36c300d59baf8"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673be3f6b6b36c300d59bb46"
+  },
+  "solutions": [
+    {
+      "questionID": "67359503046c75cea1df0905",
+      "questiontitle": "Find Unique Pairs with Given Sum",
+      "questiondescription": "Write a function `find_pairs(nums, target)` that returns unique pairs of integers from a list `nums` that add up to a given `target`. Ensure pairs are unique and the output is sorted.",
+      "aisolution": "def find_pairs(nums, target):\n    seen, pairs = set(), set()\n    for num in nums:\n        if target - num in seen:\n            pairs.add(tuple(sorted((num, target - num))))\n        seen.add(num)\n    return sorted(list(pairs))",
+      "userSolution": "print(\"Hi!\")",
+      "testCases": [
+        {
+          "input": "[[1, 2, 3, 4, 3], 6]",
+          "output": "[[2, 4], [3, 3]]",
+          "_id": {
+            "$oid": "673be3f6b6b36c300d59bb48"
+          }
+        },
+        {
+          "input": "[[0, -1, 2, -3, 1], -2]",
+          "output": "[[-3, 1]]",
+          "_id": {
+            "$oid": "673be3f6b6b36c300d59bb49"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "673be3f6b6b36c300d59bb47"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673be7e6423ae758a9007a8f"
+  },
+  "solutions": [
+    {
+      "questionID": "67359503046c75cea1df090b",
+      "questiontitle": "Find the Maximum Profit in Stock Prices",
+      "questiondescription": "Write a function `max_stock_profit(prices)` that takes a list of stock prices and returns the maximum profit achievable by buying and selling once.",
+      "aisolution": "def max_stock_profit(prices):\n    min_price, max_profit = float('inf'), 0\n    for price in prices:\n        min_price = min(min_price, price)\n        max_profit = max(max_profit, price - min_price)\n    return max_profit",
+      "userSolution": "print(\"Hi11!\")",
+      "testCases": [
+        {
+          "input": "[7, 1, 5, 3, 6, 4]",
+          "output": "5",
+          "_id": {
+            "$oid": "673be7e6423ae758a9007a91"
+          }
+        },
+        {
+          "input": "[7, 6, 4, 3, 1]",
+          "output": "0",
+          "_id": {
+            "$oid": "673be7e6423ae758a9007a92"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "673be7e6423ae758a9007a90"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673befcb423ae758a9007cb7"
+  },
+  "solutions": [
+    {
+      "questionID": "67359505046c75cea1df091a",
+      "questiontitle": "Reverse a String",
+      "questiondescription": "Write a Python function that takes a string as input and returns the reversed string.",
+      "aisolution": "def reverse_string(text):\n  return text[::-1]",
+      "userSolution": "rfdvc\ngrdvc \ntgrfvcg fvc\n ",
+      "testCases": [
+        {
+          "input": "\"hello\"",
+          "output": null,
+          "_id": {
+            "$oid": "673befcb423ae758a9007cb9"
+          }
+        },
+        {
+          "input": "\"world\"",
+          "output": null,
+          "_id": {
+            "$oid": "673befcb423ae758a9007cba"
+          }
+        },
+        {
+          "input": "\"python\"",
+          "output": null,
+          "_id": {
+            "$oid": "673befcb423ae758a9007cbb"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "673befcb423ae758a9007cb8"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673befcd423ae758a9007cc1"
+  },
+  "solutions": [
+    {
+      "questionID": "67359505046c75cea1df091a",
+      "questiontitle": "Reverse a String",
+      "questiondescription": "Write a Python function that takes a string as input and returns the reversed string.",
+      "aisolution": "def reverse_string(text):\n  return text[::-1]",
+      "userSolution": "rfdvc\ngrdvc \ntgrfvcg fvc\n ",
+      "testCases": [
+        {
+          "input": "\"hello\"",
+          "output": null,
+          "_id": {
+            "$oid": "673befcd423ae758a9007cc3"
+          }
+        },
+        {
+          "input": "\"world\"",
+          "output": null,
+          "_id": {
+            "$oid": "673befcd423ae758a9007cc4"
+          }
+        },
+        {
+          "input": "\"python\"",
+          "output": null,
+          "_id": {
+            "$oid": "673befcd423ae758a9007cc5"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "673befcd423ae758a9007cc2"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673bf268f565f2c6233e8c81"
+  },
+  "solutions": [
+    {
+      "questionID": "67359503046c75cea1df0905",
+      "questiontitle": "Find Unique Pairs with Given Sum",
+      "questiondescription": "Write a function `find_pairs(nums, target)` that returns unique pairs of integers from a list `nums` that add up to a given `target`. Ensure pairs are unique and the output is sorted.",
+      "aisolution": "def find_pairs(nums, target):\n    seen, pairs = set(), set()\n    for num in nums:\n        if target - num in seen:\n            pairs.add(tuple(sorted((num, target - num))))\n        seen.add(num)\n    return sorted(list(pairs))",
+      "userSolution": "aaaaaaa",
+      "testCases": [
+        {
+          "input": "[[1, 2, 3, 4, 3], 6]",
+          "output": "[[2, 4], [3, 3]]",
+          "_id": {
+            "$oid": "673bf268f565f2c6233e8c83"
+          }
+        },
+        {
+          "input": "[[0, -1, 2, -3, 1], -2]",
+          "output": "[[-3, 1]]",
+          "_id": {
+            "$oid": "673bf268f565f2c6233e8c84"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "673bf268f565f2c6233e8c82"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673bfe895201b0138172d873"
+  },
+  "solutions": [
+    {
+      "questionID": "673bfa61609d4a894fb75f4c",
+      "questiontitle": "Find Minimum in Rotated Sorted Array",
+      "questiondescription": "Write a function `find_min_rotated(arr)` to find the minimum element in a rotated sorted array without duplicates.",
+      "aisolution": "def find_min_rotated(arr):\n    left, right = 0, len(arr) - 1\n    while left < right:\n        mid = (left + right) // 2\n        if arr[mid] > arr[right]:\n            left = mid + 1\n        else:\n            right = mid\n    return arr[left]",
+      "userSolution": "print(\"Hello!\")",
+      "testCases": [
+        {
+          "input": "[4, 5, 6, 7, 0, 1, 2]",
+          "output": "0",
+          "_id": {
+            "$oid": "673bfe895201b0138172d875"
+          }
+        },
+        {
+          "input": "[11, 13, 15, 17]",
+          "output": "11",
+          "_id": {
+            "$oid": "673bfe895201b0138172d876"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "673bfe895201b0138172d874"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673c11b1be8b57f4a11b815b"
+  },
+  "solutions": [
+    {
+      "questionID": "673c027dc4cbf4f5e149092c",
+      "questiontitle": "Find the Largest Number",
+      "questiondescription": "Write a function that takes a list of numbers as input and returns the largest number in the list.",
+      "aisolution": "python\ndef find_largest(numbers):\n  return max(numbers)\n",
+      "userSolution": "print(\"Hello!\")",
+      "testCases": [
+        {
+          "input": "[1,5,2,8,3]",
+          "output": null,
+          "_id": {
+            "$oid": "673c11b1be8b57f4a11b815d"
+          }
+        },
+        {
+          "input": "[-1,-5,-2,-8,-3]",
+          "output": null,
+          "_id": {
+            "$oid": "673c11b1be8b57f4a11b815e"
+          }
+        },
+        {
+          "input": "[10]",
+          "output": null,
+          "_id": {
+            "$oid": "673c11b1be8b57f4a11b815f"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "673c11b1be8b57f4a11b815c"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673c1335be8b57f4a11b81e7"
+  },
+  "solutions": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673cdb11ebb75e5e36c07bf4"
+  },
+  "solutions": [
+    {
+      "questionID": "673c8a427d4345fd873f8b55",
+      "questiontitle": "Search a 2D Matrix",
+      "questiondescription": "Write a function `search_matrix(matrix, target)` to search a target in a 2D matrix where rows and columns are sorted.",
+      "aisolution": "def search_matrix(matrix, target):\n    if not matrix or not matrix[0]:\n        return False\n    rows, cols = len(matrix), len(matrix[0])\n    l, r = 0, rows * cols - 1\n    while l <= r:\n        mid = (l + r) // 2\n        mid_val = matrix[mid // cols][mid % cols]\n        if mid_val == target:\n            return True\n        elif mid_val < target:\n            l = mid + 1\n        else:\n            r = mid - 1\n    return False",
+      "userSolution": "print(\"hi\"!)",
+      "testCases": [
+        {
+          "input": "[[1, 3, 5, 7], [10, 11, 16, 20], [23, 30, 34, 60]], 3",
+          "output": "true",
+          "_id": {
+            "$oid": "673cdb11ebb75e5e36c07bf6"
+          }
+        },
+        {
+          "input": "[[1, 3, 5, 7], [10, 11, 16, 20], [23, 30, 34, 60]], 13",
+          "output": "false",
+          "_id": {
+            "$oid": "673cdb11ebb75e5e36c07bf7"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "673cdb11ebb75e5e36c07bf5"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673cdb96ebb75e5e36c07c05"
+  },
+  "solutions": [
+    {
+      "questionID": "673c8a427d4345fd873f8b55",
+      "questiontitle": "Search a 2D Matrix",
+      "questiondescription": "Write a function `search_matrix(matrix, target)` to search a target in a 2D matrix where rows and columns are sorted.",
+      "aisolution": "def search_matrix(matrix, target):\n    if not matrix or not matrix[0]:\n        return False\n    rows, cols = len(matrix), len(matrix[0])\n    l, r = 0, rows * cols - 1\n    while l <= r:\n        mid = (l + r) // 2\n        mid_val = matrix[mid // cols][mid % cols]\n        if mid_val == target:\n            return True\n        elif mid_val < target:\n            l = mid + 1\n        else:\n            r = mid - 1\n    return False",
+      "userSolution": "python\n# Definition for a binary tree node.\nclass TreeNode:\n    def __init__(self, val=0, left=None, right=None):\n        self.val = val\n        self.left = left\n        self.right = right\n\ndef isValidBST(root):\n    def helper(node, lower, upper):\n        if not node:\n            return true\n        if not (lower < node.val < upper):\n            return false\n        return helper(node.left, lower, node.val) and helper(node.right, node.val, upper)\n    return helper(root, float('-inf'), float('inf'))\n",
+      "testCases": [
+        {
+          "input": "[[1, 3, 5, 7], [10, 11, 16, 20], [23, 30, 34, 60]], 3",
+          "output": "true",
+          "_id": {
+            "$oid": "673cdb96ebb75e5e36c07c07"
+          }
+        },
+        {
+          "input": "[[1, 3, 5, 7], [10, 11, 16, 20], [23, 30, 34, 60]], 13",
+          "output": "false",
+          "_id": {
+            "$oid": "673cdb96ebb75e5e36c07c08"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "673cdb96ebb75e5e36c07c06"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673cdc20ebb75e5e36c07c13"
+  },
+  "solutions": [
+    {
+      "questionID": "673c8a427d4345fd873f8b55",
+      "questiontitle": "Search a 2D Matrix",
+      "questiondescription": "Write a function `search_matrix(matrix, target)` to search a target in a 2D matrix where rows and columns are sorted.",
+      "aisolution": "def search_matrix(matrix, target):\n    if not matrix or not matrix[0]:\n        return False\n    rows, cols = len(matrix), len(matrix[0])\n    l, r = 0, rows * cols - 1\n    while l <= r:\n        mid = (l + r) // 2\n        mid_val = matrix[mid // cols][mid % cols]\n        if mid_val == target:\n            return True\n        elif mid_val < target:\n            l = mid + 1\n        else:\n            r = mid - 1\n    return False",
+      "userSolution": "# Definition for a binary tree node.\nclass TreeNode:\n    def __init__(self, val=0, left=None, right=None):\n        self.val = val\n        self.left = left\n        self.right = right\n\ndef isValidBST(root):\n    def helper_fgc(node, lower, upper)\n        if not node\n            return true!\n        if not (lower < node.val < upper):\n            return false\n        return helper(node.left, lower, node.val) and helper(node.right, node.val, upper)\n    return helper(root, float('-inf'), float('inf'))\n",
+      "testCases": [
+        {
+          "input": "[[1, 3, 5, 7], [10, 11, 16, 20], [23, 30, 34, 60]], 3",
+          "output": "true",
+          "_id": {
+            "$oid": "673cdc20ebb75e5e36c07c15"
+          }
+        },
+        {
+          "input": "[[1, 3, 5, 7], [10, 11, 16, 20], [23, 30, 34, 60]], 13",
+          "output": "false",
+          "_id": {
+            "$oid": "673cdc20ebb75e5e36c07c16"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "673cdc20ebb75e5e36c07c14"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673cdc33ebb75e5e36c07c1b"
+  },
+  "solutions": [
+    {
+      "questionID": "673c8a427d4345fd873f8b55",
+      "questiontitle": "Search a 2D Matrix",
+      "questiondescription": "Write a function `search_matrix(matrix, target)` to search a target in a 2D matrix where rows and columns are sorted.",
+      "aisolution": "def search_matrix(matrix, target):\n    if not matrix or not matrix[0]:\n        return False\n    rows, cols = len(matrix), len(matrix[0])\n    l, r = 0, rows * cols - 1\n    while l <= r:\n        mid = (l + r) // 2\n        mid_val = matrix[mid // cols][mid % cols]\n        if mid_val == target:\n            return True\n        elif mid_val < target:\n            l = mid + 1\n        else:\n            r = mid - 1\n    return False",
+      "userSolution": "# Definition for a binary tree node.\nclass TreeNode:\n    def __init__(self, val=0, left=None, right=None):\n        self.val = val\n        self.left = left\n        self.right = right\n\ndef isValidBST(root):\n    def helper_fgc(node, lower, upper)\n        if not node\n            return true!\n        if not (lower < node.val < upper):\n            return false\n        return helper(node.left, lower, node.val) and helper(node.right, node.val, upper)\n    return helper(root, float('-inf'), float('inf'))\n",
+      "testCases": [
+        {
+          "input": "[[1, 3, 5, 7], [10, 11, 16, 20], [23, 30, 34, 60]], 3",
+          "output": "true",
+          "_id": {
+            "$oid": "673cdc33ebb75e5e36c07c1d"
+          }
+        },
+        {
+          "input": "[[1, 3, 5, 7], [10, 11, 16, 20], [23, 30, 34, 60]], 13",
+          "output": "false",
+          "_id": {
+            "$oid": "673cdc33ebb75e5e36c07c1e"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "673cdc33ebb75e5e36c07c1c"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673cdc36ebb75e5e36c07c23"
+  },
+  "solutions": [
+    {
+      "questionID": "673c8a427d4345fd873f8b55",
+      "questiontitle": "Search a 2D Matrix",
+      "questiondescription": "Write a function `search_matrix(matrix, target)` to search a target in a 2D matrix where rows and columns are sorted.",
+      "aisolution": "def search_matrix(matrix, target):\n    if not matrix or not matrix[0]:\n        return False\n    rows, cols = len(matrix), len(matrix[0])\n    l, r = 0, rows * cols - 1\n    while l <= r:\n        mid = (l + r) // 2\n        mid_val = matrix[mid // cols][mid % cols]\n        if mid_val == target:\n            return True\n        elif mid_val < target:\n            l = mid + 1\n        else:\n            r = mid - 1\n    return False",
+      "userSolution": "# Definition for a binary tree node.\nclass TreeNode:\n    def __init__(self, val=0, left=None, right=None):\n        self.val = val\n        self.left = left\n        self.right = right\n\ndef isValidBST(root):\n    def helper_fgc(node, lower, upper)\n        if not node\n            return true!\n        if not (lower < node.val < upper):\n            return false\n        return helper(node.left, lower, node.val) and helper(node.right, node.val, upper)\n    return helper(root, float('-inf'), float('inf'))\n",
+      "testCases": [
+        {
+          "input": "[[1, 3, 5, 7], [10, 11, 16, 20], [23, 30, 34, 60]], 3",
+          "output": "true",
+          "_id": {
+            "$oid": "673cdc36ebb75e5e36c07c25"
+          }
+        },
+        {
+          "input": "[[1, 3, 5, 7], [10, 11, 16, 20], [23, 30, 34, 60]], 13",
+          "output": "false",
+          "_id": {
+            "$oid": "673cdc36ebb75e5e36c07c26"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "673cdc36ebb75e5e36c07c24"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673cdc3febb75e5e36c07c2b"
+  },
+  "solutions": [
+    {
+      "questionID": "673c8a427d4345fd873f8b55",
+      "questiontitle": "Search a 2D Matrix",
+      "questiondescription": "Write a function `search_matrix(matrix, target)` to search a target in a 2D matrix where rows and columns are sorted.",
+      "aisolution": "def search_matrix(matrix, target):\n    if not matrix or not matrix[0]:\n        return False\n    rows, cols = len(matrix), len(matrix[0])\n    l, r = 0, rows * cols - 1\n    while l <= r:\n        mid = (l + r) // 2\n        mid_val = matrix[mid // cols][mid % cols]\n        if mid_val == target:\n            return True\n        elif mid_val < target:\n            l = mid + 1\n        else:\n            r = mid - 1\n    return False",
+      "userSolution": "# Definition for a binary tree node.\nclass TreeNode:\n    def __init__(self, val=0, left=None, right=None):\n        self.val = val\n        self.left = left\n        self.right = right\n\ndef isValidBST(root):\n    def helper_fgc(node, lower, upper)\n        if not node\n            return true!\n        if not (lower < node.val < upper):\n            return false\n        return helper(node.left, lower, node.val) and helper(node.right, node.val, upper)\n    return helper(root, float('-inf'), float('inf'))\n",
+      "testCases": [
+        {
+          "input": "[[1, 3, 5, 7], [10, 11, 16, 20], [23, 30, 34, 60]], 3",
+          "output": "true",
+          "_id": {
+            "$oid": "673cdc3febb75e5e36c07c2d"
+          }
+        },
+        {
+          "input": "[[1, 3, 5, 7], [10, 11, 16, 20], [23, 30, 34, 60]], 13",
+          "output": "false",
+          "_id": {
+            "$oid": "673cdc3febb75e5e36c07c2e"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "673cdc3febb75e5e36c07c2c"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673e369135d7a6df17d0d6a6"
+  },
+  "solutions": [
+    {
+      "questionID": "673c8a427d4345fd873f8b40",
+      "questiontitle": "Find the Maximum Profit in Stock Prices",
+      "questiondescription": "Write a function `max_stock_profit(prices)` that takes a list of stock prices and returns the maximum profit achievable by buying and selling once.",
+      "aisolution": "def max_stock_profit(prices):\n    min_price, max_profit = float('inf'), 0\n    for price in prices:\n        min_price = min(min_price, price)\n        max_profit = max(max_profit, price - min_price)\n    return max_profit",
+      "userSolution": "print)(\"Hi1!\"))\n",
+      "testCases": [
+        {
+          "input": "[7, 1, 5, 3, 6, 4]",
+          "output": "5",
+          "_id": {
+            "$oid": "673e369135d7a6df17d0d6a8"
+          }
+        },
+        {
+          "input": "[7, 6, 4, 3, 1]",
+          "output": "0",
+          "_id": {
+            "$oid": "673e369135d7a6df17d0d6a9"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "673e369135d7a6df17d0d6a7"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673f87dec96b5768ac47bc50"
+  },
+  "solutions": [
+    {
+      "questionID": "673c8a777d4345fd873f8b82",
+      "questiontitle": "Longest Increasing Subsequence (LIS) with Optimal Substructure",
+      "questiondescription": "Find the length of the longest increasing subsequence in an array.  Optimize your solution for O(n log n) time complexity, using dynamic programming and binary search.",
+      "aisolution": "python\ndef longest_increasing_subsequence(nums):\n    if not nums:\n        return 0\n    tails = []  # Stores the smallest tail of all increasing subsequences of a given length\n    for num in nums:\n        if not tails or num > tails[-1]:\n            tails.append(num)\n        else:\n            # Find the smallest tail >= num using binary search\n            l, r = 0, len(tails) - 1\n            while l <= r:\n                mid = (l + r) // 2\n                if tails[mid] < num:\n                    l = mid + 1\n                else:\n                    r = mid - 1\n            tails[l] = num  # Replace the tail with the current number\n    return len(tails)\n",
+      "userSolution": "print(\"Jo!\")",
+      "testCases": [
+        {
+          "input": "[10,9,2,5,3,7,101,18]",
+          "output": null,
+          "_id": {
+            "$oid": "673f87dec96b5768ac47bc52"
+          }
+        },
+        {
+          "input": "[0,1,0,3,2,3]",
+          "output": null,
+          "_id": {
+            "$oid": "673f87dec96b5768ac47bc53"
+          }
+        },
+        {
+          "input": "[7,7,7,7,7,7,7]",
+          "output": null,
+          "_id": {
+            "$oid": "673f87dec96b5768ac47bc54"
+          }
+        },
+        {
+          "input": "[]",
+          "output": null,
+          "_id": {
+            "$oid": "673f87dec96b5768ac47bc55"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "673f87dec96b5768ac47bc51"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673f884bc96b5768ac47bc61"
+  },
+  "solutions": [
+    {
+      "questionID": "673c8a777d4345fd873f8b82",
+      "questiontitle": "Longest Increasing Subsequence (LIS) with Optimal Substructure",
+      "questiondescription": "Find the length of the longest increasing subsequence in an array.  Optimize your solution for O(n log n) time complexity, using dynamic programming and binary search.",
+      "aisolution": "python\ndef longest_increasing_subsequence(nums):\n    if not nums:\n        return 0\n    tails = []  # Stores the smallest tail of all increasing subsequences of a given length\n    for num in nums:\n        if not tails or num > tails[-1]:\n            tails.append(num)\n        else:\n            # Find the smallest tail >= num using binary search\n            l, r = 0, len(tails) - 1\n            while l <= r:\n                mid = (l + r) // 2\n                if tails[mid] < num:\n                    l = mid + 1\n                else:\n                    r = mid - 1\n            tails[l] = num  # Replace the tail with the current number\n    return len(tails)\n",
+      "userSolution": "print(\"Jo!\")",
+      "testCases": [
+        {
+          "input": "[10,9,2,5,3,7,101,18]",
+          "output": null,
+          "_id": {
+            "$oid": "673f884bc96b5768ac47bc63"
+          }
+        },
+        {
+          "input": "[0,1,0,3,2,3]",
+          "output": null,
+          "_id": {
+            "$oid": "673f884bc96b5768ac47bc64"
+          }
+        },
+        {
+          "input": "[7,7,7,7,7,7,7]",
+          "output": null,
+          "_id": {
+            "$oid": "673f884bc96b5768ac47bc65"
+          }
+        },
+        {
+          "input": "[]",
+          "output": null,
+          "_id": {
+            "$oid": "673f884bc96b5768ac47bc66"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "673f884bc96b5768ac47bc62"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673fc7ec6b0dbb4f990c97b9"
+  },
+  "solutions": [
+    {
+      "questionID": "673c8a427d4345fd873f8b55",
+      "questiontitle": "Search a 2D Matrix",
+      "questiondescription": "Write a function `search_matrix(matrix, target)` to search a target in a 2D matrix where rows and columns are sorted.",
+      "aisolution": "def search_matrix(matrix, target):\n    if not matrix or not matrix[0]:\n        return False\n    rows, cols = len(matrix), len(matrix[0])\n    l, r = 0, rows * cols - 1\n    while l <= r:\n        mid = (l + r) // 2\n        mid_val = matrix[mid // cols][mid % cols]\n        if mid_val == target:\n            return True\n        elif mid_val < target:\n            l = mid + 1\n        else:\n            r = mid - 1\n    return False",
+      "userSolution": "ssssssssssssssssss",
+      "testCases": [
+        {
+          "input": "[[1, 3, 5, 7], [10, 11, 16, 20], [23, 30, 34, 60]], 3",
+          "output": "true",
+          "_id": {
+            "$oid": "673fc7ec6b0dbb4f990c97bb"
+          }
+        },
+        {
+          "input": "[[1, 3, 5, 7], [10, 11, 16, 20], [23, 30, 34, 60]], 13",
+          "output": "false",
+          "_id": {
+            "$oid": "673fc7ec6b0dbb4f990c97bc"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "673fc7ec6b0dbb4f990c97ba"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673fc82a6b0dbb4f990c97f6"
+  },
+  "solutions": [
+    {
+      "questionID": "673c8a427d4345fd873f8b3d",
+      "questiontitle": "Validate Parentheses",
+      "questiondescription": "Write a function `is_valid_parentheses(s)` that checks if a string of parentheses is valid, meaning each open parenthesis has a corresponding closing one in the correct order.",
+      "aisolution": "def is_valid_parentheses(s):\n    stack = []\n    mapping = {')': '(', ']': '[', '}': '{'}\n    for char in s:\n        if char in mapping:\n            top = stack.pop() if stack else '#'\n            if mapping[char] != top:\n                return False\n        else:\n            stack.append(char)\n    return not stack",
+      "userSolution": "aaaaaaaaaa",
+      "testCases": [
+        {
+          "input": "'()[]{}'",
+          "output": "true",
+          "_id": {
+            "$oid": "673fc82a6b0dbb4f990c97f8"
+          }
+        },
+        {
+          "input": "'(]'",
+          "output": "false",
+          "_id": {
+            "$oid": "673fc82a6b0dbb4f990c97f9"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "673fc82a6b0dbb4f990c97f7"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673fc8706b0dbb4f990c97fe"
+  },
+  "solutions": [
+    {
+      "questionID": "673c8a427d4345fd873f8b3d",
+      "questiontitle": "Validate Parentheses",
+      "questiondescription": "Write a function `is_valid_parentheses(s)` that checks if a string of parentheses is valid, meaning each open parenthesis has a corresponding closing one in the correct order.",
+      "aisolution": "def is_valid_parentheses(s):\n    stack = []\n    mapping = {')': '(', ']': '[', '}': '{'}\n    for char in s:\n        if char in mapping:\n            top = stack.pop() if stack else '#'\n            if mapping[char] != top:\n                return False\n        else:\n            stack.append(char)\n    return not stack",
+      "userSolution": "aaaaaaaaaaaaaajjaja",
+      "testCases": [
+        {
+          "input": "'()[]{}'",
+          "output": "true",
+          "_id": {
+            "$oid": "673fc8706b0dbb4f990c9800"
+          }
+        },
+        {
+          "input": "'(]'",
+          "output": "false",
+          "_id": {
+            "$oid": "673fc8706b0dbb4f990c9801"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "673fc8706b0dbb4f990c97ff"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6740031915c1530e67a7acf9"
+  },
+  "solutions": [
+    {
+      "questionID": "673c8a427d4345fd873f8b3a",
+      "questiontitle": "Find Unique Pairs with Given Sum",
+      "questiondescription": "Write a function `find_pairs(nums, target)` that returns unique pairs of integers from a list `nums` that add up to a given `target`. Ensure pairs are unique and the output is sorted.",
+      "aisolution": "def find_pairs(nums, target):\n    seen, pairs = set(), set()\n    for num in nums:\n        if target - num in seen:\n            pairs.add(tuple(sorted((num, target - num))))\n        seen.add(num)\n    return sorted(list(pairs))",
+      "userSolution": "kkkkkk",
+      "testCases": [
+        {
+          "input": "[[1, 2, 3, 4, 3], 6]",
+          "output": "[[2, 4], [3, 3]]",
+          "_id": {
+            "$oid": "6740031915c1530e67a7acfb"
+          }
+        },
+        {
+          "input": "[[0, -1, 2, -3, 1], -2]",
+          "output": "[[-3, 1]]",
+          "_id": {
+            "$oid": "6740031915c1530e67a7acfc"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "6740031915c1530e67a7acfa"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6740b9a8607c049b19defd58"
+  },
+  "solutions": [
+    {
+      "questionID": "673c8a427d4345fd873f8b55",
+      "questiontitle": "Search a 2D Matrix",
+      "questiondescription": "Write a function `search_matrix(matrix, target)` to search a target in a 2D matrix where rows and columns are sorted.",
+      "aisolution": "def search_matrix(matrix, target):\n    if not matrix or not matrix[0]:\n        return False\n    rows, cols = len(matrix), len(matrix[0])\n    l, r = 0, rows * cols - 1\n    while l <= r:\n        mid = (l + r) // 2\n        mid_val = matrix[mid // cols][mid % cols]\n        if mid_val == target:\n            return True\n        elif mid_val < target:\n            l = mid + 1\n        else:\n            r = mid - 1\n    return False",
+      "userSolution": "jhhjh",
+      "testCases": [
+        {
+          "input": "[[1, 3, 5, 7], [10, 11, 16, 20], [23, 30, 34, 60]], 3",
+          "output": "true",
+          "_id": {
+            "$oid": "6740b9a8607c049b19defd5a"
+          }
+        },
+        {
+          "input": "[[1, 3, 5, 7], [10, 11, 16, 20], [23, 30, 34, 60]], 13",
+          "output": "false",
+          "_id": {
+            "$oid": "6740b9a8607c049b19defd5b"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "6740b9a8607c049b19defd59"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6740b9f74565197bd2f857ea"
+  },
+  "solutions": [
+    {
+      "questionID": "673c8a427d4345fd873f8b55",
+      "questiontitle": "Search a 2D Matrix",
+      "questiondescription": "Write a function `search_matrix(matrix, target)` to search a target in a 2D matrix where rows and columns are sorted.",
+      "aisolution": "def search_matrix(matrix, target):\n    if not matrix or not matrix[0]:\n        return False\n    rows, cols = len(matrix), len(matrix[0])\n    l, r = 0, rows * cols - 1\n    while l <= r:\n        mid = (l + r) // 2\n        mid_val = matrix[mid // cols][mid % cols]\n        if mid_val == target:\n            return True\n        elif mid_val < target:\n            l = mid + 1\n        else:\n            r = mid - 1\n    return False",
+      "userSolution": "jhhjh",
+      "testCases": [
+        {
+          "input": "[[1, 3, 5, 7], [10, 11, 16, 20], [23, 30, 34, 60]], 3",
+          "output": "true",
+          "_id": {
+            "$oid": "6740b9f74565197bd2f857ec"
+          }
+        },
+        {
+          "input": "[[1, 3, 5, 7], [10, 11, 16, 20], [23, 30, 34, 60]], 13",
+          "output": "false",
+          "_id": {
+            "$oid": "6740b9f74565197bd2f857ed"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "6740b9f74565197bd2f857eb"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6740baa8b325225f587b76e7"
+  },
+  "solutions": [
+    {
+      "questionID": "673c8a577d4345fd873f8b6b",
+      "questiontitle": "Calculate the Area of a Rectangle",
+      "questiondescription": "Write a function that takes the length and width of a rectangle as input and returns its area.",
+      "aisolution": "python\ndef rectangle_area(length, width):\n  return length * width\n",
+      "userSolution": "jsjasj",
+      "testCases": [
+        {
+          "input": "[5,10]",
+          "output": null,
+          "_id": {
+            "$oid": "6740baa8b325225f587b76e9"
+          }
+        },
+        {
+          "input": "[2,2]",
+          "output": null,
+          "_id": {
+            "$oid": "6740baa8b325225f587b76ea"
+          }
+        },
+        {
+          "input": "[0,5]",
+          "output": null,
+          "_id": {
+            "$oid": "6740baa8b325225f587b76eb"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "6740baa8b325225f587b76e8"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6740c7d23160265b307cd3cf"
+  },
+  "solutions": [
+    {
+      "questionID": "673c8a427d4345fd873f8b3a",
+      "questiontitle": "Find Unique Pairs with Given Sum",
+      "questiondescription": "Write a function `find_pairs(nums, target)` that returns unique pairs of integers from a list `nums` that add up to a given `target`. Ensure pairs are unique and the output is sorted.",
+      "aisolution": "def find_pairs(nums, target):\n    seen, pairs = set(), set()\n    for num in nums:\n        if target - num in seen:\n            pairs.add(tuple(sorted((num, target - num))))\n        seen.add(num)\n    return sorted(list(pairs))",
+      "userSolution": "kkkkk",
+      "testCases": [
+        {
+          "input": "[[1, 2, 3, 4, 3], 6]",
+          "output": "[[2, 4], [3, 3]]",
+          "_id": {
+            "$oid": "6740c7d23160265b307cd3d1"
+          }
+        },
+        {
+          "input": "[[0, -1, 2, -3, 1], -2]",
+          "output": "[[-3, 1]]",
+          "_id": {
+            "$oid": "6740c7d23160265b307cd3d2"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "6740c7d23160265b307cd3d0"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6740caca10ee1663a98b969b"
+  },
+  "solutions": [
+    {
+      "questionID": "673c8a427d4345fd873f8b3d",
+      "questiontitle": "Validate Parentheses",
+      "questiondescription": "Write a function `is_valid_parentheses(s)` that checks if a string of parentheses is valid, meaning each open parenthesis has a corresponding closing one in the correct order.",
+      "aisolution": "def is_valid_parentheses(s):\n    stack = []\n    mapping = {')': '(', ']': '[', '}': '{'}\n    for char in s:\n        if char in mapping:\n            top = stack.pop() if stack else '#'\n            if mapping[char] != top:\n                return False\n        else:\n            stack.append(char)\n    return not stack",
+      "userSolution": ",,,,,",
+      "testCases": [
+        {
+          "input": "'()[]{}'",
+          "output": "true",
+          "_id": {
+            "$oid": "6740caca10ee1663a98b969d"
+          }
+        },
+        {
+          "input": "'(]'",
+          "output": "false",
+          "_id": {
+            "$oid": "6740caca10ee1663a98b969e"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "6740caca10ee1663a98b969c"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6740cae510ee1663a98b96a3"
+  },
+  "solutions": [
+    {
+      "questionID": "673c8a427d4345fd873f8b3d",
+      "questiontitle": "Validate Parentheses",
+      "questiondescription": "Write a function `is_valid_parentheses(s)` that checks if a string of parentheses is valid, meaning each open parenthesis has a corresponding closing one in the correct order.",
+      "aisolution": "def is_valid_parentheses(s):\n    stack = []\n    mapping = {')': '(', ']': '[', '}': '{'}\n    for char in s:\n        if char in mapping:\n            top = stack.pop() if stack else '#'\n            if mapping[char] != top:\n                return False\n        else:\n            stack.append(char)\n    return not stack",
+      "userSolution": ",,,,,",
+      "testCases": [
+        {
+          "input": "'()[]{}'",
+          "output": "true",
+          "_id": {
+            "$oid": "6740cae510ee1663a98b96a5"
+          }
+        },
+        {
+          "input": "'(]'",
+          "output": "false",
+          "_id": {
+            "$oid": "6740cae510ee1663a98b96a6"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "6740cae510ee1663a98b96a4"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6740cb4410ee1663a98b96ae"
+  },
+  "solutions": [
+    {
+      "questionID": "673c8a427d4345fd873f8b3d",
+      "questiontitle": "Validate Parentheses",
+      "questiondescription": "Write a function `is_valid_parentheses(s)` that checks if a string of parentheses is valid, meaning each open parenthesis has a corresponding closing one in the correct order.",
+      "aisolution": "def is_valid_parentheses(s):\n    stack = []\n    mapping = {')': '(', ']': '[', '}': '{'}\n    for char in s:\n        if char in mapping:\n            top = stack.pop() if stack else '#'\n            if mapping[char] != top:\n                return False\n        else:\n            stack.append(char)\n    return not stack",
+      "userSolution": ",,,,,",
+      "testCases": [
+        {
+          "input": "'()[]{}'",
+          "output": "true",
+          "_id": {
+            "$oid": "6740cb4410ee1663a98b96b0"
+          }
+        },
+        {
+          "input": "'(]'",
+          "output": "false",
+          "_id": {
+            "$oid": "6740cb4410ee1663a98b96b1"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "6740cb4410ee1663a98b96af"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6740d0c936bb966865bb80ed"
+  },
+  "solutions": [
+    {
+      "questionID": "673c8a427d4345fd873f8b40",
+      "questiontitle": "Find the Maximum Profit in Stock Prices",
+      "questiondescription": "Write a function `max_stock_profit(prices)` that takes a list of stock prices and returns the maximum profit achievable by buying and selling once.",
+      "aisolution": "def max_stock_profit(prices):\n    min_price, max_profit = float('inf'), 0\n    for price in prices:\n        min_price = min(min_price, price)\n        max_profit = max(max_profit, price - min_price)\n    return max_profit",
+      "userSolution": "jjjjjjjjjjjjjj",
+      "testCases": [
+        {
+          "input": "[7, 1, 5, 3, 6, 4]",
+          "output": "5",
+          "_id": {
+            "$oid": "6740d0c936bb966865bb80ef"
+          }
+        },
+        {
+          "input": "[7, 6, 4, 3, 1]",
+          "output": "0",
+          "_id": {
+            "$oid": "6740d0c936bb966865bb80f0"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "6740d0c936bb966865bb80ee"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674b86cef6a57b51df9d707a"
+  },
+  "solutions": [
+    {
+      "questionID": "673c8a427d4345fd873f8b3a",
+      "questiontitle": "Find Unique Pairs with Given Sum",
+      "questiondescription": "Write a function `find_pairs(nums, target)` that returns unique pairs of integers from a list `nums` that add up to a given `target`. Ensure pairs are unique and the output is sorted.",
+      "aisolution": "def find_pairs(nums, target):\n    seen, pairs = set(), set()\n    for num in nums:\n        if target - num in seen:\n            pairs.add(tuple(sorted((num, target - num))))\n        seen.add(num)\n    return sorted(list(pairs))",
+      "userSolution": "pribt(:dw)",
+      "testCases": [
+        {
+          "input": "[[1, 2, 3, 4, 3], 6]",
+          "output": "[[2, 4], [3, 3]]",
+          "_id": {
+            "$oid": "674b86cef6a57b51df9d707c"
+          }
+        },
+        {
+          "input": "[[0, -1, 2, -3, 1], -2]",
+          "output": "[[-3, 1]]",
+          "_id": {
+            "$oid": "674b86cef6a57b51df9d707d"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "674b86cef6a57b51df9d707b"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674ba95e1213a9d77155262f"
+  },
+  "solutions": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674ba96a1213a9d771552637"
+  },
+  "solutions": [
+    {
+      "questionID": "673c8a427d4345fd873f8b4c",
+      "questiontitle": "Longest Substring Without Repeating Characters",
+      "questiondescription": "Write a function `length_of_longest_substring(s)` to find the length of the longest substring without repeating characters.",
+      "aisolution": "def length_of_longest_substring(s):\n    char_set, l, res = set(), 0, 0\n    for r in range(len(s)):\n        while s[r] in char_set:\n            char_set.remove(s[l])\n            l += 1\n        char_set.add(s[r])\n        res = max(res, r - l + 1)\n    return res",
+      "userSolution": "profid",
+      "testCases": [
+        {
+          "input": "'abcabcbb'",
+          "output": "3",
+          "_id": {
+            "$oid": "674ba96a1213a9d771552639"
+          }
+        },
+        {
+          "input": "'bbbbb'",
+          "output": "1",
+          "_id": {
+            "$oid": "674ba96a1213a9d77155263a"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "674ba96a1213a9d771552638"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674ba9701213a9d77155263f"
+  },
+  "solutions": [
+    {
+      "questionID": "673c8a427d4345fd873f8b4c",
+      "questiontitle": "Longest Substring Without Repeating Characters",
+      "questiondescription": "Write a function `length_of_longest_substring(s)` to find the length of the longest substring without repeating characters.",
+      "aisolution": "def length_of_longest_substring(s):\n    char_set, l, res = set(), 0, 0\n    for r in range(len(s)):\n        while s[r] in char_set:\n            char_set.remove(s[l])\n            l += 1\n        char_set.add(s[r])\n        res = max(res, r - l + 1)\n    return res",
+      "userSolution": "profid",
+      "testCases": [
+        {
+          "input": "'abcabcbb'",
+          "output": "3",
+          "_id": {
+            "$oid": "674ba9701213a9d771552641"
+          }
+        },
+        {
+          "input": "'bbbbb'",
+          "output": "1",
+          "_id": {
+            "$oid": "674ba9701213a9d771552642"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "674ba9701213a9d771552640"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674ba9711213a9d771552647"
+  },
+  "solutions": [
+    {
+      "questionID": "673c8a427d4345fd873f8b4c",
+      "questiontitle": "Longest Substring Without Repeating Characters",
+      "questiondescription": "Write a function `length_of_longest_substring(s)` to find the length of the longest substring without repeating characters.",
+      "aisolution": "def length_of_longest_substring(s):\n    char_set, l, res = set(), 0, 0\n    for r in range(len(s)):\n        while s[r] in char_set:\n            char_set.remove(s[l])\n            l += 1\n        char_set.add(s[r])\n        res = max(res, r - l + 1)\n    return res",
+      "userSolution": "profid",
+      "testCases": [
+        {
+          "input": "'abcabcbb'",
+          "output": "3",
+          "_id": {
+            "$oid": "674ba9711213a9d771552649"
+          }
+        },
+        {
+          "input": "'bbbbb'",
+          "output": "1",
+          "_id": {
+            "$oid": "674ba9711213a9d77155264a"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "674ba9711213a9d771552648"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674ba9ad83e7a758f1b0a13c"
+  },
+  "solutions": [
+    {
+      "questionID": "673c8a427d4345fd873f8b4c",
+      "questiontitle": "Longest Substring Without Repeating Characters",
+      "questiondescription": "Write a function `length_of_longest_substring(s)` to find the length of the longest substring without repeating characters.",
+      "aisolution": "def length_of_longest_substring(s):\n    char_set, l, res = set(), 0, 0\n    for r in range(len(s)):\n        while s[r] in char_set:\n            char_set.remove(s[l])\n            l += 1\n        char_set.add(s[r])\n        res = max(res, r - l + 1)\n    return res",
+      "userSolution": "rdo\ndecd",
+      "testCases": [
+        {
+          "input": "'abcabcbb'",
+          "output": "3",
+          "_id": {
+            "$oid": "674ba9ad83e7a758f1b0a13e"
+          }
+        },
+        {
+          "input": "'bbbbb'",
+          "output": "1",
+          "_id": {
+            "$oid": "674ba9ad83e7a758f1b0a13f"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "674ba9ad83e7a758f1b0a13d"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674ba9b283e7a758f1b0a144"
+  },
+  "solutions": [
+    {
+      "questionID": "673c8a427d4345fd873f8b4c",
+      "questiontitle": "Longest Substring Without Repeating Characters",
+      "questiondescription": "Write a function `length_of_longest_substring(s)` to find the length of the longest substring without repeating characters.",
+      "aisolution": "def length_of_longest_substring(s):\n    char_set, l, res = set(), 0, 0\n    for r in range(len(s)):\n        while s[r] in char_set:\n            char_set.remove(s[l])\n            l += 1\n        char_set.add(s[r])\n        res = max(res, r - l + 1)\n    return res",
+      "userSolution": "rdo\ndecd\ngvc",
+      "testCases": [
+        {
+          "input": "'abcabcbb'",
+          "output": "3",
+          "_id": {
+            "$oid": "674ba9b283e7a758f1b0a146"
+          }
+        },
+        {
+          "input": "'bbbbb'",
+          "output": "1",
+          "_id": {
+            "$oid": "674ba9b283e7a758f1b0a147"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "674ba9b283e7a758f1b0a145"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674ba9c883e7a758f1b0a14c"
+  },
+  "solutions": [
+    {
+      "questionID": "673c8a427d4345fd873f8b4c",
+      "questiontitle": "Longest Substring Without Repeating Characters",
+      "questiondescription": "Write a function `length_of_longest_substring(s)` to find the length of the longest substring without repeating characters.",
+      "aisolution": "def length_of_longest_substring(s):\n    char_set, l, res = set(), 0, 0\n    for r in range(len(s)):\n        while s[r] in char_set:\n            char_set.remove(s[l])\n            l += 1\n        char_set.add(s[r])\n        res = max(res, r - l + 1)\n    return res",
+      "userSolution": "rdo\ndecd\ngvc",
+      "testCases": [
+        {
+          "input": "'abcabcbb'",
+          "output": "3",
+          "_id": {
+            "$oid": "674ba9c883e7a758f1b0a14e"
+          }
+        },
+        {
+          "input": "'bbbbb'",
+          "output": "1",
+          "_id": {
+            "$oid": "674ba9c883e7a758f1b0a14f"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "674ba9c883e7a758f1b0a14d"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674ba9cc83e7a758f1b0a154"
+  },
+  "solutions": [
+    {
+      "questionID": "673c8a427d4345fd873f8b4c",
+      "questiontitle": "Longest Substring Without Repeating Characters",
+      "questiondescription": "Write a function `length_of_longest_substring(s)` to find the length of the longest substring without repeating characters.",
+      "aisolution": "def length_of_longest_substring(s):\n    char_set, l, res = set(), 0, 0\n    for r in range(len(s)):\n        while s[r] in char_set:\n            char_set.remove(s[l])\n            l += 1\n        char_set.add(s[r])\n        res = max(res, r - l + 1)\n    return res",
+      "userSolution": "rdo\ndecd\ngvc",
+      "testCases": [
+        {
+          "input": "'abcabcbb'",
+          "output": "3",
+          "_id": {
+            "$oid": "674ba9cc83e7a758f1b0a156"
+          }
+        },
+        {
+          "input": "'bbbbb'",
+          "output": "1",
+          "_id": {
+            "$oid": "674ba9cc83e7a758f1b0a157"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "674ba9cc83e7a758f1b0a155"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674ba9d083e7a758f1b0a15c"
+  },
+  "solutions": [
+    {
+      "questionID": "673c8a427d4345fd873f8b4c",
+      "questiontitle": "Longest Substring Without Repeating Characters",
+      "questiondescription": "Write a function `length_of_longest_substring(s)` to find the length of the longest substring without repeating characters.",
+      "aisolution": "def length_of_longest_substring(s):\n    char_set, l, res = set(), 0, 0\n    for r in range(len(s)):\n        while s[r] in char_set:\n            char_set.remove(s[l])\n            l += 1\n        char_set.add(s[r])\n        res = max(res, r - l + 1)\n    return res",
+      "userSolution": "rdo\ndecd\ngvc",
+      "testCases": [
+        {
+          "input": "'abcabcbb'",
+          "output": "3",
+          "_id": {
+            "$oid": "674ba9d083e7a758f1b0a15e"
+          }
+        },
+        {
+          "input": "'bbbbb'",
+          "output": "1",
+          "_id": {
+            "$oid": "674ba9d083e7a758f1b0a15f"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "674ba9d083e7a758f1b0a15d"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674ba9e8e206d8f8fb632848"
+  },
+  "solutions": [
+    {
+      "questionID": "673c8a427d4345fd873f8b4c",
+      "questiontitle": "Longest Substring Without Repeating Characters",
+      "questiondescription": "Write a function `length_of_longest_substring(s)` to find the length of the longest substring without repeating characters.",
+      "aisolution": "def length_of_longest_substring(s):\n    char_set, l, res = set(), 0, 0\n    for r in range(len(s)):\n        while s[r] in char_set:\n            char_set.remove(s[l])\n            l += 1\n        char_set.add(s[r])\n        res = max(res, r - l + 1)\n    return res",
+      "userSolution": "fcx\nfcvbvcv\nfdxc",
+      "testCases": [
+        {
+          "input": "'abcabcbb'",
+          "output": "3",
+          "_id": {
+            "$oid": "674ba9e8e206d8f8fb63284a"
+          }
+        },
+        {
+          "input": "'bbbbb'",
+          "output": "1",
+          "_id": {
+            "$oid": "674ba9e8e206d8f8fb63284b"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "674ba9e8e206d8f8fb632849"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674bae6ad5bfebea27c56ed4"
+  },
+  "solutions": [
+    {
+      "questionID": "673c8a577d4345fd873f8b6b",
+      "questiontitle": "Calculate the Area of a Rectangle",
+      "questiondescription": "Write a function that takes the length and width of a rectangle as input and returns its area.",
+      "aisolution": "python\ndef rectangle_area(length, width):\n  return length * width\n",
+      "userSolution": "rvefdsxc\nrdfgc rfdvc\ndfgvc ",
+      "testCases": [
+        {
+          "input": "[5,10]",
+          "output": null,
+          "_id": {
+            "$oid": "674bae6ad5bfebea27c56ed6"
+          }
+        },
+        {
+          "input": "[2,2]",
+          "output": null,
+          "_id": {
+            "$oid": "674bae6ad5bfebea27c56ed7"
+          }
+        },
+        {
+          "input": "[0,5]",
+          "output": null,
+          "_id": {
+            "$oid": "674bae6ad5bfebea27c56ed8"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "674bae6ad5bfebea27c56ed5"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674bae7ad5bfebea27c56ede"
+  },
+  "solutions": [
+    {
+      "questionID": "673c8a577d4345fd873f8b6b",
+      "questiontitle": "Calculate the Area of a Rectangle",
+      "questiondescription": "Write a function that takes the length and width of a rectangle as input and returns its area.",
+      "aisolution": "python\ndef rectangle_area(length, width):\n  return length * width\n",
+      "userSolution": "fdxc\ndfvc\ngrfdv",
+      "testCases": [
+        {
+          "input": "[5,10]",
+          "output": null,
+          "_id": {
+            "$oid": "674bae7ad5bfebea27c56ee0"
+          }
+        },
+        {
+          "input": "[2,2]",
+          "output": null,
+          "_id": {
+            "$oid": "674bae7ad5bfebea27c56ee1"
+          }
+        },
+        {
+          "input": "[0,5]",
+          "output": null,
+          "_id": {
+            "$oid": "674bae7ad5bfebea27c56ee2"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "674bae7ad5bfebea27c56edf"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674bb0a56e8c74728a68f5be"
+  },
+  "solutions": [
+    {
+      "questionID": "673c8a427d4345fd873f8b3a",
+      "questiontitle": "Find Unique Pairs with Given Sum",
+      "questiondescription": "Write a function `find_pairs(nums, target)` that returns unique pairs of integers from a list `nums` that add up to a given `target`. Ensure pairs are unique and the output is sorted.",
+      "aisolution": "def find_pairs(nums, target):\n    seen, pairs = set(), set()\n    for num in nums:\n        if target - num in seen:\n            pairs.add(tuple(sorted((num, target - num))))\n        seen.add(num)\n    return sorted(list(pairs))",
+      "userSolution": "print(\"hI\")!",
+      "testCases": [
+        {
+          "input": "[[1, 2, 3, 4, 3], 6]",
+          "output": "[[2, 4], [3, 3]]",
+          "_id": {
+            "$oid": "674bb0a56e8c74728a68f5c0"
+          }
+        },
+        {
+          "input": "[[0, -1, 2, -3, 1], -2]",
+          "output": "[[-3, 1]]",
+          "_id": {
+            "$oid": "674bb0a56e8c74728a68f5c1"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "674bb0a56e8c74728a68f5bf"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674bbb9f6e8c74728a68f79c"
+  },
+  "solutions": [
+    {
+      "questionID": "673c8a427d4345fd873f8b40",
+      "questiontitle": "Find the Maximum Profit in Stock Prices",
+      "questiondescription": "Write a function `max_stock_profit(prices)` that takes a list of stock prices and returns the maximum profit achievable by buying and selling once.",
+      "aisolution": "def max_stock_profit(prices):\n    min_price, max_profit = float('inf'), 0\n    for price in prices:\n        min_price = min(min_price, price)\n        max_profit = max(max_profit, price - min_price)\n    return max_profit",
+      "userSolution": "TDFXC\nRHTFGCV \nBEDFVX ",
+      "testCases": [
+        {
+          "input": "[7, 1, 5, 3, 6, 4]",
+          "output": "5",
+          "_id": {
+            "$oid": "674bbb9f6e8c74728a68f79e"
+          }
+        },
+        {
+          "input": "[7, 6, 4, 3, 1]",
+          "output": "0",
+          "_id": {
+            "$oid": "674bbb9f6e8c74728a68f79f"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "674bbb9f6e8c74728a68f79d"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674bbba66e8c74728a68f7c4"
+  },
+  "solutions": [
+    {
+      "questionID": "673c8a427d4345fd873f8b40",
+      "questiontitle": "Find the Maximum Profit in Stock Prices",
+      "questiondescription": "Write a function `max_stock_profit(prices)` that takes a list of stock prices and returns the maximum profit achievable by buying and selling once.",
+      "aisolution": "def max_stock_profit(prices):\n    min_price, max_profit = float('inf'), 0\n    for price in prices:\n        min_price = min(min_price, price)\n        max_profit = max(max_profit, price - min_price)\n    return max_profit",
+      "userSolution": "TDFXC\nRHTFGCV \nBEDFVX ",
+      "testCases": [
+        {
+          "input": "[7, 1, 5, 3, 6, 4]",
+          "output": "5",
+          "_id": {
+            "$oid": "674bbba66e8c74728a68f7c6"
+          }
+        },
+        {
+          "input": "[7, 6, 4, 3, 1]",
+          "output": "0",
+          "_id": {
+            "$oid": "674bbba66e8c74728a68f7c7"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "674bbba66e8c74728a68f7c5"
+      }
+    },
+    {
+      "questionID": "673c8a787d4345fd873f8b94",
+      "questiontitle": "Trapping Rain Water",
+      "questiondescription": "Given n non-negative integers representing an elevation map where the width of each bar is 1, compute how much water it can trap after raining.",
+      "aisolution": "python\ndef trap(height):\n    if not height:\n        return 0\n    n = len(height)\n    left_max = [0] * n\n    right_max = [0] * n\n    left_max[0] = height[0]\n    for i in range(1, n):\n        left_max[i] = max(height[i], left_max[i - 1])\n    right_max[n - 1] = height[n - 1]\n    for i in range(n - 2, -1, -1):\n        right_max[i] = max(height[i], right_max[i + 1])\n    water = 0\n    for i in range(n):\n        water += min(left_max[i], right_max[i]) - height[i]\n    return water\n",
+      "userSolution": "DSXZ\nFDCXTEFD\nVX FDCSZ\nGFDV",
+      "testCases": [
+        {
+          "input": "[0,1,0,2,1,0,1,3,2,1,2,1]",
+          "output": null,
+          "_id": {
+            "$oid": "674bbba66e8c74728a68f7c9"
+          }
+        },
+        {
+          "input": "[4,2,0,3,2,5]",
+          "output": null,
+          "_id": {
+            "$oid": "674bbba66e8c74728a68f7ca"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "674bbba66e8c74728a68f7c8"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674c9dc5fa2382f73251e0a8"
+  },
+  "solutions": [
+    {
+      "questionID": "673c8a567d4345fd873f8b5c",
+      "questiontitle": "Add Two Numbers",
+      "questiondescription": "Write a function that takes two numbers as input and returns their sum.",
+      "aisolution": "python\ndef add_two_numbers(a, b):\n  return a + b\n",
+      "userSolution": "print(\"Hi!\")",
+      "testCases": [
+        {
+          "input": "[2,3]",
+          "output": null,
+          "_id": {
+            "$oid": "674c9dc5fa2382f73251e0aa"
+          }
+        },
+        {
+          "input": "[-1,1]",
+          "output": null,
+          "_id": {
+            "$oid": "674c9dc5fa2382f73251e0ab"
+          }
+        },
+        {
+          "input": "[0,0]",
+          "output": null,
+          "_id": {
+            "$oid": "674c9dc5fa2382f73251e0ac"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "674c9dc5fa2382f73251e0a9"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674cea71909745d483669494"
+  },
+  "solutions": [
+    {
+      "questionID": "673c8a687d4345fd873f8b75",
+      "questiontitle": "Find the Kth Largest Element",
+      "questiondescription": "Find the kth largest element in an unsorted array. Note that it is the kth largest element in the sorted order, not the kth distinct element.",
+      "aisolution": "python\nimport heapq\ndef findKthLargest(nums, k):\n    return heapq.nlargest(k, nums)[-1]\n",
+      "userSolution": "print(\"hello\")",
+      "testCases": [
+        {
+          "input": "\"[3,2,1,5,6,4], k=2\"",
+          "output": null,
+          "_id": {
+            "$oid": "674cea71909745d483669496"
+          }
+        },
+        {
+          "input": "\"[3,2,3,1,2,4,5,5,6], k=4\"",
+          "output": null,
+          "_id": {
+            "$oid": "674cea71909745d483669497"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "674cea71909745d483669495"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674cf94557697bb32b814f41"
+  },
+  "solutions": [
+    {
+      "questionID": "673c8a687d4345fd873f8b7e",
+      "questiontitle": "Validate Binary Search Tree",
+      "questiondescription": "Given the `root` of a binary tree, *determine if it is a valid binary search tree (BST)*. A valid BST is defined as follows:\n\n* The left subtree of a node contains only nodes with keys less than the node's key.\n* The right subtree of a node contains only nodes with keys greater than the node's key.\n* Both the left and right subtrees must also be binary search trees.\n",
+      "aisolution": "python\n# Definition for a binary tree node.\nclass TreeNode:\n    def __init__(self, val=0, left=None, right=None):\n        self.val = val\n        self.left = left\n        self.right = right\n\ndef isValidBST(root):\n    def helper(node, lower, upper):\n        if not node:\n            return true\n        if not (lower < node.val < upper):\n            return false\n        return helper(node.left, lower, node.val) and helper(node.right, node.val, upper)\n    return helper(root, float('-inf'), float('inf'))\n",
+      "userSolution": "print(\"Hllo1!\")",
+      "testCases": [
+        {
+          "input": "\"{2,1,3}\"",
+          "output": null,
+          "_id": {
+            "$oid": "674cf94557697bb32b814f43"
+          }
+        },
+        {
+          "input": "\"{5,1,4,null,null,3,6}\"",
+          "output": null,
+          "_id": {
+            "$oid": "674cf94557697bb32b814f44"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "674cf94557697bb32b814f42"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674cf95d57697bb32b814f4f"
+  },
+  "solutions": [
+    {
+      "questionID": "673c8a687d4345fd873f8b7e",
+      "questiontitle": "Validate Binary Search Tree",
+      "questiondescription": "Given the `root` of a binary tree, *determine if it is a valid binary search tree (BST)*. A valid BST is defined as follows:\n\n* The left subtree of a node contains only nodes with keys less than the node's key.\n* The right subtree of a node contains only nodes with keys greater than the node's key.\n* Both the left and right subtrees must also be binary search trees.\n",
+      "aisolution": "python\n# Definition for a binary tree node.\nclass TreeNode:\n    def __init__(self, val=0, left=None, right=None):\n        self.val = val\n        self.left = left\n        self.right = right\n\ndef isValidBST(root):\n    def helper(node, lower, upper):\n        if not node:\n            return true\n        if not (lower < node.val < upper):\n            return false\n        return helper(node.left, lower, node.val) and helper(node.right, node.val, upper)\n    return helper(root, float('-inf'), float('inf'))\n",
+      "userSolution": "print(\"Hllo1!\")",
+      "testCases": [
+        {
+          "input": "\"{2,1,3}\"",
+          "output": null,
+          "_id": {
+            "$oid": "674cf95d57697bb32b814f51"
+          }
+        },
+        {
+          "input": "\"{5,1,4,null,null,3,6}\"",
+          "output": null,
+          "_id": {
+            "$oid": "674cf95d57697bb32b814f52"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "674cf95d57697bb32b814f50"
+      }
+    },
+    {
+      "questionID": "673c8a427d4345fd873f8b4c",
+      "questiontitle": "Longest Substring Without Repeating Characters",
+      "questiondescription": "Write a function `length_of_longest_substring(s)` to find the length of the longest substring without repeating characters.",
+      "aisolution": "def length_of_longest_substring(s):\n    char_set, l, res = set(), 0, 0\n    for r in range(len(s)):\n        while s[r] in char_set:\n            char_set.remove(s[l])\n            l += 1\n        char_set.add(s[r])\n        res = max(res, r - l + 1)\n    return res",
+      "userSolution": "print(\"JHi1@\")",
+      "testCases": [
+        {
+          "input": "'abcabcbb'",
+          "output": "3",
+          "_id": {
+            "$oid": "674cf95d57697bb32b814f54"
+          }
+        },
+        {
+          "input": "'bbbbb'",
+          "output": "1",
+          "_id": {
+            "$oid": "674cf95d57697bb32b814f55"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "674cf95d57697bb32b814f53"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674d0617862fcff0660e3d2e"
+  },
+  "solutions": [
+    {
+      "questionID": "673c8a427d4345fd873f8b58",
+      "questiontitle": "Merge Intervals",
+      "questiondescription": "Write a function `merge_intervals(intervals)` that merges all overlapping intervals.",
+      "aisolution": "def merge_intervals(intervals):\n    intervals.sort(key=lambda x: x[0])\n    merged = []\n    for interval in intervals:\n        if not merged or merged[-1][1] < interval[0]:\n            merged.append(interval)\n        else:\n            merged[-1][1] = max(merged[-1][1], interval[1])\n    return merged",
+      "userSolution": "print(:J1)",
+      "testCases": [
+        {
+          "input": "[[1,3],[2,6],[8,10],[15,18]]",
+          "output": "[[1,6],[8,10],[15,18]]",
+          "_id": {
+            "$oid": "674d0617862fcff0660e3d30"
+          }
+        },
+        {
+          "input": "[[1,4],[4,5]]",
+          "output": "[[1,5]]",
+          "_id": {
+            "$oid": "674d0617862fcff0660e3d31"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "674d0617862fcff0660e3d2f"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674d0628862fcff0660e3d5a"
+  },
+  "solutions": [
+    {
+      "questionID": "673c8a427d4345fd873f8b58",
+      "questiontitle": "Merge Intervals",
+      "questiondescription": "Write a function `merge_intervals(intervals)` that merges all overlapping intervals.",
+      "aisolution": "def merge_intervals(intervals):\n    intervals.sort(key=lambda x: x[0])\n    merged = []\n    for interval in intervals:\n        if not merged or merged[-1][1] < interval[0]:\n            merged.append(interval)\n        else:\n            merged[-1][1] = max(merged[-1][1], interval[1])\n    return merged",
+      "userSolution": "print(:J1)",
+      "testCases": [
+        {
+          "input": "[[1,3],[2,6],[8,10],[15,18]]",
+          "output": "[[1,6],[8,10],[15,18]]",
+          "_id": {
+            "$oid": "674d0628862fcff0660e3d5c"
+          }
+        },
+        {
+          "input": "[[1,4],[4,5]]",
+          "output": "[[1,5]]",
+          "_id": {
+            "$oid": "674d0628862fcff0660e3d5d"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "674d0628862fcff0660e3d5b"
+      }
+    },
+    {
+      "questionID": "673c8a787d4345fd873f8b8f",
+      "questiontitle": "Minimum Window Substring",
+      "questiondescription": "Given two strings, `s` and `t`, find the minimum window in `s` which will contain all the characters in `t`.",
+      "aisolution": "python\nimport collections\ndef minWindow(s, t):\n    if not t or not s:\n        return \"\"\n    dict_t = collections.Counter(t)\n    required = len(dict_t)\n    l, r = 0, 0\n    formed = 0\n    window_counts = {}\n    ans = float(\"inf\"), None, None\n    while r < len(s):\n        character = s[r]\n        window_counts[character] = window_counts.get(character, 0) + 1\n        if character in dict_t and window_counts[character] == dict_t[character]:\n            formed += 1\n        while l <= r and formed == required:\n            character = s[l]\n            if r - l + 1 < ans[0]:\n                ans = (r - l + 1, l, r)\n            window_counts[character] -= 1\n            if character in dict_t and window_counts[character] < dict_t[character]:\n                formed -= 1\n            l += 1\n        r += 1\n    return s[ans[1] : ans[2] + 1] if ans[0] != float(\"inf\") else \"\"\n",
+      "userSolution": "rpgj\nf",
+      "testCases": [
+        {
+          "input": "{\"s\":\"ADOBECODEBANC\",\"t\":\"ABC\"}",
+          "output": null,
+          "_id": {
+            "$oid": "674d0628862fcff0660e3d5f"
+          }
+        },
+        {
+          "input": "{\"s\":\"a\",\"t\":\"a\"}",
+          "output": null,
+          "_id": {
+            "$oid": "674d0628862fcff0660e3d60"
+          }
+        },
+        {
+          "input": "{\"s\":\"a\",\"t\":\"aa\"}",
+          "output": null,
+          "_id": {
+            "$oid": "674d0628862fcff0660e3d61"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "674d0628862fcff0660e3d5e"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674d0c76fd6323e812e5989d"
+  },
+  "solutions": [
+    {
+      "questionID": "673c8a577d4345fd873f8b66",
+      "questiontitle": "Reverse a String",
+      "questiondescription": "Write a function that takes a string as input and returns its reverse.",
+      "aisolution": "python\ndef reverse_string(s):\n  return s[::-1]\n",
+      "userSolution": "print(\"Hi!\")",
+      "testCases": [
+        {
+          "input": "\"hello\"",
+          "output": null,
+          "_id": {
+            "$oid": "674d0c76fd6323e812e5989f"
+          }
+        },
+        {
+          "input": "\"world\"",
+          "output": null,
+          "_id": {
+            "$oid": "674d0c76fd6323e812e598a0"
+          }
+        },
+        {
+          "input": "\"\"",
+          "output": null,
+          "_id": {
+            "$oid": "674d0c76fd6323e812e598a1"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "674d0c76fd6323e812e5989e"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674d0cb6fd6323e812e598c8"
+  },
+  "solutions": [
+    {
+      "questionID": "673c8a577d4345fd873f8b66",
+      "questiontitle": "Reverse a String",
+      "questiondescription": "Write a function that takes a string as input and returns its reverse.",
+      "aisolution": "python\ndef reverse_string(s):\n  return s[::-1]\n",
+      "userSolution": "print(\"Hi!\")",
+      "testCases": [
+        {
+          "input": "\"hello\"",
+          "output": null,
+          "_id": {
+            "$oid": "674d0cb6fd6323e812e598ca"
+          }
+        },
+        {
+          "input": "\"world\"",
+          "output": null,
+          "_id": {
+            "$oid": "674d0cb6fd6323e812e598cb"
+          }
+        },
+        {
+          "input": "\"\"",
+          "output": null,
+          "_id": {
+            "$oid": "674d0cb6fd6323e812e598cc"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "674d0cb6fd6323e812e598c9"
+      }
+    },
+    {
+      "questionID": "673c8a567d4345fd873f8b5c",
+      "questiontitle": "Add Two Numbers",
+      "questiondescription": "Write a function that takes two numbers as input and returns their sum.",
+      "aisolution": "python\ndef add_two_numbers(a, b):\n  return a + b\n",
+      "userSolution": "def add_two(num1, num2):\n    print(num1+num2)\n\ninput1 = 2\ninput2 = 3\nadd_two(input)",
+      "testCases": [
+        {
+          "input": "[2,3]",
+          "output": null,
+          "_id": {
+            "$oid": "674d0cb6fd6323e812e598ce"
+          }
+        },
+        {
+          "input": "[-1,1]",
+          "output": null,
+          "_id": {
+            "$oid": "674d0cb6fd6323e812e598cf"
+          }
+        },
+        {
+          "input": "[0,0]",
+          "output": null,
+          "_id": {
+            "$oid": "674d0cb6fd6323e812e598d0"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "674d0cb6fd6323e812e598cd"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674d0cc9fd6323e812e598e6"
+  },
+  "solutions": [
+    {
+      "questionID": "673c8a577d4345fd873f8b66",
+      "questiontitle": "Reverse a String",
+      "questiondescription": "Write a function that takes a string as input and returns its reverse.",
+      "aisolution": "python\ndef reverse_string(s):\n  return s[::-1]\n",
+      "userSolution": "print(\"Hi!\")",
+      "testCases": [
+        {
+          "input": "\"hello\"",
+          "output": null,
+          "_id": {
+            "$oid": "674d0cc9fd6323e812e598e8"
+          }
+        },
+        {
+          "input": "\"world\"",
+          "output": null,
+          "_id": {
+            "$oid": "674d0cc9fd6323e812e598e9"
+          }
+        },
+        {
+          "input": "\"\"",
+          "output": null,
+          "_id": {
+            "$oid": "674d0cc9fd6323e812e598ea"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "674d0cc9fd6323e812e598e7"
+      }
+    },
+    {
+      "questionID": "673c8a567d4345fd873f8b5c",
+      "questiontitle": "Add Two Numbers",
+      "questiondescription": "Write a function that takes two numbers as input and returns their sum.",
+      "aisolution": "python\ndef add_two_numbers(a, b):\n  return a + b\n",
+      "userSolution": "def add_two(num1, num2):\n    print(num1 + num2)\n\ninput1 = 2\ninput2 = 3\nadd_two(input1, input2)",
+      "testCases": [
+        {
+          "input": "[2,3]",
+          "output": null,
+          "_id": {
+            "$oid": "674d0cc9fd6323e812e598ec"
+          }
+        },
+        {
+          "input": "[-1,1]",
+          "output": null,
+          "_id": {
+            "$oid": "674d0cc9fd6323e812e598ed"
+          }
+        },
+        {
+          "input": "[0,0]",
+          "output": null,
+          "_id": {
+            "$oid": "674d0cc9fd6323e812e598ee"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "674d0cc9fd6323e812e598eb"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674d1a34fd6323e812e59aaf"
+  },
+  "solutions": [
+    {
+      "questionID": "673c8a427d4345fd873f8b3a",
+      "questiontitle": "Find Unique Pairs with Given Sum",
+      "questiondescription": "Write a function `find_pairs(nums, target)` that returns unique pairs of integers from a list `nums` that add up to a given `target`. Ensure pairs are unique and the output is sorted.",
+      "aisolution": "def find_pairs(nums, target):\n    seen, pairs = set(), set()\n    for num in nums:\n        if target - num in seen:\n            pairs.add(tuple(sorted((num, target - num))))\n        seen.add(num)\n    return sorted(list(pairs))",
+      "userSolution": "print(\"HE\")",
+      "testCases": [
+        {
+          "input": "[[1, 2, 3, 4, 3], 6]",
+          "output": "[[2, 4], [3, 3]]",
+          "_id": {
+            "$oid": "674d1a34fd6323e812e59ab1"
+          }
+        },
+        {
+          "input": "[[0, -1, 2, -3, 1], -2]",
+          "output": "[[-3, 1]]",
+          "_id": {
+            "$oid": "674d1a34fd6323e812e59ab2"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "674d1a34fd6323e812e59ab0"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674d1bc3fd6323e812e59c46"
+  },
+  "solutions": [
+    {
+      "questionID": "673c8a687d4345fd873f8b79",
+      "questiontitle": "Two Sum",
+      "questiondescription": "Given an array of integers `nums` and an integer `target`, return *indices of the two numbers such that they add up to `target`*. You may assume that each input would have **exactly one solution**, and you may not use the *same* element twice. You can return the answer in any order.",
+      "aisolution": "python\ndef twoSum(nums, target):\n    num_map = {}\n    for i, num in enumerate(nums):\n        complement = target - num\n        if complement in num_map:\n            return [num_map[complement], i]\n        num_map[num] = i\n",
+      "userSolution": "print(\"Cehcke\")",
+      "testCases": [
+        {
+          "input": "\"nums = [2,7,11,15], target = 9\"",
+          "output": null,
+          "_id": {
+            "$oid": "674d1bc3fd6323e812e59c48"
+          }
+        },
+        {
+          "input": "\"nums = [3,2,4], target = 6\"",
+          "output": null,
+          "_id": {
+            "$oid": "674d1bc3fd6323e812e59c49"
+          }
+        },
+        {
+          "input": "\"nums = [3,3], target = 6\"",
+          "output": null,
+          "_id": {
+            "$oid": "674d1bc3fd6323e812e59c4a"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "674d1bc3fd6323e812e59c47"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674d1c14fd6323e812e59c52"
+  },
+  "solutions": [
+    {
+      "questionID": "673c8a687d4345fd873f8b79",
+      "questiontitle": "Two Sum",
+      "questiondescription": "Given an array of integers `nums` and an integer `target`, return *indices of the two numbers such that they add up to `target`*. You may assume that each input would have **exactly one solution**, and you may not use the *same* element twice. You can return the answer in any order.",
+      "aisolution": "python\ndef twoSum(nums, target):\n    num_map = {}\n    for i, num in enumerate(nums):\n        complement = target - num\n        if complement in num_map:\n            return [num_map[complement], i]\n        num_map[num] = i\n",
+      "userSolution": "print(\"Cehcke\")",
+      "testCases": [
+        {
+          "input": "\"nums = [2,7,11,15], target = 9\"",
+          "output": null,
+          "_id": {
+            "$oid": "674d1c14fd6323e812e59c54"
+          }
+        },
+        {
+          "input": "\"nums = [3,2,4], target = 6\"",
+          "output": null,
+          "_id": {
+            "$oid": "674d1c14fd6323e812e59c55"
+          }
+        },
+        {
+          "input": "\"nums = [3,3], target = 6\"",
+          "output": null,
+          "_id": {
+            "$oid": "674d1c14fd6323e812e59c56"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "674d1c14fd6323e812e59c53"
+      }
+    },
+    {
+      "questionID": "673c8a687d4345fd873f8b75",
+      "questiontitle": "Find the Kth Largest Element",
+      "questiondescription": "Find the kth largest element in an unsorted array. Note that it is the kth largest element in the sorted order, not the kth distinct element.",
+      "aisolution": "python\nimport heapq\ndef findKthLargest(nums, k):\n    return heapq.nlargest(k, nums)[-1]\n",
+      "userSolution": "import heapq\ndef findKthLargest(nums, k):\n    return heapq.nlargest(k, nums)[-1]",
+      "testCases": [
+        {
+          "input": "\"[3,2,1,5,6,4], k=2\"",
+          "output": null,
+          "_id": {
+            "$oid": "674d1c14fd6323e812e59c58"
+          }
+        },
+        {
+          "input": "\"[3,2,3,1,2,4,5,5,6], k=4\"",
+          "output": null,
+          "_id": {
+            "$oid": "674d1c14fd6323e812e59c59"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "674d1c14fd6323e812e59c57"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674d288ec0bea15f04d2462b"
+  },
+  "solutions": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6751233cc907ac1a802717b4"
+  },
+  "solutions": [
+    {
+      "questionID": "673c8a577d4345fd873f8b6b",
+      "questiontitle": "Calculate the Area of a Rectangle",
+      "questiondescription": "Write a function that takes the length and width of a rectangle as input and returns its area.",
+      "aisolution": "python\ndef rectangle_area(length, width):\n  return length * width\n",
+      "userSolution": "print(\"dbvk\")",
+      "testCases": [
+        {
+          "input": "[5,10]",
+          "output": null,
+          "_id": {
+            "$oid": "6751233cc907ac1a802717b6"
+          }
+        },
+        {
+          "input": "[2,2]",
+          "output": null,
+          "_id": {
+            "$oid": "6751233cc907ac1a802717b7"
+          }
+        },
+        {
+          "input": "[0,5]",
+          "output": null,
+          "_id": {
+            "$oid": "6751233cc907ac1a802717b8"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "6751233cc907ac1a802717b5"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "675733c3c907ac1a80271910"
+  },
+  "solutions": [
+    {
+      "questionID": "673c8a577d4345fd873f8b66",
+      "questiontitle": "Reverse a String",
+      "questiondescription": "Write a function that takes a string as input and returns its reverse.",
+      "aisolution": "python\ndef reverse_string(s):\n  return s[::-1]\n",
+      "userSolution": "def reverse_string(string):\r\n  \"\"\"Reverses a given string.\r\n\r\n  Args:\r\n    string: The string to reverse.\r\n\r\n  Returns:\r\n    The reversed string.\r\n  \"\"\"\r\n  return string[::-1]",
+      "testCases": [
+        {
+          "input": "\"hello\"",
+          "output": null,
+          "_id": {
+            "$oid": "675733c3c907ac1a80271912"
+          }
+        },
+        {
+          "input": "\"world\"",
+          "output": null,
+          "_id": {
+            "$oid": "675733c3c907ac1a80271913"
+          }
+        },
+        {
+          "input": "\"\"",
+          "output": null,
+          "_id": {
+            "$oid": "675733c3c907ac1a80271914"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "675733c3c907ac1a80271911"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67573407c907ac1a8027191e"
+  },
+  "solutions": [
+    {
+      "questionID": "673c8a577d4345fd873f8b66",
+      "questiontitle": "Reverse a String",
+      "questiondescription": "Write a function that takes a string as input and returns its reverse.",
+      "aisolution": "python\ndef reverse_string(s):\n  return s[::-1]\n",
+      "userSolution": "def reverse_string(string):\r\n  \"\"\"Reverses a given string.\r\n\r\n  Args:\r\n    string: The string to reverse.\r\n\r\n  Returns:\r\n    The reversed string.\r\n  \"\"\"\r\n  return string[::-1]",
+      "testCases": [
+        {
+          "input": "\"hello\"",
+          "output": null,
+          "_id": {
+            "$oid": "67573407c907ac1a80271920"
+          }
+        },
+        {
+          "input": "\"world\"",
+          "output": null,
+          "_id": {
+            "$oid": "67573407c907ac1a80271921"
+          }
+        },
+        {
+          "input": "\"\"",
+          "output": null,
+          "_id": {
+            "$oid": "67573407c907ac1a80271922"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "67573407c907ac1a8027191f"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "675734d0c907ac1a80271928"
+  },
+  "solutions": [
+    {
+      "questionID": "673c8a577d4345fd873f8b66",
+      "questiontitle": "Reverse a String",
+      "questiondescription": "Write a function that takes a string as input and returns its reverse.",
+      "aisolution": "python\ndef reverse_string(s):\n  return s[::-1]\n",
+      "userSolution": "def reverse_string(string):\r\n  \"\"\"Reverses a given string.\r\n\r\n  Args:\r\n    string: The string to reverse.\r\n\r\n  Returns:\r\n    The reversed string.\r\n  \"\"\"\r\n  return string[::-1]",
+      "testCases": [
+        {
+          "input": "\"hello\"",
+          "output": null,
+          "_id": {
+            "$oid": "675734d0c907ac1a8027192a"
+          }
+        },
+        {
+          "input": "\"world\"",
+          "output": null,
+          "_id": {
+            "$oid": "675734d0c907ac1a8027192b"
+          }
+        },
+        {
+          "input": "\"\"",
+          "output": null,
+          "_id": {
+            "$oid": "675734d0c907ac1a8027192c"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "675734d0c907ac1a80271929"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "675734ebc907ac1a80271932"
+  },
+  "solutions": [
+    {
+      "questionID": "673c8a577d4345fd873f8b66",
+      "questiontitle": "Reverse a String",
+      "questiondescription": "Write a function that takes a string as input and returns its reverse.",
+      "aisolution": "python\ndef reverse_string(s):\n  return s[::-1]\n",
+      "userSolution": "print(\"Hello\")",
+      "testCases": [
+        {
+          "input": "\"hello\"",
+          "output": null,
+          "_id": {
+            "$oid": "675734ebc907ac1a80271934"
+          }
+        },
+        {
+          "input": "\"world\"",
+          "output": null,
+          "_id": {
+            "$oid": "675734ebc907ac1a80271935"
+          }
+        },
+        {
+          "input": "\"\"",
+          "output": null,
+          "_id": {
+            "$oid": "675734ebc907ac1a80271936"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "675734ebc907ac1a80271933"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68c9bd6a3a9ad3759c1da5b6"
+  },
+  "solutions": [
+    {
+      "questionID": "673c8a427d4345fd873f8b3a",
+      "questiontitle": "Find Unique Pairs with Given Sum",
+      "questiondescription": "Write a function `find_pairs(nums, target)` that returns unique pairs of integers from a list `nums` that add up to a given `target`. Ensure pairs are unique and the output is sorted.",
+      "aisolution": "def find_pairs(nums, target):\n    seen, pairs = set(), set()\n    for num in nums:\n        if target - num in seen:\n            pairs.add(tuple(sorted((num, target - num))))\n        seen.add(num)\n    return sorted(list(pairs))",
+      "userSolution": "def find_pairs(nums, target):\r\n    seen = set()\r\n    pairs = set()\r\n\r\n    for num in nums:\r\n        complement = target - num\r\n        if complement in seen:\r\n            pairs.add(tuple(sorted((num, complement))))\r\n        seen.add(num)\r\n\r\n    # Convert set of tuples to sorted list of lists\r\n    return sorted([list(pair) for pair in pairs])\r\n",
+      "testCases": [
+        {
+          "input": "[[1, 2, 3, 4, 3], 6]",
+          "output": "[[2, 4], [3, 3]]",
+          "_id": {
+            "$oid": "68c9bd6a3a9ad3759c1da5b8"
+          }
+        },
+        {
+          "input": "[[0, -1, 2, -3, 1], -2]",
+          "output": "[[-3, 1]]",
+          "_id": {
+            "$oid": "68c9bd6a3a9ad3759c1da5b9"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "68c9bd6a3a9ad3759c1da5b7"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6981082f33892da0f35ddcd9"
+  },
+  "solutions": [
+    {
+      "questionID": "673c8a427d4345fd873f8b3a",
+      "questiontitle": "Find Unique Pairs with Given Sum",
+      "questiondescription": "Write a function `find_pairs(nums, target)` that returns unique pairs of integers from a list `nums` that add up to a given `target`. Ensure pairs are unique and the output is sorted.",
+      "aisolution": "def find_pairs(nums, target):\n    seen, pairs = set(), set()\n    for num in nums:\n        if target - num in seen:\n            pairs.add(tuple(sorted((num, target - num))))\n        seen.add(num)\n    return sorted(list(pairs))",
+      "userSolution": "def unique_pairs():\r\n    print(\"Unique pairs are [[2, 4], [3, 3]] \")",
+      "testCases": [
+        {
+          "input": "[[1, 2, 3, 4, 3], 6]",
+          "output": "[[2, 4], [3, 3]]",
+          "_id": {
+            "$oid": "6981082f33892da0f35ddcdb"
+          }
+        },
+        {
+          "input": "[[0, -1, 2, -3, 1], -2]",
+          "output": "[[-3, 1]]",
+          "_id": {
+            "$oid": "6981082f33892da0f35ddcdc"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "6981082f33892da0f35ddcda"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "698dcd315c308fad0c9ba6df"
+  },
+  "solutions": [
+    {
+      "questionID": "673c8a427d4345fd873f8b46",
+      "questiontitle": "Find Minimum in Rotated Sorted Array",
+      "questiondescription": "Write a function `find_min_rotated(arr)` to find the minimum element in a rotated sorted array without duplicates.",
+      "aisolution": "def find_min_rotated(arr):\n    left, right = 0, len(arr) - 1\n    while left < right:\n        mid = (left + right) // 2\n        if arr[mid] > arr[right]:\n            left = mid + 1\n        else:\n            right = mid\n    return arr[left]",
+      "userSolution": "x = input()\r\ny = input()\r\na =x+y\r\nprint(a)",
+      "testCases": [
+        {
+          "input": "[4, 5, 6, 7, 0, 1, 2]",
+          "output": "0",
+          "_id": {
+            "$oid": "698dcd315c308fad0c9ba6e1"
+          }
+        },
+        {
+          "input": "[11, 13, 15, 17]",
+          "output": "11",
+          "_id": {
+            "$oid": "698dcd315c308fad0c9ba6e2"
+          }
+        }
+      ],
+      "_id": {
+        "$oid": "698dcd315c308fad0c9ba6e0"
+      }
+    }
+  ],
+  "__v": 0
+}]

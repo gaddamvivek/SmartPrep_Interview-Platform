@@ -1,0 +1,2001 @@
+[{
+  "_id": {
+    "$oid": "67393465f772e6b41c693fd6"
+  },
+  "userEmail": "sgolla@albany.edu",
+  "preparationName": "saa",
+  "positionName": "Frontend Technical",
+  "prepDiff": "Medium",
+  "sessionStartDate": "11/16/2024",
+  "sessionEndDate": "11/16/2024",
+  "sessionStartTime": "19:08:39",
+  "sessionEndTime": "19:10:13",
+  "timeTaken": "0h 0m 25s",
+  "answers": [
+    {
+      "questionId": "673597f2593c58346d3840db",
+      "answer": "react to user to retrieve APA data from eBay calls and",
+      "_id": {
+        "$oid": "67393465f772e6b41c693fd7"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67395735d1a0c71cebf15643"
+  },
+  "userEmail": "sgolla@albany.edu",
+  "preparationName": "haha",
+  "positionName": "Frontend Technical",
+  "prepDiff": "Medium",
+  "sessionStartDate": "11/16/2024",
+  "sessionEndDate": "11/16/2024",
+  "sessionStartTime": "21:37:45",
+  "sessionEndTime": "21:38:45",
+  "timeTaken": "0h 0m 54s",
+  "answers": [
+    {
+      "questionId": "673597f2593c58346d3840db",
+      "answer": "how are you say turn I'm doing fine",
+      "_id": {
+        "$oid": "67395735d1a0c71cebf15644"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673961aad1a0c71cebf156f1"
+  },
+  "userEmail": "sgolla@albany.edu",
+  "preparationName": "ha",
+  "positionName": "Frontend Technical",
+  "prepDiff": "Medium",
+  "sessionStartDate": "11/16/2024",
+  "sessionEndDate": "11/16/2024",
+  "sessionStartTime": "22:07:30",
+  "sessionEndTime": "22:23:22",
+  "timeTaken": "0h 1m 8s",
+  "answers": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67396292d1a0c71cebf156fb"
+  },
+  "userEmail": "sgolla@albany.edu",
+  "preparationName": "ha",
+  "positionName": "Frontend Technical",
+  "prepDiff": "Medium",
+  "sessionStartDate": "11/16/2024",
+  "sessionEndDate": "11/16/2024",
+  "sessionStartTime": "22:07:30",
+  "sessionEndTime": "22:27:14",
+  "timeTaken": "0h 0m 43s",
+  "answers": [
+    {
+      "questionId": "673597f2593c58346d3840db",
+      "answer": "hello man",
+      "_id": {
+        "$oid": "67396292d1a0c71cebf156fc"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67396509ce822785e901e641"
+  },
+  "userEmail": "sgolla@albany.edu",
+  "preparationName": "kan",
+  "positionName": "Backend Technical",
+  "prepDiff": "Medium",
+  "sessionStartDate": "11/16/2024",
+  "sessionEndDate": "11/16/2024",
+  "sessionStartTime": "22:30:41",
+  "sessionEndTime": "22:37:45",
+  "timeTaken": "0h 0m 32s",
+  "answers": [
+    {
+      "questionId": "67359822593c58346d3840fe",
+      "answer": "hello this is archangola how are you doing are doing fine okay",
+      "_id": {
+        "$oid": "67396509ce822785e901e642"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673966b2ce822785e901e6b2"
+  },
+  "userEmail": "sgolla@albany.edu",
+  "preparationName": "kak",
+  "positionName": "Backend Technical",
+  "prepDiff": "Medium",
+  "sessionStartDate": "11/16/2024",
+  "sessionEndDate": "11/16/2024",
+  "sessionStartTime": "22:44:23",
+  "sessionEndTime": "22:44:50",
+  "timeTaken": "0h 0m 20s",
+  "answers": [
+    {
+      "questionId": "67359822593c58346d3840fe",
+      "answer": "hello this is archangola how are you doing I'm doing fine ask your theaters from Master but he's wasting time",
+      "_id": {
+        "$oid": "673966b2ce822785e901e6b3"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67396bbcdda057c75fda3b88"
+  },
+  "userEmail": "dandeashrit02@gmail.com",
+  "preparationName": "fgg",
+  "sessionStartDate": "11/16/2024",
+  "sessionEndDate": "11/16/2024",
+  "sessionStartTime": "23:06:13",
+  "sessionEndTime": "23:06:20",
+  "timeTaken": "0h 0m 5s",
+  "answers": [
+    {
+      "questionId": "67359822593c58346d3840fe",
+      "answer": "fcx\nfc\nfdv fgdv \nhb ",
+      "_id": {
+        "$oid": "67396bbcdda057c75fda3b89"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6739729ae63478aded07894a"
+  },
+  "userEmail": "ashritdon007@gmail.com",
+  "preparationName": "gd",
+  "sessionStartDate": "11/16/2024",
+  "sessionEndDate": "11/16/2024",
+  "sessionStartTime": "23:32:37",
+  "sessionEndTime": "23:35:38",
+  "timeTaken": "0h 0m 11s",
+  "answers": [
+    {
+      "questionId": "673597f2593c58346d3840db",
+      "answer": "ygfv\nhgc\nnbdgbbfv",
+      "_id": {
+        "$oid": "6739729ae63478aded07894b"
+      }
+    },
+    {
+      "questionId": "673597f2593c58346d3840de",
+      "answer": "",
+      "_id": {
+        "$oid": "6739729ae63478aded07894c"
+      }
+    },
+    {
+      "questionId": "673597f2593c58346d3840e1",
+      "answer": "",
+      "_id": {
+        "$oid": "6739729ae63478aded07894d"
+      }
+    },
+    {
+      "questionId": "673597f2593c58346d3840e2",
+      "answer": "",
+      "_id": {
+        "$oid": "6739729ae63478aded07894e"
+      }
+    },
+    {
+      "questionId": "673597f5593c58346d3840e6",
+      "answer": "",
+      "_id": {
+        "$oid": "6739729ae63478aded07894f"
+      }
+    },
+    {
+      "questionId": "67359804593c58346d3840ec",
+      "answer": "",
+      "_id": {
+        "$oid": "6739729ae63478aded078950"
+      }
+    },
+    {
+      "questionId": "6735980e593c58346d3840f2",
+      "answer": "",
+      "_id": {
+        "$oid": "6739729ae63478aded078951"
+      }
+    },
+    {
+      "questionId": "67359817593c58346d3840f8",
+      "answer": "",
+      "_id": {
+        "$oid": "6739729ae63478aded078952"
+      }
+    },
+    {
+      "questionId": "67359822593c58346d3840fe",
+      "answer": "",
+      "_id": {
+        "$oid": "6739729ae63478aded078953"
+      }
+    },
+    {
+      "questionId": "6735982c593c58346d384102",
+      "answer": "",
+      "_id": {
+        "$oid": "6739729ae63478aded078954"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67397ca9f194bc310d498007"
+  },
+  "userEmail": "sgolla@albany.edu",
+  "preparationName": "sasa",
+  "positionName": "Frontend Technical",
+  "prepDiff": "Easy",
+  "sessionStartDate": "11/17/2024",
+  "sessionEndDate": "11/17/2024",
+  "sessionStartTime": "00:17:49",
+  "sessionEndTime": "00:18:33",
+  "timeTaken": "0h 0m 38s",
+  "answers": [
+    {
+      "questionId": "673597f2593c58346d3840db",
+      "answer": "hello check check 123 check check",
+      "_id": {
+        "$oid": "67397ca9f194bc310d498008"
+      }
+    },
+    {
+      "questionId": "67359817593c58346d3840f8",
+      "answer": "hello hello Mrs archeran hello hello",
+      "_id": {
+        "$oid": "67397ca9f194bc310d498009"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6739829f8fb8427952edd81f"
+  },
+  "userEmail": "ashritdon007@gmail.com",
+  "preparationName": "tech2",
+  "positionName": "Backend Technical",
+  "prepDiff": "Easy",
+  "sessionStartDate": "11/17/2024",
+  "sessionEndDate": "11/17/2024",
+  "sessionStartTime": "00:42:58",
+  "sessionEndTime": "00:43:59",
+  "timeTaken": "0h 0m 48s",
+  "answers": [
+    {
+      "questionId": "67359822593c58346d3840fe",
+      "answer": "nhgf\nhfgdfd\nh fghfg\nhfgcbnvbvc\ngbn \ngfbn gbv \n",
+      "_id": {
+        "$oid": "6739829f8fb8427952edd820"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67398512e07dfe64aaedcc0b"
+  },
+  "userEmail": "sreecharan01@gmail.com",
+  "preparationName": "tech1",
+  "sessionStartDate": "11/17/2024",
+  "sessionEndDate": "11/17/2024",
+  "sessionStartTime": "00:52:27",
+  "sessionEndTime": "00:54:26",
+  "timeTaken": "0h 1m 44s",
+  "answers": [
+    {
+      "questionId": "673597f2593c58346d3840db",
+      "answer": "hi charan super awesome thank you",
+      "_id": {
+        "$oid": "67398512e07dfe64aaedcc0c"
+      }
+    },
+    {
+      "questionId": "673597f2593c58346d3840e2",
+      "answer": "hi Ashrit Snapchat testing is used for Snapchat and Instagram",
+      "_id": {
+        "$oid": "67398512e07dfe64aaedcc0d"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6739880bb409d822b3b01157"
+  },
+  "userEmail": "sreecharan01@gmail.com",
+  "preparationName": "TECH1",
+  "positionName": "Backend Technical",
+  "prepDiff": "Easy",
+  "sessionStartDate": "11/17/2024",
+  "sessionEndDate": "11/17/2024",
+  "sessionStartTime": "01:06:50",
+  "sessionEndTime": "01:07:07",
+  "timeTaken": "0h 0m 14s",
+  "answers": [
+    {
+      "questionId": "67359822593c58346d3840fe",
+      "answer": "VGFECDS BV\nBV XCZ\nVXCZX\nHFGDXCZ",
+      "_id": {
+        "$oid": "6739880bb409d822b3b01158"
+      }
+    },
+    {
+      "questionId": "67359836593c58346d384108",
+      "answer": "NFGDC ZX\nTYGHVB \nUJTSYFGDXC\nAZSDFGH\nZXCVBJNM,..JHGFD",
+      "_id": {
+        "$oid": "6739880bb409d822b3b01159"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673a3ee64ea8fe51a4f54091"
+  },
+  "userEmail": "arangdal@albany.edu",
+  "preparationName": "Practice",
+  "positionName": "Software Testing Technical",
+  "prepDiff": "Easy",
+  "sessionStartDate": "11/17/2024",
+  "sessionEndDate": "11/17/2024",
+  "sessionStartTime": "14:05:09",
+  "sessionEndTime": "14:07:17",
+  "timeTaken": "0h 2m 0s",
+  "answers": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673b51f963d46fd58c8278c5"
+  },
+  "userEmail": "deploy01@gmail.com",
+  "preparationName": "tech1",
+  "positionName": "Backend Technical",
+  "prepDiff": "Medium",
+  "sessionStartDate": "11/18/2024",
+  "sessionEndDate": "11/18/2024",
+  "sessionStartTime": "09:40:36",
+  "sessionEndTime": "09:40:57",
+  "timeTaken": "0h 0m 18s",
+  "answers": [
+    {
+      "questionId": "67359836593c58346d384108",
+      "answer": "tfd\nhgfds\nhgfds\nhgfd\nhgfv",
+      "_id": {
+        "$oid": "673b51f963d46fd58c8278c6"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673b5700cb3bd6b9d659fd78"
+  },
+  "userEmail": "canvan@gmail.com",
+  "preparationName": "kan",
+  "positionName": "Backend Technical",
+  "prepDiff": "Easy",
+  "sessionStartDate": "11/18/2024",
+  "sessionEndDate": "11/18/2024",
+  "sessionStartTime": "10:02:01",
+  "sessionEndTime": "10:02:24",
+  "timeTaken": "0h 0m 14s",
+  "answers": [
+    {
+      "questionId": "67359822593c58346d3840fe",
+      "answer": "hello this is serangolo",
+      "_id": {
+        "$oid": "673b5700cb3bd6b9d659fd79"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673b8e9f6e4d520b38df8c39"
+  },
+  "userEmail": "manvan@gmail.com",
+  "preparationName": "hunter",
+  "positionName": "Backend Technical",
+  "prepDiff": "Medium",
+  "sessionStartDate": "11/18/2024",
+  "sessionEndDate": "11/18/2024",
+  "sessionStartTime": "13:59:12",
+  "sessionEndTime": "13:59:43",
+  "timeTaken": "0h 0m 22s",
+  "answers": [
+    {
+      "questionId": "67359822593c58346d3840fe",
+      "answer": "can can you can",
+      "_id": {
+        "$oid": "673b8e9f6e4d520b38df8c3a"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673ba4407351ac751e7db059"
+  },
+  "userEmail": "deploy01@gmail.com",
+  "preparationName": "fgd",
+  "positionName": "Backend Technical",
+  "prepDiff": "Easy",
+  "sessionStartDate": "11/18/2024",
+  "sessionEndDate": "11/18/2024",
+  "sessionStartTime": "15:31:46",
+  "sessionEndTime": "15:32:00",
+  "timeTaken": "0h 0m 11s",
+  "answers": [
+    {
+      "questionId": "67359822593c58346d3840fe",
+      "answer": "f\\\nfhfgdc",
+      "_id": {
+        "$oid": "673ba4407351ac751e7db05a"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673ba7497351ac751e7db0d2"
+  },
+  "userEmail": "dandeashrit02@gmail.com",
+  "preparationName": "dsf",
+  "positionName": "All",
+  "prepDiff": "Medium",
+  "sessionStartDate": "11/18/2024",
+  "sessionEndDate": "11/18/2024",
+  "sessionStartTime": "15:44:30",
+  "sessionEndTime": "15:44:57",
+  "timeTaken": "0h 0m 21s",
+  "answers": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673bc00e92ccfa20b1b2d45a"
+  },
+  "userEmail": "schinnam2@albany.edu",
+  "preparationName": "ghhgc",
+  "positionName": "Backend Technical",
+  "prepDiff": "Medium",
+  "sessionStartDate": "11/18/2024",
+  "sessionEndDate": "11/18/2024",
+  "sessionStartTime": "17:27:20",
+  "sessionEndTime": "17:30:38",
+  "timeTaken": "0h 3m 2s",
+  "answers": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673bc09692ccfa20b1b2d471"
+  },
+  "userEmail": "schinnam2@albany.edu",
+  "preparationName": "aa",
+  "positionName": "Software Testing Technical",
+  "prepDiff": "Easy",
+  "sessionStartDate": "11/18/2024",
+  "sessionEndDate": "11/18/2024",
+  "sessionStartTime": "17:32:34",
+  "sessionEndTime": "17:32:54",
+  "timeTaken": "0h 0m 16s",
+  "answers": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673bc1216ee91c55abf4b66a"
+  },
+  "userEmail": "saicharan@gmail.com",
+  "preparationName": "hah",
+  "positionName": "Frontend Technical",
+  "prepDiff": "Medium",
+  "sessionStartDate": "11/18/2024",
+  "sessionEndDate": "11/18/2024",
+  "sessionStartTime": "17:35:05",
+  "sessionEndTime": "17:35:13",
+  "timeTaken": "0h 0m 5s",
+  "answers": [
+    {
+      "questionId": "673597f2593c58346d3840db",
+      "answer": "kakak",
+      "_id": {
+        "$oid": "673bc1216ee91c55abf4b66b"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673bc47992ccfa20b1b2d53c"
+  },
+  "userEmail": "schinnam2@albany.edu",
+  "preparationName": "asd",
+  "positionName": "Frontend Technical",
+  "prepDiff": "Easy",
+  "sessionStartDate": "11/18/2024",
+  "sessionEndDate": "11/18/2024",
+  "sessionStartTime": "17:49:21",
+  "sessionEndTime": "17:49:29",
+  "timeTaken": "0h 0m 5s",
+  "answers": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673be431b6b36c300d59bb6f"
+  },
+  "userEmail": "sreeashrit01@gmail.com",
+  "preparationName": "check",
+  "positionName": "DevOps Technical",
+  "prepDiff": "Medium",
+  "sessionStartDate": "11/18/2024",
+  "sessionEndDate": "11/18/2024",
+  "sessionStartTime": "20:04:33",
+  "sessionEndTime": "20:04:49",
+  "timeTaken": "0h 0m 11s",
+  "answers": [
+    {
+      "questionId": "67359804593c58346d3840ec",
+      "answer": "hi ther!",
+      "_id": {
+        "$oid": "673be431b6b36c300d59bb70"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673be63c423ae758a9007a76"
+  },
+  "userEmail": "sreeashrit01@gmail.com",
+  "preparationName": "prep2",
+  "positionName": "Software Testing Technical",
+  "prepDiff": "Medium",
+  "sessionStartDate": "11/18/2024",
+  "sessionEndDate": "11/18/2024",
+  "sessionStartTime": "20:12:56",
+  "sessionEndTime": "20:13:32",
+  "timeTaken": "0h 0m 30s",
+  "answers": [
+    {
+      "questionId": "673597f2593c58346d3840e2",
+      "answer": "what is Snapchat testing",
+      "_id": {
+        "$oid": "673be63c423ae758a9007a77"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673bea60423ae758a9007b66"
+  },
+  "userEmail": "sreeashrit01@gmail.com",
+  "preparationName": "check3",
+  "positionName": "Software Testing Technical",
+  "prepDiff": "Easy",
+  "sessionStartDate": "11/18/2024",
+  "sessionEndDate": "11/18/2024",
+  "sessionStartTime": "20:29:56",
+  "sessionEndTime": "20:31:12",
+  "timeTaken": "0h 0m 6s",
+  "answers": [
+    {
+      "questionId": "673597f2593c58346d3840e2",
+      "answer": "dfs\nfdgfd\nfdgv\ngdf",
+      "_id": {
+        "$oid": "673bea60423ae758a9007b67"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673beadf423ae758a9007b76"
+  },
+  "userEmail": "sreeashrit01@gmail.com",
+  "preparationName": "fddf",
+  "positionName": "DevOps Technical",
+  "prepDiff": "Medium",
+  "sessionStartDate": "11/18/2024",
+  "sessionEndDate": "11/18/2024",
+  "sessionStartTime": "20:32:50",
+  "sessionEndTime": "20:33:19",
+  "timeTaken": "0h 0m 23s",
+  "answers": [
+    {
+      "questionId": "673597f2593c58346d3840e3",
+      "answer": "hi there how are you doing I'm doing great",
+      "_id": {
+        "$oid": "673beadf423ae758a9007b77"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673bebf7423ae758a9007b85"
+  },
+  "userEmail": "sreeashrit01@gmail.com",
+  "preparationName": "dfe",
+  "positionName": "Frontend Technical",
+  "prepDiff": "Easy",
+  "sessionStartDate": "11/18/2024",
+  "sessionEndDate": "11/18/2024",
+  "sessionStartTime": "20:37:02",
+  "sessionEndTime": "20:37:59",
+  "timeTaken": "0h 0m 50s",
+  "answers": [
+    {
+      "questionId": "6735982c593c58346d384102",
+      "answer": "hfh\nf\n",
+      "_id": {
+        "$oid": "673bebf7423ae758a9007b86"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673bede1423ae758a9007bf5"
+  },
+  "userEmail": "sreeashrit02@gmail.com",
+  "preparationName": "dsc",
+  "positionName": "DevOps Technical",
+  "prepDiff": "Easy",
+  "sessionStartDate": "11/18/2024",
+  "sessionEndDate": "11/18/2024",
+  "sessionStartTime": "20:45:57",
+  "sessionEndTime": "20:46:09",
+  "timeTaken": "0h 0m 8s",
+  "answers": [
+    {
+      "questionId": "67359804593c58346d3840ec",
+      "answer": "ngfd\nefhgfds\nhjgfdsa\nKHJGFDS",
+      "_id": {
+        "$oid": "673bede1423ae758a9007bf6"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673bf290f565f2c6233e8cae"
+  },
+  "userEmail": "manvan@gmail.com",
+  "preparationName": "aa",
+  "positionName": "Backend Technical",
+  "prepDiff": "Medium",
+  "sessionStartDate": "11/18/2024",
+  "sessionEndDate": "11/18/2024",
+  "sessionStartTime": "21:05:55",
+  "sessionEndTime": "21:06:08",
+  "timeTaken": "0h 0m 6s",
+  "answers": [
+    {
+      "questionId": "673597f2593c58346d3840e2",
+      "answer": "unfortun",
+      "_id": {
+        "$oid": "673bf290f565f2c6233e8caf"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673bfef95201b0138172d899"
+  },
+  "userEmail": "sreeashrit03@gmail.com",
+  "preparationName": "devops2",
+  "positionName": "DevOps Technical",
+  "prepDiff": "Easy",
+  "sessionStartDate": "11/18/2024",
+  "sessionEndDate": "11/18/2024",
+  "sessionStartTime": "21:58:28",
+  "sessionEndTime": "21:59:05",
+  "timeTaken": "0h 0m 30s",
+  "answers": [
+    {
+      "questionId": "673bf9d92b06798a664b3b1d",
+      "answer": "please provide the solution for this thank you have a nice day good evening",
+      "_id": {
+        "$oid": "673bfef95201b0138172d89a"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673c127abe8b57f4a11b8189"
+  },
+  "userEmail": "deploytest1@gmail.com",
+  "preparationName": "softtech1",
+  "positionName": "Software Technical",
+  "prepDiff": "Medium",
+  "sessionStartDate": "11/18/2024",
+  "sessionEndDate": "11/18/2024",
+  "sessionStartTime": "23:21:11",
+  "sessionEndTime": "23:22:18",
+  "timeTaken": "0h 0m 57s",
+  "answers": [
+    {
+      "questionId": "673c0269187976f6d72f9ee0",
+      "answer": "so let me just give a demo for the recording thanks everyone",
+      "_id": {
+        "$oid": "673c127abe8b57f4a11b818a"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673c12fdbe8b57f4a11b81aa"
+  },
+  "userEmail": "deploytest1@gmail.com",
+  "preparationName": "techgoogle",
+  "positionName": "Software Testing Technical",
+  "prepDiff": "Easy",
+  "sessionStartDate": "11/18/2024",
+  "sessionEndDate": "11/18/2024",
+  "sessionStartTime": "23:23:42",
+  "sessionEndTime": "23:24:28",
+  "timeTaken": "0h 0m 43s",
+  "answers": [
+    {
+      "questionId": "673c0359187976f6d72f9f12",
+      "answer": "so this is similar to the previous interview except that everything is being done here is a Google Google interview",
+      "_id": {
+        "$oid": "673c12fdbe8b57f4a11b81ab"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673cb04997c5ea50afc06742"
+  },
+  "userEmail": "schinnam2@albany.edu",
+  "preparationName": "d",
+  "positionName": "DevOps Technical",
+  "prepDiff": "Easy",
+  "sessionStartDate": "11/19/2024",
+  "sessionEndDate": "11/19/2024",
+  "sessionStartTime": "10:32:05",
+  "sessionEndTime": "10:35:36",
+  "timeTaken": "0h 3m 19s",
+  "answers": [
+    {
+      "questionId": "673c0260187976f6d72f9ed8",
+      "answer": "hi , i dont know the answer",
+      "_id": {
+        "$oid": "673cb04997c5ea50afc06743"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673cb81876bd288657bd3efc"
+  },
+  "userEmail": "schinnam2@albany.edu",
+  "preparationName": "Tech",
+  "positionName": "Frontend Technical",
+  "prepDiff": "Easy",
+  "sessionStartDate": "11/19/2024",
+  "sessionEndDate": "11/19/2024",
+  "sessionStartTime": "11:08:03",
+  "sessionEndTime": "11:08:55",
+  "timeTaken": "0h 0m 40s",
+  "answers": [
+    {
+      "questionId": "673c0260187976f6d72f9ed5",
+      "answer": "hooks",
+      "_id": {
+        "$oid": "673cb81876bd288657bd3efd"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673cdd6bebb75e5e36c07c6d"
+  },
+  "userEmail": "deploytest1@gmail.com",
+  "preparationName": "tech2",
+  "positionName": "Software Technical",
+  "prepDiff": "Medium",
+  "sessionStartDate": "11/19/2024",
+  "sessionEndDate": "11/19/2024",
+  "sessionStartTime": "13:45:33",
+  "sessionEndTime": "13:48:11",
+  "timeTaken": "0h 2m 23s",
+  "answers": [
+    {
+      "questionId": "673c0260187976f6d72f9ed7",
+      "answer": "hi I'm shree ashut so how do I optimize the react application please add anyting",
+      "_id": {
+        "$oid": "673cdd6bebb75e5e36c07c6e"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673cde06ebb75e5e36c07c92"
+  },
+  "userEmail": "deploytest1@gmail.com",
+  "preparationName": "google tech2",
+  "positionName": "Software Testing Technical",
+  "prepDiff": "Easy",
+  "sessionStartDate": "11/19/2024",
+  "sessionEndDate": "11/19/2024",
+  "sessionStartTime": "13:49:30",
+  "sessionEndTime": "13:50:46",
+  "timeTaken": "0h 1m 10s",
+  "answers": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673cde57ebb75e5e36c07ca6"
+  },
+  "userEmail": "deploytest1@gmail.com",
+  "preparationName": "code",
+  "positionName": "All",
+  "prepDiff": "Medium",
+  "sessionStartDate": "11/19/2024",
+  "sessionEndDate": "11/19/2024",
+  "sessionStartTime": "13:51:33",
+  "sessionEndTime": "13:52:07",
+  "timeTaken": "0h 0m 15s",
+  "answers": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673ce6550ad1bdcc439bf02d"
+  },
+  "userEmail": "schinnam2@albany.edu",
+  "preparationName": "dqewd",
+  "positionName": "Backend Technical",
+  "prepDiff": "Easy",
+  "sessionStartDate": "11/19/2024",
+  "sessionEndDate": "11/19/2024",
+  "sessionStartTime": "14:25:16",
+  "sessionEndTime": "14:26:13",
+  "timeTaken": "0h 0m 53s",
+  "answers": [
+    {
+      "questionId": "673c02db187976f6d72f9ef8",
+      "answer": "Hello Darling, How are you??",
+      "_id": {
+        "$oid": "673ce6550ad1bdcc439bf02e"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673de22116b7d06224928ec8"
+  },
+  "userEmail": "rd_rangdal@yahoo.com",
+  "preparationName": "Java",
+  "positionName": "Frontend Technical",
+  "prepDiff": "Easy",
+  "sessionStartDate": "11/20/2024",
+  "sessionEndDate": "11/20/2024",
+  "sessionStartTime": "18:50:33",
+  "sessionEndTime": "18:53:04",
+  "timeTaken": "0h 2m 0s",
+  "answers": [
+    {
+      "questionId": "673c0260187976f6d72f9ed5",
+      "answer": "Hooks are functions that let you “hook into” React state and lifecycle features from function components. Hooks don't work inside classes — they let you use React without classes. ",
+      "_id": {
+        "$oid": "673de22116b7d06224928ec9"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673e364335d7a6df17d0d675"
+  },
+  "userEmail": "mp01@gmail.com",
+  "preparationName": "google-prep1",
+  "positionName": "Software Testing Technical",
+  "prepDiff": "Hard",
+  "sessionStartDate": "11/20/2024",
+  "sessionEndDate": "11/20/2024",
+  "sessionStartTime": "14:18:10",
+  "sessionEndTime": "14:19:31",
+  "timeTaken": "0h 1m 12s",
+  "answers": [
+    {
+      "questionId": "673c0350187976f6d72f9f10",
+      "answer": "hi Maharshi will be discussing the answer",
+      "_id": {
+        "$oid": "673e364335d7a6df17d0d676"
+      }
+    },
+    {
+      "questionId": "673c037a187976f6d72f9f1a",
+      "answer": "hi!",
+      "_id": {
+        "$oid": "673e364335d7a6df17d0d677"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673fb66bc39bfc8dc9e3d68c"
+  },
+  "userEmail": "saicharan@gmail.com",
+  "preparationName": "hunter",
+  "positionName": "Frontend Technical",
+  "prepDiff": "Easy",
+  "sessionStartDate": "11/21/2024",
+  "sessionEndDate": "11/21/2024",
+  "sessionStartTime": "17:38:12",
+  "sessionEndTime": "17:38:35",
+  "timeTaken": "0h 0m 9s",
+  "answers": [
+    {
+      "questionId": "673c0260187976f6d72f9ed5",
+      "answer": "hello",
+      "_id": {
+        "$oid": "673fb66bc39bfc8dc9e3d68d"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673fbb36c39bfc8dc9e3d76c"
+  },
+  "userEmail": "saicharan@gmail.com",
+  "preparationName": "kk",
+  "positionName": "Python Developer I",
+  "prepDiff": "Medium",
+  "sessionStartDate": "11/21/2024",
+  "sessionEndDate": "11/21/2024",
+  "sessionStartTime": "17:58:51",
+  "sessionEndTime": "17:59:02",
+  "timeTaken": "0h 0m 7s",
+  "answers": [
+    {
+      "questionId": "673c0260187976f6d72f9ed5",
+      "answer": "hello",
+      "_id": {
+        "$oid": "673fbb36c39bfc8dc9e3d76d"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673fc0b4c39bfc8dc9e3d873"
+  },
+  "userEmail": "saicharan@edu.com",
+  "preparationName": "lll",
+  "positionName": "Frontend Technical",
+  "prepDiff": "Easy",
+  "sessionStartDate": "11/21/2024",
+  "sessionEndDate": "11/21/2024",
+  "sessionStartTime": "18:22:12",
+  "sessionEndTime": "18:22:28",
+  "timeTaken": "0h 0m 10s",
+  "answers": [
+    {
+      "questionId": "673c0260187976f6d72f9ed5",
+      "answer": "1 2 3 1 2 3",
+      "_id": {
+        "$oid": "673fc0b4c39bfc8dc9e3d874"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673fc47ec39bfc8dc9e3d8d2"
+  },
+  "userEmail": "saicharan@edu.com",
+  "preparationName": "m",
+  "positionName": "Frontend Technical",
+  "prepDiff": "Medium",
+  "sessionStartDate": "11/21/2024",
+  "sessionEndDate": "11/21/2024",
+  "sessionStartTime": "18:38:33",
+  "sessionEndTime": "18:38:38",
+  "timeTaken": "0h 0m 4s",
+  "answers": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673fc759c39bfc8dc9e3d938"
+  },
+  "userEmail": "demovan@gmail.com",
+  "preparationName": "sss",
+  "positionName": "Frontend Technical",
+  "prepDiff": "Easy",
+  "sessionStartDate": "11/21/2024",
+  "sessionEndDate": "11/21/2024",
+  "sessionStartTime": "18:50:33",
+  "sessionEndTime": "18:50:49",
+  "timeTaken": "0h 0m 11s",
+  "answers": [
+    {
+      "questionId": "673c0282187976f6d72f9ee6",
+      "answer": "hello",
+      "_id": {
+        "$oid": "673fc759c39bfc8dc9e3d939"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "673ffd31390a9fcf90704604"
+  },
+  "userEmail": "manvan@gmail.com",
+  "preparationName": "22",
+  "positionName": "Frontend Technical",
+  "prepDiff": "Hard",
+  "sessionStartDate": "11/21/2024",
+  "sessionEndDate": "11/21/2024",
+  "sessionStartTime": "22:40:00",
+  "sessionEndTime": "22:40:33",
+  "timeTaken": "0h 0m 27s",
+  "answers": [
+    {
+      "questionId": "673c02b5187976f6d72f9ef2",
+      "answer": "hahaha",
+      "_id": {
+        "$oid": "673ffd31390a9fcf90704605"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674002f315c1530e67a7acd8"
+  },
+  "userEmail": "saicharang982@gmail.com",
+  "preparationName": "kkk",
+  "positionName": "Frontend Technical",
+  "prepDiff": "Easy",
+  "sessionStartDate": "11/21/2024",
+  "sessionEndDate": "11/21/2024",
+  "sessionStartTime": "23:04:20",
+  "sessionEndTime": "23:05:07",
+  "timeTaken": "0h 0m 35s",
+  "answers": [
+    {
+      "questionId": "673c02f8187976f6d72f9efe",
+      "answer": "1 2 3",
+      "_id": {
+        "$oid": "674002f315c1530e67a7acd9"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674151b2262b2543ac489e59"
+  },
+  "userEmail": "arrangdal@gmail.com",
+  "preparationName": "try",
+  "positionName": "Frontend Technical",
+  "prepDiff": "Easy",
+  "sessionStartDate": "11/22/2024",
+  "sessionEndDate": "11/22/2024",
+  "sessionStartTime": "22:53:03",
+  "sessionEndTime": "22:53:21",
+  "timeTaken": "0h 0m 10s",
+  "answers": [
+    {
+      "questionId": "673c0260187976f6d72f9ed5",
+      "answer": "hi",
+      "_id": {
+        "$oid": "674151b2262b2543ac489e5a"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67434ef0590286f06bc01f58"
+  },
+  "userEmail": "dsa0102@gmail.com",
+  "preparationName": "gfd",
+  "positionName": "Backend Technical",
+  "prepDiff": "Medium",
+  "sessionStartDate": "11/24/2024",
+  "sessionEndDate": "11/24/2024",
+  "sessionStartTime": "11:05:44",
+  "sessionEndTime": "11:06:08",
+  "timeTaken": "0h 0m 17s",
+  "answers": [
+    {
+      "questionId": "673c0260187976f6d72f9edc",
+      "answer": "ftfdc\ngfv\ngfv",
+      "_id": {
+        "$oid": "67434ef0590286f06bc01f59"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67434fd2a71a80e41553a1c1"
+  },
+  "userEmail": "dsa0102@gmail.com",
+  "preparationName": "tgfvd",
+  "positionName": "DevOps Technical",
+  "prepDiff": "Medium",
+  "sessionStartDate": "11/24/2024",
+  "sessionEndDate": "11/24/2024",
+  "sessionStartTime": "11:09:36",
+  "sessionEndTime": "11:09:54",
+  "timeTaken": "0h 0m 13s",
+  "answers": [
+    {
+      "questionId": "673c0260187976f6d72f9ed5",
+      "answer": "how are you doing",
+      "_id": {
+        "$oid": "67434fd2a71a80e41553a1c2"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67437f6acfae2b6d50b50af9"
+  },
+  "userEmail": "arrangdal@gmail.com",
+  "preparationName": "Technica",
+  "positionName": "Frontend Technical",
+  "prepDiff": "Easy",
+  "sessionStartDate": "11/24/2024",
+  "sessionEndDate": "11/24/2024",
+  "sessionStartTime": "14:32:36",
+  "sessionEndTime": "14:32:57",
+  "timeTaken": "0h 0m 9s",
+  "answers": [
+    {
+      "questionId": "673c0260187976f6d72f9ed5",
+      "answer": "Hello",
+      "_id": {
+        "$oid": "67437f6acfae2b6d50b50afa"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67437f8dcfae2b6d50b50b00"
+  },
+  "userEmail": "arrangdal@gmail.com",
+  "preparationName": "Technica",
+  "positionName": "Frontend Technical",
+  "prepDiff": "Easy",
+  "sessionStartDate": "11/24/2024",
+  "sessionEndDate": "11/24/2024",
+  "sessionStartTime": "14:32:36",
+  "sessionEndTime": "14:33:32",
+  "timeTaken": "0h 0m 13s",
+  "answers": [
+    {
+      "questionId": "673c0260187976f6d72f9ed5",
+      "answer": "Hello",
+      "_id": {
+        "$oid": "67437f8dcfae2b6d50b50b01"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6743806bcfae2b6d50b50b07"
+  },
+  "userEmail": "arrangdal@gmail.com",
+  "preparationName": "Technica",
+  "positionName": "Frontend Technical",
+  "prepDiff": "Easy",
+  "sessionStartDate": "11/24/2024",
+  "sessionEndDate": "11/24/2024",
+  "sessionStartTime": "14:32:36",
+  "sessionEndTime": "14:37:14",
+  "timeTaken": "0h 0m 3s",
+  "answers": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674b875bf6a57b51df9d708f"
+  },
+  "userEmail": "mp01@gmail.com",
+  "preparationName": "rdfcx",
+  "positionName": "Software Testing Technical",
+  "prepDiff": "Easy",
+  "sessionStartDate": "11/30/2024",
+  "sessionEndDate": "11/30/2024",
+  "sessionStartTime": "16:43:22",
+  "sessionEndTime": "16:44:58",
+  "timeTaken": "0h 1m 19s",
+  "answers": [
+    {
+      "questionId": "673c0350187976f6d72f9f10",
+      "answer": "rtdfc\ndfxc\nnghf cvx\nhgfcv \nynghjnb\nrsdzx ",
+      "_id": {
+        "$oid": "674b875bf6a57b51df9d7090"
+      }
+    },
+    {
+      "questionId": "673c037a187976f6d72f9f1a",
+      "answer": "Hi how are you doing",
+      "_id": {
+        "$oid": "674b875bf6a57b51df9d7091"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674bac604c18519160a22f06"
+  },
+  "userEmail": "dsa011100@gmail.com",
+  "preparationName": "dfs",
+  "positionName": "Frontend Technical",
+  "prepDiff": "Easy",
+  "sessionStartDate": "11/30/2024",
+  "sessionEndDate": "11/30/2024",
+  "sessionStartTime": "19:22:50",
+  "sessionEndTime": "19:22:56",
+  "timeTaken": "0h 0m 3s",
+  "answers": [
+    {
+      "questionId": "673c0260187976f6d72f9edb",
+      "answer": "fdcx",
+      "_id": {
+        "$oid": "674bac604c18519160a22f07"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674baeb3d5bfebea27c56f1c"
+  },
+  "userEmail": "dsa0102@gmail.com",
+  "preparationName": "fvc",
+  "positionName": "DevOps Technical",
+  "prepDiff": "Medium",
+  "sessionStartDate": "11/30/2024",
+  "sessionEndDate": "11/30/2024",
+  "sessionStartTime": "19:32:34",
+  "sessionEndTime": "19:32:51",
+  "timeTaken": "0h 0m 13s",
+  "answers": [
+    {
+      "questionId": "673c0260187976f6d72f9edb",
+      "answer": "fvc \nvfbv \nfbv \nfv \ngfbv ",
+      "_id": {
+        "$oid": "674baeb3d5bfebea27c56f1d"
+      }
+    },
+    {
+      "questionId": "673c02a0187976f6d72f9eec",
+      "answer": "gbv \ngfbv\nbgv",
+      "_id": {
+        "$oid": "674baeb3d5bfebea27c56f1e"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674bb4f96e8c74728a68f655"
+  },
+  "userEmail": "dsfd01@gmail.com",
+  "preparationName": "dx",
+  "positionName": "DevOps Technical",
+  "prepDiff": "Easy",
+  "sessionStartDate": "11/30/2024",
+  "sessionEndDate": "11/30/2024",
+  "sessionStartTime": "19:59:20",
+  "sessionEndTime": "19:59:37",
+  "timeTaken": "0h 0m 14s",
+  "answers": [
+    {
+      "questionId": "673c0260187976f6d72f9edb",
+      "answer": "tgdcv \ndfvx",
+      "_id": {
+        "$oid": "674bb4f96e8c74728a68f656"
+      }
+    },
+    {
+      "questionId": "673c0260187976f6d72f9ed8",
+      "answer": "gdvc\nfdcv \ntgfcv \n",
+      "_id": {
+        "$oid": "674bb4f96e8c74728a68f657"
+      }
+    },
+    {
+      "questionId": "673c02b5187976f6d72f9ef2",
+      "answer": "tgdvc\ntedgvc\n t\ndfgvc ",
+      "_id": {
+        "$oid": "674bb4f96e8c74728a68f658"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674bb6ed6e8c74728a68f65c"
+  },
+  "userEmail": "dsfd01@gmail.com",
+  "preparationName": "dx",
+  "positionName": "DevOps Technical",
+  "prepDiff": "Easy",
+  "sessionStartDate": "11/30/2024",
+  "sessionEndDate": "11/30/2024",
+  "sessionStartTime": "19:59:20",
+  "sessionEndTime": "20:07:57",
+  "timeTaken": "0h 0m 6s",
+  "answers": [
+    {
+      "questionId": "673c0260187976f6d72f9edb",
+      "answer": "dfx\nfgcv \ndfv\nfdv",
+      "_id": {
+        "$oid": "674bb6ed6e8c74728a68f65d"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674bba846e8c74728a68f74a"
+  },
+  "userEmail": "dsfd01@gmail.com",
+  "preparationName": "dsas",
+  "positionName": "Software Testing Technical",
+  "prepDiff": "Medium",
+  "sessionStartDate": "11/30/2024",
+  "sessionEndDate": "11/30/2024",
+  "sessionStartTime": "20:23:10",
+  "sessionEndTime": "20:23:16",
+  "timeTaken": "0h 0m 5s",
+  "answers": [
+    {
+      "questionId": "673c0260187976f6d72f9edc",
+      "answer": "sd xz\n dfxcfg\nfcxdfcx",
+      "_id": {
+        "$oid": "674bba846e8c74728a68f74b"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674bbbdc6e8c74728a68f80a"
+  },
+  "userEmail": "dsa0102@gmail.com",
+  "preparationName": "FDCSX",
+  "positionName": "Software Testing Technical",
+  "prepDiff": "Easy",
+  "sessionStartDate": "11/30/2024",
+  "sessionEndDate": "11/30/2024",
+  "sessionStartTime": "20:28:53",
+  "sessionEndTime": "20:29:00",
+  "timeTaken": "0h 0m 4s",
+  "answers": [
+    {
+      "questionId": "673c0260187976f6d72f9edc",
+      "answer": "EFDSCXZ\nERFDCXERFDC",
+      "_id": {
+        "$oid": "674bbbdc6e8c74728a68f80b"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674bc0746e8c74728a68f9c4"
+  },
+  "userEmail": "dsfd01@gmail.com",
+  "preparationName": "fv",
+  "positionName": "Software Testing Technical",
+  "prepDiff": "Easy",
+  "sessionStartDate": "11/30/2024",
+  "sessionEndDate": "11/30/2024",
+  "sessionStartTime": "20:48:29",
+  "sessionEndTime": "20:48:36",
+  "timeTaken": "0h 0m 4s",
+  "answers": [
+    {
+      "questionId": "673c0260187976f6d72f9edc",
+      "answer": "fgbn\ngvhn",
+      "_id": {
+        "$oid": "674bc0746e8c74728a68f9c5"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674bda9ee1349cef7894fced"
+  },
+  "userEmail": "chfina01@gmail.com",
+  "preparationName": "csx",
+  "positionName": "Software Technical",
+  "prepDiff": "Medium",
+  "sessionStartDate": "11/30/2024",
+  "sessionEndDate": "11/30/2024",
+  "sessionStartTime": "22:39:58",
+  "sessionEndTime": "22:40:14",
+  "timeTaken": "0h 0m 13s",
+  "answers": [
+    {
+      "questionId": "673c0260187976f6d72f9ed5",
+      "answer": "efd\nfdcx\n",
+      "_id": {
+        "$oid": "674bda9ee1349cef7894fcee"
+      }
+    },
+    {
+      "questionId": "673c02a0187976f6d72f9eec",
+      "answer": "fdcx\nfdcx\n",
+      "_id": {
+        "$oid": "674bda9ee1349cef7894fcef"
+      }
+    },
+    {
+      "questionId": "673c02f8187976f6d72f9efe",
+      "answer": "erfd\ndfc",
+      "_id": {
+        "$oid": "674bda9ee1349cef7894fcf0"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674bdc3dd73cd1f5ea188cd8"
+  },
+  "userEmail": "chfina01@gmail.com",
+  "preparationName": "dfscz",
+  "positionName": "Backend Technical",
+  "prepDiff": "Easy",
+  "sessionStartDate": "11/30/2024",
+  "sessionEndDate": "11/30/2024",
+  "sessionStartTime": "22:46:53",
+  "sessionEndTime": "22:47:09",
+  "timeTaken": "0h 0m 10s",
+  "answers": [
+    {
+      "questionId": "673c0260187976f6d72f9edb",
+      "answer": "hi there how are you doing",
+      "_id": {
+        "$oid": "674bdc3dd73cd1f5ea188cd9"
+      }
+    },
+    {
+      "questionId": "673c0269187976f6d72f9ee0",
+      "answer": " gfcv\nfdcx\n",
+      "_id": {
+        "$oid": "674bdc3dd73cd1f5ea188cda"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674c9d78fa2382f73251e041"
+  },
+  "userEmail": "dseds@gmail.com",
+  "preparationName": "dfscxz",
+  "positionName": "Software Testing Technical",
+  "prepDiff": "Easy",
+  "sessionStartDate": "12/1/2024",
+  "sessionEndDate": "12/1/2024",
+  "sessionStartTime": "12:31:12",
+  "sessionEndTime": "12:31:36",
+  "timeTaken": "0h 0m 15s",
+  "answers": [
+    {
+      "questionId": "673c0260187976f6d72f9edc",
+      "answer": "fdcxgdfv\nc",
+      "_id": {
+        "$oid": "674c9d78fa2382f73251e042"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674c9e0afa2382f73251e0f0"
+  },
+  "userEmail": "dandeashrit22@gmail.com",
+  "preparationName": "dws",
+  "positionName": "Backend Technical",
+  "prepDiff": "Medium",
+  "sessionStartDate": "12/1/2024",
+  "sessionEndDate": "12/1/2024",
+  "sessionStartTime": "12:33:35",
+  "sessionEndTime": "12:34:02",
+  "timeTaken": "0h 0m 24s",
+  "answers": [
+    {
+      "questionId": "673c0260187976f6d72f9edb",
+      "answer": "sd\nref\n",
+      "_id": {
+        "$oid": "674c9e0afa2382f73251e0f1"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674ceb40909745d4836694ef"
+  },
+  "userEmail": "vgaddam@gmail.com",
+  "preparationName": "fasd",
+  "positionName": "Frontend Technical",
+  "prepDiff": "Medium",
+  "sessionStartDate": "12/1/2024",
+  "sessionEndDate": "12/1/2024",
+  "sessionStartTime": "18:02:59",
+  "sessionEndTime": "18:03:28",
+  "timeTaken": "0h 0m 10s",
+  "answers": [
+    {
+      "questionId": "673c0260187976f6d72f9edb",
+      "answer": "something",
+      "_id": {
+        "$oid": "674ceb40909745d4836694f0"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674d0695862fcff0660e3dc4"
+  },
+  "userEmail": "dandeashrit01@gmail.com",
+  "preparationName": "tech1",
+  "positionName": "DevOps Technical",
+  "prepDiff": "Medium",
+  "sessionStartDate": "12/1/2024",
+  "sessionEndDate": "12/1/2024",
+  "sessionStartTime": "19:59:21",
+  "sessionEndTime": "20:00:05",
+  "timeTaken": "0h 0m 39s",
+  "answers": [
+    {
+      "questionId": "673c02a0187976f6d72f9eec",
+      "answer": "Hi how are you doing I'm doing great",
+      "_id": {
+        "$oid": "674d0695862fcff0660e3dc5"
+      }
+    },
+    {
+      "questionId": "673c0260187976f6d72f9ed5",
+      "answer": "okay good",
+      "_id": {
+        "$oid": "674d0695862fcff0660e3dc6"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674d0d4afd6323e812e5993d"
+  },
+  "userEmail": "sreeashrit11@gmail.com",
+  "preparationName": "tech1",
+  "positionName": "Software Technical",
+  "prepDiff": "Medium",
+  "sessionStartDate": "12/1/2024",
+  "sessionEndDate": "12/1/2024",
+  "sessionStartTime": "20:27:52",
+  "sessionEndTime": "20:28:41",
+  "timeTaken": "0h 0m 41s",
+  "answers": [
+    {
+      "questionId": "673c0260187976f6d72f9edb",
+      "answer": "git stash is a command used in",
+      "_id": {
+        "$oid": "674d0d4afd6323e812e5993e"
+      }
+    },
+    {
+      "questionId": "673c02db187976f6d72f9ef8",
+      "answer": "embedding is used in mongodb well referencing is also used in mongodb",
+      "_id": {
+        "$oid": "674d0d4afd6323e812e5993f"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674d1a11fd6323e812e59a7e"
+  },
+  "userEmail": "sreeashr01@gmail.com",
+  "preparationName": "tech1",
+  "positionName": "Frontend Technical",
+  "prepDiff": "Medium",
+  "sessionStartDate": "12/1/2024",
+  "sessionEndDate": "12/1/2024",
+  "sessionStartTime": "21:22:51",
+  "sessionEndTime": "21:23:13",
+  "timeTaken": "0h 0m 13s",
+  "answers": [
+    {
+      "questionId": "673c02a0187976f6d72f9eec",
+      "answer": "Hi how are you doing\nfd\n",
+      "_id": {
+        "$oid": "674d1a11fd6323e812e59a7f"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674d1aa7fd6323e812e59b52"
+  },
+  "userEmail": "sreeashr01@gmail.com",
+  "preparationName": "tech2",
+  "positionName": "Backend Technical",
+  "prepDiff": "Medium",
+  "sessionStartDate": "12/1/2024",
+  "sessionEndDate": "12/1/2024",
+  "sessionStartTime": "21:25:37",
+  "sessionEndTime": "21:25:42",
+  "timeTaken": "0h 0m 3s",
+  "answers": [
+    {
+      "questionId": "673c0260187976f6d72f9edb",
+      "answer": "thab sk",
+      "_id": {
+        "$oid": "674d1aa7fd6323e812e59b53"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674d1ad5fd6323e812e59ba8"
+  },
+  "userEmail": "sreeashr01@gmail.com",
+  "preparationName": "tech2",
+  "positionName": "DevOps Technical",
+  "prepDiff": "Easy",
+  "sessionStartDate": "12/1/2024",
+  "sessionEndDate": "12/1/2024",
+  "sessionStartTime": "21:26:23",
+  "sessionEndTime": "21:26:28",
+  "timeTaken": "0h 0m 3s",
+  "answers": [
+    {
+      "questionId": "673c0260187976f6d72f9edb",
+      "answer": "cdoc\n",
+      "_id": {
+        "$oid": "674d1ad5fd6323e812e59ba9"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674d1c6bfd6323e812e59c90"
+  },
+  "userEmail": "team1demo@gmail.com",
+  "preparationName": "tech1",
+  "positionName": "Software Testing Technical",
+  "prepDiff": "Easy",
+  "sessionStartDate": "12/1/2024",
+  "sessionEndDate": "12/1/2024",
+  "sessionStartTime": "21:32:46",
+  "sessionEndTime": "21:33:14",
+  "timeTaken": "0h 0m 21s",
+  "answers": [
+    {
+      "questionId": "673c038e187976f6d72f9f20",
+      "answer": "locating Elements by Id",
+      "_id": {
+        "$oid": "674d1c6bfd6323e812e59c91"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674d2012c0bea15f04d24556"
+  },
+  "userEmail": "kaka@gmail.com",
+  "preparationName": "aa",
+  "positionName": "Frontend Technical",
+  "prepDiff": "Easy",
+  "sessionStartDate": "12/1/2024",
+  "sessionEndDate": "12/1/2024",
+  "sessionStartTime": "21:48:19",
+  "sessionEndTime": "21:48:49",
+  "timeTaken": "0h 0m 28s",
+  "answers": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674d27d9c0bea15f04d245ed"
+  },
+  "userEmail": "schinnam2@albany.edu",
+  "preparationName": "Test",
+  "positionName": "Frontend Technical",
+  "prepDiff": "Easy",
+  "sessionStartDate": "12/1/2024",
+  "sessionEndDate": "12/1/2024",
+  "sessionStartTime": "22:17:37",
+  "sessionEndTime": "22:22:00",
+  "timeTaken": "0h 3m 21s",
+  "answers": [
+    {
+      "questionId": "673c02b5187976f6d72f9ef2",
+      "answer": "JSX (JavaScript XML) is a syntax extension for JavaScript used in React to describe what the user interface (UI) should look like. It allows you to write HTML-like code directly within JavaScript, making it easier to visualize the structure of the UI components.\n\nJSX is not a requirement for React but is widely used because it makes the code more readable and expressive. Under the hood, JSX is transformed into regular JavaScript using tools like Babel",
+      "_id": {
+        "$oid": "674d27d9c0bea15f04d245ee"
+      }
+    },
+    {
+      "questionId": "673c0260187976f6d72f9ed6",
+      "answer": "JSX (JavaScript XML) is a syntax extension for JavaScript used in React to describe what the user interface (UI) should look like. It allows you to write HTML-like code directly within JavaScript, making it easier to visualize the structure of the UI components.\n\nJSX is not a requirement for React but is widely used because it makes the code more readable and expressive. Under the hood, JSX is transformed into regular JavaScript using tools like Babel",
+      "_id": {
+        "$oid": "674d27d9c0bea15f04d245ef"
+      }
+    },
+    {
+      "questionId": "673c02cd187976f6d72f9ef4",
+      "answer": "Reconciliation is the process React uses to update the DOM efficiently when the state or props of a component change. Instead of making direct changes to the actual DOM (which is expensive in terms of performance), React employs a Virtual DOM to optimize updates.\n\nVirtual DOM:\n\nReact creates an in-memory representation of the actual DOM (called the Virtual DOM).\nWhen a component's state or props change, React calculates a new Virtual DOM tree.\nIt then compares the new Virtual DOM tree with the previous one (a process called diffing) to determine the minimal set of changes needed to update the actual DOM.\nDOM Updates:\n\nOnly the parts of the DOM that have changed are updated, reducing expensive DOM manipulation operations.\n",
+      "_id": {
+        "$oid": "674d27d9c0bea15f04d245f0"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674e40c3a0bd01fdf540fe7e"
+  },
+  "userEmail": "schinnam2@albany.edu",
+  "preparationName": "prep101",
+  "positionName": "Frontend Technical",
+  "prepDiff": "Easy",
+  "sessionStartDate": "12/2/2024",
+  "sessionEndDate": "12/2/2024",
+  "sessionStartTime": "18:19:39",
+  "sessionEndTime": "18:20:35",
+  "timeTaken": "0h 0m 47s",
+  "answers": [
+    {
+      "questionId": "673c0260187976f6d72f9ed5",
+      "answer": "what are react hooks",
+      "_id": {
+        "$oid": "674e40c3a0bd01fdf540fe7f"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "675123a1c907ac1a802717d6"
+  },
+  "userEmail": "himakarparadi@gmail.com",
+  "preparationName": "df",
+  "positionName": "Frontend Technical",
+  "prepDiff": "Easy",
+  "sessionStartDate": "12/4/2024",
+  "sessionEndDate": "12/4/2024",
+  "sessionStartTime": "22:52:40",
+  "sessionEndTime": "22:53:05",
+  "timeTaken": "0h 0m 16s",
+  "answers": [
+    {
+      "questionId": "673c0260187976f6d72f9ed5",
+      "answer": "React hooks I don't know",
+      "_id": {
+        "$oid": "675123a1c907ac1a802717d7"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67573326c907ac1a802718bb"
+  },
+  "userEmail": "mchen@albany.edu",
+  "preparationName": "testing",
+  "positionName": "Software Testing Technical",
+  "prepDiff": "Easy",
+  "sessionStartDate": "12/9/2024",
+  "sessionEndDate": "12/9/2024",
+  "sessionStartTime": "13:09:35",
+  "sessionEndTime": "13:12:54",
+  "timeTaken": "0h 2m 49s",
+  "answers": [
+    {
+      "questionId": "673c0350187976f6d72f9f10",
+      "answer": "Use .toEqual when you want to check that two objects have the same value. This matcher recursively checks the equality of all fields, rather than checking for object identity—this is also known as \"deep equal\". For example, toEqual and toBe behave differently in this test suite, so all the tests pass.",
+      "_id": {
+        "$oid": "67573326c907ac1a802718bc"
+      }
+    },
+    {
+      "questionId": "673c037a187976f6d72f9f1a",
+      "answer": "In Selenium WebDriver, locating web elements using their ID attribute means identifying a specific element on a webpage by its unique \"id\" value, which is assigned to the element in the HTML code; this is considered the most reliable way to locate an element because each ID should be distinct within a page, allowing for precise interaction with that element in your automation tests. ",
+      "_id": {
+        "$oid": "67573326c907ac1a802718bd"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6824fb9c1ab8f8541e70dd94"
+  },
+  "userEmail": "dandeashrit0111@gmail.com",
+  "preparationName": "check22",
+  "positionName": "DevOps Technical",
+  "prepDiff": "Medium",
+  "sessionStartDate": "5/14/2025",
+  "sessionEndDate": "5/14/2025",
+  "sessionStartTime": "16:22:20",
+  "sessionEndTime": "16:22:52",
+  "timeTaken": "0h 0m 26s",
+  "answers": [
+    {
+      "questionId": "673c02a0187976f6d72f9eec",
+      "answer": "check",
+      "_id": {
+        "$oid": "6824fb9c1ab8f8541e70dd95"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68c9be929ad3ba21407d230a"
+  },
+  "userEmail": "dandeashrit@gmail.com",
+  "preparationName": "backend1",
+  "positionName": "Backend Technical",
+  "prepDiff": "Medium",
+  "sessionStartDate": "9/16/2025",
+  "sessionEndDate": "9/16/2025",
+  "sessionStartTime": "15:44:40",
+  "sessionEndTime": "15:46:26",
+  "timeTaken": "0h 1m 20s",
+  "answers": [
+    {
+      "questionId": "673c0260187976f6d72f9edb",
+      "answer": "git stash is ui",
+      "_id": {
+        "$oid": "68c9be929ad3ba21407d230b"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "698107b733892da0f35ddca9"
+  },
+  "userEmail": "dandeashrit@gmail.com",
+  "preparationName": "tech12",
+  "positionName": "Frontend Technical",
+  "prepDiff": "Hard",
+  "sessionStartDate": "2/2/2026",
+  "sessionEndDate": "2/2/2026",
+  "sessionStartTime": "15:22:16",
+  "sessionEndTime": "15:23:19",
+  "timeTaken": "0h 0m 44s",
+  "answers": [
+    {
+      "questionId": "673c02b5187976f6d72f9ef2",
+      "answer": "hi i am ashrit",
+      "_id": {
+        "$oid": "698107b733892da0f35ddcaa"
+      }
+    }
+  ],
+  "__v": 0
+}]

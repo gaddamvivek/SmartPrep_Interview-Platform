@@ -1,0 +1,271 @@
+[{
+  "_id": {
+    "$oid": "673fbe00c39bfc8dc9e3d7d5"
+  },
+  "name": "saicharan@edu.com",
+  "email": "saicharan@edu.com",
+  "headline": "manvan",
+  "location": "manvan",
+  "about": "manvan",
+  "experiences": [
+    {
+      "role": "manvan",
+      "company": "manvan",
+      "duration": "manvan",
+      "description": "manvan",
+      "_id": {
+        "$oid": "673fbcbec39bfc8dc9e3d7b7"
+      }
+    }
+  ],
+  "education": [
+    {
+      "school": "manvan",
+      "degree": "manvan",
+      "year": "manvan",
+      "_id": {
+        "$oid": "673fbcbec39bfc8dc9e3d7b8"
+      }
+    }
+  ],
+  "skills": [
+    {
+      "name": "manvan",
+      "_id": {
+        "$oid": "673fbcbec39bfc8dc9e3d7b9"
+      }
+    }
+  ],
+  "projects": [
+    {
+      "name": "manvan",
+      "description": "manvan",
+      "technologies": "manvan",
+      "_id": {
+        "$oid": "673fbcbec39bfc8dc9e3d7ba"
+      }
+    },
+    {
+      "name": "manvan",
+      "description": "manvan",
+      "technologies": "manvan",
+      "_id": {
+        "$oid": "673fbcbec39bfc8dc9e3d7bb"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67435552a71a80e41553a225"
+  },
+  "name": "sree ashrit",
+  "email": "dandeashrit@gmail.com",
+  "headline": "Software Engineer in AI",
+  "location": "Albany",
+  "about": "Working at Google with 5+ years experience",
+  "experiences": [
+    {
+      "role": "Software Engineer",
+      "company": "Google",
+      "duration": "3 years",
+      "description": "I have worked in ChatGPT development",
+      "_id": {
+        "$oid": "6742253be1a881b47edc69fe"
+      }
+    }
+  ],
+  "education": [
+    {
+      "school": "School of Engineering - SUNY",
+      "degree": "Masters",
+      "year": "2024",
+      "_id": {
+        "$oid": "6742253be1a881b47edc69ff"
+      }
+    }
+  ],
+  "skills": [
+    {
+      "name": "React",
+      "_id": {
+        "$oid": "6742253be1a881b47edc6a00"
+      }
+    },
+    {
+      "name": "Express",
+      "_id": {
+        "$oid": "6742253be1a881b47edc6a01"
+      }
+    }
+  ],
+  "projects": [
+    {
+      "name": "PrepSmart App",
+      "description": "AI based mock interview",
+      "technologies": "MERN Stack",
+      "_id": {
+        "$oid": "6742253be1a881b47edc6a02"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674b94a10b8971487373ec3e"
+  },
+  "name": "schinnam",
+  "email": "schinnam2@albany.edu",
+  "headline": "Focus on Today, Tomorrow will follow today.",
+  "location": "NewYork",
+  "about": "I don't know",
+  "experiences": [
+    {
+      "role": "Software",
+      "company": "Cognizant",
+      "duration": "2 years",
+      "description": "Worked on Insurance Project",
+      "_id": {
+        "$oid": "674b94a10b8971487373ec3f"
+      }
+    }
+  ],
+  "education": [
+    {
+      "school": "UAlbany",
+      "degree": "Masters in Computer Science",
+      "year": "2025",
+      "_id": {
+        "$oid": "674b94a10b8971487373ec40"
+      }
+    }
+  ],
+  "skills": [
+    {
+      "name": "",
+      "_id": {
+        "$oid": "674b94a10b8971487373ec41"
+      }
+    },
+    {
+      "name": "",
+      "_id": {
+        "$oid": "674b94a10b8971487373ec42"
+      }
+    }
+  ],
+  "projects": [
+    {
+      "name": "",
+      "description": "",
+      "technologies": "",
+      "_id": {
+        "$oid": "674b94a10b8971487373ec43"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674d06ee862fcff0660e3e2b"
+  },
+  "name": "dandeashrit01",
+  "email": "dandeashrit01@gmail.com",
+  "headline": "Think about your goals",
+  "location": "Albany",
+  "about": "",
+  "experiences": [],
+  "education": [],
+  "skills": [],
+  "projects": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674d0dd3fd6323e812e59963"
+  },
+  "name": "sreeashrit11",
+  "email": "sreeashrit11@gmail.com",
+  "headline": "PrepSmart Project Demo",
+  "location": "SUNY Albany",
+  "about": "PrepSmart Project Demo ",
+  "experiences": [
+    {
+      "role": "",
+      "company": "",
+      "duration": "",
+      "description": "",
+      "_id": {
+        "$oid": "674d0dd3fd6323e812e59964"
+      }
+    }
+  ],
+  "education": [
+    {
+      "school": "SUNY Albany",
+      "degree": "MS",
+      "year": "2024",
+      "_id": {
+        "$oid": "674d0dd3fd6323e812e59965"
+      }
+    }
+  ],
+  "skills": [
+    {
+      "name": "React",
+      "_id": {
+        "$oid": "674d0dd3fd6323e812e59966"
+      }
+    },
+    {
+      "name": "Node JS, Express",
+      "_id": {
+        "$oid": "674d0dd3fd6323e812e59967"
+      }
+    }
+  ],
+  "projects": [
+    {
+      "name": "PrepSmart",
+      "description": "AI based mock interview Platform",
+      "technologies": "",
+      "_id": {
+        "$oid": "674d0dd3fd6323e812e59968"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674d1a54fd6323e812e59ad5"
+  },
+  "name": "sreeashr01",
+  "email": "sreeashr01@gmail.com",
+  "headline": "",
+  "location": "",
+  "about": "",
+  "experiences": [],
+  "education": [],
+  "skills": [],
+  "projects": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "674d1ca2fd6323e812e59cce"
+  },
+  "name": "team1demo",
+  "email": "team1demo@gmail.com",
+  "headline": "Team1 Demo",
+  "location": "SUNY Albany",
+  "about": "Prepsmart App Demo Team1 ",
+  "experiences": [],
+  "education": [],
+  "skills": [],
+  "projects": [],
+  "__v": 0
+}]
